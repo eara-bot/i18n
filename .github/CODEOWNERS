@@ -1,4 +1,6 @@
+*               @viztea
+
 # language files
-locales/en.* @viztea
-locales/ru.* @meqativ
-locales/uk.* @meqativ
+locales/en.yaml @viztea
+locales/ru.yaml @meqativ
+locales/uk.yaml @meqativ
