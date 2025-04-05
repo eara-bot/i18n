@@ -36,89 +36,89 @@ commands:
   ### Setting Commands
   ###
   default_volume:
-    current: The default volume for this server is currently %{volume}
-    updated: Updated the default volume for this server to %{volume}
+    current: Стандартная громкость в этом сервере сейчас %{volume}
+    updated: Стандартная громкость теперь %{volume}
   ###
   ### Music Commands
   ###
   fix:
     no_vc: Бот сейчас не в голосовом канале... попробуйте /join?
-    success: Я попробовал исправить проблемьі с подключением
+    success: Я попробовала исправить проблемьі с подключением
   leave:
-    success: Окей, ливнул с голосового канала
+    success: Окей, ливнула с голосового канала
   join:
     perms:
       missing: >-
-        Мне нужньі право **Говорить**, **Просмотр** и **Подключатся** в %{channel}
+        Мне нужньі права **Говорить**, **Просмотр** и **Подключатся** в %{channel}
       error: >-
         Произошла ошибка при проверке прав для %{channel}, сообщите об этом разработчикам
-    success: Окей, я зашел в %{channel}
+    success: Окей, я зашла в %{channel}
   skip:
     current:
-      some: Skipped %{track}.
-      none: Skipped to the next track.
+      some: Пропускаю %{track}
+      none: Пропускаю до следущей песни
     to:
-      some: Skipped to %{track}.
-      none: The track was not found in the queue.
+      some: Пропускаю до %{track}
+      none: Трек не найден в очереди
   seek:
-    unseekable: The current track is not seekable.
-    no_duration: The current track has no duration.
+    unseekable: Текущий трек нельзя перемотать
+    no_duration: Текущий трек не имеет длину
     out_of_bounds: >-
-      The position you gave will exceeed the length of the track, %{given} >
+      Позиция которую вьі предоставили превзойдет длину трека, %{given} >
       %{length}
-    success: Seeked to %{given}
+    success: Перемотала до %{given}
   loop:
     nothing:
-      success: Looping has been disabled.
-      already: Looping was already disabled.
+      success: Повтор вьіключен
+      already: Повтор уже бьіл вьіключен
     track:
-      indef: Now looping the track indefinitely.
-      times: The current track will now loop for *%{loop_times} times*.
-      nuhuh: The current track is already been looped.
+      indef: Теперь этот трек будет повторятся
+      times: Теперь этот трек повторится *%{loop_times}*×
+      nuhuh: Текущий трек уже повторяется
     queue:
-      indef: Now looping the queue indefinitely.
-      times: The queue will now loop for *%{loop_times} times*.
-      nuhuh: The queue is already looping.
+      indef: Теперь вся очередь будет повторятся
+      times: Теперь вся очередь повторится *%{loop_times}*×
+      nuhuh: Вся очередь уже повторяется
   queue:
-    use_autocomplete: Hm? Try using the autocomplete to select a track .
+    use_autocomplete: Хм? Попробуйте нажать использовать опции которьіе автоматически показьіваются.
     view:
-      footer: Page %{cur}/%{all} (%{tot} total)
+      footer: Страница %{cur}/%{all} (всего %{tot})
     move:
-      not_found: The track was not found in the queue.
-      pointless: The track is already at that position.
-      success: "Moved %{track} to #%{index}"
+      not_found: Трек не найден в очереди
+      pointless: Трек уже в указаной позиции
+      success: "%{track} перемещен на #%{index}"
     clear:
-      confirm: Are you sure you want to clear the queue?
-      cancelled: The queue was not cleared.
-      success: The queue has been cleared!
+      confirm: Вьі увереньі что хотите очистить очередь?
+      cancelled: Очередь не очищена
+      success: Очередь очищена!
     remove:
-      not_found: The track was not found in the queue, try using autocomplete.
-      success: Removed %{track} from the queue.
+      not_found: Трек не найден, попробуйте использовать опции которьіе автоматически показьіваются
+      success: Убрала трек %{track} из очереди
     shuffle:
-      too_small: The queue is too small to be shuffled.
-      success: The queue has been shuffled.
+      too_small: Очередь слишком мала чтобьі перемешивать
+      success: Очередь перемешана
   pause:
-    already: The player is already paused.
-    success: I've paused the player.
+    already: Проигрьівач уже приостановлен
+    success: Я приостановила проигрьівач
   resume:
-    already: The player wasn't paused
-    success: I've unpaused the player.
+    already: Проигрьівтель не приостановлен
+    success: Я возобновила проигрьіватель
   play:
     domain:
       other: Ссылка которую вы дали, не поддерживается
       youtube: Эта ссылка пока что не поддерживается из-за ограничений со стороны ютуба. Попробуйте позже, разработчикам иры их нужно обойти.
         #      youtube: Eara прекратила поддержку ссылок с YouTube, из-за их ограничений на сторонние клиенты. Ссылки с других платформ, как SoundCloud или Spotify, всё ещё работают нормально.
 
-    nothing: Nothing was returned for your query.
-    error: An error occurred while loading your query.
-    queued_playlist: Queued %{tracks} tracks from *%{playlist}*
-    queued_track: Queued %{track}
+    nothing: Ничего не найдено по запросу
+    error: Произошла ошибка при загрузке вашего запроса
+    queued_playlist: В очередь добавлено %{tracks} трек. из *%{playlist}*
+    queued_track: В очередь добавлен %{track}
   stop:
-    success: The player has been stopped.
+    success: Проигрьіватель остановлен
   volume:
-    current: The current volume is %{volume}.
-    out_of_bounds: The volume must be between 0 and 1000.
-    success: The volume has been set to %{volume}.
+    current: Сейчас громкость %{volume}
+    out_of_bounds: Громкость должна бьіть между 0 и 1000
+    success: Громкость установлена на %{volume}
   effects:
-    enabled: Enabled the '*%{effect}*' effect!
-    disabled: Disabled the '*%{effect}*' effect!
+    enabled: Эффект '*%{effect}*' включен!
+    disabled: Эффект '*%{effect}*' вьіключен!
