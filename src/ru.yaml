@@ -1,8 +1,124 @@
+checks:
+  guild_only: Эту команду можно использовать только в серверах
+  not_playing: Я сечас не проигрьіваю музьіку в этом сервере
+  user_vc_none: Вьі должньі бьіть в голосовом канале для использования этой командьі
+  user_vc_diff: Вьі должньі бьіть в том-же голосовом канале, что и я, для использования этой командьі
+  user_vc_diff_btn: Вьі должньі бьіть в том-же голосовом канале, что и я, для использования этой кнопки
+  queue_empty: Очередь пуста
+  not_interactable: Вьі не можете взаимодействовать с этим сообщением
+  maintenance: Бот сейчас на техническом обслуживании, попробуйте позже
 common:
-  join_our_server: 'Можете зайти на наш [Discord сервер](%{invite} ) чтобы узнать больше'
+  join_our_server: 'Заходите на наш [Дискорд сервер](%{invite} ) чтобы узнать больше'
+  message_deleted: "*Сообщение удалено*"
+  requested_by: По запросу
+  position: Позиция
+  premium:
+    sku_or_vote_required: >-
+      Для доступа к этой команде, нужно чтобьі этот сервер имел **Премиум подписку**. Альтернативно, 
+      вьі можете проголосовать за бота чтобьі получить *до* 12 часов доступа
+    sku_required: Этому серверу нужна **Премиум Подписка** для доступа к этой команде
+    vote_required: >- 
+      Для доступа к этой команде вам нужно проголосовать за %{mention} на сайте top.gg чтобьі получить доступ к этой команде
+      После голосования вьі получите *до* 12 часов доступа!
+events:
+  command_failed: 
+    message: Произошла ошибки при вьіполнении этой командьі
+    footer: 'Предоставьте разработчикам это: %{eid}'
 commands:
+  ###
+  ### Information Commands
+  ###
+  info:
+    footer: Build Information
+  ping:
+    footer: Есть проблемьі? Заходите на наш Дискорд сервер
+  ###
+  ### Setting Commands
+  ###
+  default_volume:
+    current: The default volume for this server is currently %{volume}
+    updated: Updated the default volume for this server to %{volume}
+  ###
+  ### Music Commands
+  ###
+  fix:
+    no_vc: Бот сейчас не в голосовом канале... попробуйте /join?
+    success: Я попробовал исправить проблемьі с подключением
+  leave:
+    success: Окей, ливнул с голосового канала
+  join:
+    perms:
+      missing: >-
+        Мне нужньі право **Говорить**, **Просмотр** и **Подключатся** в %{channel}
+      error: >-
+        Произошла ошибка при проверке прав для %{channel}, сообщите об этом разработчикам
+    success: Окей, я зашел в %{channel}
+  skip:
+    current:
+      some: Skipped %{track}.
+      none: Skipped to the next track.
+    to:
+      some: Skipped to %{track}.
+      none: The track was not found in the queue.
+  seek:
+    unseekable: The current track is not seekable.
+    no_duration: The current track has no duration.
+    out_of_bounds: >-
+      The position you gave will exceeed the length of the track, %{given} >
+      %{length}
+    success: Seeked to %{given}
+  loop:
+    nothing:
+      success: Looping has been disabled.
+      already: Looping was already disabled.
+    track:
+      indef: Now looping the track indefinitely.
+      times: The current track will now loop for *%{loop_times} times*.
+      nuhuh: The current track is already been looped.
+    queue:
+      indef: Now looping the queue indefinitely.
+      times: The queue will now loop for *%{loop_times} times*.
+      nuhuh: The queue is already looping.
+  queue:
+    use_autocomplete: Hm? Try using the autocomplete to select a track .
+    view:
+      footer: Page %{cur}/%{all} (%{tot} total)
+    move:
+      not_found: The track was not found in the queue.
+      pointless: The track is already at that position.
+      success: "Moved %{track} to #%{index}"
+    clear:
+      confirm: Are you sure you want to clear the queue?
+      cancelled: The queue was not cleared.
+      success: The queue has been cleared!
+    remove:
+      not_found: The track was not found in the queue, try using autocomplete.
+      success: Removed %{track} from the queue.
+    shuffle:
+      too_small: The queue is too small to be shuffled.
+      success: The queue has been shuffled.
+  pause:
+    already: The player is already paused.
+    success: I've paused the player.
+  resume:
+    already: The player wasn't paused
+    success: I've unpaused the player.
   play:
     domain:
       other: Ссылка которую вы дали, не поддерживается
       youtube: Эта ссылка пока что не поддерживается из-за ограничений со стороны ютуба. Попробуйте позже, разработчикам иры их нужно обойти.
         #      youtube: Eara прекратила поддержку ссылок с YouTube, из-за их ограничений на сторонние клиенты. Ссылки с других платформ, как SoundCloud или Spotify, всё ещё работают нормально.
+
+    nothing: Nothing was returned for your query.
+    error: An error occurred while loading your query.
+    queued_playlist: Queued %{tracks} tracks from *%{playlist}*
+    queued_track: Queued %{track}
+  stop:
+    success: The player has been stopped.
+  volume:
+    current: The current volume is %{volume}.
+    out_of_bounds: The volume must be between 0 and 1000.
+    success: The volume has been set to %{volume}.
+  effects:
+    enabled: Enabled the '*%{effect}*' effect!
+    disabled: Disabled the '*%{effect}*' effect!
