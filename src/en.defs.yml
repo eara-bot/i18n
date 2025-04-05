@@ -1,0 +1,111 @@
+_:
+  lang: [en, english]
+fix:
+  name: fix
+  description: Attempts to fix connection issues.
+leave:
+  name: leave
+  description: Leave the current voice channel.
+join:
+  name: join
+  description: Joins the voice channel you're currently in.
+skip:
+  name: skip
+  current:
+    name: current
+    desc: Skip the current track.
+  to:
+    name: to
+    desc: Skip to a specific track in the queue.
+    $:
+      entry:
+        name: entry
+        desc: The entry to skip to.
+      keep:
+        name: keep
+        desc: Whether to keep tracks that were skipped over.
+seek:
+  name: seek
+  desc: Seek to a position in the current track.
+  $:
+    position:
+      name: position
+      desc: The position to seek to, e.g., 1m+30s
+repeat:
+  name: repeat
+  nothing:
+    name: nothing
+    desc: Disable looping for the player.
+  loop-common: &loop-common
+    times:
+      name: times
+      desc: The number of times to loop
+  queue:
+    name: queue
+    desc: Loop the current queue.
+    $: *loop-common
+  track:
+    name: track
+    desc: Loop the current track.
+    $: *loop-common
+queue:
+  name: queue
+  view:
+    name: view
+    desc: View the queue of tracks to be played.
+  move:
+    name: move
+    desc: Move a track in the queue to a different position.
+    $:
+      entry:
+        name: entry
+        desc: "The track to move. Autocomplete: <track title> or #<track number>"
+      to:
+        name: to
+        desc: The position to move the track to.
+  clear:
+    name: clear
+    desc: Clear the queue of tracks to be played.
+  remove:
+    name: remove
+    desc: Remove a track from the queue.
+    $:
+      entry:
+        name: entry
+        desc: "The track to remove. Autocomplete: <track title> or #<track number>"
+  shuffle:
+    name: shuffle
+    desc: Shuffle the queue of tracks to be played.
+pause:
+  name: pause
+  desc: Pause the player.
+resume:
+  name: resume
+  desc: Resume the player.
+play:
+  name: play
+  desc: Queue a track to play.
+  $:
+    query:
+      name: query
+      desc: The search query.
+    when:
+      name: when
+      desc: when to play the results.
+      choices:
+        Now: Now
+        Last: Last
+        Next: Next
+now_playing:
+  name: now_playing
+  desc: View the currently playing track.
+stop:
+  name: stop
+  desc: Stop the current track & clear the queue of tracks to be played.
+volume:
+  name: volume
+  desc: View or modify the volume of the player.
+  $:
+    value:
+      name: value
+      desc: The new volume to set. Must be between 0 and 1000

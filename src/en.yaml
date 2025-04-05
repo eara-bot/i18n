@@ -1,0 +1,123 @@
+checks:
+  guild_only: This command may only be used in a server.
+  not_playing: I'm not playing music in this server.
+  user_vc_none: You must be in a voice channel to use this command.
+  user_vc_diff: You must be in the same voice channel as me to use this command.
+  user_vc_diff_btn: You must be in the same voice channel as me to use this button.
+  queue_empty: The queue is empty.
+  not_interactable: You cannot interact with this message.
+common:
+  join_our_server: "Join our [*Discord Server*](%{invite} ) for more information"
+  message_deleted: "*Message was deleted*"
+  requested_by: Requested By
+  position: Position
+  premium:
+    sku_or_vote_required: >-
+      This server requires a **Premium Subscription** to access this command. Alternatively, 
+      you can vote to receive *up-to* 12 hours of uninterrupted access.
+    sku_required: This server requires a **Premium Subscription** to access this command.
+    vote_required: >- 
+      You must vote for Eara on top.gg to gain access to this command.
+      -# After voting you will receive *up-to* 12 hours of uninterrupted access!
+events:
+  command_failed: 
+    message: This command has failed.
+    footer: 'Give this ID to the developers: %{eid}'
+commands:
+  ###
+  ### Information Commands
+  ###
+  info:
+    footer: Build Information
+  ping:
+    footer: Having issues? Join our Discord Server.
+  ###
+  ### Setting Commands
+  default_volume:
+    current: The default volume for this server is currently %{volume}.
+    updated: Updated the default volume for this server to %{volume}.
+  ###
+  ###
+  ### Music Commands
+  ###
+  fix:
+    no_vc: The bot isn't in a voice channel... try using /join?
+    success: I've attempted to fix connection issues.
+  leave:
+    success: Okay, I left your voice channel.
+  join:
+    perms:
+      missing: >-
+        I need permissions to **view**, **connect**, and **speak** in
+        %{channel}.
+      error: >-
+        I failed to fetch permissions for %{channel}, report this to the
+        developers.
+    success: Okay, I joined %{channel}.
+  skip:
+    current:
+      some: Skipped %{track}.
+      none: Skipped to the next track.
+    to:
+      some: Skipped to %{track}.
+      none: The track was not found in the queue.
+  seek:
+    unseekable: The current track is not seekable.
+    no_duration: The current track has no duration.
+    out_of_bounds: >-
+      The position you gave will exceeed the length of the track, %{given} >
+      %{length}
+    success: Seeked to %{given}
+  loop:
+    nothing:
+      success: Looping has been disabled.
+      already: Looping was already disabled.
+    track:
+      indef: Now looping the track indefinitely.
+      times: The current track will now loop for *%{loop_times} times*.
+      nuhuh: The current track is already been looped.
+    queue:
+      indef: Now looping the queue indefinitely.
+      times: The queue will now loop for *%{loop_times} times*.
+      nuhuh: The queue is already looping.
+  queue:
+    use_autocomplete: Hm? Try using the autocomplete to select a track .
+    view:
+      footer: Page %{cur}/%{all} (%{tot} total)
+    move:
+      not_found: The track was not found in the queue.
+      pointless: The track is already at that position.
+      success: "Moved %{track} to #%{index}"
+    clear:
+      confirm: Are you sure you want to clear the queue?
+      cancelled: The queue was not cleared.
+      success: The queue has been cleared!
+    remove:
+      not_found: The track was not found in the queue, try using autocomplete.
+      success: Removed %{track} from the queue.
+    shuffle:
+      too_small: The queue is too small to be shuffled.
+      success: The queue has been shuffled.
+  pause:
+    already: The player is already paused.
+    success: I've paused the player.
+  resume:
+    already: The player wasn't paused
+    success: I've unpaused the player.
+  play:
+    domain:
+      other: The link you provided is not supported
+      youtube: Eara has temporarily removed support for YouTube links.
+    nothing: Nothing was returned for your query.
+    error: An error occurred while loading your query.
+    queued_playlist: Queued %{tracks} tracks from *%{playlist}*
+    queued_track: Queued %{track}
+  stop:
+    success: The player has been stopped.
+  volume:
+    current: The current volume is %{volume}.
+    out_of_bounds: The volume must be between 0 and 1000.
+    success: The volume has been set to %{volume}.
+  effects:
+    enabled: Enabled the '*%{effect}*' effect!
+    disabled: Disabled the '*%{effect}*' effect!
