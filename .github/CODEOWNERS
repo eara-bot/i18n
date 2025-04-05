@@ -1,6 +1,6 @@
-* @viztea
-
 # language files
 locales/en.* @viztea
 locales/ru.* @meqativ
 locales/uk.* @meqativ
+
+* @viztea
