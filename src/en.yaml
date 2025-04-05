@@ -6,6 +6,7 @@ checks:
   user_vc_diff_btn: You must be in the same voice channel as me to use this button.
   queue_empty: The queue is empty.
   not_interactable: You cannot interact with this message.
+  maintenance: The bot is undergoing maintenance, check back later.
 common:
   join_our_server: "Join our [*Discord Server*](%{invite} ) for more information"
   message_deleted: "*Message was deleted*"
@@ -33,10 +34,10 @@ commands:
     footer: Having issues? Join our Discord Server.
   ###
   ### Setting Commands
+  ###
   default_volume:
     current: The default volume for this server is currently %{volume}.
     updated: Updated the default volume for this server to %{volume}.
-  ###
   ###
   ### Music Commands
   ###
