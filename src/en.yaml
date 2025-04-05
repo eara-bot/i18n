@@ -12,14 +12,13 @@ common:
   message_deleted: "*Message was deleted*"
   requested_by: Requested By
   position: Position
+  vote: Vote on Top.gg
   premium:
-    sku_or_vote_required: >-
-      This server requires a **Premium Subscription** to access this command. Alternatively, 
-      you can vote to receive *up-to* 12 hours of uninterrupted access.
+    sku_or_vote_required: This server requires a **Premium Subscription** to access this command. Alternatively, you can vote to receive *up-to* 12 hours of uninterrupted access.
     sku_required: This server requires a **Premium Subscription** to access this command.
-    vote_required: >+
-      You must vote for Eara on top.gg to gain access to this command.
-      After voting you will receive *up-to* 12 hours of uninterrupted access!
+    vote_required: |
+      You must vote for %{mention} on **top.gg** to gain access to this command. 
+      -# After voting you will receive *up-to* 12 hours of uninterrupted access!
 events:
   command_failed: 
     message: This command has failed.
@@ -38,7 +37,7 @@ events:
       stuck: The player got stuck. Skipping to the next song...
     queue:
       next:
-        requested_by: Requested by <@%{user_mention}>
+        requested_by: Requested by %{user_mention}
       end: Queue ended.
 commands:
   ###
