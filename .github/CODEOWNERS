@@ -2,4 +2,5 @@
 
 # language files
 locales/en.* @viztea
-locales/ru.*
+locales/ru.* @meqativ
+locales/uk.* @meqativ
