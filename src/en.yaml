@@ -13,6 +13,7 @@ common:
   requested_by: Requested By
   position: Position
   vote: Vote on Top.gg
+  discord_server: Discord Server
   premium:
     sku_or_vote_required: This server requires a **Premium Subscription** to access this command. Alternatively, you can vote to receive *up-to* 12 hours of uninterrupted access.
     sku_required: This server requires a **Premium Subscription** to access this command.
