@@ -24,6 +24,22 @@ events:
   command_failed: 
     message: This command has failed.
     footer: 'Give this ID to the developers: %{eid}'
+  player:
+    disconnect:
+      manual: I was manually disconnected from the voice channel.
+      alone: I was left all alone, disconnecting <t:%{timestamp}:R>
+    track:
+      exception:
+        time_out: The track timed out, please try again later.
+        no_support: The track is not supported by the player.
+        no_mirror: Could not find a suitable source to play from, do not attempt replaying the track.
+        no_media: Failed to retrieve the media for the track, try replaying it.
+        failure: Failed to play %{track}, do not attempt to replay it.
+      stuck: The player got stuck. Skipping to the next song...
+    queue:
+      next:
+        requested_by: Requested by <@%{user_mention}>
+      end: Queue ended.
 commands:
   ###
   ### Information Commands
