@@ -25,6 +25,9 @@ events:
     message: This command has failed.
     footer: 'Give this ID to the developers: %{eid}'
   player:
+    skip: 
+      to_track: '%{user_mention} skipped %{track}.'
+      to_next: '%{user_mention} skipped to the next track.'
     disconnect:
       manual: I was manually disconnected from the voice channel.
       alone: I was left all alone, disconnecting <t:%{timestamp}:R>
