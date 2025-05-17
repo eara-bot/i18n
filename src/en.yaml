@@ -23,25 +23,26 @@ common:
 events:
   command_failed: 
     message: This command has failed.
-    footer: 'Give this ID to the developers: %{eid}'
+    footer: 'Give this ID to the developers: **%{eid}**'
   player:
     skip: 
       to_track: '%{user_mention} skipped %{track}.'
-      to_next: '%{user_mention} skipped to the next track.'
+      to_next: '%{user_mention} skipped to the next song.'
     disconnect:
       manual: I was manually disconnected from the voice channel.
       alone: I was left all alone, disconnecting <t:%{timestamp}:R>
     track:
       exception:
-        time_out: The track timed out, please try again later.
-        no_support: The track is not supported by the player.
-        no_mirror: Could not find a suitable source to play from, do not attempt replaying the track.
-        no_media: Failed to retrieve the media for the track, try replaying it.
+        time_out: The song timed out, please try again later.
+        no_support: The song is not supported by the player.
+        no_mirror: Could not find a suitable source to play from, do not attempt replaying the song.
+        no_media: Failed to retrieve the media for the song, try replaying it.
         failure: Failed to play %{track}, do not attempt to replay it.
       stuck: The player got stuck. Skipping to the next song...
     queue:
       next:
         requested_by: Requested by %{user_mention}
+        auto_playing: ':sparkles: Auto-playing Recommended Tracks'
       end: Queue ended.
 commands:
   ###
@@ -57,6 +58,13 @@ commands:
   default_volume:
     current: The default volume for this server is currently %{volume}.
     updated: Updated the default volume for this server to %{volume}.
+  autoplay:
+    current:
+      enabled: '%{mention} is auto-play recommended songs.'
+      disabled: '%{mention} is not auto-playing recommended songs.'
+    updated:
+      enabled: '%{mention} will now auto-play recommended songs.'
+      disabled: '%{mention} will no longer auto-play recommended songs.'
   ###
   ### Music Commands
   ###
@@ -77,15 +85,15 @@ commands:
   skip:
     current:
       some: Skipped %{track}.
-      none: Skipped to the next track.
+      none: Skipped to the next song.
     to:
       some: Skipped to %{track}.
-      none: The track was not found in the queue.
+      none: The provided song was not found in the queue.
   seek:
     unseekable: The current track is not seekable.
     no_duration: The current track has no duration.
     out_of_bounds: >-
-      The position you gave will exceeed the length of the track, %{given} >
+      The position you gave will exceeed the length of the current song, %{given} >
       %{length}
     success: Seeked to %{given}
   loop:
@@ -93,27 +101,27 @@ commands:
       success: Looping has been disabled.
       already: Looping was already disabled.
     track:
-      indef: Now looping the track indefinitely.
-      times: The current track will now loop for *%{loop_times} times*.
-      nuhuh: The current track is already been looped.
+      indef: Now looping the the current song indefinitely.
+      times: The current song will now loop for *%{loop_times} times*.
+      nuhuh: The current song is already been looped.
     queue:
       indef: Now looping the queue indefinitely.
       times: The queue will now loop for *%{loop_times} times*.
       nuhuh: The queue is already looping.
   queue:
-    use_autocomplete: Hm? Try using the autocomplete to select a track .
+    use_autocomplete: Hm? Try using the autocomplete to select a queued song.
     view:
       footer: Page %{cur}/%{all} (%{tot} total)
     move:
-      not_found: The track was not found in the queue.
-      pointless: The track is already at that position.
+      not_found: The provided song was not found in the queue.
+      pointless: The provided song is already at that position.
       success: "Moved %{track} to #%{index}"
     clear:
       confirm: Are you sure you want to clear the queue?
       cancelled: The queue was not cleared.
       success: The queue has been cleared!
     remove:
-      not_found: The track was not found in the queue, try using autocomplete.
+      not_found: The provided song was not found in the queue, try using autocomplete.
       success: Removed %{track} from the queue.
     shuffle:
       too_small: The queue is too small to be shuffled.
@@ -130,7 +138,7 @@ commands:
       youtube: Eara has temporarily removed support for YouTube links.
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
-    queued_playlist: Queued %{tracks} tracks from *%{playlist}*
+    queued_playlist: Queued %{tracks} songs from *%{playlist}*
     queued_track: Queued %{track}
   stop:
     success: The player has been stopped.
@@ -141,3 +149,8 @@ commands:
   effects:
     enabled: Enabled the '*%{effect}*' effect!
     disabled: Disabled the '*%{effect}*' effect!
+  lyrics:
+    error: >+
+      An error occurred while fetching the lyrics for %{track}. 
+      Do not attempt to retry.
+    missing: No lyrics available for %{track}.
