@@ -26,6 +26,7 @@ events:
     footer: 'Give this ID to the developers: **{{eid}}**'
   player:
     skip: 
+      none: '{{user_mention}}... there is nothing to skip to.'
       to_prev: '{{user_mention}} skipped to the previous song.'
       to_next: '{{user_mention}} skipped to the next song.'
     disconnect:

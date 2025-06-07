@@ -1,0 +1,14 @@
+{
+  "name": "scripts",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@std/fmt": "npm:@jsr/std__fmt",
+    "@std/yaml": "npm:@jsr/std__yaml"
+  }
+}
