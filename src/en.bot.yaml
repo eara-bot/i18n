@@ -26,7 +26,7 @@ events:
     footer: 'Give this ID to the developers: **{{eid}}**'
   player:
     skip: 
-      to_track: '{{user_mention}} skipped {{track}}.'
+      to_prev: '{{user_mention}} skipped to the previous song.'
       to_next: '{{user_mention}} skipped to the next song.'
     disconnect:
       manual: I was manually disconnected from the voice channel.
@@ -43,7 +43,12 @@ events:
       next:
         requested_by: Requested by {{user_mention}}
         auto_playing: ':sparkles: Auto-playing Recommended Tracks'
-      end: Queue ended.
+      end: 
+        message: The queue has ended.
+        footers:
+          - Enjoying {{mention}}? Consider reviewing it [here](<{{links.review}}>).
+          - Enjoying {{mention}}? Consider voting for it [here](<{{links.vote}}>).
+          - Enjoying {{mention}}? Consider joining our [Discord Community](<{{links.support}}>).
 commands:
   ###
   ### Information Commands
@@ -56,8 +61,8 @@ commands:
   ### Setting Commands
   ###
   default_volume:
-    current: The default volume for this server is currently {{volume}}.
-    updated: Updated the default volume for this server to {{volume}}.
+    current: The default volume for this server is currently {{volume, number}}.
+    updated: Updated the default volume for this server to {{volume, number}}.
   autoplay:
     current:
       enabled: '{{mention}} will auto-play recommended songs.'
@@ -110,21 +115,21 @@ commands:
     track:
       indef: Now looping the the current song indefinitely.
       times_one: The current song will loop once.
-      times_other: The current song will now loop for *{{count}} times*.
+      times_other: The current song will now loop for *{{count, number}} times*.
       nuhuh: The current song is already been looped.
     queue:
       indef: Now looping the queue indefinitely.
       times_one: The queue will loop once.
-      times_other: The queue will now loop for *{{count}} times*.
+      times_other: The queue will now loop for *{{count, number}} times*.
       nuhuh: The queue is already looping.
   queue:
     use_autocomplete: Hm? Try using the autocomplete to select a queued song.
     view:
-      footer: Page {{cur}}/{{all}} ({{tot}} total)
+      footer: Page {{cur, number}}/{{all, number}} ({{tot, number}} total)
     move:
       not_found: The provided song was not found in the queue.
       pointless: The provided song is already at that position.
-      success: "Moved {{track}} to #{{index}}"
+      success: "Moved {{track}} to #{{index, number}}"
     clear:
       confirm: Are you sure you want to clear the queue?
       cancelled: The queue was not cleared.
@@ -148,14 +153,14 @@ commands:
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
     queued_playlist_one: Queued a single song from *{{playlist}}*
-    queued_playlist_other: Queued {{count}} songs from *{{playlist}}*
+    queued_playlist_other: Queued {{count, number}} songs from *{{playlist}}*
     queued_track: Queued {{track}}
   stop:
     success: The player has been stopped.
   volume:
-    current: The current volume is {{volume}}.
+    current: The current volume is {{volume, number}}.
     out_of_bounds: The volume must be between 0 and 1000.
-    success: The volume has been set to {{volume}}.
+    success: The volume has been set to {{volume, number}}.
   effects:
     enabled: Enabled the '*{{effect}}*' effect!
     disabled: Disabled the '*{{effect}}*' effect!
