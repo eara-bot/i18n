@@ -128,7 +128,7 @@ commands:
 
     nothing: Нічого не найдено по запросу
     error: Трапилася помилка при завантаженні вашого запросу
-    queued_playlist: До черги додано {{tracks}} трек. з *{{playlist}}*
+    queued_playlist: До черги додано {{count, number}} трек. з *{{playlist}}*
     queued_track: До черги доданий {{track}}
   stop:
     success: Програвавч зупинений
