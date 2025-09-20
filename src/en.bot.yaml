@@ -21,17 +21,18 @@ common:
       You must vote for {{mention}} on **top.gg** to gain access to this command. 
       -# After voting you will receive *up-to* 12 hours of uninterrupted access!
 events:
-  command_failed: 
+  command_failed:
     message: This command has failed.
-    footer: 'Give this ID to the developers: **{{eid}}**'
+    footer: "Give this ID to the developers: **{{eid}}**"
   player:
-    skip: 
-      none: '{{user_mention}}... there is nothing to skip to.'
-      to_prev: '{{user_mention}} skipped to the previous song.'
-      to_next: '{{user_mention}} skipped to the next song.'
+    skip:
+      none: "{{user_mention}}... there is nothing to skip to."
+      to_prev: "{{user_mention}} skipped to the previous song."
+      to_next: "{{user_mention}} skipped to the next song."
     disconnect:
       manual: I was manually disconnected from the voice channel.
       alone: I was left all alone, disconnecting <t:{{timestamp}}:R>
+      join_failed: I failed to join your voice channel. If {{mention}} continues to fail, please join our Discord Server!
     track:
       exception:
         time_out: The song timed out, please try again later.
@@ -43,8 +44,8 @@ events:
     queue:
       next:
         requested_by: Requested by {{user_mention}}
-        auto_playing: ':sparkles: Auto-playing Recommended Tracks'
-      end: 
+        auto_playing: ":sparkles: Auto-playing Recommended Tracks"
+      end:
         message: The queue has ended.
         footers:
           - Enjoying {{mention}}? Consider reviewing it [here](<{{links.review}}>).
@@ -64,20 +65,27 @@ commands:
   default_volume:
     current: The default volume for this server is currently {{volume, number}}.
     updated: Updated the default volume for this server to {{volume, number}}.
+  do_vc_status_update:
+    current:
+      enabled: "Currently, {{mention}} will update the voice channel status when the current song changes."
+      disabled: "Currently, {{mention}} will not update the voice channel status when the current song changes."
+    updated:
+      enabled: "{{mention}} will now update the voice channel status when the current song changes."
+      disabled: "{{mention}} will no longer update the voice channel status when the current song changes."
   autoplay:
     current:
-      enabled: '{{mention}} will auto-play recommended songs.'
-      disabled: '{{mention}} is not auto-playing recommended songs.'
+      enabled: "Currently, {{mention}} will auto-play recommended songs."
+      disabled: "Currently, {{mention}} is not auto-playing recommended songs."
     updated:
-      enabled: '{{mention}} will now auto-play recommended songs.'
-      disabled: '{{mention}} will no longer auto-play recommended songs.'
+      enabled: "{{mention}} will now auto-play recommended songs."
+      disabled: "{{mention}} will no longer auto-play recommended songs."
   notifications:
-    channel: 
-      current: 
-        none: '{{mention}} is not sending notifications to a specific channel.'
-        some: '{{mention}} is currently sending notifications to {{channel}}'
-      clear: '{{mention}} will no longer send notifications to a specific channel.'
-      update: '{{mention}} will now send notifications to {{channel}}'
+    channel:
+      current:
+        none: "{{mention}} is not sending notifications to a specific channel."
+        some: "{{mention}} is currently sending notifications to {{channel}}"
+      clear: "{{mention}} will no longer send notifications to a specific channel."
+      update: "{{mention}} will now send notifications to {{channel}}"
   ###
   ### Music Commands
   ###
@@ -128,8 +136,7 @@ commands:
     view:
       footer: Page {{cur, number}}/{{all, number}} ({{tot, number}} total)
     move:
-      not_found: The provided song was not found in the queue.
-      pointless: The provided song is already at that position.
+      failed: Could not move that song to the requested position.
       success: "Moved {{track}} to #{{index, number}}"
     clear:
       confirm: Are you sure you want to clear the queue?
@@ -153,6 +160,9 @@ commands:
       youtube: Eara has temporarily removed support for YouTube links.
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
+    timeout: |
+      I could not find a result for your query in a timely manner. 
+      -# If this happens again please join our **Discord Server** to report it!
     queued_playlist_one: Queued a single song from *{{playlist}}*
     queued_playlist_other: Queued {{count, number}} songs from *{{playlist}}*
     queued_track: Queued {{track}}
