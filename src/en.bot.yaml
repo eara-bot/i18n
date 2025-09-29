@@ -156,15 +156,16 @@ commands:
     success: I've unpaused the player.
   play:
     domain:
-      other: The link you provided is not supported
+      other: The link you provided is not supported.
+      whitelist: You are not allowed to play this link.
       youtube: Eara has temporarily removed support for YouTube links.
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
     timeout: |
       I could not find a result for your query in a timely manner. 
       -# If this happens again please join our **Discord Server** to report it!
-    queued_playlist_one: Queued a single song from *{{playlist}}*
-    queued_playlist_other: Queued {{count, number}} songs from *{{playlist}}*
+    queued_playlist_one: Queued a single song from {{kind}} *{{playlist}}*
+    queued_playlist_other: Queued {{count, number}} songs from {{kind}} *{{playlist}}*
     queued_track: Queued {{track}}
   stop:
     success: The player has been stopped.
