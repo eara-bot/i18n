@@ -108,6 +108,7 @@ commands:
       some: Skipped {{track}}.
       none: Skipped to the next song.
     to:
+      invalid: I didn't recognize the song you gave me. Try using auto-complete :)
       some: Skipped to {{track}}.
       none: The provided song was not found in the queue.
   seek:
