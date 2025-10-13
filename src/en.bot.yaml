@@ -17,9 +17,10 @@ common:
   premium:
     sku_or_vote_required: This server requires a **Premium Subscription** to access this command. Alternatively, you can vote to receive *up-to* 12 hours of uninterrupted access.
     sku_required: This server requires a **Premium Subscription** to access this command.
+    uninterrupted_access: After voting you will receive *up-to* 12 hours of uninterrupted access!
     vote_required: |
       You must vote for {{mention}} on **top.gg** to gain access to this command. 
-      -# After voting you will receive *up-to* 12 hours of uninterrupted access!
+      -# $t(common.premium.uninterrupted_access)
 events:
   command_failed:
     message: This command has failed.
@@ -27,8 +28,8 @@ events:
   player:
     skip:
       none: "{{user_mention}}... there is nothing to skip to."
-      to_prev: "{{user_mention}} skipped to the previous song."
-      to_next: "{{user_mention}} skipped to the next song."
+      to_prev: "{{user_mention}} skipped to the previous song from {{current}}"
+      to_next: "{{user_mention}} skipped to the next song from {{current}}"
     disconnect:
       manual: I was manually disconnected from the voice channel.
       alone: I was left all alone, disconnecting <t:{{timestamp}}:R>
@@ -44,7 +45,7 @@ events:
     queue:
       next:
         requested_by: Requested by {{user_mention}}
-        auto_playing: ":sparkles: Auto-playing Recommended Tracks"
+        auto_playing: ":sparkles: Auto-playing Recommended Songs"
       end:
         message: The queue has ended.
         footers:
@@ -105,15 +106,15 @@ commands:
     success: Okay, I joined {{channel}}.
   skip:
     current:
-      some: Skipped {{track}}.
-      none: Skipped to the next song.
+      some: Skipped {{track}} for the {{kind}} song.
+      none: Skipped to the {{kind}} song.
     to:
       invalid: I didn't recognize the song you gave me. Try using auto-complete :)
       some: Skipped to {{track}}.
       none: The provided song was not found in the queue.
   seek:
-    unseekable: The current track is not seekable.
-    no_duration: The current track has no duration.
+    unseekable: The current song is not seekable.
+    no_duration: The current song has no duration.
     out_of_bounds: >-
       The position you gave will exceeed the length of the current song, {{given}} >
       {{length}}
@@ -158,8 +159,10 @@ commands:
   play:
     domain:
       other: The link you provided is not supported.
-      whitelist: You are not allowed to play this link.
       youtube: Eara has temporarily removed support for YouTube links.
+      vote_locked: |
+        You must vote for {{mention}} on **top.gg** for access to `{{domain}}` links!
+        -# $t(common.premium.uninterrupted_access)
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
     timeout: |
