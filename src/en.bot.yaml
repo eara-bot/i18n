@@ -36,11 +36,21 @@ events:
       join_failed: I failed to join your voice channel. If {{mention}} continues to fail, please join our Discord Server!
     track:
       exception:
-        time_out: The song timed out, please try again later.
-        no_support: The song is not supported by the player.
-        no_mirror: Could not find a suitable source to play from, do not attempt replaying the song.
-        no_media: Failed to retrieve the media for the song, try replaying it.
-        failure: Failed to play {{track}}, do not attempt to replay it.
+        $:
+          no_replay: Do __**NOT**__ try to replay this song.
+        reason:
+          time_out: The song timed out, please try again later.
+          no_support: The song is not supported by the player.
+          no_mirror: Could not find a suitable source to play from, do not attempt replaying the song.
+          no_media: Failed to retrieve the media for the song, try replaying it.
+          unknown: Failed to play {{track}}, do not attempt to replay it.
+          youtube:
+            age_restricted: This video requires age-verification.
+            copyright: This video is unavailable due to copyright issues
+            geo_blocked: The uploader has blocked this video in the U.S.
+            unavailable: This video is no longer available.
+            processing: No formats available for this video.
+            unknown: This video could not be played.
       stuck: The player got stuck. Skipping to the next song...
     queue:
       next:
