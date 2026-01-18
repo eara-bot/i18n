@@ -3,7 +3,6 @@ checks:
   not_playing: I'm not playing music in this server.
   user_vc_none: You must be in a voice channel to use this command.
   user_vc_diff: You must be in the same voice channel as me to use this command.
-  user_vc_diff_btn: You must be in the same voice channel as me to use this button.
   queue_empty: The queue is empty.
   not_interactable: You cannot interact with this message.
   maintenance: The bot is undergoing maintenance, check back later.
@@ -13,23 +12,40 @@ common:
   requested_by: Requested By
   position: Position
   vote: Vote on Top.gg
-  discord_server: Discord Server
+  discord_server: Support Server
   premium:
     sku_or_vote_required: This server requires a **Premium Subscription** to access this command. Alternatively, you can vote to receive *up-to* 12 hours of uninterrupted access.
     sku_required: This server requires a **Premium Subscription** to access this command.
     uninterrupted_access: After voting you will receive *up-to* 12 hours of uninterrupted access!
     vote_required: |
-      You must vote for {{mention}} on **top.gg** to gain access to this command. 
+      You must vote for {{mention}} on **top.gg** to gain access to this command.
       -# $t(common.premium.uninterrupted_access)
+buttons:
+  remove:
+    none: I couldn't find the item you wanted to remove...
+    done: "{{author}} removed {{track}} from the queue."
+  correlated_remove:
+    none: The song(s) that were queued are nowhere to be found...
+    done: "{{author}} removed {{count}} songs that were queued."
+  play_now:
+    none: I could not find the songs you added in the queue, have you played them already?
+    done_one: Prioritized one song requested by {{requester}}.
+    done_other: Prioritized {{count}} songs requested by {{requester}}.
+    footer_a: Skipped to {{next}} from {{prev}}
+    footer_b: Skipped to {{next}}
+  stop: "{{user}} has stopped the player."
 events:
   command_failed:
     message: This command has failed.
+    reason:
+      unknown: An unexpected error has been raised, please report this to the developers.
+      panic: The task which was processing your command has panicked, please report this to the developers.
     footer: "Give this ID to the developers: **{{eid}}**"
   player:
     skip:
       none: "{{user_mention}}... there is nothing to skip to."
-      to_prev: "{{user_mention}} skipped to the previous song from {{current}}"
-      to_next: "{{user_mention}} skipped to the next song from {{current}}"
+      to_prev: "{{user_mention}} skipped to the previous song"
+      to_next: "{{user_mention}} skipped to the next song"
     disconnect:
       manual: I was manually disconnected from the voice channel.
       alone: I was left all alone, disconnecting <t:{{timestamp}}:R>
@@ -69,7 +85,7 @@ commands:
   info:
     footer: Build Information
   ping:
-    footer: Having issues? Join our Discord Server.
+    footer: Having issues? Join our **Support Server**!
   ###
   ### Setting Commands
   ###
@@ -106,6 +122,9 @@ commands:
   leave:
     success: Okay, I left your voice channel.
   join:
+    conflict: I'm already in a voice channel.
+    failure: I failed to join that voice channel.
+    in_progress: I am already joining that voice channel.
     perms:
       missing: >-
         I need permissions to **view**, **connect**, and **speak** in
@@ -121,10 +140,11 @@ commands:
     to:
       invalid: I didn't recognize the song you gave me. Try using auto-complete :)
       some: Skipped to {{track}}.
-      none: The provided song was not found in the queue.
+      none: I could not skip to that song, is it still in the queue?
   seek:
     unseekable: The current song is not seekable.
     no_duration: The current song has no duration.
+    syntax: The timecode must be in the format `mm:ss`
     out_of_bounds: >-
       The position you gave will exceeed the length of the current song, {{given}} >
       {{length}}
@@ -153,7 +173,9 @@ commands:
     clear:
       confirm: Are you sure you want to clear the queue?
       cancelled: The queue was not cleared.
-      success: The queue has been cleared!
+      none: The queue was empty.
+      success_one: Removed 1 song from the queue.
+      success_other: Removed {{count, number}} songs from the queue.
     remove:
       not_found: The provided song was not found in the queue, try using autocomplete.
       success: Removed {{track}} from the queue.
@@ -164,8 +186,9 @@ commands:
     already: The player is already paused.
     success: I've paused the player.
   resume:
+    server_muted: Cannot resume the player while i'm server muted.
     already: The player wasn't paused
-    success: I've unpaused the player.
+    success: I've resumed the player.
   play:
     domain:
       other: The link you provided is not supported.
@@ -176,7 +199,7 @@ commands:
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
     timeout: |
-      I could not find a result for your query in a timely manner. 
+      I could not find a result for your query in a timely manner.
       -# If this happens again please join our **Discord Server** to report it!
     queued_playlist_one: Queued a single song from {{kind}} *{{playlist}}*
     queued_playlist_other: Queued {{count, number}} songs from {{kind}} *{{playlist}}*
@@ -185,13 +208,13 @@ commands:
     success: The player has been stopped.
   volume:
     current: The current volume is {{volume, number}}.
-    out_of_bounds: The volume must be between 0 and 1000.
+    out_of_bounds: The volume must be between 0 and 255.
     success: The volume has been set to {{volume, number}}.
   effects:
     enabled: Enabled the '*{{effect}}*' effect!
     disabled: Disabled the '*{{effect}}*' effect!
   lyrics:
     error: >+
-      An error occurred while fetching the lyrics for {{track}}. 
+      An error occurred while fetching the lyrics for {{track}}.
       Do not attempt to retry.
     missing: No lyrics available for {{track}}.
