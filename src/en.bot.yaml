@@ -4,17 +4,49 @@ checks:
   user_vc_none: You must be in a voice channel to use this command.
   user_vc_diff: You must be in the same voice channel as me to use this command.
   queue_empty: The queue is empty.
-  not_interactable: You cannot interact with this message.
+  nothing_playing: Nothing is playing.
+  unknown_command: I don't recognize this command...
+  owner_only: You are not allowed to use this command.
   maintenance: The bot is undergoing maintenance, check back later.
 common:
   join_our_server: "Join our [*Discord Server*]({{invite}} ) for more information"
   message_deleted: "*Message was deleted*"
-  requested_by: Requested By
-  position: Position
   vote: Vote on Top.gg
   discord_server: Support Server
+  remove: Remove
+  play_now: Play Now
+  next: Next
+  previous: Previous
+  unknown_artist: Unknown Artist
+  unavailable_track: "[unavailable track metadata]"
+  unknown_url: Unknown URL
+  unsupported_url: Unsupported URL
+  source_url: "{{source}} URL"
+  unknown: Unknown
+  unknown_channel: Unknown Channel
+  none: None
+  not_available: N/A
+  yes: Yes
+  no: No
+  track: Track
+  queue: Queue
+  state:
+    loading: Loading
+    paused: Paused
+    playing: Playing
+    idle: Idle
+    active: Active
+    off: Off
+    disconnected: Disconnected
+    joining: Joining
+    connected: Connected
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# You have **30 seconds** to respond.
+    confirm: Confirm
+    deny: Deny
   premium:
-    sku_or_vote_required: This server requires a **Premium Subscription** to access this command. Alternatively, you can vote to receive *up-to* 12 hours of uninterrupted access.
     sku_required: This server requires a **Premium Subscription** to access this command.
     uninterrupted_access: After voting you will receive *up-to* 12 hours of uninterrupted access!
     vote_required: |
@@ -29,10 +61,16 @@ buttons:
     done: "{{author}} removed {{count}} songs that were queued."
   play_now:
     none: I could not find the songs you added in the queue, have you played them already?
+    not_found: Could not find that song in the queue.
     done_one: Prioritized one song requested by {{requester}}.
     done_other: Prioritized {{count}} songs requested by {{requester}}.
     footer_a: Skipped to {{next}} from {{prev}}
     footer_b: Skipped to {{next}}
+  item_actions:
+    not_found: That song is no longer in the queue.
+  previous:
+    none: There are no previous songs...
+  skip_to: "{{user}} has skipped to {{track}}"
   stop: "{{user}} has stopped the player."
 events:
   command_failed:
@@ -42,53 +80,55 @@ events:
       panic: The task which was processing your command has panicked, please report this to the developers.
     footer: "Give this ID to the developers: **{{eid}}**"
   player:
-    skip:
-      none: "{{user_mention}}... there is nothing to skip to."
-      to_prev: "{{user_mention}} skipped to the previous song"
-      to_next: "{{user_mention}} skipped to the next song"
+    notification:
+      join_failed: I failed to join your voice channel.
+      playback_failed: Failed to play {{track}}
+      scheduler_failed: The player scheduler for this server failed. Please run `/leave`, then `/join`, and report this if it happens again.
+      playback_stalled: Too many failed playback attempts. If this continues, please join our Support Server.
+      idle_timeout: The player was idle for too long, so I disconnected.
     disconnect:
-      manual: I was manually disconnected from the voice channel.
       alone: I was left all alone, disconnecting <t:{{timestamp}}:R>
-      join_failed: I failed to join your voice channel. If {{mention}} continues to fail, please join our Discord Server!
-    track:
-      exception:
-        $:
-          no_replay: Do __**NOT**__ try to replay this song.
-        reason:
-          time_out: The song timed out, please try again later.
-          no_support: The song is not supported by the player.
-          no_mirror: Could not find a suitable source to play from, do not attempt replaying the song.
-          no_media: Failed to retrieve the media for the song, try replaying it.
-          unknown: Failed to play {{track}}, do not attempt to replay it.
-          youtube:
-            age_restricted: This video requires age-verification.
-            copyright: This video is unavailable due to copyright issues
-            geo_blocked: The uploader has blocked this video in the U.S.
-            unavailable: This video is no longer available.
-            processing: No formats available for this video.
-            unknown: This video could not be played.
-      stuck: The player got stuck. Skipping to the next song...
     queue:
-      next:
-        requested_by: Requested by {{user_mention}}
-        auto_playing: ":sparkles: Auto-playing Recommended Songs"
       end:
         message: The queue has ended.
-        footers:
-          - Enjoying {{mention}}? Consider reviewing it [here](<{{links.review}}>).
-          - Enjoying {{mention}}? Consider voting for it [here](<{{links.vote}}>).
-          - Enjoying {{mention}}? Consider joining our [Discord Community](<{{links.support}}>).
+        prompts:
+          review:
+            message: Enjoying {{mention}}? Leave us a review!
+            button: Leave a review
+          vote:
+            message: Enjoying {{mention}}? Vote for us to help more people find it!
+            button: Vote for us
+          support:
+            message: Need help or want to hang out? Join our Discord community!
+            button: Join our server
 commands:
   ###
   ### Information Commands
   ###
-  info:
-    footer: Build Information
+  debug:
+    footer: Share this summary when asking for player help.
+    loop_indefinite: "{{mode}} (indefinite)"
+    loop_remaining: "{{mode}} ({{count, number}} remaining)"
+  dev:
+    entitlement_granted: Granted entitlement {{entitlement}} for SKU {{sku}} to guild {{guild}}.
+    player_not_found: No player exists for guild {{guild}}.
+    joining: Joining {{channel}} ({{connection}})
+    connected: Connected to {{channel}} ({{connection}})
   ping:
+    message: Pong!
     footer: Having issues? Join our **Support Server**!
+  stats:
+    instance_failed: Failed to retrieve instance.
   ###
   ### Setting Commands
   ###
+  crossfade:
+    current:
+      enabled: Cross-fading duration is set to {{duration, number}}s.
+      disabled: Cross-fading is disabled.
+    updated:
+      enabled: Crossfade duration set to {{duration, number}}s.
+      disabled: Crossfade disabled.
   default_volume:
     current: The default volume for this server is currently {{volume, number}}.
     updated: Updated the default volume for this server to {{volume, number}}.
@@ -116,11 +156,9 @@ commands:
   ###
   ### Music Commands
   ###
-  fix:
-    no_vc: The bot isn't in a voice channel... try using /join?
-    success: I've attempted to fix connection issues.
   leave:
-    success: Okay, I left your voice channel.
+    success_channel: Left {{channel}}.
+    destroyed: Destroyed the player for this server.
   join:
     conflict: I'm already in a voice channel.
     failure: I failed to join that voice channel.
@@ -129,17 +167,11 @@ commands:
       missing: >-
         I need permissions to **view**, **connect**, and **speak** in
         {{channel}}.
-      error: >-
-        I failed to fetch permissions for {{channel}}, report this to the
-        developers.
     success: Okay, I joined {{channel}}.
   skip:
-    current:
-      some: Skipped {{track}} for the {{kind}} song.
-      none: Skipped to the {{kind}} song.
+    success: Skipped.
     to:
       invalid: I didn't recognize the song you gave me. Try using auto-complete :)
-      some: Skipped to {{track}}.
       none: I could not skip to that song, is it still in the queue?
   seek:
     unseekable: The current song is not seekable.
@@ -171,12 +203,12 @@ commands:
       failed: Could not move that song to the requested position.
       success: "Moved {{track}} to #{{index, number}}"
     clear:
-      confirm: Are you sure you want to clear the queue?
-      cancelled: The queue was not cleared.
       none: The queue was empty.
       success_one: Removed 1 song from the queue.
       success_other: Removed {{count, number}} songs from the queue.
     remove:
+      confirm: Are you sure you want to remove {{track}} from the queue?
+      cancelled: Okay, I won't remove that song.
       not_found: The provided song was not found in the queue, try using autocomplete.
       success: Removed {{track}} from the queue.
     shuffle:
@@ -198,12 +230,16 @@ commands:
         -# $t(common.premium.uninterrupted_access)
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
-    timeout: |
-      I could not find a result for your query in a timely manner.
-      -# If this happens again please join our **Discord Server** to report it!
-    queued_playlist_one: Queued a single song from {{kind}} *{{playlist}}*
-    queued_playlist_other: Queued {{count, number}} songs from {{kind}} *{{playlist}}*
-    queued_track: Queued {{track}}
+    invalid_url: You passed an invalid URL.
+    queue_full: The queue does not have enough room. Remove some songs before adding more.
+    added: Added {{item}} to the queue.
+    loaded:
+      album_one: one song from album {{collection}}
+      album_other: "{{count, number}} songs from album {{collection}}"
+      artist_one: "*{{collection}}*'s top song"
+      artist_other: "*{{collection}}*'s top {{count, number}} songs"
+      playlist_one: one song from playlist *{{collection}}*
+      playlist_other: "{{count, number}} songs from playlist *{{collection}}*"
   stop:
     success: The player has been stopped.
   volume:
@@ -213,8 +249,6 @@ commands:
   effects:
     enabled: Enabled the '*{{effect}}*' effect!
     disabled: Disabled the '*{{effect}}*' effect!
-  lyrics:
-    error: >+
-      An error occurred while fetching the lyrics for {{track}}.
-      Do not attempt to retry.
-    missing: No lyrics available for {{track}}.
+    cleared: Cleared all toggled effects!
+  immersive:
+    disabled: Immersive mode disabled.
