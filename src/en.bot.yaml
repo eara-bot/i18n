@@ -80,6 +80,18 @@ events:
       panic: The task which was processing your command has panicked, please report this to the developers.
     footer: "Give this ID to the developers: **{{eid}}**"
   player:
+    tips:
+      autoplay: Keep the music going when the queue ends with {{command}}.
+      crossfade: Did you know we have cross-fading? Use {{command}} to configure it.
+      effects: Give the current song a different feel with {{command}}.
+      history: Looking for something played earlier? {{command}} can also show queue history.
+      immersive: Use {{spatialize}} or {{orbit}} to liven up your experience!
+      loop: Want to hear it again? {{command}} can repeat this song or the whole queue.
+      move: Reorder or clean up the queue with {{move_command}} and {{remove_command}}.
+      notifications: Server managers can choose a dedicated player channel with {{command}}.
+      seek: Jump to any point in this song with {{command}}.
+      shuffle: Mix up the songs waiting in the queue with {{command}}.
+      voice_status: Server managers can show the current song in the voice-channel status with {{command}}.
     notification:
       join_failed: I failed to join your voice channel.
       playback_failed: Failed to play {{track}}
