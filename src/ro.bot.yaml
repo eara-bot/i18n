@@ -1,0 +1,309 @@
+checks:
+  guild_only: Thisă comandă poate fi folosită doar pe un server.
+  not_playing: Nu redau muzică pe acest server.
+  user_vc_none: Trebuie să fii într-un canal vocal pentru a folosi această comandă.
+  user_vc_diff: >-
+    Trebuie să fii în același canal vocal ca mine pentru a folosi această
+    comandă.
+  queue_empty: Coadă este goală.
+  nothing_playing: Nu se redă nimic.
+  unknown_command: Nu recunosc această comandă...
+  owner_only: Nu ai voie să folosești această comandă.
+  maintenance: 'Botul este în întreținere, revino mai târziu.'
+common:
+  join_our_server: 'Alătură-te [*serverului Discord*]({{invite}} ) pentru mai multe informații'
+  message_deleted: '*Mesajul a fost șters*'
+  vote: Votează pe Top.gg
+  discord_server: Server de suport
+  remove: Elimină
+  play_now: Redă acum
+  next: Următorul
+  previous: Precedentul
+  unknown_artist: Artist necunoscut
+  unavailable_track: '[metadatele pistei indisponibile]'
+  unknown_url: URL necunoscut
+  unsupported_url: URL nesuportat
+  source_url: 'URL {{source}}'
+  unknown: Necunoscut
+  unknown_channel: Canal necunoscut
+  none: Niciunul
+  not_available: N/A
+  'yes': Da
+  'no': Nu
+  track: Pistă
+  queue: Coadă
+  state:
+    loading: Încărcare
+    paused: Pauză
+    playing: Redare
+    idle: Inactiv
+    active: Activ
+    'off': Oprit
+    disconnected: Deconectat
+    joining: Se conectează
+    connected: Conectat
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Ai **30 de secunde** la dispoziție pentru a răspunde.
+    confirm: Confirmă
+    deny: Refuză
+  premium:
+    sku_required: >-
+      Acest server necesită un **abonament Premium** pentru a accesa această
+      comandă.
+    uninterrupted_access: După votare vei primi *până la* 12 ore de acces neîntrerupt!
+    vote_required: >
+      Trebuie să votezi pentru {{mention}} pe **top.gg** pentru a obține acces
+      la această comandă.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Obține Premium
+    vote_locks_premium: '**Premium** elimină blocarea prin vot pentru întregul server.'
+buttons:
+  remove:
+    none: Nu am găsit elementul pe care doreai să-l elimini...
+    done: '{{author}} a eliminat {{track}} din coadă.'
+  correlated_remove:
+    none: Melodiile adăugate în coadă nu mai pot fi găsite...
+    done: '{{author}} a eliminat {{count}} melodii din coadă.'
+  play_now:
+    none: >-
+      Nu am putut găsi melodiile pe care le-ai adăugat în coadă, le-ai jucat
+      deja?
+    not_found: Nu am putut găsi acea melodie în coadă.
+    done_one: 'A priorizat o melodie cerută de {{requester}}.'
+    done_other: 'A priorizat {{count}} melodii cerute de {{requester}}.'
+    footer_a: 'A sărit la {{next}} din {{prev}}'
+    footer_b: 'A sărit la {{next}}'
+  item_actions:
+    not_found: Această melodie nu mai este în coadă.
+  previous:
+    none: Nu există melodii anterioare...
+  skip_to: '{{user}} a sărit la {{track}}'
+  stop: '{{user}} a oprit redarea.'
+events:
+  command_failed:
+    message: Această comandă a eșuat.
+    reason:
+      unknown: >-
+        A apărut o eroare neașteptată, te rugăm să raportezi acest lucru
+        dezvoltatorilor.
+      panic: >-
+        Sarcina care procesa comanda ta a eșuat, te rugăm să raportezi acest
+        lucru dezvoltatorilor.
+    footer: 'Transmite acest ID dezvoltatorilor: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Păstrează muzica în derulare când coada se termină cu {{command}}.'
+      crossfade: >-
+        Știai că avem trecere progresivă? Folosește {{command}} pentru a o
+        configura.
+      effects: 'Dă melodiei curente o altă senzație cu {{command}}.'
+      history: 'Cauți ceva jucat anterior? {{command}} poate afișa și istoricul cozii.'
+      immersive: >-
+        Folosește {{spatialize}} sau {{orbit}} pentru a îmbunătăți experiența
+        ta!
+      loop: >-
+        Vrei să o auzi din nou? {{command}} poate repeta această melodie sau
+        întreaga coadă.
+      move: 'Rearanjează sau curăță coada cu {{move_command}} și {{remove_command}}.'
+      notifications: >-
+        Administratorii serverului pot alege un canal dedicat pentru player cu
+        {{command}}.
+      seek: 'Saltă la orice moment din această melodie cu {{command}}.'
+      shuffle: 'Amestecă melodii așteptând în coadă cu {{command}}.'
+      voice_status: >-
+        Administratorii serverului pot afișa melodia curentă în statusul
+        canalului vocal cu {{command}}.
+    notification:
+      join_failed: Nu am reușit să mă alătur canalului tău vocal.
+      playback_failed: 'Eșec la redarea {{track}}'
+      scheduler_failed: >-
+        Planificatorul playerului pentru acest server a eșuat. Te rugăm rulează
+        `/leave`, apoi `/join`, și raportează dacă se întâmplă din nou.
+      playback_stalled: >-
+        Prea multe tentative eșuate de redare. Dacă problema persistă, te rugăm
+        să te alături serverului nostru de suport.
+      idle_timeout: 'Playerul a fost inactiv prea mult timp, așa că m-am deconectat.'
+    disconnect:
+      alone: 'Am fost lăsat singur, deconectare <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: Coada s-a încheiat.
+        prompts:
+          review:
+            message: 'Te bucuri de {{mention}}? Lăsați-ne o recenzie!'
+            button: Lăsați o recenzie
+          vote:
+            message: >-
+              Te bucuri de {{mention}}? Votează pentru noi ca mai mulți oameni
+              să ne poată găsi!
+            button: Votează pentru noi
+          support:
+            message: >-
+              Ai nevoie de ajutor sau vrei să stăm de vorbă? Alătură-te
+              comunității noastre Discord!
+            button: Alătură-te serverului nostru
+commands:
+  debug:
+    footer: Distribuie acest rezumat când ceri ajutor pentru player.
+    loop_indefinite: '{{mode}} (indefinit)'
+    loop_remaining: '{{mode}} (mai rămân {{count, number}})'
+  dev:
+    entitlement_granted: >-
+      A fost acordat dreptul {{entitlement}} pentru SKU-ul {{sku}} serverului
+      {{guild}}.
+    player_not_found: 'Nu există niciun player pentru serverul {{guild}}.'
+    joining: 'Mă conectez la {{channel}} ({{connection}})'
+    connected: 'Conectat la {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Ai probleme? Alătură-te **Serverului de Suport**!
+  stats:
+    instance_failed: Eșec la recuperarea instanței.
+  crossfade:
+    current:
+      enabled: 'Durata cross-fade este setată la {{duration, number}}s.'
+      disabled: Cross-fading este dezactivat.
+    updated:
+      enabled: 'Durata crossfade a fost setată la {{duration, number}}s.'
+      disabled: Crossfade dezactivat.
+  default_volume:
+    current: 'Volumul implicit pentru acest server este acum {{volume, number}}.'
+    updated: 'Am actualizat volumul implicit pentru acest server la {{volume, number}}.'
+  do_vc_status_update:
+    current:
+      enabled: >-
+        În prezent, {{mention}} va actualiza statusul canalului vocal atunci
+        când se schimbă piesa curentă.
+      disabled: >-
+        În prezent, {{mention}} nu va actualiza statusul canalului vocal atunci
+        când se schimbă piesa curentă.
+    updated:
+      enabled: >-
+        {{mention}} va actualiza acum statusul canalului vocal atunci când se
+        schimbă piesa curentă.
+      disabled: >-
+        {{mention}} nu va mai actualiza statusul canalului vocal atunci când se
+        schimbă piesa curentă.
+  autoplay:
+    current:
+      enabled: 'În prezent, {{mention}} redă automat piese recomandate.'
+      disabled: 'În prezent, {{mention}} nu redă automat piese recomandate.'
+    updated:
+      enabled: '{{mention}} va reda acum automat piese recomandate.'
+      disabled: '{{mention}} nu va mai reda automat piese recomandate.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} nu trimite notificări către un canal specific.'
+        some: '{{mention}} trimite în prezent notificări către {{channel}}'
+      clear: '{{mention}} nu va mai trimite notificări către un canal specific.'
+      update: '{{mention}} va trimite acum notificări către {{channel}}'
+  leave:
+    success_channel: 'Am părăsit {{channel}}.'
+    destroyed: Am distrus playerul pentru acest server.
+  join:
+    conflict: Sunt deja într-un canal vocal.
+    failure: Nu am reușit să mă alătur canalului vocal.
+    in_progress: Deja mă alătur acelui canal vocal.
+    perms:
+      missing: >-
+        Am nevoie de permisiuni pentru a **vedea**, **conecta** și **vorbi** în
+        {{channel}}.
+    success: 'OK, m-am alăturat lui {{channel}}.'
+  skip:
+    success: Sărit.
+    to:
+      invalid: >-
+        Nu am recunoscut piesa pe care mi-ai dat-o. Încearcă să folosești
+        completarea automată :)
+      none: 'Nu am putut trece la acea piesă, este încă în coadă?'
+  seek:
+    unseekable: Piesa actuală nu poate fi căutată.
+    no_duration: Piesa actuală nu are durată.
+    syntax: 'Timecode-ul trebuie să fie în formatul `mm:ss`'
+    out_of_bounds: >-
+      Poziția pe care ai dat-o va depăși lungimea piesei actuale, {{given}} >
+      {{length}}
+    success: 'Căutare la {{given}}'
+  loop:
+    nothing:
+      success: Repetarea a fost dezactivată.
+      already: Repetarea era deja dezactivată.
+    track:
+      indef: Acum se repetă la infinit piesa curentă.
+      times_one: Piesa curentă se va repeta o dată.
+      times_other: 'Piesa curentă se va repeta acum de *{{count, number}} ori*.'
+      nuhuh: Piesa curentă este deja repetată.
+    queue:
+      indef: Acum se repetă la infinit coada.
+      times_one: Coada se va repeta o dată.
+      times_other: 'Coada se va repeta acum de *{{count, number}} ori*.'
+      nuhuh: Coada este deja în modul repetare.
+  queue:
+    use_autocomplete: >-
+      Hm? Încearcă să folosești completarea automată pentru a selecta o piesă
+      din coadă.
+    view:
+      footer: 'Pagina {{cur, number}}/{{all, number}} ({{tot, number}} total)'
+    move:
+      failed: Nu am putut muta acea piesă la poziția solicitată.
+      success: 'Mutat {{track}} la #{{index, number}}'
+    clear:
+      none: Coada era goală.
+      success_one: Eliminată 1 piesă din coadă.
+      success_other: 'Eliminate {{count, number}} piese din coadă.'
+    remove:
+      confirm: 'Ești sigur că vrei să elimini {{track}} din coadă?'
+      cancelled: 'OK, nu voi elimina acea piesă.'
+      not_found: >-
+        Piesa furnizată nu a fost găsită în coadă, încearcă să folosești
+        completarea automată.
+      success: 'Eliminat {{track}} din coadă.'
+    shuffle:
+      too_small: Coada este prea mică pentru a fi amestecată.
+      success: Coada a fost amestecată.
+  pause:
+    already: Playerul este deja în pauză.
+    success: Am pus playerul în pauză.
+  resume:
+    server_muted: Nu pot relua playerul când sunt mutat pe server.
+    already: Playerul nu era în pauză.
+    success: Am reluat playerul.
+  play:
+    domain:
+      other: Link-ul furnizat nu este suportat.
+      youtube: Eara a eliminat temporar suportul pentru link-urile YouTube.
+      vote_locked: >
+        Trebuie să votați pentru {{mention}} pe **top.gg** pentru a avea acces
+        la link-urile `{{domain}}`!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Nu a fost returnat nimic pentru interogarea dvs.
+    error: A apărut o eroare în timpul încărcării interogării dvs.
+    invalid_url: Ați furnizat un URL nevalid.
+    queue_full: >-
+      Coada nu are suficient spațiu. Eliminați câteva melodii înainte de a
+      adăuga altele.
+    added: 'Am adăugat {{item}} în coadă.'
+    loaded:
+      album_one: 'o melodie din albumul {{collection}}'
+      album_other: '{{count, number}} melodii din albumul {{collection}}'
+      artist_one: 'cea mai bună melodie din *{{collection}}*'
+      artist_other: 'cele mai bune {{count, number}} melodii din *{{collection}}*'
+      playlist_one: 'o melodie din playlistul *{{collection}}*'
+      playlist_other: '{{count, number}} melodii din playlistul *{{collection}}*'
+  stop:
+    success: Redarea a fost oprită.
+  volume:
+    current: 'Volumul actual este {{volume, number}}.'
+    out_of_bounds: Volumul trebuie să fie între 0 și 255.
+    success: 'Volumul a fost setat la {{volume, number}}.'
+  effects:
+    enabled: 'Efectul ''*{{effect}}*'' a fost activat!'
+    disabled: 'Efectul ''*{{effect}}*'' a fost dezactivat!'
+    cleared: Toate efectele activate au fost resetate!
+  immersive:
+    disabled: Modul imersiv a fost dezactivat.

@@ -1,0 +1,306 @@
+checks:
+  guild_only: Ta komenda może być używana tylko na serwerze.
+  not_playing: Nie odtwarzam muzyki na tym serwerze.
+  user_vc_none: 'Aby użyć tej komendy, musisz znajdować się na kanale głosowym.'
+  user_vc_diff: >-
+    Aby użyć tej komendy, musisz znajdować się na tym samym kanale głosowym, co
+    ja.
+  queue_empty: Kolejka jest pusta.
+  nothing_playing: Nic nie jest odtwarzane.
+  unknown_command: Nie rozpoznaję tej komendy...
+  owner_only: Nie masz uprawnień do użycia tej komendy.
+  maintenance: 'Bot jest aktualnie w trakcie konserwacji, spróbuj ponownie później.'
+common:
+  join_our_server: >-
+    Dołącz do naszego [*serwera Discord*]({{invite}}), aby uzyskać więcej
+    informacji
+  message_deleted: '*Wiadomość została usunięta*'
+  vote: Głosuj na Top.gg
+  discord_server: Serwer wsparcia
+  remove: Usuń
+  play_now: Odtwórz teraz
+  next: Następny
+  previous: Poprzedni
+  unknown_artist: Nieznany artysta
+  unavailable_track: '[niedostępne metadane utworu]'
+  unknown_url: Nieznany URL
+  unsupported_url: Nieobsługiwany URL
+  source_url: '{{source}} URL'
+  unknown: Nieznany
+  unknown_channel: Nieznany kanał
+  none: Brak
+  not_available: N/D
+  'yes': Tak
+  'no': Nie
+  track: Utwór
+  queue: Kolejka
+  state:
+    loading: Ładowanie
+    paused: Wstrzymano
+    playing: Odtwarzanie
+    idle: Bezczynny
+    active: Aktywny
+    'off': Wyłączony
+    disconnected: Rozłączony
+    joining: Łączenie
+    connected: Połączony
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Masz **30 sekund**, aby odpowiedzieć.
+    confirm: Potwierdź
+    deny: Odrzuć
+  premium:
+    sku_required: >-
+      Ten serwer wymaga **subskrypcji Premium**, aby uzyskać dostęp do tej
+      komendy.
+    uninterrupted_access: Po oddaniu głosu otrzymasz *do* 12 godzin nieprzerwanego dostępu!
+    vote_required: >
+      Musisz zagłosować za {{mention}} na **top.gg**, aby uzyskać dostęp do tej
+      komendy.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Uzyskaj Premium
+    vote_locks_premium: '**Premium** usuwa blokady głosowe dla całego serwera.'
+buttons:
+  remove:
+    none: 'Nie mogłem znaleźć elementu, który chciałeś usunąć...'
+    done: '{{author}} usunął {{track}} z kolejki.'
+  correlated_remove:
+    none: 'Utwor(y), które zostały dodane do kolejki, są nieodnależne...'
+    done: '{{author}} usunął {{count}} utworów z kolejki.'
+  play_now:
+    none: >-
+      Nie mogę znaleźć utworów, które dodałeś do kolejki – czy przypadkiem już
+      ich nie odtworzyłeś?
+    not_found: Nie można znaleźć tego utworu w kolejce.
+    done_one: 'Wyróżniono jeden utwór żądany przez {{requester}}.'
+    done_other: 'Wyróżniono {{count}} utworów żądanych przez {{requester}}.'
+    footer_a: 'Pominięto do {{next}} z {{prev}}'
+    footer_b: 'Pominięto do {{next}}'
+  item_actions:
+    not_found: Ten utwór już nie znajduje się w kolejce.
+  previous:
+    none: Nie ma poprzednich utworów...
+  skip_to: '{{user}} przeszedł do {{track}}'
+  stop: '{{user}} zatrzymał odtwarzacz.'
+events:
+  command_failed:
+    message: Ta komenda nie powiodła się.
+    reason:
+      unknown: 'Wystąpił nieoczekiwany błąd, prosimy o zgłoszenie go deweloperom.'
+      panic: >-
+        Zadanie przetwarzające Twoją komendę uległo awarii, prosimy o zgłoszenie
+        tego deweloperom.
+    footer: 'Przekaż ten ID deweloperom: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Kontynuuj muzykę po zakończeniu kolejki za pomocą {{command}}.'
+      crossfade: >-
+        Czy wiedziałeś, że oferujemy płynne przejścia? Skorzystaj z {{command}},
+        aby je skonfigurować.
+      effects: 'Dodaj obecnemu utworowi inny klimat za pomocą {{command}}.'
+      history: >-
+        Szukasz czegoś, co było wcześniej odtwarzane? {{command}} może również
+        pokazywać historię kolejki.
+      immersive: 'Skorzystaj z {{spatialize}} lub {{orbit}}, aby wzbogacić swoje wrażenia!'
+      loop: >-
+        Chcesz to ponownie usłyszeć? {{command}} może powtarzać ten utwór lub
+        całą kolejkę.
+      move: >-
+        Zmień kolejność lub wyczyść kolejkę za pomocą {{move_command}} i
+        {{remove_command}}.
+      notifications: >-
+        Administratorzy serwera mogą wybrać dedykowany kanał odtwarzacza za
+        pomocą {{command}}.
+      seek: 'Przejdź do dowolnego momentu tego utworu za pomocą {{command}}.'
+      shuffle: 'Wymieszaj utwory oczekujące w kolejce za pomocą {{command}}.'
+      voice_status: >-
+        Administratorzy serwera mogą wyświetlać aktualnie odtwarzany utwór w
+        statusie kanału głosowego za pomocą {{command}}.
+    notification:
+      join_failed: Nie udało mi się dołączyć do Twojego kanału głosowego.
+      playback_failed: 'Nie udało się odtworzyć {{track}}'
+      scheduler_failed: >-
+        Harmonogram odtwarzacza dla tego serwera uległ awarii. Uruchom proszę
+        `/leave`, a następnie `/join` i zgłoś to ponownie, jeśli problem będzie
+        się powtarzał.
+      playback_stalled: >-
+        Zbyt wiele nieudanych prób odtworzenia. Jeśli problem będzie się
+        powtarzał, dołącz do naszego Serwera Wsparcia.
+      idle_timeout: 'Odtwarzacz był zbyt długo bezczynny, więc zostałem rozłączony.'
+    disconnect:
+      alone: 'Zostałem sam, rozłączam się <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: Kolejka została zakończona.
+        prompts:
+          review:
+            message: 'Cieszysz się {{mention}}? Zostaw nam opinię!'
+            button: Zostaw opinię
+          vote:
+            message: >-
+              Cieszysz się {{mention}}? Zagłosuj na nas, aby więcej osób mogło
+              nas znaleźć!
+            button: Zagłosuj na nas
+          support:
+            message: >-
+              Potrzebujesz pomocy lub chcesz porozmawiać? Dołącz do społeczności
+              Discord!
+            button: Dołącz do serwera
+commands:
+  debug:
+    footer: 'Udostępnij ten podsumowanie, prosząc o pomoc dotyczącą odtwarzacza.'
+    loop_indefinite: '{{mode}} (bezwzględnie)'
+    loop_remaining: '{{mode}} (pozostało: {{count, number}})'
+  dev:
+    entitlement_granted: 'Przyznano uprawnienie {{entitlement}} dla SKU {{sku}} na gildię {{guild}}.'
+    player_not_found: 'Nie istnieje odtwarzacz dla gildii {{guild}}.'
+    joining: 'Łączenie z {{channel}} ({{connection}})'
+    connected: 'Połączono z {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Masz problemy? Dołącz do naszego **serwera wsparcia**!
+  stats:
+    instance_failed: Nie udało się pobrać instancji.
+  crossfade:
+    current:
+      enabled: 'Czas crossfadingu ustawiony na {{duration, number}}s.'
+      disabled: Crossfading jest wyłączony.
+    updated:
+      enabled: 'Czas crossfadingu ustawiony na {{duration, number}}s.'
+      disabled: Crossfading wyłączony.
+  default_volume:
+    current: 'Domyślna głośność na tym serwerze wynosi obecnie {{volume, number}}.'
+    updated: 'Zaktualizowano domyślną głośność tego serwera na {{volume, number}}.'
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Obecnie {{mention}} będzie aktualizować status kanału głosowego przy
+        zmianie aktualnej piosenki.
+      disabled: >-
+        Obecnie {{mention}} nie będzie aktualizować statusu kanału głosowego
+        przy zmianie aktualnej piosenki.
+    updated:
+      enabled: >-
+        {{mention}} teraz będzie aktualizować status kanału głosowego przy
+        zmianie aktualnej piosenki.
+      disabled: >-
+        {{mention}} już nie będzie aktualizować statusu kanału głosowego przy
+        zmianie aktualnej piosenki.
+  autoplay:
+    current:
+      enabled: 'Obecnie {{mention}} automatycznie odtwarza polecane utwory.'
+      disabled: 'Obecnie {{mention}} nie odtwarza automatycznie polecanych utworów.'
+    updated:
+      enabled: '{{mention}} teraz będzie automatycznie odtwarzać polecane utwory.'
+      disabled: '{{mention}} już nie będzie automatycznie odtwarzać polecanych utworów.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} nie wysyła powiadomień do konkretnego kanału.'
+        some: '{{mention}} obecnie wysyła powiadomienia do {{channel}}'
+      clear: '{{mention}} już nie będzie wysyłać powiadomień do konkretnego kanału.'
+      update: '{{mention}} teraz będzie wysyłać powiadomienia do {{channel}}'
+  leave:
+    success_channel: 'Opuszczono {{channel}}.'
+    destroyed: Zniszczono odtwarzacz dla tego serwera.
+  join:
+    conflict: Już znajduję się na kanale głosowym.
+    failure: Nie udało mi się dołączyć do tego kanału głosowego.
+    in_progress: Już dołączam do tego kanału głosowego.
+    perms:
+      missing: >-
+        Potrzebuję uprawnień, aby **wyswietlać**, **łączyć** i **mówić** na
+        {{channel}}.
+    success: 'W porządku, dołączyłem do {{channel}}.'
+  skip:
+    success: Pominięto.
+    to:
+      invalid: 'Nie rozpoznałem podanej piosenki. Spróbuj użyć autouzupełniania :)'
+      none: 'Nie mogłem przewinąć do tej piosenki, czy nadal znajduje się w kolejce?'
+  seek:
+    unseekable: Aktualna piosenka nie jest możliwa do przewijania.
+    no_duration: Aktualna piosenka nie ma określonej długości.
+    syntax: 'Znacznik czasu musi być w formacie `mm:ss`'
+    out_of_bounds: >-
+      Podana pozycja przekracza długość aktualnej piosenki, {{given}} >
+      {{length}}
+    success: 'Przewinięto do {{given}}'
+  loop:
+    nothing:
+      success: Powtarzanie zostało wyłączone.
+      already: Powtarzanie było już wyłączone.
+    track:
+      indef: Teraz aktualna piosenka będzie powtarzana w nieskończoność.
+      times_one: Aktualna piosenka zostanie powtórzona raz.
+      times_other: 'Aktualna piosenka będzie teraz powtarzana *{{count, number}} razy*.'
+      nuhuh: Aktualna piosenka jest już zapętlona.
+    queue:
+      indef: Teraz kolejka będzie powtarzana w nieskończoność.
+      times_one: Kolejka zostanie powtórzona raz.
+      times_other: 'Kolejka będzie teraz powtarzana *{{count, number}} razy*.'
+      nuhuh: Kolejka jest już zapętlona.
+  queue:
+    use_autocomplete: 'Hm? Spróbuj użyć autouzupełniania, aby wybrać piosenkę z kolejki.'
+    view:
+      footer: 'Strona {{cur, number}}/{{all, number}} (razem: {{tot, number}})'
+    move:
+      failed: Nie można przenieść tej piosenki do żądanej pozycji.
+      success: 'Przeniesiono {{track}} na pozycję #{{index, number}}'
+    clear:
+      none: Kolejka była pusta.
+      success_one: Usunięto 1 piosenkę z kolejki.
+      success_other: 'Usunięto {{count, number}} piosenek z kolejki.'
+    remove:
+      confirm: 'Czy na pewno chcesz usunąć {{track}} z kolejki?'
+      cancelled: 'W porządku, nie usunę tej piosenki.'
+      not_found: >-
+        Podana piosenka nie została znaleziona w kolejce, spróbuj użyć
+        autouzupełniania.
+      success: 'Usunięto {{track}} z kolejki.'
+    shuffle:
+      too_small: 'Kolejka jest zbyt mała, aby ją potasować.'
+      success: Kolejka została potasowana.
+  pause:
+    already: Odtwarzacz jest już wstrzymany.
+    success: Wstrzymałem odtwarzacz.
+  resume:
+    server_muted: 'Nie mogę wznowić odtwarzania, gdy jestem wyciszony na serwerze.'
+    already: Odtwarzacz nie był wstrzymany.
+    success: Wznowiłem odtwarzanie.
+  play:
+    domain:
+      other: Podany link nie jest obsługiwany.
+      youtube: Eara tymczasowo usunęła wsparcie dla linków YouTube.
+      vote_locked: >
+        Musisz zagłosować na {{mention}} na **top.gg**, aby uzyskać dostęp do
+        linków `{{domain}}`!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Nic nie zostało zwrócone dla Twojego zapytania.
+    error: Wystąpił błąd podczas ładowania Twojego zapytania.
+    invalid_url: Przekazano nieprawidłowy adres URL.
+    queue_full: >-
+      Kolejka nie ma wystarczającej ilości miejsca. Usuń niektóre utwory przed
+      dodaniem nowych.
+    added: 'Dodano {{item}} do kolejki.'
+    loaded:
+      album_one: 'jeden utwór z albumu {{collection}}'
+      album_other: '{{count, number}} utworów z albumu {{collection}}'
+      artist_one: 'najlepszy utwór z *{{collection}}*'
+      artist_other: 'najlepsze {{count, number}} utworów z *{{collection}}*'
+      playlist_one: 'jeden utwór z listy odtwarzania *{{collection}}*'
+      playlist_other: '{{count, number}} utworów z listy odtwarzania *{{collection}}*'
+  stop:
+    success: Odtwarzacz został zatrzymany.
+  volume:
+    current: 'Bieżąca głośność to {{volume, number}}.'
+    out_of_bounds: Głośność musi być między 0 a 255.
+    success: 'Głośność została ustawiona na {{volume, number}}.'
+  effects:
+    enabled: 'Włączono efekt ''*{{effect}}*''!'
+    disabled: 'Wyłączono efekt ''*{{effect}}*''!'
+    cleared: Usunięto wszystkie włączone efekty!
+  immersive:
+    disabled: Tryb immersyjny został wyłączony.

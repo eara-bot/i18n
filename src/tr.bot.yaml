@@ -1,0 +1,286 @@
+checks:
+  guild_only: Bu komut yalnızca bir sunucuda kullanılabilir.
+  not_playing: Bu sunucuda müzik çalmıyorum.
+  user_vc_none: Bu komutu kullanmak için bir ses kanalında olmalısınız.
+  user_vc_diff: Bu komutu kullanmak için benimle aynı ses kanalında olmalısınız.
+  queue_empty: Kuyruk boş.
+  nothing_playing: Çalan bir şey yok.
+  unknown_command: Bu komutu tanımıyorum...
+  owner_only: Bu komutu kullanmaya izniniz yok.
+  maintenance: 'Bot bakımda, daha sonra tekrar kontrol edin.'
+common:
+  join_our_server: 'Daha fazla bilgi için [*Discord Sunucusuna*]({{invite}} ) katılın'
+  message_deleted: '*Mesaj silindi*'
+  vote: Top.gg'de oy ver
+  discord_server: Destek Sunucusu
+  remove: Kaldır
+  play_now: Şimdi Oynat
+  next: Sonraki
+  previous: Önceki
+  unknown_artist: Bilinmeyen Sanatçı
+  unavailable_track: '[kullanılamayan parça meta verisi]'
+  unknown_url: Bilinmeyen URL
+  unsupported_url: Desteklenmeyen URL
+  source_url: '{{source}} URL'
+  unknown: Bilinmiyor
+  unknown_channel: Bilinmeyen Kanal
+  none: Yok
+  not_available: Yok
+  'yes': Evet
+  'no': Hayır
+  track: Parça
+  queue: Kuyruk
+  state:
+    loading: Yükleniyor
+    paused: Duraklatıldı
+    playing: Çalıyor
+    idle: Boşta
+    active: Etkin
+    'off': Kapalı
+    disconnected: Bağlantı Kesildi
+    joining: Bağlanılıyor
+    connected: Bağlandı
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Yanıtlamak için **30 saniyeniz** var.
+    confirm: Onayla
+    deny: Reddet
+  premium:
+    sku_required: Bu sunucu bu komuta erişmek için **Premium Aboneliği** gerektirir.
+    uninterrupted_access: Oyladıktan sonra *en fazla* 12 saat kesintisiz erişim alacaksınız!
+    vote_required: >
+      Bu komuta erişmek için **top.gg** üzerinde {{mention}} için oy
+      vermelisiniz.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Premium Al
+    vote_locks_premium: '**Premium**, sunucu genelinde oylama kilitlerini kaldırır.'
+buttons:
+  remove:
+    none: Kaldırmak istediğiniz öğeyi bulamadım...
+    done: '{{author}}, kuyruktan {{track}} parçasını kaldırdı.'
+  correlated_remove:
+    none: Kuyruğa eklenen şarkı(lar) artık hiçbir yerde bulunamıyor...
+    done: '{{author}}, kuyruktan {{count}} şarkı kaldırdı.'
+  play_now:
+    none: 'Zaten çalmış mıydınız, eklediğiniz şarkıları kuyrukta bulamadım.'
+    not_found: Kuyrukta bu şarkıyı bulamadım.
+    done_one: '{{requester}} tarafından istenen bir şarkıyı öncelikli hale getirdi.'
+    done_other: '{{requester}} tarafından istenen {{count}} şarkıyı öncelikli hale getirdi.'
+    footer_a: '{{prev}} konumundan {{next}} konumuna atlandı'
+    footer_b: '{{next}} konumuna atlandı'
+  item_actions:
+    not_found: O şarkı artık kuyrukta değil.
+  previous:
+    none: Daha önceki şarkılar yok...
+  skip_to: '{{user}}, {{track}} parçasına atladı'
+  stop: '{{user}}, oynatıcıyı durdurdu.'
+events:
+  command_failed:
+    message: Bu komut başarısız oldu.
+    reason:
+      unknown: 'Beklenmeyen bir hata oluştu, lütfen bunu geliştiricilere bildirin.'
+      panic: 'Komutunuzu işleyen görev çöktü, lütfen bunu geliştiricilere bildirin.'
+    footer: 'Geliştiricilere bu kimliği verin: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Kuyruk bittikten sonra müziğin devam etmesini {{command}} ile sağlayın.'
+      crossfade: >-
+        Cross-fading özelliğimiz olduğunu biliyor muydunuz? Yapılandırmak için
+        {{command}} kullanın.
+      effects: 'Geçerli şarkıya farklı bir hava katmak için {{command}} kullanın.'
+      history: >-
+        Daha önce çalınan bir şey mi arıyorsunuz? {{command}} ayrıca kuyruk
+        geçmişini de gösterebilir.
+      immersive: 'Deneyiminizi canlandırmak için {{spatialize}} veya {{orbit}} kullanın!'
+      loop: >-
+        Tekrar duymak mı istiyorsunuz? {{command}} bu şarkıyı veya tüm kuyruğu
+        tekrarlayabilir.
+      move: >-
+        Kuyruğu {{move_command}} ve {{remove_command}} ile yeniden sıralayın
+        veya temizleyin.
+      notifications: 'Sunucu yöneticileri, {{command}} ile özel bir oynatıcı kanalı seçebilir.'
+      seek: 'Geçerli şarkıda herhangi bir noktaya {{command}} ile atlayın.'
+      shuffle: 'Kuyruktaki şarkıları {{command}} ile karıştırın.'
+      voice_status: >-
+        Sunucu yöneticileri, ses kanalı durumunda geçerli şarkıyı {{command}}
+        ile gösterebilir.
+    notification:
+      join_failed: Ses kanalınıza katılamadım.
+      playback_failed: '{{track}} çalınamadı'
+      scheduler_failed: >-
+        Bu sunucu için oynatıcı zamanlayıcısı başarısız oldu. Lütfen `/leave`,
+        ardından `/join` komutlarını çalıştırın ve bu tekrar olursa lütfen
+        bildirin.
+      playback_stalled: >-
+        Çok fazla başarısız çalma girişimi. Devam ederse, lütfen Destek
+        Sunucumuza katılın.
+      idle_timeout: 'The player was idle for too long, so I disconnected.'
+    disconnect:
+      alone: 'I was left all alone, disconnecting <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: The queue has ended.
+        prompts:
+          review:
+            message: 'Enjoying {{mention}}? Leave us a review!'
+            button: Leave a review
+          vote:
+            message: 'Enjoying {{mention}}? Vote for us to help more people find it!'
+            button: Vote for us
+          support:
+            message: Need help or want to hang out? Join our Discord community!
+            button: Join our server
+commands:
+  debug:
+    footer: Share this summary when asking for player help.
+    loop_indefinite: '{{mode}} (indefinite)'
+    loop_remaining: '{{mode}} ({{count, number}} remaining)'
+  dev:
+    entitlement_granted: 'Granted entitlement {{entitlement}} for SKU {{sku}} to guild {{guild}}.'
+    player_not_found: 'No player exists for guild {{guild}}.'
+    joining: 'Joining {{channel}} ({{connection}})'
+    connected: 'Connected to {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Having issues? Join our **Support Server**!
+  stats:
+    instance_failed: Failed to retrieve instance.
+  crossfade:
+    current:
+      enabled: 'Cross-fading duration is set to {{duration, number}}s.'
+      disabled: Cross-fading is disabled.
+    updated:
+      enabled: 'Crossfade duration set to {{duration, number}}s.'
+      disabled: Crossfade disabled.
+  default_volume:
+    current: 'The default volume for this server is currently {{volume, number}}.'
+    updated: 'Updated the default volume for this server to {{volume, number}}.'
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Currently, {{mention}} will update the voice channel status when the
+        current song changes.
+      disabled: >-
+        Currently, {{mention}} will not update the voice channel status when the
+        current song changes.
+    updated:
+      enabled: >-
+        {{mention}} will now update the voice channel status when the current
+        song changes.
+      disabled: >-
+        {{mention}} will no longer update the voice channel status when the
+        current song changes.
+  autoplay:
+    current:
+      enabled: 'Currently, {{mention}} will auto-play recommended songs.'
+      disabled: 'Currently, {{mention}} is not auto-playing recommended songs.'
+    updated:
+      enabled: '{{mention}} will now auto-play recommended songs.'
+      disabled: '{{mention}} will no longer auto-play recommended songs.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} is not sending notifications to a specific channel.'
+        some: '{{mention}} is currently sending notifications to {{channel}}'
+      clear: '{{mention}} will no longer send notifications to a specific channel.'
+      update: '{{mention}} will now send notifications to {{channel}}'
+  leave:
+    success_channel: 'Left {{channel}}.'
+    destroyed: Destroyed the player for this server.
+  join:
+    conflict: I'm already in a voice channel.
+    failure: I failed to join that voice channel.
+    in_progress: I am already joining that voice channel.
+    perms:
+      missing: >-
+        I need permissions to **view**, **connect**, and **speak** in
+        {{channel}}.
+    success: 'Okay, I joined {{channel}}.'
+  skip:
+    success: Skipped.
+    to:
+      invalid: 'I didn''t recognize the song you gave me. Try using auto-complete :)'
+      none: 'I could not skip to that song, is it still in the queue?'
+  seek:
+    unseekable: The current song is not seekable.
+    no_duration: The current song has no duration.
+    syntax: 'The timecode must be in the format `mm:ss`'
+    out_of_bounds: >-
+      The position you gave will exceed the length of the current song,
+      {{given}} > {{length}}
+    success: 'Seeked to {{given}}'
+  loop:
+    nothing:
+      success: Looping has been disabled.
+      already: Looping was already disabled.
+    track:
+      indef: Now looping the current song indefinitely.
+      times_one: The current song will loop once.
+      times_other: 'The current song will now loop for *{{count, number}} times*.'
+      nuhuh: The current song is already being looped.
+    queue:
+      indef: Now looping the queue indefinitely.
+      times_one: The queue will loop once.
+      times_other: 'The queue will now loop for *{{count, number}} times*.'
+      nuhuh: The queue is already looping.
+  queue:
+    use_autocomplete: Hm? Try using the autocomplete to select a queued song.
+    view:
+      footer: 'Page {{cur, number}}/{{all, number}} ({{tot, number}} total)'
+    move:
+      failed: Could not move that song to the requested position.
+      success: 'Moved {{track}} to #{{index, number}}'
+    clear:
+      none: The queue was empty.
+      success_one: Removed 1 song from the queue.
+      success_other: 'Removed {{count, number}} songs from the queue.'
+    remove:
+      confirm: 'Are you sure you want to remove {{track}} from the queue?'
+      cancelled: 'Okay, I won''t remove that song.'
+      not_found: 'The provided song was not found in the queue, try using autocomplete.'
+      success: 'Removed {{track}} from the queue.'
+    shuffle:
+      too_small: The queue is too small to be shuffled.
+      success: The queue has been shuffled.
+  pause:
+    already: The player is already paused.
+    success: I've paused the player.
+  resume:
+    server_muted: Cannot resume the player while I'm server muted.
+    already: The player wasn't paused.
+    success: I've resumed the player.
+  play:
+    domain:
+      other: Sağladığınız bağlantı desteklenmiyor.
+      youtube: 'Eara, geçici olarak YouTube bağlantıları için desteği kaldırdı.'
+      vote_locked: >
+        `{{domain}}` bağlantılarına erişmek için **top.gg** üzerinde {{mention}}
+        için oy vermelisiniz!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Sorgunuz için hiçbir şey döndürülmedi.
+    error: Sorgunuzu yüklerken bir hata oluştu.
+    invalid_url: Geçersiz bir URL girdiniz.
+    queue_full: Kuyrukta yeterli yer yok. Daha fazla eklemek için bazı şarkıları kaldırın.
+    added: '{{item}} kuyruğa eklendi.'
+    loaded:
+      album_one: 'albumden bir şarkı {{collection}}'
+      album_other: '{{count, number}} şarkı albümünden {{collection}}'
+      artist_one: '*{{collection}}*''nin en iyi şarkısı'
+      artist_other: '*{{collection}}*''nin en iyi {{count, number}} şarkısı'
+      playlist_one: '*{{collection}}* çalma listesinden bir şarkı'
+      playlist_other: '*{{collection}}* çalma listesinden {{count, number}} şarkı'
+  stop:
+    success: Oynatıcı durduruldu.
+  volume:
+    current: 'Geçerli ses düzeyi {{volume, number}}.'
+    out_of_bounds: Ses düzeyi 0 ile 255 arasında olmalıdır.
+    success: 'Ses düzeyi {{volume, number}} olarak ayarlandı.'
+  effects:
+    enabled: '''*{{effect}}*'' efekti etkinleştirildi!'
+    disabled: '''*{{effect}}*'' efekti devre dışı bırakıldı!'
+    cleared: Tüm etkiler temizlendi!
+  immersive:
+    disabled: Gömülü kip devre dışı.

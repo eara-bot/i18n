@@ -1,0 +1,309 @@
+checks:
+  guild_only: Perintah ini hanya dapat digunakan di server.
+  not_playing: Saya tidak memutar musik di server ini.
+  user_vc_none: Anda harus berada dalam saluran suara untuk menggunakan perintah ini.
+  user_vc_diff: >-
+    Anda harus berada di saluran suara yang sama dengan saya untuk menggunakan
+    perintah ini.
+  queue_empty: Antrian kosong.
+  nothing_playing: Tidak ada yang sedang diputar.
+  unknown_command: Saya tidak mengenali perintah ini...
+  owner_only: Anda tidak diizinkan menggunakan perintah ini.
+  maintenance: 'Bot sedang dalam perawatan, coba lagi nanti.'
+common:
+  join_our_server: >-
+    Bergabunglah dengan [*Server Discord*]({{invite}} ) untuk informasi lebih
+    lanjut
+  message_deleted: '*Pesan telah dihapus*'
+  vote: Vote di Top.gg
+  discord_server: Server Dukungan
+  remove: Hapus
+  play_now: Putar Sekarang
+  next: Berikutnya
+  previous: Sebelumnya
+  unknown_artist: Artis Tidak Dikenal
+  unavailable_track: '[metadata trek tidak tersedia]'
+  unknown_url: URL Tidak Dikenal
+  unsupported_url: URL Tidak Didukung
+  source_url: 'URL {{source}}'
+  unknown: Tidak Dikenal
+  unknown_channel: Saluran Tidak Dikenal
+  none: Tidak ada
+  not_available: N/A
+  'yes': Ya
+  'no': Tidak
+  track: Trek
+  queue: Antrian
+  state:
+    loading: Memuat
+    paused: Dijeda
+    playing: Sedang Diputar
+    idle: Menganggur
+    active: Aktif
+    'off': Matikan
+    disconnected: Terputus
+    joining: Bergabung
+    connected: Terhubung
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Anda memiliki **30 detik** untuk merespons.
+    confirm: Konfirmasi
+    deny: Tolak
+  premium:
+    sku_required: Server ini memerlukan **Langganan Premium** untuk mengakses perintah ini.
+    uninterrupted_access: >-
+      Setelah memberikan suara, Anda akan mendapatkan akses tanpa gangguan
+      *hingga* 12 jam!
+    vote_required: >
+      Anda harus memilih suara untuk {{mention}} di **top.gg** agar bisa
+      mengakses perintah ini.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Dapatkan Premium
+    vote_locks_premium: '**Premium** menghapus kunci suara untuk seluruh server.'
+buttons:
+  remove:
+    none: Saya tidak dapat menemukan item yang ingin Anda hapus...
+    done: '{{author}} menghapus {{track}} dari antrian.'
+  correlated_remove:
+    none: Lagu-lagu yang telah diantrikan tidak dapat ditemukan...
+    done: '{{author}} menghapus {{count}} lagu yang telah diantrikan.'
+  play_now:
+    none: >-
+      Saya tidak dapat menemukan lagu-lagu yang Anda tambahkan dalam antrian,
+      apakah Anda sudah memutarnya?
+    not_found: Tidak dapat menemukan lagu tersebut dalam antrian.
+    done_one: 'Memprioritaskan satu lagu yang diminta oleh {{requester}}.'
+    done_other: 'Memprioritaskan {{count}} lagu yang diminta oleh {{requester}}.'
+    footer_a: 'Melewati ke {{next}} dari {{prev}}'
+    footer_b: 'Melewati ke {{next}}'
+  item_actions:
+    not_found: Lagu tersebut tidak lagi ada dalam antrian.
+  previous:
+    none: Tidak ada lagu sebelumnya...
+  skip_to: '{{user}} telah melewati ke {{track}}'
+  stop: '{{user}} telah menghentikan pemutar.'
+events:
+  command_failed:
+    message: Perintah ini gagal.
+    reason:
+      unknown: 'Terjadi kesalahan tak terduga, harap laporkan ini kepada pengembang.'
+      panic: >-
+        Tugas yang sedang memproses perintah Anda mengalami kegagalan, harap
+        laporkan ini kepada pengembang.
+    footer: 'Berikan ID ini kepada pengembang: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Teruskan musik saat antrian berakhir dengan {{command}}.'
+      crossfade: >-
+        Apakah Anda tahu kami memiliki efek silang (cross-fading)? Gunakan
+        {{command}} untuk mengaturnya.
+      effects: 'Beri nuansa berbeda pada lagu saat ini dengan {{command}}.'
+      history: >-
+        Mencari sesuatu yang diputar sebelumnya? {{command}} juga dapat
+        menampilkan riwayat antrian.
+      immersive: 'Gunakan {{spatialize}} atau {{orbit}} untuk memperkaya pengalaman Anda!'
+      loop: >-
+        Ingin mendengarnya lagi? {{command}} dapat mengulangi lagu ini atau
+        seluruh antrian.
+      move: >-
+        Atur ulang atau bersihkan antrian dengan {{move_command}} dan
+        {{remove_command}}.
+      notifications: 'Manajer server dapat memilih saluran pemutar khusus dengan {{command}}.'
+      seek: 'Lompat ke bagian mana pun dari lagu ini dengan {{command}}.'
+      shuffle: 'Acak lagu-lagu yang menunggu dalam antrian dengan {{command}}.'
+      voice_status: >-
+        Manajer server dapat menampilkan lagu saat ini di status saluran suara
+        dengan {{command}}.
+    notification:
+      join_failed: Gagal bergabung ke saluran suara Anda.
+      playback_failed: 'Gagal memutar {{track}}'
+      scheduler_failed: >-
+        Penjadwal pemutar untuk server ini gagal. Harap jalankan `/leave`, lalu
+        `/join`, dan laporkan jika ini terjadi lagi.
+      playback_stalled: >-
+        Terlalu banyak percobaan pemutaran yang gagal. Jika masalah berlanjut,
+        harap bergabung ke Server Dukungan kami.
+      idle_timeout: 'Pemutar terlalu lama tidak aktif, sehingga saya memutuskan koneksi.'
+    disconnect:
+      alone: 'Saya ditinggalkan sendirian, terputus <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: Antrian telah berakhir.
+        prompts:
+          review:
+            message: 'Menikmati {{mention}}? Tinggalkan ulasan untuk kami!'
+            button: Tinggalkan ulasan
+          vote:
+            message: >-
+              Menikmati {{mention}}? Pilih kami agar lebih banyak orang bisa
+              menemukannya!
+            button: Pilih kami
+          support:
+            message: >-
+              Butuh bantuan atau ingin bersantai? Bergabunglah dengan komunitas
+              Discord kami!
+            button: Bergabunglah ke server kami
+commands:
+  debug:
+    footer: Bagikan ringkasan ini saat meminta bantuan pemutar.
+    loop_indefinite: '{{mode}} (tak terbatas)'
+    loop_remaining: '{{mode}} (tersisa {{count, number}})'
+  dev:
+    entitlement_granted: 'Hak akses {{entitlement}} diberikan untuk SKU {{sku}} ke guild {{guild}}.'
+    player_not_found: 'Tidak ada pemutar yang tersedia untuk guild {{guild}}.'
+    joining: 'Bergabung ke {{channel}} ({{connection}})'
+    connected: 'Terhubung ke {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Mengalami masalah? Bergabunglah ke **Server Dukungan** kami!
+  stats:
+    instance_failed: Gagal mengambil instance.
+  crossfade:
+    current:
+      enabled: 'Durasi cross-fade diatur ke {{duration, number}}s.'
+      disabled: Cross-fade dinonaktifkan.
+    updated:
+      enabled: 'Durasi crossfade diatur ke {{duration, number}}s.'
+      disabled: Crossfade dinonaktifkan.
+  default_volume:
+    current: 'Volume default untuk server ini saat ini adalah {{volume, number}}.'
+    updated: >-
+      Volume default untuk server ini telah diperbarui menjadi {{volume,
+      number}}.
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Saat ini, {{mention}} akan memperbarui status saluran suara ketika lagu
+        berubah.
+      disabled: >-
+        Saat ini, {{mention}} tidak akan memperbarui status saluran suara ketika
+        lagu berubah.
+    updated:
+      enabled: >-
+        {{mention}} sekarang akan memperbarui status saluran suara ketika lagu
+        berubah.
+      disabled: >-
+        {{mention}} tidak akan lagi memperbarui status saluran suara ketika lagu
+        berubah.
+  autoplay:
+    current:
+      enabled: 'Saat ini, {{mention}} akan memutar otomatis lagu yang direkomendasikan.'
+      disabled: 'Saat ini, {{mention}} tidak memutar otomatis lagu yang direkomendasikan.'
+    updated:
+      enabled: '{{mention}} sekarang akan memutar otomatis lagu yang direkomendasikan.'
+      disabled: '{{mention}} tidak akan lagi memutar otomatis lagu yang direkomendasikan.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} tidak mengirim notifikasi ke saluran tertentu.'
+        some: '{{mention}} saat ini mengirim notifikasi ke {{channel}}'
+      clear: '{{mention}} tidak akan lagi mengirim notifikasi ke saluran tertentu.'
+      update: '{{mention}} sekarang akan mengirim notifikasi ke {{channel}}'
+  leave:
+    success_channel: 'Keluar dari {{channel}}.'
+    destroyed: Memusnahkan pemutar untuk server ini.
+  join:
+    conflict: Saya sudah berada dalam saluran suara.
+    failure: Saya gagal bergabung ke saluran suara tersebut.
+    in_progress: Saya sudah bergabung ke saluran suara tersebut.
+    perms:
+      missing: >-
+        Saya membutuhkan izin untuk **melihat**, **terhubung**, dan
+        **berbicara** di {{channel}}.
+    success: 'Baik, saya telah bergabung ke {{channel}}.'
+  skip:
+    success: Dilewati.
+    to:
+      invalid: >-
+        Saya tidak mengenali lagu yang Anda berikan. Coba gunakan pelengkapan
+        otomatis :)
+      none: >-
+        Saya tidak dapat melewati ke lagu tersebut, apakah lagu itu masih dalam
+        antrian?
+  seek:
+    unseekable: Lagu saat ini tidak dapat dilompati.
+    no_duration: Lagu saat ini tidak memiliki durasi.
+    syntax: 'Timecode harus dalam format `mm:ss`'
+    out_of_bounds: >-
+      Posisi yang Anda berikan akan melebihi panjang lagu saat ini, {{given}} >
+      {{length}}
+    success: 'Melompat ke {{given}}'
+  loop:
+    nothing:
+      success: Pengulangan telah dinonaktifkan.
+      already: Pengulangan sudah dinonaktifkan.
+    track:
+      indef: Sekarang mengulang lagu saat ini tanpa batas.
+      times_one: Lagu saat ini akan diulang sekali.
+      times_other: 'Lagu saat ini sekarang akan diulang selama *{{count, number}} kali*.'
+      nuhuh: Lagu saat ini sudah diulang.
+    queue:
+      indef: Sekarang mengulang antrian tanpa batas.
+      times_one: Antrian akan diulang sekali.
+      times_other: 'Antrian sekarang akan diulang selama *{{count, number}} kali*.'
+      nuhuh: Antrian sudah sedang diulang.
+  queue:
+    use_autocomplete: Hm? Coba gunakan pelengkapan otomatis untuk memilih lagu dalam antrian.
+    view:
+      footer: 'Halaman {{cur, number}}/{{all, number}} (total {{tot, number}})'
+    move:
+      failed: Tidak dapat memindahkan lagu tersebut ke posisi yang diminta.
+      success: 'Memindahkan {{track}} ke #{{index, number}}'
+    clear:
+      none: Antrian kosong.
+      success_one: Menghapus 1 lagu dari antrian.
+      success_other: 'Menghapus {{count, number}} lagu dari antrian.'
+    remove:
+      confirm: 'Apakah Anda yakin ingin menghapus {{track}} dari antrian?'
+      cancelled: 'Baik, saya tidak akan menghapus lagu tersebut.'
+      not_found: >-
+        Lagu yang diberikan tidak ditemukan dalam antrian, coba gunakan
+        pelengkapan otomatis.
+      success: 'Menghapus {{track}} dari antrian.'
+    shuffle:
+      too_small: Antrian terlalu kecil untuk diacak.
+      success: Antrian telah diacak.
+  pause:
+    already: Pemutar sudah dijeda.
+    success: Saya telah menjeda pemutar.
+  resume:
+    server_muted: Tidak dapat melanjutkan pemutar saat saya dibisukan di server.
+    already: Pemutar tidak sedang dijeda
+    success: Saya telah melanjutkan pemutar.
+  play:
+    domain:
+      other: Tautan yang Anda berikan tidak didukung.
+      youtube: Eara telah sementara waktu menghapus dukungan untuk tautan YouTube.
+      vote_locked: >
+        Anda harus memberikan suara untuk {{mention}} di **top.gg** agar dapat
+        mengakses tautan `{{domain}}`!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Tidak ada hasil yang ditemukan untuk permintaan Anda.
+    error: Terjadi kesalahan saat memuat permintaan Anda.
+    invalid_url: Anda memasukkan URL yang tidak valid.
+    queue_full: >-
+      Antrian tidak memiliki cukup ruang. Hapus beberapa lagu sebelum
+      menambahkan lebih banyak.
+    added: 'Menambahkan {{item}} ke antrian.'
+    loaded:
+      album_one: 'satu lagu dari album {{collection}}'
+      album_other: '{{count, number}} lagu dari album {{collection}}'
+      artist_one: 'lagu teratas dari *{{collection}}*'
+      artist_other: '{{count, number}} lagu teratas dari *{{collection}}*'
+      playlist_one: 'satu lagu dari daftar putar *{{collection}}*'
+      playlist_other: '{{count, number}} lagu dari daftar putar *{{collection}}*'
+  stop:
+    success: Pemutar telah dihentikan.
+  volume:
+    current: 'Volume saat ini adalah {{volume, number}}.'
+    out_of_bounds: Volume harus berada di antara 0 dan 255.
+    success: 'Volume telah diatur ke {{volume, number}}.'
+  effects:
+    enabled: 'Efek ''*{{effect}}*'' telah diaktifkan!'
+    disabled: 'Efek ''*{{effect}}*'' telah dinonaktifkan!'
+    cleared: Semua efek yang diaktifkan telah dihapus!
+  immersive:
+    disabled: Mode imersif dinonaktifkan.

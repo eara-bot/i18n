@@ -1,0 +1,305 @@
+checks:
+  guild_only: Šią komandą galima naudoti tik serveryje.
+  not_playing: Aš negroju muzikos šiame serveryje.
+  user_vc_none: 'Norėdami naudoti šią komandą, turite būti balsų kanale.'
+  user_vc_diff: 'Norėdami naudoti šią komandą, turite būti tame pačiame balsų kanale kaip aš.'
+  queue_empty: Eilė tuščia.
+  nothing_playing: Niekas negroja.
+  unknown_command: Nepažįstu šios komandos...
+  owner_only: Jūs negalite naudoti šios komandos.
+  maintenance: 'Botas yra techninėje priežiūroje, užeikite vėliau.'
+common:
+  join_our_server: >-
+    Prisijunkite prie mūsų [*Discord Serverio*]({{invite}} ) dėl daugiau
+    informacijos
+  message_deleted: '*Pranešimas buvo ištrintas*'
+  vote: Balsuokite Top.gg
+  discord_server: Palaikymo serveris
+  remove: Pašalinti
+  play_now: Groti dabar
+  next: Kitas
+  previous: Ankstesnis
+  unknown_artist: Nežinomas atlikėjas
+  unavailable_track: '[nerašomi takelio metaduomenys]'
+  unknown_url: Nežinoma nuoroda
+  unsupported_url: Nepalaikoma nuoroda
+  source_url: '{{source}} nuoroda'
+  unknown: Nežinomas
+  unknown_channel: Nežinomas kanalas
+  none: Nėra
+  not_available: N/A
+  'yes': Taip
+  'no': Ne
+  track: Takelis
+  queue: Eilė
+  state:
+    loading: Kraunasi
+    paused: Pauzė
+    playing: Grojama
+    idle: Laukimas
+    active: Aktyvus
+    'off': Išjungtas
+    disconnected: Atjungtas
+    joining: Prisijungiama
+    connected: Prisijungęs
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Jūs turite **30 sekundžių** atsakyti.
+    confirm: Patvirtinti
+    deny: Atmesti
+  premium:
+    sku_required: >-
+      Šis serveris reikalauja **Premium prenumeratos**, kad galėtumėte pasiekti
+      šią komandą.
+    uninterrupted_access: Po balsavimo gausite *iki* 12 valandų neriboto prieigos!
+    vote_required: |
+      Norėdami pasiekti šią komandą, turite balsuoti už {{mention}} **top.gg**.
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Gauti Premium
+    vote_locks_premium: '**Premium** pašalina balsavimo apribojimus visam serveriui.'
+buttons:
+  remove:
+    none: 'Nepavyko rasti elemento, kurį norėjote pašalinti...'
+    done: '{{author}} pašalino {{track}} iš eilės.'
+  correlated_remove:
+    none: 'Dainos, kurios buvo eilėje, nerastos...'
+    done: '{{author}} pašalino {{count}} dainų iš eilės.'
+  play_now:
+    none: 'Nepavyko rasti dainų, kurias pridėjote į eilę. Gal jau jas grojote?'
+    not_found: Nepavyko rasti tos dainos eilėje.
+    done_one: 'Aukštesnį prioritetai suteikta vienai dainai, kurią paprašė {{requester}}.'
+    done_other: >-
+      Aukštesnį prioritetai suteikta {{count}} dainoms, kurias paprašė
+      {{requester}}.
+    footer_a: 'Peršokta iš {{prev}} į {{next}}'
+    footer_b: 'Peršokta į {{next}}'
+  item_actions:
+    not_found: Ši daina jau nebe eilėje.
+  previous:
+    none: Ankstesnių dainų nėra...
+  skip_to: '{{user}} peršoko į {{track}}'
+  stop: '{{user}} sustabdė grotuvą.'
+events:
+  command_failed:
+    message: Ši komanda nepavyko.
+    reason:
+      unknown: 'Įvyko netikėta klaida, prašome pranešti apie tai kūrėjams.'
+      panic: >-
+        Užduotis, apdorojanti jūsų komandą, nutrūko, prašome pranešti apie tai
+        kūrėjams.
+    footer: 'Pateikite šį ID kūrėjams: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Tęskite muziką, kai eilė pasibaigia su {{command}}.'
+      crossfade: >-
+        Ar žinojote, kad turime kryžminį perėjimą? Naudokite {{command}}, kad jį
+        konfigūruotumėte.
+      effects: 'Suteikite dabartinei dainai kitokį skambesį su {{command}}.'
+      history: >-
+        Ieškote anksčiau grojusios dainos? {{command}} taip pat gali parodyti
+        eilės istoriją.
+      immersive: >-
+        Naudokite {{spatialize}} arba {{orbit}}, kad pagerintumėte savo
+        klausymosi patirtį!
+      loop: 'Norite vėl išgirsti? {{command}} gali kartoti šią dainą arba visą eilę.'
+      move: >-
+        Perkirkite arba išvalykite eilę naudodami {{move_command}} ir
+        {{remove_command}}.
+      notifications: >-
+        Serverio administratoriai gali pasirinkti specialų grotuvo kanalą su
+        {{command}}.
+      seek: 'Peršokite į bet kurią šios dainos vietą naudodami {{command}}.'
+      shuffle: 'Išmaišykite eilėje laukiančias dainas su {{command}}.'
+      voice_status: >-
+        Serverio administratoriai gali rodyti dabartinę dainą balsinio kanalo
+        būsenoje su {{command}}.
+    notification:
+      join_failed: Nepavyko prisijungti prie jūsų balsinio kanalo.
+      playback_failed: 'Nepavyko groti {{track}}'
+      scheduler_failed: >-
+        Šio serverio grojaraščio tvarkyklė nepavyko. Prašome paleisti `/leave`,
+        tada `/join`, ir pranešti apie tai, jei tai kartosis.
+      playback_stalled: >-
+        Per daug nepavykusių grojimo bandymų. Jei problema išlieka, prašome
+        prisijungti prie mūsų Pagalbos serverio.
+      idle_timeout: 'Grotuvas buvo neveikiantis per ilgą laiką, todėl atsijungiau.'
+    disconnect:
+      alone: 'Buvau paliktas visiškai vienas, atsijungiama <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: Eiliščio eilė baigėsi.
+        prompts:
+          review:
+            message: 'Mėgaujatės {{mention}}? Palikite atsiliepimą!'
+            button: Palikti atsiliepimą
+          vote:
+            message: >-
+              Mėgaujatės {{mention}}? Balsuokite už mus, kad padėtumėte daugiau
+              žmonių tai rasti!
+            button: Balsuoti už mus
+          support:
+            message: >-
+              Reikia pagalbos ar norite pasikalbėti? Prisijunkite prie mūsų
+              Discord bendruomenės!
+            button: Prisijungti prie mūsų serverio
+commands:
+  debug:
+    footer: 'Kai prašote pagalbos dėl grotuvo, pasidalinkite šiuo santrauka.'
+    loop_indefinite: '{{mode}} (neribotai)'
+    loop_remaining: '{{mode}} (liko {{count, number}})'
+  dev:
+    entitlement_granted: >-
+      Suteiktas teisės suteikimas {{entitlement}} prekės vienetui {{sku}}
+      serveriui {{guild}}.
+    player_not_found: 'Nėra jokio grotuvo šiam serveriui {{guild}}.'
+    joining: 'Prisijungiama prie {{channel}} ({{connection}})'
+    connected: 'Prijungta prie {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Turite problemų? Prisijunkite prie mūsų **pagalbos serverio**!
+  stats:
+    instance_failed: Nepavyko gauti egzemplioriaus.
+  crossfade:
+    current:
+      enabled: 'Perėjimo trukmė nustatyta į {{duration, number}} sek.'
+      disabled: Perėjimas išjungtas.
+    updated:
+      enabled: 'Perėjimo trukmė nustatyta į {{duration, number}} sek.'
+      disabled: Perėjimas išjungtas.
+  default_volume:
+    current: 'Šiuo metu numatytasis garsumas šiam serveriui yra {{volume, number}}.'
+    updated: 'Atnaujintas numatytasis garsumas šiam serveriui į {{volume, number}}.'
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Šiuo metu {{mention}} atnaujins balso kanalo būseną, kai pasikeis
+        dabartinė daina.
+      disabled: >-
+        Šiuo metu {{mention}} neatnaujins balso kanalo būsenos, kai pasikeis
+        dabartinė daina.
+    updated:
+      enabled: >-
+        {{mention}} dabar atnaujins balso kanalo būseną, kai pasikeis dabartinė
+        daina.
+      disabled: >-
+        {{mention}} daugiau nebeatsinaujins balso kanalo būsenos, kai pasikeis
+        dabartinė daina.
+  autoplay:
+    current:
+      enabled: 'Šiuo metu {{mention}} automatiškai groja rekomenduojamas dainas.'
+      disabled: 'Šiuo metu {{mention}} neautomatiškai groja rekomenduojamų dainų.'
+    updated:
+      enabled: '{{mention}} dabar automatiškai groja rekomenduojamas dainas.'
+      disabled: '{{mention}} daugiau nebeautomatiškai groja rekomenduojamų dainų.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} nepraneša pranešimų į konkretų kanalą.'
+        some: '{{mention}} šiuo metu siunčia pranešimus į {{channel}}'
+      clear: '{{mention}} daugiau nebesiųs pranešimų į konkretų kanalą.'
+      update: '{{mention}} dabar siųs pranešimus į {{channel}}'
+  leave:
+    success_channel: 'Išėjo iš {{channel}}.'
+    destroyed: Naikinamas grotuvas šiam serveriui.
+  join:
+    conflict: Aš jau esu balse.
+    failure: Nepavyko prisijungti prie to balso kanalo.
+    in_progress: Jau prisijungiu prie to balso kanalo.
+    perms:
+      missing: >-
+        Man reikia leidimų **peržiūrėti**, **prisijungti** ir **kalbėti** kanale
+        {{channel}}.
+    success: 'Gerai, prisijungiau prie {{channel}}.'
+  skip:
+    success: Praleista.
+    to:
+      invalid: >-
+        Nepažinau dainos, kurią man pateikėte. Pabandykite naudoti automatinį
+        užbaigimą :)
+      none: 'Nepavyko peršokti prie tos dainos, ar ji vis dar eilėje?'
+  seek:
+    unseekable: Dabartinė daina nėra peršokama.
+    no_duration: Dabartinė daina neturi trukmės.
+    syntax: 'Laiko kodas turi būti formatu `mm:ss`'
+    out_of_bounds: 'Nurodyta pozicija viršija dabartinės dainos ilgį, {{given}} > {{length}}'
+    success: 'Peršokta į {{given}}'
+  loop:
+    nothing:
+      success: Ciklinis grojimas išjungtas.
+      already: Ciklinis grojimas jau buvo išjungtas.
+    track:
+      indef: Dabar dabartinė daina bus kartojama neribotą laiką.
+      times_one: Dabartinė daina bus kartojama vieną kartą.
+      times_other: 'Dabartinė daina dabar bus kartojama *{{count, number}} kartus*.'
+      nuhuh: Dabartinė daina jau yra ciklinė.
+    queue:
+      indef: Dabar eilė bus kartojama neribotą laiką.
+      times_one: Eilė bus kartojama vieną kartą.
+      times_other: 'Eilė dabar bus kartojama *{{count, number}} kartus*.'
+      nuhuh: Eilė jau yra ciklinė.
+  queue:
+    use_autocomplete: >-
+      Hm? Pabandykite naudoti automatinį užbaigimą, kad pasirinktumėte eilėje
+      esančią dainą.
+    view:
+      footer: 'Puslapis {{cur, number}}/{{all, number}} (viso {{tot, number}})'
+    move:
+      failed: Nepavyko perkelti tos dainos į nurodytą poziciją.
+      success: 'Perkelta {{track}} į #{{index, number}}'
+    clear:
+      none: Eilė buvo tuščia.
+      success_one: Pašalinta 1 daina iš eilės.
+      success_other: 'Pašalinta {{count, number}} dainų iš eilės.'
+    remove:
+      confirm: 'Ar tikrai norite pašalinti {{track}} iš eilės?'
+      cancelled: 'Gerai, nepašalinsiu tos dainos.'
+      not_found: >-
+        Pateiktos dainos nerasta eilėje, pabandykite naudoti automatinį
+        užbaigimą.
+      success: 'Pašalinta {{track}} iš eilės.'
+    shuffle:
+      too_small: 'Eilė per maža, kad būtų išmaišyta.'
+      success: Eilė buvo išmaišyta.
+  pause:
+    already: Grotuvas jau yra pristabdytas.
+    success: Pristabdžiau grotuvą.
+  resume:
+    server_muted: 'Negaliu atnaujinti grotuvo, kol esu serverio nutildytas.'
+    already: Grotuvas nebuvo pristabdytas.
+    success: Atnaujinau grotuvą.
+  play:
+    domain:
+      other: Pateiktas nuorodos tipas nepalaikomas.
+      youtube: Eara laikinai pašalino YouTube nuorodų palaikymą.
+      vote_locked: >
+        Turite balsuoti už {{mention}} **top.gg**, kad galėtumėte pasiekti
+        `{{domain}}` nuorodas!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Jūsų užklausai nieko negrąžinta.
+    error: 'Įkeliant jūsų užklausą, įvyko klaida.'
+    invalid_url: Nurodėte netinkamą URL.
+    queue_full: >-
+      Eilėje nėra pakankamai vietos. Prieš pridedant daugiau, pašalinkite keletą
+      dainų.
+    added: '{{item}} pridėta į eilę.'
+    loaded:
+      album_one: 'viena daina iš albumo {{collection}}'
+      album_other: '{{count, number}} dainos iš albumo {{collection}}'
+      artist_one: '*{{collection}}*''s mėgstamiausia daina'
+      artist_other: '*{{collection}}*''s mėgstamiausios {{count, number}} dainos'
+      playlist_one: 'viena daina iš grojaraščio *{{collection}}*'
+      playlist_other: '{{count, number}} dainos iš grojaraščio *{{collection}}*'
+  stop:
+    success: Grojas buvo sustabdytas.
+  volume:
+    current: 'Dabartinis garsumas yra {{volume, number}}.'
+    out_of_bounds: Garsumas turi būti tarp 0 ir 255.
+    success: 'Garsumas nustatytas į {{volume, number}}.'
+  effects:
+    enabled: 'Įjungtas efektas ''*{{effect}}*''!'
+    disabled: 'Išjungtas efektas ''*{{effect}}*''!'
+    cleared: Išvalyti visi įjungti efektai!
+  immersive:
+    disabled: Imersyvus režimas išjungtas.

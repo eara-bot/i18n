@@ -1,0 +1,255 @@
+checks:
+  guild_only: 此命令只能在服务器中使用。
+  not_playing: 我在本服务器中没有播放音乐。
+  user_vc_none: 您必须处于语音频道中才能使用此命令。
+  user_vc_diff: 您必须与我处于同一语音频道才能使用此命令。
+  queue_empty: 队列为空。
+  nothing_playing: 没有正在播放的内容。
+  unknown_command: 我不认识此命令……
+  owner_only: 您不被允许使用此命令。
+  maintenance: 机器人正在进行维护，请稍后再试。
+common:
+  join_our_server: '加入我们的 [*Discord 服务器*]({{invite}} ) 以获取更多信息'
+  message_deleted: '*消息已删除*'
+  vote: 在 Top.gg 上投票
+  discord_server: 支持服务器
+  remove: 移除
+  play_now: 立即播放
+  next: 下一个
+  previous: 上一个
+  unknown_artist: 未知艺术家
+  unavailable_track: '[不可用的音轨元数据]'
+  unknown_url: 未知 URL
+  unsupported_url: 不支持的 URL
+  source_url: '{{source}} URL'
+  unknown: 未知
+  unknown_channel: 未知频道
+  none: 无
+  not_available: 不适用
+  'yes': 是
+  'no': 否
+  track: 音轨
+  queue: 队列
+  state:
+    loading: 加载中
+    paused: 已暂停
+    playing: 正在播放
+    idle: 空闲
+    active: 活跃
+    'off': 关闭
+    disconnected: 已断开
+    joining: 正在加入
+    connected: 已连接
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# 您有 **30 秒** 时间回应。
+    confirm: 确认
+    deny: 拒绝
+  premium:
+    sku_required: 此服务器需要**高级订阅**才能使用此命令。
+    uninterrupted_access: 投票后，您将获得*最多*12小时的无间断访问权限！
+    vote_required: |
+      您必须在 **top.gg** 上为 {{mention}} 投票才能使用此命令。
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: 获取高级权限
+    vote_locks_premium: '**高级权限**可为整个服务器移除投票限制。'
+buttons:
+  remove:
+    none: 我找不到您要移除的项目...
+    done: '{{author}} 已从队列中移除了 {{track}}'
+  correlated_remove:
+    none: 已排队的歌曲消失了...
+    done: '{{author}} 移除了 {{count}} 首已排队的歌曲。'
+  play_now:
+    none: 我在队列中找不到您添加的歌曲，您已经播放过它们了吗？
+    not_found: 无法在队列中找到该歌曲。
+    done_one: '已优先播放由 {{requester}} 请求的一首歌曲。'
+    done_other: '已优先播放由 {{requester}} 请求的 {{count}} 首歌曲。'
+    footer_a: '已从 {{prev}} 跳至 {{next}}'
+    footer_b: '已跳至 {{next}}'
+  item_actions:
+    not_found: 该歌曲已不在队列中。
+  previous:
+    none: 没有之前的歌曲了...
+  skip_to: '{{user}} 已跳至 {{track}}'
+  stop: '{{user}} 已停止播放器。'
+events:
+  command_failed:
+    message: 此命令执行失败。
+    reason:
+      unknown: 发生了一个意外错误，请向开发人员报告此问题。
+      panic: 处理您命令的任务出现异常，请向开发人员报告此问题。
+    footer: '请将此ID提供给开发人员：**{{eid}}**'
+  player:
+    tips:
+      autoplay: '当队列结束时，使用 {{command}} 让音乐继续播放。'
+      crossfade: '知道我们支持交叉淡入淡出吗？使用 {{command}} 进行配置。'
+      effects: '使用 {{command}} 给当前歌曲带来不同的感觉。'
+      history: '在寻找之前播放的内容吗？{{command}} 还可以显示队列历史。'
+      immersive: '使用 {{spatialize}} 或 {{orbit}} 来丰富您的体验！'
+      loop: '想再听一遍吗？{{command}} 可以重复播放这首歌曲或整个队列。'
+      move: '使用 {{move_command}} 和 {{remove_command}} 重新排序或清理队列。'
+      notifications: '服务器管理员可以选择一个专用的播放器频道，使用 {{command}}。'
+      seek: '使用 {{command}} 跳转到当前歌曲的任意位置。'
+      shuffle: '使用 {{command}} 打乱队列中等待的歌曲顺序。'
+      voice_status: '服务器管理员可以使用 {{command}} 在语音频道状态中显示当前歌曲。'
+    notification:
+      join_failed: 我无法加入您的语音频道。
+      playback_failed: '无法播放 {{track}}'
+      scheduler_failed: 此服务器的播放调度器失败。请运行 `/leave`，然后运行 `/join`，如果再次发生，请报告此问题。
+      playback_stalled: 播放尝试失败次数过多。如果持续发生，请加入我们的支持服务器。
+      idle_timeout: 播放器因空闲时间过长而断开连接。
+    disconnect:
+      alone: '我被孤单地留下了，已于<t:{{timestamp}}:R>断开连接'
+    queue:
+      end:
+        message: 播放队列已结束。
+        prompts:
+          review:
+            message: '喜欢{{mention}}吗？给我们留下评价吧！'
+            button: 留下评价
+          vote:
+            message: '喜欢{{mention}}吗？为我们投票，让更多人发现它！'
+            button: 为我们投票
+          support:
+            message: 需要帮助或想一起玩？加入我们的 Discord 社区！
+            button: 加入服务器
+commands:
+  debug:
+    footer: 寻求播放器帮助时，请分享此摘要。
+    loop_indefinite: '{{mode}}（无限）'
+    loop_remaining: '{{mode}}（剩余{{count, number}}个）'
+  dev:
+    entitlement_granted: '已授予公会 {{guild}} 对 SKU {{sku}} 的权益 {{entitlement}}。'
+    player_not_found: '该公会 {{guild}} 不存在播放器。'
+    joining: '正在加入 {{channel}}（{{connection}}）'
+    connected: '已连接至 {{channel}}（{{connection}}）'
+  ping:
+    message: Pong！
+    footer: 遇到问题？加入我们的**支持服务器**！
+  stats:
+    instance_failed: 无法获取实例。
+  crossfade:
+    current:
+      enabled: '交叉淡入淡出时长设置为{{duration, number}}秒。'
+      disabled: 交叉淡入淡出已禁用。
+    updated:
+      enabled: '交叉淡入淡出时长已设置为{{duration, number}}秒。'
+      disabled: 交叉淡入淡出已关闭。
+  default_volume:
+    current: '当前此服务器的默认音量为{{volume, number}}。'
+    updated: '已将此服务器的默认音量更新为{{volume, number}}。'
+  do_vc_status_update:
+    current:
+      enabled: '当前 {{mention}} 将在当前歌曲更改时更新语音频道状态。'
+      disabled: '当前 {{mention}} 不会在当前歌曲更改时更新语音频道状态。'
+    updated:
+      enabled: '{{mention}} 现在将在当前歌曲更改时更新语音频道状态。'
+      disabled: '{{mention}} 将不再在当前歌曲更改时更新语音频道状态。'
+  autoplay:
+    current:
+      enabled: '当前 {{mention}} 将自动播放推荐歌曲。'
+      disabled: '当前 {{mention}} 不会自动播放推荐歌曲。'
+    updated:
+      enabled: '{{mention}} 现在将自动播放推荐歌曲。'
+      disabled: '{{mention}} 将不再自动播放推荐歌曲。'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} 不会向特定频道发送通知。'
+        some: '当前 {{mention}} 正在向 {{channel}} 发送通知'
+      clear: '{{mention}} 将不再向特定频道发送通知。'
+      update: '{{mention}} 现在将向 {{channel}} 发送通知'
+  leave:
+    success_channel: '已离开 {{channel}}。'
+    destroyed: 已销毁此服务器的播放器。
+  join:
+    conflict: 我已经在语音频道中了。
+    failure: 我未能加入该语音频道。
+    in_progress: 我已在加入该语音频道。
+    perms:
+      missing: '我需要在{{channel}}中具有**查看**、**连接**和**发言**的权限。'
+    success: '好的，我已加入{{channel}}。'
+  skip:
+    success: 已跳过。
+    to:
+      invalid: '我无法识别您提供的歌曲。请尝试使用自动补全功能 :)'
+      none: 我无法跳转到该歌曲，它仍在队列中吗？
+  seek:
+    unseekable: 当前歌曲无法定位播放。
+    no_duration: 当前歌曲没有时长。
+    syntax: '时间码必须为 `mm:ss` 格式'
+    out_of_bounds: '您指定的位置超过了当前歌曲的长度，{{given}} > {{length}}'
+    success: '已定位到 {{given}}'
+  loop:
+    nothing:
+      success: 循环播放已禁用。
+      already: 循环播放已被禁用。
+    track:
+      indef: 现在将无限循环播放当前歌曲。
+      times_one: 当前歌曲将循环播放一次。
+      times_other: '当前歌曲现在将循环播放 *{{count, number}} 次*。'
+      nuhuh: 当前歌曲已被循环播放。
+    queue:
+      indef: 现在将无限循环播放队列。
+      times_one: 队列将循环播放一次。
+      times_other: '队列现在将循环播放 *{{count, number}} 次*。'
+      nuhuh: 队列已在循环播放。
+  queue:
+    use_autocomplete: 嗯？请尝试使用自动补全功能选择队列中的歌曲。
+    view:
+      footer: '第 {{cur, number}} / {{all, number}} 页（共 {{tot, number}} 项）'
+    move:
+      failed: 无法将该歌曲移动到指定位置。
+      success: '已将 {{track}} 移动到第 #{{index, number}} 位。'
+    clear:
+      none: 队列为空。
+      success_one: 从队列中移除了 1 首歌曲。
+      success_other: '从队列中移除了 {{count, number}} 首歌曲。'
+    remove:
+      confirm: '您确定要从队列中移除 {{track}} 吗？'
+      cancelled: 好的，我不会移除该歌曲。
+      not_found: 提供的歌曲未在队列中找到，请尝试使用自动补全功能。
+      success: '已从队列中移除 {{track}}。'
+    shuffle:
+      too_small: 队列太小，无法进行随机播放。
+      success: 队列已随机播放。
+  pause:
+    already: 播放器已暂停。
+    success: 我已暂停播放器。
+  resume:
+    server_muted: 当我被服务器静音时，无法恢复播放器。
+    already: 播放器未处于暂停状态。
+    success: 我已恢复播放器。
+  play:
+    domain:
+      other: 您提供的链接不受支持。
+      youtube: Eara 暂时移除了对 YouTube 链接的支持。
+      vote_locked: |
+        您必须在 **top.gg** 上为 {{mention}} 投票，才能访问 `{{domain}}` 链接！
+        -# $t(common.premium.uninterrupted_access)
+    nothing: 您的搜索未返回任何结果。
+    error: 加载您的查询时发生错误。
+    invalid_url: 您传入了无效的 URL。
+    queue_full: 队列空间不足。请先移除一些歌曲再添加。
+    added: '已将 {{item}} 添加到队列。'
+    loaded:
+      album_one: '来自专辑 *{{collection}}* 的一首歌曲'
+      album_other: '来自专辑 *{{collection}}* 的 {{count, number}} 首歌曲'
+      artist_one: '*{{collection}}* 的最受欢迎歌曲'
+      artist_other: '*{{collection}}* 的前 {{count, number}} 首热门歌曲'
+      playlist_one: '来自播放列表 *{{collection}}* 的一首歌曲'
+      playlist_other: '来自播放列表 *{{collection}}* 的 {{count, number}} 首歌曲'
+  stop:
+    success: 播放器已停止。
+  volume:
+    current: '当前音量为 {{volume, number}}。'
+    out_of_bounds: 音量必须介于 0 到 255 之间。
+    success: '音量已设置为 {{volume, number}}。'
+  effects:
+    enabled: '已启用 ''*{{effect}}*'' 效果！'
+    disabled: '已禁用 ''*{{effect}}*'' 效果！'
+    cleared: 已清除所有已启用的效果！
+  immersive:
+    disabled: 沉浸模式已关闭。

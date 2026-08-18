@@ -1,0 +1,319 @@
+checks:
+  guild_only: Dit commando kan alleen in een server worden gebruikt.
+  not_playing: Ik speel geen muziek af in deze server.
+  user_vc_none: Je moet in een spraakkanaal zitten om dit commando te gebruiken.
+  user_vc_diff: >-
+    Je moet in hetzelfde spraakkanaal als ik zitten om dit commando te
+    gebruiken.
+  queue_empty: De wachtrij is leeg.
+  nothing_playing: Er wordt niets afgespeeld.
+  unknown_command: Ik herken dit commando niet...
+  owner_only: Je mag dit commando niet gebruiken.
+  maintenance: 'De bot ondergaat onderhoud, kom later terug.'
+common:
+  join_our_server: 'Sluit aan bij onze [*Discord Server*]({{invite}} ) voor meer informatie'
+  message_deleted: '*Bericht is verwijderd*'
+  vote: Stem op Top.gg
+  discord_server: Ondersteunende Server
+  remove: Verwijderen
+  play_now: Nu Afspelen
+  next: Volgende
+  previous: Vorige
+  unknown_artist: Onbekende artiest
+  unavailable_track: '[niet-beschikbare trackmetadata]'
+  unknown_url: Onbekende URL
+  unsupported_url: Niet-ondersteunde URL
+  source_url: '{{source}} URL'
+  unknown: Onbekend
+  unknown_channel: Onbekend kanaal
+  none: Geen
+  not_available: N.v.t.
+  'yes': Ja
+  'no': Nee
+  track: Track
+  queue: Wachtrij
+  state:
+    loading: Laden
+    paused: Gepauzeerd
+    playing: Afspelen
+    idle: Inactief
+    active: Actief
+    'off': Uit
+    disconnected: Verbinding verbroken
+    joining: Wordt verbonden
+    connected: Verbonden
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Je hebt **30 seconden** om te reageren.
+    confirm: Bevestigen
+    deny: Weigeren
+  premium:
+    sku_required: >-
+      Deze server vereist een **Premium-abonnement** om toegang te krijgen tot
+      dit commando.
+    uninterrupted_access: Na het stemmen ontvang je *maximaal* 12 uur ononderbroken toegang!
+    vote_required: >
+      Je moet stemmen voor {{mention}} op **top.gg** om toegang te krijgen tot
+      dit commando.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Premium verkrijgen
+    vote_locks_premium: '**Premium** verwijdert stemvergrendelingen voor de hele server.'
+buttons:
+  remove:
+    none: Ik kon het item dat je wilde verwijderen niet vinden...
+    done: '{{author}} heeft {{track}} uit de wachtrij verwijderd.'
+  correlated_remove:
+    none: De liedjes die in de wachtrij stonden zijn nergens te vinden...
+    done: >-
+      {{author}} heeft {{count}} aangevraagde liedjes uit de wachtrij
+      verwijderd.
+  play_now:
+    none: >-
+      Ik kon de liedjes die je hebt toegevoegd in de wachtrij niet vinden, heb
+      je ze al afgespeeld?
+    not_found: Kon dat nummer niet in de wachtrij vinden.
+    done_one: 'Één nummer van {{requester}} is geïntensiveerd.'
+    done_other: '{{count}} nummers van {{requester}} zijn geïntensiveerd.'
+    footer_a: 'Overgeslagen naar {{next}} van {{prev}}'
+    footer_b: 'Overgeslagen naar {{next}}'
+  item_actions:
+    not_found: Dat nummer staat niet meer in de wachtrij.
+  previous:
+    none: Er zijn geen eerdere nummers...
+  skip_to: '{{user}} is overgeschakeld naar {{track}}'
+  stop: '{{user}} heeft de speler gestopt.'
+events:
+  command_failed:
+    message: Dit commando is mislukt.
+    reason:
+      unknown: >-
+        Er is een onverwachte fout opgetreden, rapporteer dit alstublieft aan de
+        ontwikkelaars.
+      panic: >-
+        De taak die uw commando verwerkte, is gecrasht. Rapporteer dit
+        alstublieft aan de ontwikkelaars.
+    footer: 'Geef deze ID door aan de ontwikkelaars: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Houd de muziek gaande als de wachtrij eindigt met {{command}}.'
+      crossfade: >-
+        Wist u dat we crossfading hebben? Gebruik {{command}} om dit in te
+        stellen.
+      effects: 'Geef het huidige nummer een ander gevoel met {{command}}.'
+      history: >-
+        Op zoek naar iets wat eerder is gespeeld? {{command}} kan ook de
+        wachtrijgeschiedenis tonen.
+      immersive: 'Gebruik {{spatialize}} of {{orbit}} om uw ervaring levendiger te maken!'
+      loop: >-
+        Wil je het nog eens horen? {{command}} kan dit nummer of de hele
+        wachtrij herhalen.
+      move: >-
+        Rangschik of maak de wachtrij schoon met {{move_command}} en
+        {{remove_command}}.
+      notifications: >-
+        Serverbeheerders kunnen een speciaal afspeelkanaal kiezen met
+        {{command}}.
+      seek: 'Spring naar elk moment in dit nummer met {{command}}.'
+      shuffle: >-
+        Maak de volgorde van de liedjes in de wachtrij door elkaar met
+        {{command}}.
+      voice_status: >-
+        Serverbeheerders kunnen het huidige nummer tonen in de status van het
+        spraakkanaal met {{command}}.
+    notification:
+      join_failed: Ik kon niet verbinding maken met uw spraakkanaal.
+      playback_failed: 'Afspelen van {{track}} is mislukt'
+      scheduler_failed: >-
+        De afspeelschema voor deze server is mislukt. Voer alstublieft `/leave`
+        uit, daarna `/join`, en rapporteer dit als het opnieuw gebeurt.
+      playback_stalled: >-
+        Te veel mislukte afspeelpogingen. Als dit blijft gebeuren, neem dan
+        contact op met onze Support Server.
+      idle_timeout: 'De speler was te lang inactief, dus ik heb de verbinding verbroken.'
+    disconnect:
+      alone: >-
+        Ik ben helemaal alleen achtergebleven, verbinding verbroken
+        <t:{{timestamp}}:R>
+    queue:
+      end:
+        message: De wachtrij is afgelopen.
+        prompts:
+          review:
+            message: 'Geniet je van {{mention}}? Laat ons een beoordeling achter!'
+            button: Laat een beoordeling achter
+          vote:
+            message: >-
+              Geniet je van {{mention}}? Stem voor ons zodat meer mensen ons
+              kunnen vinden!
+            button: Stem voor ons
+          support:
+            message: Hulp nodig of gewoon gezelligheid? Kom bij onze Discord-community!
+            button: Word lid van onze server
+commands:
+  debug:
+    footer: Deel deze samenvatting wanneer je hulp vraagt voor de speler.
+    loop_indefinite: '{{mode}} (onbepaalde tijd)'
+    loop_remaining: '{{mode}} (nog {{count, number}} over)'
+  dev:
+    entitlement_granted: 'Toegang {{entitlement}} verleend voor SKU {{sku}} aan guild {{guild}}.'
+    player_not_found: 'Er bestaat geen speler voor guild {{guild}}.'
+    joining: 'Verbinding maken met {{channel}} ({{connection}})'
+    connected: 'Verbonden met {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Problemen? Kom naar onze **Support Server**!
+  stats:
+    instance_failed: Kon instantie niet ophalen.
+  crossfade:
+    current:
+      enabled: 'Duur van crossfaden is ingesteld op {{duration, number}}s.'
+      disabled: Crossfaden is uitgeschakeld.
+    updated:
+      enabled: 'Crossfade-duur ingesteld op {{duration, number}}s.'
+      disabled: Crossfade uitgeschakeld.
+  default_volume:
+    current: 'Het standaardvolume voor deze server is momenteel {{volume, number}}.'
+    updated: >-
+      Het standaardvolume voor deze server is bijgewerkt naar {{volume,
+      number}}.
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Op dit moment zal {{mention}} de status van het spraakkanaal bijwerken
+        wanneer het huidige nummer verandert.
+      disabled: >-
+        Op dit moment zal {{mention}} de status van het spraakkanaal niet
+        bijwerken wanneer het huidige nummer verandert.
+    updated:
+      enabled: >-
+        {{mention}} zal nu de status van het spraakkanaal bijwerken wanneer het
+        huidige nummer verandert.
+      disabled: >-
+        {{mention}} zal de status van het spraakkanaal niet langer bijwerken
+        wanneer het huidige nummer verandert.
+  autoplay:
+    current:
+      enabled: 'Op dit moment zal {{mention}} aanbevolen nummers automatisch afspelen.'
+      disabled: 'Op dit moment speelt {{mention}} géén aanbevolen nummers automatisch af.'
+    updated:
+      enabled: '{{mention}} zal nu aanbevolen nummers automatisch afspelen.'
+      disabled: '{{mention}} zal aanbevolen nummers niet langer automatisch afspelen.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} stuurt momenteel geen meldingen naar een specifiek kanaal.'
+        some: '{{mention}} stuurt momenteel meldingen naar {{channel}}'
+      clear: >-
+        {{mention}} zal voortaan geen meldingen meer sturen naar een specifiek
+        kanaal.
+      update: '{{mention}} zal voortaan meldingen sturen naar {{channel}}'
+  leave:
+    success_channel: 'Verlaten {{channel}}.'
+    destroyed: De speler voor deze server is verwijderd.
+  join:
+    conflict: Ik zit al in een spraakkanaal.
+    failure: Ik kon niet deelnemen aan dat spraakkanaal.
+    in_progress: Ik ben al bezig met het joinen van dat spraakkanaal.
+    perms:
+      missing: >-
+        Ik heb toestemming nodig om **weergeven**, **verbinden** en **spreken**
+        in {{channel}}.
+    success: 'Oké, ik ben gejoind bij {{channel}}.'
+  skip:
+    success: Overgeslagen.
+    to:
+      invalid: >-
+        Ik herkende het nummer dat je me gaf niet. Probeer auto-aanvullen te
+        gebruiken :)
+      none: >-
+        Ik kon niet overschakelen naar dat nummer, staat het nog steeds in de
+        wachtrij?
+  seek:
+    unseekable: Het huidige nummer is niet doorzoekbaar.
+    no_duration: Het huidige nummer heeft geen duur.
+    syntax: 'De tijdscode moet in het formaat `mm:ss` zijn'
+    out_of_bounds: >-
+      De opgegeven positie overschrijdt de lengte van het huidige nummer,
+      {{given}} > {{length}}
+    success: 'Doorgespoeld naar {{given}}'
+  loop:
+    nothing:
+      success: Herhaling is uitgeschakeld.
+      already: Herhaling was al uitgeschakeld.
+    track:
+      indef: Nu wordt het huidige nummer oneindig herhaald.
+      times_one: Het huidige nummer wordt één keer herhaald.
+      times_other: 'Het huidige nummer wordt nu *{{count, number}} keer* herhaald.'
+      nuhuh: Het huidige nummer wordt al herhaald.
+    queue:
+      indef: Nu wordt de wachtrij oneindig herhaald.
+      times_one: De wachtrij wordt één keer herhaald.
+      times_other: 'De wachtrij wordt nu *{{count, number}} keer* herhaald.'
+      nuhuh: De wachtrij wordt al herhaald.
+  queue:
+    use_autocomplete: >-
+      Hm? Probeer de automatische aanvulling te gebruiken om een aangesloten
+      nummer te kiezen.
+    view:
+      footer: 'Pagina {{cur, number}}/{{all, number}} (totaal {{tot, number}})'
+    move:
+      failed: Kon dat nummer niet verplaatsen naar de gevraagde positie.
+      success: 'Verplaatst {{track}} naar #{{index, number}}'
+    clear:
+      none: De wachtrij was leeg.
+      success_one: 1 nummer verwijderd uit de wachtrij.
+      success_other: '{{count, number}} nummers verwijderd uit de wachtrij.'
+    remove:
+      confirm: 'Weet je zeker dat je {{track}} uit de wachtrij wilt verwijderen?'
+      cancelled: 'Oké, ik zal dat nummer niet verwijderen.'
+      not_found: >-
+        Het opgegeven nummer is niet gevonden in de wachtrij, probeer
+        automatisch aanvullen te gebruiken.
+      success: '{{track}} verwijderd uit de wachtrij.'
+    shuffle:
+      too_small: De wachtrij is te klein om geschud te worden.
+      success: De wachtrij is geschud.
+  pause:
+    already: De speler is al gepauzeerd.
+    success: Ik heb de speler gepauzeerd.
+  resume:
+    server_muted: Kan de speler niet hervatten terwijl ik servergemuteerd ben.
+    already: De speler was niet gepauzeerd
+    success: Ik heb de speler hervat.
+  play:
+    domain:
+      other: De door jou opgegeven link wordt niet ondersteund.
+      youtube: Eara heeft tijdelijk geen ondersteuning meer voor YouTube-links.
+      vote_locked: >
+        Je moet stemmen op {{mention}} op **top.gg** om toegang te krijgen tot
+        `{{domain}}`-links!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Er is niets teruggekomen voor jouw zoekopdracht.
+    error: Er is een fout opgetreden tijdens het laden van jouw zoekopdracht.
+    invalid_url: Je hebt een ongeldige URL opgegeven.
+    queue_full: >-
+      De wachtrij heeft niet genoeg ruimte. Verwijder eerst wat nummers voordat
+      je er meer toevoegt.
+    added: '{{item}} is toegevoegd aan de wachtrij.'
+    loaded:
+      album_one: 'één nummer van album {{collection}}'
+      album_other: '{{count, number}} nummers van album {{collection}}'
+      artist_one: 'het best gespeelde nummer van *{{collection}}*'
+      artist_other: 'de {{count, number}} best gespeelde nummers van *{{collection}}*'
+      playlist_one: 'één nummer van afspeellijst *{{collection}}*'
+      playlist_other: '{{count, number}} nummers van afspeellijst *{{collection}}*'
+  stop:
+    success: De speler is gestopt.
+  volume:
+    current: 'Het huidige volume is {{volume, number}}.'
+    out_of_bounds: Het volume moet tussen 0 en 255 liggen.
+    success: 'Het volume is ingesteld op {{volume, number}}.'
+  effects:
+    enabled: 'Het effect ''*{{effect}}*'' is ingeschakeld!'
+    disabled: 'Het effect ''*{{effect}}*'' is uitgeschakeld!'
+    cleared: Alle ingeschakelde effecten zijn gereset!
+  immersive:
+    disabled: Immersieve modus uitgeschakeld.

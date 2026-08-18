@@ -1,0 +1,309 @@
+checks:
+  guild_only: Tätä komentoa voidaan käyttää vain palvelimessa.
+  not_playing: En soita musiikkia tällä palvelimella.
+  user_vc_none: Sinun täytyy olla äänikanavalla käyttääksesi tätä komentoa.
+  user_vc_diff: >-
+    Sinun täytyy olla samassa äänikanavassa kuin minä käyttääksesi tätä
+    komentoa.
+  queue_empty: Jono on tyhjä.
+  nothing_playing: Mitään ei soiteta.
+  unknown_command: En tunnista tätä komentoa...
+  owner_only: Sinulla ei ole lupaa käyttää tätä komentoa.
+  maintenance: 'Botti on huoltokatkoisussa, tarkista myöhemmin.'
+common:
+  join_our_server: 'Liity [*Discord-palvelimeemme*]({{invite}} ) saadaksesi lisätietoja'
+  message_deleted: '*Viesti poistettiin*'
+  vote: 'Äänestä Top.gg:ssä'
+  discord_server: Tukipalvelin
+  remove: Poista
+  play_now: Soita nyt
+  next: Seuraava
+  previous: Edellinen
+  unknown_artist: Tuntematon artisti
+  unavailable_track: '[ei saatavilla oleva kappaleen metatieto]'
+  unknown_url: Tuntematon URL
+  unsupported_url: Ei-tuettu URL
+  source_url: '{{source}}-URL'
+  unknown: Tuntematon
+  unknown_channel: Tuntematon kanava
+  none: Ei mitään
+  not_available: Ei saatavilla
+  'yes': Kyllä
+  'no': Ei
+  track: Kappale
+  queue: Jono
+  state:
+    loading: Lataan
+    paused: Pysäytetty
+    playing: Soitetaan
+    idle: Vapaa
+    active: Aktiivinen
+    'off': Pois päältä
+    disconnected: Yhteys katkaistu
+    joining: Liittyy
+    connected: Yhdistetty
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Sinulla on **30 sekuntia** aikaa vastata.
+    confirm: Vahvista
+    deny: Hylkää
+  premium:
+    sku_required: Tämä palvelin vaatii **Premium-tilauksen** komennon käyttämiseen.
+    uninterrupted_access: Äänestämällä saat *enintään* 12 tuntia keskeytymätöntä käyttöoikeutta!
+    vote_required: >
+      Sinun täytyy äänestää **top.gg**-sivustolla kohtaa {{mention}} saadaksesi
+      käyttöoikeuden tähän komentoon.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Hanki Premium
+    vote_locks_premium: '**Premium** poistaa äänestyslukitukset koko palvelimelle.'
+buttons:
+  remove:
+    none: 'En löytänyt kohteita, jotka halusit poistaa...'
+    done: '{{author}} poisti kappaleen {{track}} jonosta.'
+  correlated_remove:
+    none: Jonoon lisätyt kappaleet eivät ole enää saatavilla...
+    done: '{{author}} poisti {{count}} kappaletta jonosta.'
+  play_now:
+    none: En löytänyt lisäämiäsi kappaleita jonosta – oletko jo kuunnellut niitä?
+    not_found: Kappaletta ei löytynyt jonosta.
+    done_one: 'Yksi käyttäjän {{requester}} pyytämä kappale priorisoitiin.'
+    done_other: '{{count}} käyttäjän {{requester}} pyytämää kappaletta priorisoitiin.'
+    footer_a: 'Siirryttiin kappaleeseen {{next}} kappaleen {{prev}} jälkeen'
+    footer_b: 'Siirryttiin kappaleeseen {{next}}'
+  item_actions:
+    not_found: Tätä kappaletta ei ole enää jonossa.
+  previous:
+    none: Edellisiä kappaleita ei ole olemassa...
+  skip_to: '{{user}} siirtyi kappaleeseen {{track}}'
+  stop: '{{user}} on pysäyttänyt toiston.'
+events:
+  command_failed:
+    message: Tämä komento epäonnistui.
+    reason:
+      unknown: 'Odottamaton virhe tapahtui, ilmoita tästä kehittäjille.'
+      panic: 'Tehtävä, joka käsittelee komentoasi, kaatui, ilmoita tästä kehittäjille.'
+    footer: 'Anna tämä tunniste kehittäjille: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Pidä musiikki soimassa jonon päätyttyä komennolla {{command}}.'
+      crossfade: >-
+        Tiesitkö, että meillä on ristisumu? Käytä komentoa {{command}}
+        määrittääksesi sen.
+      effects: 'Anna nykyiselle kappaleelle erilainen tunnelma komennolla {{command}}.'
+      history: >-
+        Etsitkö jotain, jota soitettiin aiemmin? Komento {{command}} voi myös
+        näyttää jonohistorian.
+      immersive: >-
+        Käytä {{spatialize}} tai {{orbit}} -komentoja elävöittääksesi
+        kuuntelukokemustasi!
+      loop: >-
+        Haluatko kuulla sen uudelleen? Komento {{command}} voi toistaa tämän
+        kappaleen tai koko jonon.
+      move: >-
+        Järjestä uudelleen tai siisti jono komennolla {{move_command}} ja
+        {{remove_command}}.
+      notifications: >-
+        Palvelimen hallinnoitsijat voivat valita erityisen soitin-kanavan
+        komennolla {{command}}.
+      seek: 'Siirry mihin tahansa kohtaan tätä kappaletta komennolla {{command}}.'
+      shuffle: 'Sekoita jonossa olevia kappaleita komennolla {{command}}.'
+      voice_status: >-
+        Palvelimen hallinnoitsijat voivat näyttää nykyisen kappaleen äänikanavan
+        tilassa komennolla {{command}}.
+    notification:
+      join_failed: En päässyt liittymään äänikanavaasi.
+      playback_failed: 'Soittaminen epäonnistui kappaleelle {{track}}'
+      scheduler_failed: >-
+        Tämän palvelimen soitinsuunnitelma epäonnistui. Suorita `/leave`, sitten
+        `/join`, ja ilmoita tästä, jos se toistuu.
+      playback_stalled: >-
+        Liian monta virheellistä toistoyritystä. Jos ongelma jatkuu, liity
+        tukipalvelimeemme.
+      idle_timeout: 'Toistin oli poissa käytöstä liian pitkään, joten katkaisin yhteyden.'
+    disconnect:
+      alone: 'Jätettiin yksin, katkaistaan yhteys <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: Soittolista on päättynyt.
+        prompts:
+          review:
+            message: 'Pidätkö {{mention}}? Jätä meille arvostelu!'
+            button: Jätä arvostelu
+          vote:
+            message: >-
+              Pidätkö {{mention}}? Äänestä meitä, jotta useammat ihmiset voivat
+              löytää sen!
+            button: Äänestä meitä
+          support:
+            message: >-
+              Tarvitsetko apua tai haluatko viettää aikaa kanssamme? Liity
+              Discord-yhteisöömme!
+            button: Liity palvelimeemme
+commands:
+  debug:
+    footer: Jaa tämä yhteenveto pyytäessäsi apua soittimesta.
+    loop_indefinite: '{{mode}} (ikuinen)'
+    loop_remaining: '{{mode}} ({{count, number}} jäljellä)'
+  dev:
+    entitlement_granted: >-
+      Myönnettiin oikeus {{entitlement}} tuotteelle {{sku}} palvelimelle
+      {{guild}}.
+    player_not_found: 'Tällä palvelimella {{guild}} ei ole toistinta.'
+    joining: 'Liitytään kanavaan {{channel}} ({{connection}})'
+    connected: 'Yhdistetty kanavaan {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Ongelmia? Liity **tukipalvelimeemme**!
+  stats:
+    instance_failed: Esityksen noutaminen epäonnistui.
+  crossfade:
+    current:
+      enabled: 'Ristinmiksauksen kesto on asetettu arvoon {{duration, number}} s.'
+      disabled: Ristinmiksaus on poistettu käytöstä.
+    updated:
+      enabled: 'Ristinmiksausajan kesto on nyt {{duration, number}} s.'
+      disabled: Ristinmiksaus poistettu käytöstä.
+  default_volume:
+    current: >-
+      Tämän palvelimen oletusäänenvoimakkuus on tällä hetkellä {{volume,
+      number}}.
+    updated: 'Päivitettiin palvelimen oletusäänenvoimakkuus arvoon {{volume, number}}.'
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Tällä hetkellä {{mention}} päivittää äänikanavan tilan, kun nykyinen
+        kappale vaihtuu.
+      disabled: >-
+        Tällä hetkellä {{mention}} ei päivitä äänikanavan tilaa, kun nykyinen
+        kappale vaihtuu.
+    updated:
+      enabled: >-
+        {{mention}} päivittää nyt äänikanavan tilan, kun nykyinen kappale
+        vaihtuu.
+      disabled: >-
+        {{mention}} ei enää päivitä äänikanavan tilaa, kun nykyinen kappale
+        vaihtuu.
+  autoplay:
+    current:
+      enabled: >-
+        Tällä hetkellä {{mention}} soittaa suositeltuja kappaleita
+        automaattisesti.
+      disabled: >-
+        Tällä hetkellä {{mention}} ei soita suositeltuja kappaleita
+        automaattisesti.
+    updated:
+      enabled: '{{mention}} soittaa nyt suositeltuja kappaleita automaattisesti.'
+      disabled: '{{mention}} ei enää soita suositeltuja kappaleita automaattisesti.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} ei lähettää ilmoituksia tiettyyn kanavaan.'
+        some: '{{mention}} lähettää tällä hetkellä ilmoituksia kanavaan {{channel}}'
+      clear: '{{mention}} ei enää lähetä ilmoituksia tiettyyn kanavaan.'
+      update: '{{mention}} lähettää nyt ilmoituksia kanavaan {{channel}}'
+  leave:
+    success_channel: 'Poistuttu kanavalta {{channel}}.'
+    destroyed: Tuhoittiin toistin tälle palvelimelle.
+  join:
+    conflict: Olen jo äänikanavalla.
+    failure: En onnistunut liittymään tuohon äänikanavaan.
+    in_progress: Olen jo liittymässä tuohon äänikanavaan.
+    perms:
+      missing: >-
+        Tarvitsen oikeudet **nähdä**, **liittyä** ja **puhua** kanavalla
+        {{channel}}.
+    success: 'Okei, liityin kanavalle {{channel}}.'
+  skip:
+    success: Ohitettu.
+    to:
+      invalid: >-
+        En tunnistanut antamaasi kappaletta. Kokeile käyttää
+        automaattitäydennystä :)
+      none: 'En voinut siirtyä tuohon kappaleeseen, onko se vielä jonossa?'
+  seek:
+    unseekable: Nykyinen kappale ei ole hakuun soveltuva.
+    no_duration: Nykyisellä kappaleella ei ole kestoa.
+    syntax: 'Aikakoodin täytyy olla muodossa `mm:ss`'
+    out_of_bounds: 'Annettu aika ylittää nykyisen kappaleen pituuden, {{given}} > {{length}}'
+    success: 'Siirryttiin kohtaan {{given}}'
+  loop:
+    nothing:
+      success: Toisto on poistettu käytöstä.
+      already: Toisto oli jo poistettu käytöstä.
+    track:
+      indef: Nyt toistetaan nykyistä kappaletta loputtomasti.
+      times_one: Nykyinen kappale toistetaan kerran.
+      times_other: 'Nykyinen kappale toistetaan nyt *{{count, number}} kertaa*.'
+      nuhuh: Nykyistä kappaletta toistetaan jo.
+    queue:
+      indef: Nyt toistetaan jonoa loputtomasti.
+      times_one: Jono toistetaan kerran.
+      times_other: 'Jonoa toistetaan nyt *{{count, number}} kertaa*.'
+      nuhuh: Jonoa toistetaan jo.
+  queue:
+    use_autocomplete: >-
+      Mikä? Kokeile käyttää automaattitäydennystä valitaksesi jonoon lisätyn
+      kappaleen.
+    view:
+      footer: 'Sivu {{cur, number}}/{{all, number}} (yhteensä {{tot, number}})'
+    move:
+      failed: Ei voitu siirtää kappaletta pyydettyyn kohtaan.
+      success: 'Siirrettiin {{track}} kohtaan #{{index, number}}'
+    clear:
+      none: Jono oli tyhjä.
+      success_one: Poistettiin 1 kappale jonosta.
+      success_other: 'Poistettiin {{count, number}} kappaletta jonosta.'
+    remove:
+      confirm: 'Haluatko varmasti poistaa kappaleen {{track}} jonosta?'
+      cancelled: 'Okei, en poista tuota kappaletta.'
+      not_found: >-
+        Annettu kappale ei löytynyt jonosta, kokeile käyttää
+        automaattitäydennystä.
+      success: 'Poistettiin {{track}} jonosta.'
+    shuffle:
+      too_small: Jono on liian pieni sekoitettavaksi.
+      success: Jono on sekoitettu.
+  pause:
+    already: Soitin on jo pysäytetty.
+    success: Pysäytin soittimen.
+  resume:
+    server_muted: En voi jatkaa soitinta ollessani palvelimen mykistämä.
+    already: Soitin ei ollut pysäytetty
+    success: Jatkoin soitinta.
+  play:
+    domain:
+      other: 'Liite, jonka annoit, ei ole tuettu.'
+      youtube: Eara on väliaikaisesti poistanut tuen YouTube-linkkeihin.
+      vote_locked: >
+        Sinun täytyy äänestää {{mention}}-kohteesta **top.gg**-sivustolla
+        saadaksesi pääsyn `{{domain}}`-linkkeihin!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Hakullesi ei palautettu mitään.
+    error: Hakua ladataessa tapahtui virhe.
+    invalid_url: Annoit virheellisen URL-osoitteen.
+    queue_full: >-
+      Jonossa ei ole tarpeeksi tilaa. Poista joitakin kappaleita ennen kuin
+      lisäät lisää.
+    added: 'Lisätty {{item}} jonoon.'
+    loaded:
+      album_one: 'yksi kappale albumilta {{collection}}'
+      album_other: '{{count, number}} kappaletta albumilta {{collection}}'
+      artist_one: '*{{collection}}*-kokoelman paras kappale'
+      artist_other: '*{{collection}}*-kokoelman {{count, number}} parasta kappaletta'
+      playlist_one: 'yksi kappale soittolistalta *{{collection}}*'
+      playlist_other: '{{count, number}} kappaletta soittolistalta *{{collection}}*'
+  stop:
+    success: Soitin on pysäytetty.
+  volume:
+    current: 'Tämänhetkinen äänenvoimakkuus on {{volume, number}}.'
+    out_of_bounds: Äänenvoimakkuuden täytyy olla välillä 0 ja 255.
+    success: 'Äänenvoimakkuus on asetettu arvoon {{volume, number}}.'
+  effects:
+    enabled: 'Vaikutus ''*{{effect}}*'' käytössä!'
+    disabled: 'Vaikutus ''*{{effect}}*'' poistettu käytöstä!'
+    cleared: Kaikki käytössä olevat vaikutukset on poistettu!
+  immersive:
+    disabled: Immersiivitila poistettu käytöstä.

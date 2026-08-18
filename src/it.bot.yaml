@@ -1,0 +1,307 @@
+checks:
+  guild_only: Questo comando può essere usato solo in un server.
+  not_playing: Non sto riproducendo musica in questo server.
+  user_vc_none: Devi essere in un canale vocale per usare questo comando.
+  user_vc_diff: >-
+    Devi essere nello stesso canale vocale in cui sono io per usare questo
+    comando.
+  queue_empty: La coda è vuota.
+  nothing_playing: Non sta riproducendo nulla.
+  unknown_command: Non riconosco questo comando...
+  owner_only: Non ti è permesso usare questo comando.
+  maintenance: 'Il bot è in manutenzione, riprova più tardi.'
+common:
+  join_our_server: 'Unisciti al nostro [*Server Discord*]({{invite}} ) per maggiori informazioni'
+  message_deleted: '*Messaggio eliminato*'
+  vote: Vota su Top.gg
+  discord_server: Server di supporto
+  remove: Rimuovi
+  play_now: Riproduci ora
+  next: Successivo
+  previous: Precedente
+  unknown_artist: Artista sconosciuto
+  unavailable_track: '[metadati traccia non disponibili]'
+  unknown_url: URL sconosciuto
+  unsupported_url: URL non supportato
+  source_url: 'URL {{source}}'
+  unknown: Sconosciuto
+  unknown_channel: Canale sconosciuto
+  none: Nessuno
+  not_available: N/D
+  'yes': Sì
+  'no': 'No'
+  track: Traccia
+  queue: Coda
+  state:
+    loading: Caricamento
+    paused: In pausa
+    playing: In riproduzione
+    idle: Inattivo
+    active: Attivo
+    'off': Spento
+    disconnected: Disconnesso
+    joining: Connessione in corso
+    connected: Connesso
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Hai **30 secondi** per rispondere.
+    confirm: Conferma
+    deny: Negare
+  premium:
+    sku_required: >-
+      Questo server richiede un **abbonamento Premium** per accedere a questo
+      comando.
+    uninterrupted_access: Dopo aver votato riceverai fino a 12 ore di accesso ininterrotto!
+    vote_required: >
+      Devi votare per {{mention}} su **top.gg** per ottenere l'accesso a questo
+      comando.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Ottieni Premium
+    vote_locks_premium: '**Premium** rimuove i blocchi per votazione per l''intero server.'
+buttons:
+  remove:
+    none: Non sono riuscito a trovare l'elemento che volevi rimuovere...
+    done: '{{author}} ha rimosso {{track}} dalla coda.'
+  correlated_remove:
+    none: Le canzoni in coda non si trovano da nessuna parte...
+    done: '{{author}} ha rimosso {{count}} canzoni messe in coda.'
+  play_now:
+    none: >-
+      Non sono riuscito a trovare le canzoni che hai aggiunto in coda, le hai
+      già riprodotte?
+    not_found: Impossibile trovare quella canzone nella coda.
+    done_one: 'Prioritizzata una canzone richiesta da {{requester}}.'
+    done_other: 'Prioritizzate {{count}} canzoni richieste da {{requester}}.'
+    footer_a: 'Saltato a {{next}} da {{prev}}'
+    footer_b: 'Saltato a {{next}}'
+  item_actions:
+    not_found: Questa canzone non è più in coda.
+  previous:
+    none: Non ci sono canzoni precedenti...
+  skip_to: '{{user}} ha saltato a {{track}}'
+  stop: '{{user}} ha fermato il lettore.'
+events:
+  command_failed:
+    message: Questo comando non è riuscito.
+    reason:
+      unknown: 'Si è verificato un errore imprevisto, segnalalo agli sviluppatori.'
+      panic: >-
+        L'attività che stava elaborando il tuo comando si è interrotta,
+        segnalalo agli sviluppatori.
+    footer: 'Fornisci questo ID agli sviluppatori: **{{eid}}**'
+  player:
+    tips:
+      autoplay: 'Mantieni la musica attiva quando la coda termina con {{command}}.'
+      crossfade: 'Sapevi che abbiamo il crossfade? Usa {{command}} per configurarlo.'
+      effects: 'Dai un tocco diverso alla canzone attuale con {{command}}.'
+      history: >-
+        Cerchi qualcosa riprodotta in precedenza? {{command}} può mostrare anche
+        la cronologia della coda.
+      immersive: 'Usa {{spatialize}} o {{orbit}} per rendere più vivace la tua esperienza!'
+      loop: >-
+        Vuoi riascoltarla? {{command}} può ripetere questa canzone o l'intera
+        coda.
+      move: 'Riordina o pulisci la coda con {{move_command}} e {{remove_command}}.'
+      notifications: >-
+        I gestori del server possono scegliere un canale dedicato al lettore con
+        {{command}}.
+      seek: 'Vai a qualsiasi punto di questa canzone con {{command}}.'
+      shuffle: 'Mescola le canzoni in attesa nella coda con {{command}}.'
+      voice_status: >-
+        I gestori del server possono mostrare la canzone attuale nello stato del
+        canale vocale con {{command}}.
+    notification:
+      join_failed: Non sono riuscito a connettermi al tuo canale vocale.
+      playback_failed: 'Riproduzione di {{track}} non riuscita'
+      scheduler_failed: >-
+        Lo scheduler del lettore per questo server ha avuto un errore. Esegui
+        `/leave`, poi `/join` e segnala il problema se dovesse ripetersi.
+      playback_stalled: >-
+        Troppi tentativi di riproduzione falliti. Se il problema persiste,
+        unisciti al nostro server di supporto.
+      idle_timeout: 'Il player era inattivo da troppo tempo, quindi mi sono disconnesso.'
+    disconnect:
+      alone: 'Sono stato lasciato solo, disconnessione <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: La coda è terminata.
+        prompts:
+          review:
+            message: 'Ti piace {{mention}}? Lasciaci una recensione!'
+            button: Lascia una recensione
+          vote:
+            message: >-
+              Ti piace {{mention}}? Vota per noi per aiutare più persone a
+              trovarlo!
+            button: Vota per noi
+          support:
+            message: >-
+              Hai bisogno di aiuto o vuoi fare due chiacchiere? Unisciti alla
+              nostra community Discord!
+            button: Unisciti al server
+commands:
+  debug:
+    footer: Condividi questo riepilogo quando chiedi aiuto sul player.
+    loop_indefinite: '{{mode}} (indefinito)'
+    loop_remaining: '{{mode}} ({{count, number}} rimanenti)'
+  dev:
+    entitlement_granted: 'Entitlement {{entitlement}} concesso per SKU {{sku}} a guild {{guild}}.'
+    player_not_found: 'Nessun player esiste per la guild {{guild}}.'
+    joining: 'Connessione a {{channel}} ({{connection}})'
+    connected: 'Connesso a {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Hai problemi? Unisciti al nostro **Support Server**!
+  stats:
+    instance_failed: Recupero istanza non riuscito.
+  crossfade:
+    current:
+      enabled: 'Durata del crossfade impostata su {{duration, number}}s.'
+      disabled: Il crossfade è disabilitato.
+    updated:
+      enabled: 'Durata del crossfade impostata su {{duration, number}}s.'
+      disabled: Crossfade disabilitato.
+  default_volume:
+    current: 'Il volume predefinito per questo server è attualmente {{volume, number}}.'
+    updated: 'Volume predefinito aggiornato per questo server a {{volume, number}}.'
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Attualmente, {{mention}} aggiornerà lo stato del canale vocale quando la
+        canzone corrente cambia.
+      disabled: >-
+        Attualmente, {{mention}} non aggiornerà lo stato del canale vocale
+        quando la canzone corrente cambia.
+    updated:
+      enabled: >-
+        {{mention}} aggiornerà ora lo stato del canale vocale quando la canzone
+        corrente cambia.
+      disabled: >-
+        {{mention}} non aggiornerà più lo stato del canale vocale quando la
+        canzone corrente cambia.
+  autoplay:
+    current:
+      enabled: >-
+        Attualmente, {{mention}} riprodurrà automaticamente canzoni
+        raccomandate.
+      disabled: >-
+        Attualmente, {{mention}} non sta riproducendo automaticamente canzoni
+        raccomandate.
+    updated:
+      enabled: '{{mention}} riprodurrà ora automaticamente canzoni raccomandate.'
+      disabled: '{{mention}} non riprodurrà più automaticamente canzoni raccomandate.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} non sta inviando notifiche a un canale specifico.'
+        some: '{{mention}} sta attualmente inviando notifiche a {{channel}}'
+      clear: '{{mention}} non invierà più notifiche a un canale specifico.'
+      update: '{{mention}} invierà ora notifiche a {{channel}}'
+  leave:
+    success_channel: 'Lasciato {{channel}}.'
+    destroyed: Player distrutto per questo server.
+  join:
+    conflict: Sono già in un canale vocale.
+    failure: Non sono riuscito a entrare nel canale vocale.
+    in_progress: Sto già entrando in quel canale vocale.
+    perms:
+      missing: >-
+        Ho bisogno dei permessi per **visualizzare**, **connettermi** e
+        **parlare** in {{channel}}.
+    success: 'Ok, sono entrato in {{channel}}.'
+  skip:
+    success: Saltato.
+    to:
+      invalid: >-
+        Non ho riconosciuto la canzone che mi hai dato. Prova a usare il
+        completamento automatico :)
+      none: 'Non posso saltare alla canzone indicata, è ancora in coda?'
+  seek:
+    unseekable: La canzone attuale non è seekable.
+    no_duration: La canzone attuale non ha una durata.
+    syntax: 'Il timecode deve essere nel formato `mm:ss`'
+    out_of_bounds: >-
+      La posizione indicata supera la lunghezza della canzone attuale, {{given}}
+      > {{length}}
+    success: 'Avanzato a {{given}}'
+  loop:
+    nothing:
+      success: Il loop è stato disattivato.
+      already: Il loop era già disattivato.
+    track:
+      indef: Ora riprodurrò indefinitamente la canzone corrente.
+      times_one: La canzone corrente verrà ripetuta una volta.
+      times_other: 'La canzone corrente verrà ora ripetuta per *{{count, number}} volte*.'
+      nuhuh: La canzone corrente è già stata messa in loop.
+    queue:
+      indef: Ora la coda verrà ripetuta all'infinito.
+      times_one: La coda verrà ripetuta una volta.
+      times_other: 'La coda verrà ora ripetuta per *{{count, number}} volte*.'
+      nuhuh: La coda è già in loop.
+  queue:
+    use_autocomplete: >-
+      Eh? Prova a usare il completamento automatico per selezionare una canzone
+      in coda.
+    view:
+      footer: 'Pagina {{cur, number}}/{{all, number}} ({{tot, number}} totali)'
+    move:
+      failed: Impossibile spostare quella canzone alla posizione richiesta.
+      success: 'Spostata {{track}} al numero {{index, number}}'
+    clear:
+      none: La coda è vuota.
+      success_one: Rimossa 1 canzone dalla coda.
+      success_other: 'Rimosse {{count, number}} canzoni dalla coda.'
+    remove:
+      confirm: 'Sei sicuro di voler rimuovere {{track}} dalla coda?'
+      cancelled: 'Ok, non rimuoverò quella canzone.'
+      not_found: >-
+        La canzone indicata non è stata trovata nella coda, prova a usare il
+        completamento automatico.
+      success: 'Rimossa {{track}} dalla coda.'
+    shuffle:
+      too_small: La coda è troppo piccola per essere mescolata.
+      success: La coda è stata mescolata.
+  pause:
+    already: Il lettore è già in pausa.
+    success: Ho messo in pausa il lettore.
+  resume:
+    server_muted: Impossibile riprendere la riproduzione mentre sono mutato dal server.
+    already: Il lettore non era in pausa.
+    success: Ho ripreso la riproduzione.
+  play:
+    domain:
+      other: Il link che hai fornito non è supportato.
+      youtube: Eara ha temporaneamente rimosso il supporto per i link di YouTube.
+      vote_locked: >
+        Devi votare {{mention}} su **top.gg** per avere accesso ai link di
+        `{{domain}}`!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Nessun risultato per la tua ricerca.
+    error: Si è verificato un errore durante il caricamento della tua ricerca.
+    invalid_url: Hai inserito un URL non valido.
+    queue_full: >-
+      La coda non ha abbastanza spazio. Rimuovi alcune canzoni prima di
+      aggiungerne altre.
+    added: '{{item}} aggiunto alla coda.'
+    loaded:
+      album_one: 'una canzone dall''album {{collection}}'
+      album_other: '{{count, number}} canzoni dall''album {{collection}}'
+      artist_one: 'la canzone più ascoltata di *{{collection}}*'
+      artist_other: 'le {{count, number}} canzoni più ascoltate di *{{collection}}*'
+      playlist_one: 'una canzone dalla playlist *{{collection}}*'
+      playlist_other: '{{count, number}} canzoni dalla playlist *{{collection}}*'
+  stop:
+    success: Il riproduttore è stato fermato.
+  volume:
+    current: 'Il volume attuale è {{volume, number}}.'
+    out_of_bounds: Il volume deve essere compreso tra 0 e 255.
+    success: 'Il volume è stato impostato a {{volume, number}}.'
+  effects:
+    enabled: 'Effetto ''*{{effect}}*'' attivato!'
+    disabled: 'Effetto ''*{{effect}}*'' disattivato!'
+    cleared: Tutti gli effetti attivi sono stati disattivati!
+  immersive:
+    disabled: Modalità immersiva disattivata.

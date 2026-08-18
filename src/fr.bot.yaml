@@ -1,0 +1,325 @@
+checks:
+  guild_only: Cette commande ne peut être utilisée que dans un serveur.
+  not_playing: Je ne joue pas de musique dans ce serveur.
+  user_vc_none: Vous devez être dans un salon vocal pour utiliser cette commande.
+  user_vc_diff: >-
+    Vous devez être dans le même salon vocal que moi pour utiliser cette
+    commande.
+  queue_empty: La file d'attente est vide.
+  nothing_playing: Aucune musique n'est en cours de lecture.
+  unknown_command: Je ne reconnais pas cette commande...
+  owner_only: Vous n'êtes pas autorisé à utiliser cette commande.
+  maintenance: 'Le bot est en maintenance, veuillez revenir plus tard.'
+common:
+  join_our_server: 'Rejoignez notre [*Discord Server*]({{invite}} ) pour plus d''informations'
+  message_deleted: '*Message was deleted*'
+  vote: Vote on Top.gg
+  discord_server: Support Server
+  remove: Remove
+  play_now: Play Now
+  next: Next
+  previous: Previous
+  unknown_artist: Unknown Artist
+  unavailable_track: '[unavailable track metadata]'
+  unknown_url: Unknown URL
+  unsupported_url: Unsupported URL
+  source_url: '{{source}} URL'
+  unknown: Unknown
+  unknown_channel: Unknown Channel
+  none: None
+  not_available: N/A
+  'yes': 'Yes'
+  'no': 'No'
+  track: Track
+  queue: Queue
+  state:
+    loading: Loading
+    paused: Paused
+    playing: Playing
+    idle: Idle
+    active: Active
+    'off': 'Off'
+    disconnected: Disconnected
+    joining: Joining
+    connected: Connected
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# You have **30 seconds** to respond.
+    confirm: Confirmer
+    deny: Refuser
+  premium:
+    sku_required: >-
+      Ce serveur nécessite un **abonnement Premium** pour accéder à cette
+      commande.
+    uninterrupted_access: >-
+      Après avoir voté, vous obtiendrez *jusqu'à* 12 heures d'accès ininterrompu
+      !
+    vote_required: >
+      Vous devez voter pour {{mention}} sur **top.gg** pour accéder à cette
+      commande.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Obtenir le Premium
+    vote_locks_premium: '**Premium** supprime les verrous de vote pour tout le serveur.'
+buttons:
+  remove:
+    none: Je n'ai pas pu trouver l'élément que vous souhaitiez supprimer...
+    done: '{{author}} a supprimé {{track}} de la file d''attente.'
+  correlated_remove:
+    none: Les chanson(s) ajoutées à la file d'attente sont introuvables...
+    done: '{{author}} a supprimé {{count}} chanson(s) de la file d''attente.'
+  play_now:
+    none: >-
+      Je n'ai pas pu trouver les chansons que vous avez ajoutées dans la file
+      d'attente, les avez-vous déjà jouées ?
+    not_found: Impossible de trouver cette chanson dans la file d'attente.
+    done_one: 'Une chanson demandée par {{requester}} a été priorisée.'
+    done_other: '{{count}} chansons demandées par {{requester}} ont été priorisées.'
+    footer_a: 'Passé à {{next}} depuis {{prev}}'
+    footer_b: 'Passé à {{next}}'
+  item_actions:
+    not_found: Cette chanson n'est plus dans la file d'attente.
+  previous:
+    none: Il n'y a pas de chansons précédentes...
+  skip_to: '{{user}} a passé à {{track}}'
+  stop: '{{user}} a arrêté le lecteur.'
+events:
+  command_failed:
+    message: Cette commande a échoué.
+    reason:
+      unknown: >-
+        Une erreur inattendue s'est produite, veuillez la signaler aux
+        développeurs.
+      panic: >-
+        La tâche traitant votre commande a échoué, veuillez la signaler aux
+        développeurs.
+    footer: 'Fournissez cet ID aux développeurs : **{{eid}}**'
+  player:
+    tips:
+      autoplay: >-
+        Continuez la musique quand la file d'attente se termine avec
+        {{command}}.
+      crossfade: >-
+        Saviez-vous que nous avons un fondu croisé ? Utilisez {{command}} pour
+        le configurer.
+      effects: 'Donnez une ambiance différente à la chanson actuelle avec {{command}}.'
+      history: >-
+        Vous cherchez quelque chose joué précédemment ? {{command}} peut aussi
+        afficher l'historique de la file d'attente.
+      immersive: 'Utilisez {{spatialize}} ou {{orbit}} pour dynamiser votre expérience !'
+      loop: >-
+        Vous voulez l'écouter à nouveau ? {{command}} peut répéter cette chanson
+        ou toute la file d'attente.
+      move: >-
+        Réorganisez ou nettoyez la file d'attente avec {{move_command}} et
+        {{remove_command}}.
+      notifications: >-
+        Les gestionnaires du serveur peuvent choisir un salon vocal dédié avec
+        {{command}}.
+      seek: 'Sauter à n''importe quel moment de cette chanson avec {{command}}.'
+      shuffle: >-
+        Mélangez les chansons en attente dans la file d'attente avec
+        {{command}}.
+      voice_status: >-
+        Les gestionnaires du serveur peuvent afficher la chanson actuelle dans
+        le statut du salon vocal avec {{command}}.
+    notification:
+      join_failed: Échec de la connexion à votre salon vocal.
+      playback_failed: 'Échec de la lecture de {{track}}'
+      scheduler_failed: >-
+        Le planificateur de lecture pour ce serveur a échoué. Veuillez exécuter
+        `/leave`, puis `/join`, et signaler ceci si cela se reproduit.
+      playback_stalled: >-
+        Trop de tentatives de lecture échouées. Si cela continue, veuillez
+        rejoindre notre serveur de support.
+      idle_timeout: 'Le lecteur est resté inactif trop longtemps, je me suis donc déconnecté.'
+    disconnect:
+      alone: 'J''ai été laissé seul, déconnexion <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: La file d'attente est terminée.
+        prompts:
+          review:
+            message: 'Vous appréciez {{mention}} ? Laissez-nous un avis !'
+            button: Laisser un avis
+          vote:
+            message: >-
+              Vous appréciez {{mention}} ? Votez pour nous afin d'aider
+              davantage de personnes à nous trouver !
+            button: Voter pour nous
+          support:
+            message: >-
+              Besoin d'aide ou envie de discuter ? Rejoignez notre communauté
+              Discord !
+            button: Rejoindre notre serveur
+commands:
+  debug:
+    footer: Partagez ce résumé lorsque vous demandez de l'aide pour le lecteur.
+    loop_indefinite: '{{mode}} (indéfini)'
+    loop_remaining: '{{mode}} ({{count, number}} restants)'
+  dev:
+    entitlement_granted: >-
+      Entitlement {{entitlement}} accordé pour le SKU {{sku}} au serveur
+      {{guild}}.
+    player_not_found: 'Aucun lecteur n''existe pour le serveur {{guild}}.'
+    joining: 'Connexion à {{channel}} ({{connection}})'
+    connected: 'Connecté à {{channel}} ({{connection}})'
+  ping:
+    message: Pong !
+    footer: Vous rencontrez des problèmes ? Rejoignez notre **serveur de support** !
+  stats:
+    instance_failed: Échec de la récupération de l'instance.
+  crossfade:
+    current:
+      enabled: 'La durée du fondu croisé est définie sur {{duration, number}}s.'
+      disabled: Le fondu croisé est désactivé.
+    updated:
+      enabled: 'La durée du fondu croisé a été définie sur {{duration, number}}s.'
+      disabled: Le fondu croisé est désactivé.
+  default_volume:
+    current: 'Actuellement, le volume par défaut pour ce serveur est {{volume, number}}.'
+    updated: >-
+      Le volume par défaut pour ce serveur a été mis à jour à {{volume,
+      number}}.
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Actuellement, {{mention}} mettra à jour le statut du salon vocal lorsque
+        la chanson actuelle change.
+      disabled: >-
+        Actuellement, {{mention}} ne mettra pas à jour le statut du salon vocal
+        lorsque la chanson actuelle change.
+    updated:
+      enabled: >-
+        {{mention}} mettra désormais à jour le statut du salon vocal lorsque la
+        chanson actuelle change.
+      disabled: >-
+        {{mention}} ne mettra plus à jour le statut du salon vocal lorsque la
+        chanson actuelle change.
+  autoplay:
+    current:
+      enabled: >-
+        Actuellement, {{mention}} va lire automatiquement des chansons
+        recommandées.
+      disabled: >-
+        Actuellement, {{mention}} ne lit pas automatiquement de chansons
+        recommandées.
+    updated:
+      enabled: '{{mention}} va désormais lire automatiquement des chansons recommandées.'
+      disabled: '{{mention}} ne lira plus automatiquement de chansons recommandées.'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} n''envoie pas de notifications vers un salon spécifique.'
+        some: '{{mention}} envoie actuellement des notifications vers {{channel}}'
+      clear: '{{mention}} n''enverra plus de notifications vers un salon spécifique.'
+      update: '{{mention}} enverra désormais des notifications vers {{channel}}'
+  leave:
+    success_channel: 'Déconnecté de {{channel}}.'
+    destroyed: Le lecteur pour ce serveur a été détruit.
+  join:
+    conflict: Je suis déjà dans un salon vocal.
+    failure: Je n'ai pas pu rejoindre ce salon vocal.
+    in_progress: Je suis déjà en train de rejoindre ce salon vocal.
+    perms:
+      missing: >-
+        J'ai besoin des autorisations pour **view**, **connect**, et **speak**
+        dans {{channel}}.
+    success: 'D''accord, j''ai rejoint {{channel}}.'
+  skip:
+    success: Passé.
+    to:
+      invalid: >-
+        Je n'ai pas reconnu la chanson que vous m'avez donnée. Essayez
+        d'utiliser la saisie automatique :)
+      none: >-
+        Je ne peux pas passer à cette chanson, est-elle toujours dans la file
+        d'attente ?
+  seek:
+    unseekable: La chanson actuelle n'est pas disponible en avance rapide.
+    no_duration: La chanson actuelle n'a pas de durée.
+    syntax: 'Le code temporel doit être au format `mm:ss`'
+    out_of_bounds: >-
+      La position indiquée dépasse la durée de la chanson actuelle, {{given}} >
+      {{length}}
+    success: 'Avancé à {{given}}'
+  loop:
+    nothing:
+      success: La lecture en boucle a été désactivée.
+      already: La lecture en boucle était déjà désactivée.
+    track:
+      indef: La chanson actuelle sera maintenant répétée indéfiniment.
+      times_one: La chanson actuelle sera répétée une fois.
+      times_other: 'La chanson actuelle sera maintenant répétée *{{count, number}} fois*.'
+      nuhuh: La chanson actuelle est déjà en boucle.
+    queue:
+      indef: La file d'attente sera maintenant répétée indéfiniment.
+      times_one: La file d'attente sera répétée une fois.
+      times_other: 'La file d''attente sera maintenant répétée *{{count, number}} fois*.'
+      nuhuh: La file d'attente est déjà en boucle.
+  queue:
+    use_autocomplete: >-
+      Hein ? Essayez d'utiliser la saisie automatique pour sélectionner une
+      chanson en file d'attente.
+    view:
+      footer: 'Page {{cur, number}}/{{all, number}} ({{tot, number}} au total)'
+    move:
+      failed: Impossible de déplacer cette chanson à la position demandée.
+      success: 'Déplacé {{track}} à la position #{{index, number}}'
+    clear:
+      none: La file d'attente est vide.
+      success_one: 1 chanson supprimée de la file d'attente.
+      success_other: '{{count, number}} chansons supprimées de la file d''attente.'
+    remove:
+      confirm: 'Êtes-vous sûr de vouloir supprimer {{track}} de la file d''attente ?'
+      cancelled: 'D''accord, je ne supprimerai pas cette chanson.'
+      not_found: >-
+        La chanson fournie est introuvable dans la file d'attente, essayez
+        d'utiliser la saisie automatique.
+      success: 'Supprimé {{track}} de la file d''attente.'
+    shuffle:
+      too_small: La file d'attente est trop petite pour être mélangée.
+      success: La file d'attente a été mélangée.
+  pause:
+    already: Le lecteur est déjà en pause.
+    success: J'ai mis le lecteur en pause.
+  resume:
+    server_muted: Impossible de reprendre la lecture tant que je suis muet sur le serveur.
+    already: Le lecteur n'était pas en pause.
+    success: J'ai repris la lecture.
+  play:
+    domain:
+      other: Le lien que vous avez fourni n'est pas pris en charge.
+      youtube: Eara a temporairement supprimé la prise en charge des liens YouTube.
+      vote_locked: >
+        Vous devez voter pour {{mention}} sur **top.gg** pour accéder aux liens
+        `{{domain}}` !
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Aucun résultat n'a été retourné pour votre requête.
+    error: Une erreur s'est produite lors du chargement de votre requête.
+    invalid_url: Vous avez fourni une URL non valide.
+    queue_full: >-
+      La file d'attente n'a pas assez de place. Supprimez des chansons avant
+      d'en ajouter d'autres.
+    added: 'Ajout de {{item}} à la file d''attente.'
+    loaded:
+      album_one: 'une chanson de l''album {{collection}}'
+      album_other: '{{count, number}} chansons de l''album {{collection}}'
+      artist_one: '*{{collection}}*''s top song'
+      artist_other: '*{{collection}}*''s top {{count, number}} songs'
+      playlist_one: 'one song from playlist *{{collection}}*'
+      playlist_other: '{{count, number}} songs from playlist *{{collection}}*'
+  stop:
+    success: The player has been stopped.
+  volume:
+    current: 'The current volume is {{volume, number}}.'
+    out_of_bounds: The volume must be between 0 and 255.
+    success: 'The volume has been set to {{volume, number}}.'
+  effects:
+    enabled: 'Enabled the ''*{{effect}}*'' effect!'
+    disabled: 'Disabled the ''*{{effect}}*'' effect!'
+    cleared: Cleared all toggled effects!
+  immersive:
+    disabled: Immersive mode disabled.

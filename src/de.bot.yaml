@@ -1,0 +1,334 @@
+checks:
+  guild_only: Dieser Befehl kann nur in einem Server verwendet werden.
+  not_playing: Ich spiele hier keine Musik ab.
+  user_vc_none: 'Um diesen Befehl zu verwenden, musst du einem Sprachkanal beigetreten sein.'
+  user_vc_diff: >-
+    Um diesen Befehl verwenden zu können, musst du im selben Sprachkanal sein
+    wie ich.
+  queue_empty: Die Warteschlange ist leer.
+  nothing_playing: Aktuell wird nichts abgespielt.
+  unknown_command: Ich erkenne diesen Befehl nicht...
+  owner_only: Du hast keinen Zugriff auf diesen Befehl.
+  maintenance: 'Der Bot befindet sich in Wartungsarbeiten, gib es später wieder.'
+common:
+  join_our_server: >-
+    Trete unserem [*Discord Server*]({{invite}}) bei, um weitere Informationen
+    zu erhalten
+  message_deleted: '*Die Nachricht wurde gelöscht*'
+  vote: Abstimme auf Top.gg
+  discord_server: Support Server
+  remove: Entfernen
+  play_now: Jetzt abspielen
+  next: Nächstes
+  previous: Vorheriges
+  unknown_artist: Unbekannter Künstler
+  unavailable_track: '[nicht verfügbarer Track-Metadaten]'
+  unknown_url: Unbekannte URL
+  unsupported_url: Ununterstützte URL
+  source_url: '{{source}} URL'
+  unknown: Unbekannt
+  unknown_channel: Unbekannter Kanal
+  none: Keine
+  not_available: N/A
+  'yes': Ja
+  'no': Nein
+  track: Spur
+  queue: Warteschlange
+  state:
+    loading: Lädend
+    paused: Pausiert
+    playing: Abgespielt
+    idle: Inaktiv
+    active: Aktiv
+    'off': Aus
+    disconnected: Getrennt
+    joining: Verbinden
+    connected: Verbunden
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# Du hast **30 Sekunden**, um zu reagieren.
+    confirm: Bestätigen
+    deny: Ablehnen
+  premium:
+    sku_required: >-
+      Dieser Server benötigt ein **Premium-Abonnement**, um diesen Befehl zu
+      verwenden.
+    uninterrupted_access: >-
+      Nach dem Abstimmen erhalten Sie *bis zu* 12 Stunden ununterbrochenen
+      Zugriff!
+    vote_required: >-
+      Sie müssen für {{mention}} auf **top.gg** abstimmen, um Zugriff auf diesen
+      Befehl zu erhalten.
+
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: Premium erhalten
+    vote_locks_premium: '**Premium** entfernt das Stimmungs-Lock für den gesamten Server.'
+buttons:
+  remove:
+    none: 'Ich habe den Artikel, den Sie entfernen wollten, nicht finden können...'
+    done: '{{author}} hat {{track}} aus der Warteschlange entfernt.'
+  correlated_remove:
+    none: Die gesuchten Musikstücke sind nicht mehr verfügbar...
+    done: '{{author}} hat {{count}} Songs aus der Warteschlange entfernt.'
+  play_now:
+    none: >-
+      Ich konnte die von Ihnen hinzugefügten Songs in der Warteschlange nicht
+      finden, haben Sie sie bereits abgespielt?
+    not_found: Konnte den Song in der Warteschlange nicht finden.
+    done_one: 'Ein von {{requester}} angeforderter Song hat Vorrang.'
+    done_other: '{{count}} von {{requester}} angeforderte Songs haben Vorrang.'
+    footer_a: 'Zu {{next}} gesprungen von {{prev}}'
+    footer_b: 'Zu {{next}} gesprungen'
+  item_actions:
+    not_found: Dieser Song befindet sich nicht mehr in der Warteschlange.
+  previous:
+    none: Es gibt keine vorherigen Songs...
+  skip_to: '{{user}} ist zu {{track}} gesprungen'
+  stop: '{{user}} hat den Wiedergabestopp gestartet.'
+events:
+  command_failed:
+    message: Dieser Befehl ist fehlgeschlagen.
+    reason:
+      unknown: >-
+        Ein unerwarteter Fehler ist aufgetreten. Bitte melden Sie dies an die
+        Entwickler.
+      panic: 'Die Aufgabe wurde abgebrochen, bitte melden Sie dies an die Entwickler.'
+    footer: 'Bitte geben Sie diese ID an die Entwickler: **{{eid}}**'
+  player:
+    tips:
+      autoplay: >-
+        Halten Sie die Musik auch nach Ende der Warteschlange mit {{command}}
+        weiter.
+      crossfade: >-
+        Wussten Sie, dass wir Crossfading haben? Verwenden Sie {{command}}, um
+        dies zu konfigurieren.
+      effects: 'Geben Sie dem aktuellen Song eine andere Note mit {{command}}.'
+      history: >-
+        Suchen Sie nach etwas, das früher gespielt wurde? {{command}} kann auch
+        die Warteschlange-Historie anzeigen.
+      immersive: >-
+        Verwenden Sie {{spatialize}} oder {{orbit}}, um Ihre Erfahrung
+        aufzulockern!
+      loop: >-
+        Wollen Sie es noch einmal hören? {{command}} kann diesen Song oder die
+        gesamte Warteschlange wiederholen.
+      move: >-
+        Ordnen Sie die Warteschlange neu oder reinigen Sie diese mit
+        {{move_command}} und {{remove_command}}.
+      notifications: >-
+        Servermanager können einen dedizierten Spielerkanal mit {{command}}
+        auswählen.
+      seek: 'Springen Sie zu einem beliebigen Punkt in diesem Song mit {{command}}.'
+      shuffle: 'Mischen Sie die Songs in der Warteschlange mit {{command}}.'
+      voice_status: >-
+        Servermanager können den aktuellen Song im Sprachkanal-Status mit
+        {{command}} anzeigen.
+    notification:
+      join_failed: Ich bin Ihrem Sprachkanal nicht beigetreten.
+      playback_failed: '{{track}} konnte nicht abspielt werden.'
+      scheduler_failed: >-
+        Die Player-Scheduler für diesen Server ist fehlgeschlagen. Bitte führen
+        Sie `/leave`, dann `/join` aus, und berichten Sie von diesem Fall, falls
+        es erneut passiert.
+      playback_stalled: >-
+        Zu viele fehlgeschlagene Abspielversuche. Bitte treten Sie unserem
+        Support-Server bei, wenn dies weitergeht.
+      idle_timeout: 'Der Spieler war zu lange inaktiv, daher habe ich mich getrennt.'
+    disconnect:
+      alone: 'Ich war ganz allein zurückgelassen und trenne mich <t:{{timestamp}}:R>'
+    queue:
+      end:
+        message: Die Warteschlange ist zu Ende.
+        prompts:
+          review:
+            message: 'Genießt {{mention}}? Hinterlassen Sie uns eine Bewertung!'
+            button: Bewertung hinterlassen
+          vote:
+            message: >-
+              Genießt {{mention}}? Stimmen Sie für uns ab, um mehr Menschen zu
+              helfen, sie zu finden!
+            button: Für uns abstimmen
+          support:
+            message: >-
+              Brauchen Sie Hilfe oder möchten Sie Klönen? Treten Sie unserer
+              Discord-Community bei!
+            button: Unser Server beitreten
+commands:
+  debug:
+    footer: 'Teilen Sie diese Zusammenfassung, wenn Sie Hilfe vom Spieler benötigen.'
+    loop_indefinite: '{{mode}} (bestimmungslos)'
+    loop_remaining: '{{mode}} ({{count, number}} verbleibend)'
+  dev:
+    entitlement_granted: >-
+      Berechtigungen für Entitlement {{entitlement}} für SKU {{sku}} an
+      Gemeinschaft {{guild}} gewährt.
+    player_not_found: 'Für Gemeinschaft {{guild}} existiert kein Spieler.'
+    joining: 'Beitreten zu {{channel}} ({{connection}})'
+    connected: 'Verbunden mit {{channel}} ({{connection}})'
+  ping:
+    message: Pong!
+    footer: Haben Sie Probleme? Treten Sie unserem **Support-Server**! bei.
+  stats:
+    instance_failed: Abrufen des Instanzen ist fehlgeschlagen.
+  crossfade:
+    current:
+      enabled: 'Die Überblendungszeit ist auf {{duration, number}}s eingestellt.'
+      disabled: Überblendung ist deaktiviert.
+    updated:
+      enabled: 'Die Überblendungszeit ist auf {{duration, number}}s eingestellt.'
+      disabled: Überblendung deaktiviert.
+  default_volume:
+    current: 'Das Standardvolumen für diesen Server beträgt derzeit {{volume, number}}.'
+    updated: >-
+      Das Standardvolumen für diesen Server wurde auf {{volume, number}}
+      aktualisiert.
+  do_vc_status_update:
+    current:
+      enabled: >-
+        Derzeit wird der Status des Sprachkanals vom aktuellen Song aus, wenn
+        {{mention}} ändern.
+      disabled: >-
+        Derzeit wird der Status des Sprachkanals vom aktuellen Song aus, wenn
+        {{mention}} nicht ändern.
+    updated:
+      enabled: >-
+        {{mention}} wird ab sofort den Status des Sprachkanals beim Wechsel des
+        aktuellen Songs aktualisieren.
+      disabled: >-
+        {{mention}} wird ab sofort den Status des Sprachkanals nicht beim
+        Wechsel des aktuellen Songs aktualisieren.
+  autoplay:
+    current:
+      enabled: 'Derzeit wird von {{mention}} empfohlene Songs automatisch abgespielt.'
+      disabled: 'Derzeit spielt {{mention}} empfohlene Songs nicht automatisch ab.'
+    updated:
+      enabled: '{{mention}} wird ab sofort empfohlene Songs automatisch abspielen.'
+      disabled: >-
+        {{mention}} wird ab sofort keine empfohlenen Songs automatisch
+        abspielen.
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} sendet keine Benachrichtigungen an einen bestimmten Kanal.'
+        some: '{{mention}} sendet derzeit Benachrichtigungen an {{channel}}.'
+      clear: >-
+        {{mention}} wird ab sofort keine Benachrichtigungen mehr an einen
+        bestimmten Kanal senden.
+      update: '{{mention}} wird ab sofort Benachrichtigungen an {{channel}} senden.'
+  leave:
+    success_channel: 'Verlassen {{channel}}.'
+    destroyed: Spieler für diesen Server zerstört.
+  join:
+    conflict: Ich bin bereits in einem Sprachkanal.
+    failure: Ich bin nicht in diesen Sprachkanal eingeben können.
+    in_progress: 'Ich bin bereits dabei, mich in diesen Sprachkanal einzubinden.'
+    perms:
+      missing: >-
+        Ich benötige Berechtigungen, um **anzusehen**, **eine Verbindung
+        herzustellen** und **zu sprechen** in {{channel}}.
+    success: 'Okay, ich habe {{channel}} betreten.'
+  skip:
+    success: Übersprungen.
+    to:
+      invalid: >-
+        Ich habe den Song, den du mir gegeben hast, nicht erkannt. Versuche die
+        Vollautomatische vervollständigung zu nutzen :)
+      none: >-
+        Ich konnte nicht zu diesem Song springen, befindet er sich immer noch in
+        der Warteschlange?
+  seek:
+    unseekable: Der aktuelle Song ist nicht springbar.
+    no_duration: Der aktuelle Song hat keine Dauer.
+    syntax: 'Die Zeitcode muss im Format `mm:ss` sein'
+    out_of_bounds: >-
+      Die Position, die du angegeben hast, wird die Länge des aktuellen Song
+      überschreiten, {{given}} > {{length}}
+    success: 'Gesprungen zu {{given}}'
+  loop:
+    nothing:
+      success: Das Schleifen wurde deaktiviert.
+      already: Das Schleifen war bereits deaktiviert.
+    track:
+      indef: Jetzt wird der aktuelle Song unendlich in Schleife wiedergegeben.
+      times_one: Der aktuelle Song wird einmal in Schleife wiedergegeben.
+      times_other: >-
+        Der aktuelle Song wird jetzt *{{count, number}} mal* in Schleife
+        wiedergegeben.
+      nuhuh: Der aktuelle Song wird bereits in Schleife wiedergegeben.
+    queue:
+      indef: Jetzt wird die Warteschlange unendlich in Schleife wiedergegeben.
+      times_one: Die Warteschlange wird einmal in Schleife wiedergegeben.
+      times_other: >-
+        Die Warteschlange wird jetzt *{{count, number}} mal* in Schleife
+        wiedergegeben.
+      nuhuh: Die Warteschlange ist bereits in Schleife.
+  queue:
+    use_autocomplete: >-
+      Hm? Versuche die Vollautomatische vervollständigung zu nutzen, um
+      einen_song aus der Warteschlange auszuwählen.
+    view:
+      footer: 'Seite {{cur, number}}/{{all, number}} ({{tot, number}} insgesamt)'
+    move:
+      failed: Konnte den Song nicht an die angeforderte Position verschieben.
+      success: '{{track}} zu #{{index, number}} verschoben'
+    clear:
+      none: Die Warteschlange war leer.
+      success_one: 1 Song wurde aus der Warteschlange entfernt.
+      success_other: '{{count, number}} songs wurden aus der Warteschlange entfernt.'
+    remove:
+      confirm: >-
+        Bist du dir sicher, dass du {{track}} aus der Warteschlange entfernen
+        möchtest?
+      cancelled: 'Okay, ich werde diesen Song nicht entfernen.'
+      not_found: >-
+        Der bereitgestellte Song wurde in der Warteschlange nicht gefunden,
+        versuche die Vollautomatische vervollständigung zu nutzen.
+      success: '{{track}} wurde aus der Warteschlange entfernt.'
+    shuffle:
+      too_small: 'Die Warteschlange ist zu klein, um gemischt zu werden.'
+      success: Die Warteschlange wurde durch gemischt.
+  pause:
+    already: Der Player ist bereits pausiert.
+    success: Ich habe den Player pausiert.
+  resume:
+    server_muted: >-
+      Den Player kann nicht wiedergegeben werden, während ich servervielleicht
+      mutiert bin.
+    already: Der Player war nicht pausiert
+    success: Ich habe den Spieler wieder aufgenommen.
+  play:
+    domain:
+      other: Der von Ihnen bereitgestellte Link wird nicht unterstützt.
+      youtube: Eara unterstützt YouTube-Links vorübergehend nicht.
+      vote_locked: >-
+        Sie müssen für {{mention}} auf **top.gg** abstimmen, um Zugriff auf
+        `{{domain}}`-Links zu erhalten!
+
+        -# $t(common.premium.uninterrupted_access)
+    nothing: Für Ihre Anfrage wurde nichts gefunden.
+    error: Beim Laden Ihrer Anfrage ist ein Fehler aufgetreten.
+    invalid_url: Sie haben eine ungültige URL eingegeben.
+    queue_full: >-
+      Die Warteschlange hat nicht genügend Platz. Entfernen Sie einige Songs,
+      bevor Sie weitere hinzufügen.
+    added: '{{item}} wurde zur Warteschlange hinzugefügt.'
+    loaded:
+      album_one: 'ein Song aus dem Album {{collection}}'
+      album_other: '{{count, number}} Songs aus dem Album {{collection}}'
+      artist_one: '*{{collection}}*''s Top-Song'
+      artist_other: '*{{collection}}*''s Top-{{count, number}} Songs'
+      playlist_one: 'ein Song aus der Playlist *{{collection}}*'
+      playlist_other: '{{count, number}} Songs aus der Playlist *{{collection}}*'
+  stop:
+    success: Der Abspieler wurde gestoppt.
+  volume:
+    current: 'Der aktuelle Lautstärkewert ist {{volume, number}}.'
+    out_of_bounds: Die Lautstärke muss zwischen 0 und 255 liegen.
+    success: 'Die Lautstärke wurde auf {{volume, number}} gesetzt.'
+  effects:
+    enabled: 'Die ''*{{effect}}*'' Efektwurde aktiviert!'
+    disabled: 'Die ''*{{effect}}*'' Effekt wurde deaktiviert!'
+    cleared: Alle geschalteten Effekte wurden gelöscht.
+  immersive:
+    disabled: Immersiver Modus deaktiviert.

@@ -1,0 +1,255 @@
+checks:
+  guild_only: 此指令只能在伺服器中使用。
+  not_playing: 我在這個伺服器中沒有播放音樂。
+  user_vc_none: 您必須在語音頻道中才能使用此指令。
+  user_vc_diff: 您必須與我在同一個語音頻道中才能使用此指令。
+  queue_empty: 隊列是空的。
+  nothing_playing: 沒有正在播放的內容。
+  unknown_command: 我不認識這個指令...
+  owner_only: 您不能使用此指令。
+  maintenance: 機器人正在維護中，請稍後再試。
+common:
+  join_our_server: '加入我們的 [*Discord 伺服器*]({{invite}} ) 以取得更多資訊'
+  message_deleted: '*訊息已被刪除*'
+  vote: 在 Top.gg 上投票
+  discord_server: 支援伺服器
+  remove: 移除
+  play_now: 立即播放
+  next: 下一個
+  previous: 上一個
+  unknown_artist: 未知藝術家
+  unavailable_track: '[無法取得的音軌資訊]'
+  unknown_url: 未知網址
+  unsupported_url: 不支援的網址
+  source_url: '{{source}} 網址'
+  unknown: 未知
+  unknown_channel: 未知頻道
+  none: 無
+  not_available: 不適用
+  'yes': 是
+  'no': 否
+  track: 音軌
+  queue: 隊列
+  state:
+    loading: 載入中
+    paused: 已暫停
+    playing: 正在播放
+    idle: 閒置
+    active: 啟用
+    'off': 關閉
+    disconnected: 已斷開
+    joining: 正在加入
+    connected: 已連接
+  confirmation:
+    prompt: |-
+      {{message}}
+      -# 您有 **30 秒** 的時間回應。
+    confirm: Confirm
+    deny: Deny
+  premium:
+    sku_required: 此伺服器需要**進階訂閱**才能使用此指令。
+    uninterrupted_access: 投票後您將獲得*最多*12小時的無中斷存取！
+    vote_required: |
+      您必須在**top.gg**上為{{mention}}投票才能使用此指令。
+      -# $t(common.premium.uninterrupted_access)
+    get_premium: 取得進階版
+    vote_locks_premium: '**進階版**可為整個伺服器解除投票鎖定。'
+buttons:
+  remove:
+    none: 我找不到您要移除的項目...
+    done: '{{author}} 從佇列中移除了 {{track}}。'
+  correlated_remove:
+    none: 已排入佇列的歌曲已消失無蹤...
+    done: '{{author}} 移除了 {{count}} 首已排入佇列的歌曲。'
+  play_now:
+    none: 我找不到您新增到佇列中的歌曲，您已經播放過了嗎？
+    not_found: 在佇列中找不到該歌曲。
+    done_one: '已優先處理 {{requester}} 請求的一首歌曲。'
+    done_other: '已優先處理 {{requester}} 請求的 {{count}} 首歌曲。'
+    footer_a: '從 {{prev}} 跳到 {{next}}'
+    footer_b: '跳到 {{next}}'
+  item_actions:
+    not_found: 該歌曲已不在佇列中。
+  previous:
+    none: 沒有先前的歌曲了...
+  skip_to: '{{user}} 已跳到 {{track}}'
+  stop: '{{user}} 已停止播放器。'
+events:
+  command_failed:
+    message: 此指令執行失敗。
+    reason:
+      unknown: 發生未預期的錯誤，請向開發人員回報此問題。
+      panic: 處理您指令的任務發生嚴重錯誤，請向開發人員回報此問題。
+    footer: '請將此ID提供給開發人員：**{{eid}}**'
+  player:
+    tips:
+      autoplay: '使用 {{command}} 讓音樂在佇列結束後繼續播放。'
+      crossfade: '您知道我們有交叉淡入淡出功能嗎？使用 {{command}} 來設定它。'
+      effects: '使用 {{command}} 給當前歌曲不同的感受。'
+      history: '在尋找之前播放的內容嗎？{{command}} 也可以顯示佇列歷史。'
+      immersive: '使用 {{spatialize}} 或 {{orbit}} 讓您的體驗更生動！'
+      loop: '想再聽一次嗎？{{command}} 可以重複播放這首歌或整個佇列。'
+      move: '使用 {{move_command}} 和 {{remove_command}} 重新排列或清理佇列。'
+      notifications: '伺服器管理員可以選擇專用的播放器頻道，使用 {{command}}。'
+      seek: '使用 {{command}} 跳到歌曲的任意位置。'
+      shuffle: '使用 {{command}} 重新排列佇列中的歌曲。'
+      voice_status: '伺服器管理員可以使用 {{command}} 在語音頻道狀態中顯示當前歌曲。'
+    notification:
+      join_failed: 我無法加入您的語音頻道。
+      playback_failed: '播放 {{track}} 失敗'
+      scheduler_failed: 此伺服器的播放器排程器失敗。請執行 `/leave`，然後執行 `/join`，如果再次發生，請回報此問題。
+      playback_stalled: 播放失敗次數過多。如果持續發生，請加入我們的支援伺服器。
+      idle_timeout: 播放器閒置太久，所以我已斷開連接。
+    disconnect:
+      alone: '我被孤單地留下來了，<t:{{timestamp}}:R> 已斷開連接'
+    queue:
+      end:
+        message: 播放隊列已結束。
+        prompts:
+          review:
+            message: '喜歡 {{mention}} 嗎？給我們留下評論吧！'
+            button: 留下評論
+          vote:
+            message: '喜歡 {{mention}} 嗎？為我們投票，幫助更多人找到它！'
+            button: 為我們投票
+          support:
+            message: 需要幫助或想一起聊天？加入我們的 Discord 社群！
+            button: 加入我們的伺服器
+commands:
+  debug:
+    footer: 在尋求播放器幫助時分享此摘要。
+    loop_indefinite: '{{mode}}（無限期）'
+    loop_remaining: '{{mode}}（剩餘 {{count, number}} 首）'
+  dev:
+    entitlement_granted: '已授予公會 {{guild}} 對 SKU {{sku}} 的權益 {{entitlement}}。'
+    player_not_found: '此公會 {{guild}} 無可用的播放器。'
+    joining: '正在加入 {{channel}}（{{connection}}）'
+    connected: '已連接到 {{channel}}（{{connection}}）'
+  ping:
+    message: Pong！
+    footer: 遇到問題嗎？加入我們的**支援伺服器**！
+  stats:
+    instance_failed: 無法取得實例。
+  crossfade:
+    current:
+      enabled: '交叉淡入淡出持續時間設定為 {{duration, number}} 秒。'
+      disabled: 交叉淡入淡出已停用。
+    updated:
+      enabled: '交叉淡入淡出持續時間設定為 {{duration, number}} 秒。'
+      disabled: 交叉淡入淡出已停用。
+  default_volume:
+    current: '目前此伺服器的預設音量為 {{volume, number}}。'
+    updated: '已將此伺服器的預設音量更新為 {{volume, number}}。'
+  do_vc_status_update:
+    current:
+      enabled: '目前 {{mention}} 將在當前歌曲變更時更新語音頻道狀態。'
+      disabled: '目前 {{mention}} 不會在當前歌曲變更時更新語音頻道狀態。'
+    updated:
+      enabled: '{{mention}} 現在將在當前歌曲變更時更新語音頻道狀態。'
+      disabled: '{{mention}} 將不再於當前歌曲變更時更新語音頻道狀態。'
+  autoplay:
+    current:
+      enabled: '目前 {{mention}} 將自動播放推薦歌曲。'
+      disabled: '目前 {{mention}} 不會自動播放推薦歌曲。'
+    updated:
+      enabled: '{{mention}} 現在將自動播放推薦歌曲。'
+      disabled: '{{mention}} 將不再自動播放推薦歌曲。'
+  notifications:
+    channel:
+      current:
+        none: '{{mention}} 目前未向特定頻道發送通知。'
+        some: '{{mention}} 目前正在向 {{channel}} 發送通知'
+      clear: '{{mention}} 將不再向特定頻道發送通知。'
+      update: '{{mention}} 現在將向 {{channel}} 發送通知'
+  leave:
+    success_channel: '已離開 {{channel}}。'
+    destroyed: 已摧毀此伺服器的播放器。
+  join:
+    conflict: 我已經在語音頻道中了。
+    failure: 我無法加入該語音頻道。
+    in_progress: 我已經在該語音頻道中了。
+    perms:
+      missing: '我需要 **檢視**、**連接** 和 **發言** 的權限才能進入 {{channel}}。'
+    success: '好的，我已加入 {{channel}}。'
+  skip:
+    success: 已跳過。
+    to:
+      invalid: '我不認識你給我的這首歌。試著使用自動完成吧 :)'
+      none: 我無法跳到那首歌，它還在隊列中嗎？
+  seek:
+    unseekable: 目前的歌曲不支援搜尋定位。
+    no_duration: 目前的歌曲沒有持續時間。
+    syntax: '時間碼必須是 `mm:ss` 格式'
+    out_of_bounds: '你提供的位置將超過當前歌曲長度，{{given}} > {{length}}'
+    success: '已定位至 {{given}}'
+  loop:
+    nothing:
+      success: 已關閉重複播放。
+      already: 重複播放已經是關閉狀態。
+    track:
+      indef: 現在將無限重複播放當前歌曲。
+      times_one: 當前歌曲將重複播放一次。
+      times_other: '當前歌曲現在將重複 *{{count, number}} 次*。'
+      nuhuh: 當前歌曲已經設定為重複播放。
+    queue:
+      indef: 現在將無限重複播放整個隊列。
+      times_one: 隊列將重複播放一次。
+      times_other: '隊列現在將重複 *{{count, number}} 次*。'
+      nuhuh: 隊列已經在重複播放中。
+  queue:
+    use_autocomplete: 嗯？請嘗試使用自動完成來選擇一首排隊中的歌曲。
+    view:
+      footer: '第 {{cur, number}} / {{all, number}} 頁（共 {{tot, number}} 首）'
+    move:
+      failed: 無法將該歌曲移動到指定位置。
+      success: '已將 {{track}} 移動到第 #{{index, number}} 位。'
+    clear:
+      none: 播放隊列是空的。
+      success_one: 已從隊列中移除 1 首歌曲。
+      success_other: '已從隊列中移除 {{count, number}} 首歌曲。'
+    remove:
+      confirm: '你確定要從隊列中移除 {{track}} 嗎？'
+      cancelled: 好的，我不會移除那首歌。
+      not_found: 在隊列中找不到提供的歌曲，請嘗試使用自動完成。
+      success: '已從隊列中移除 {{track}}。'
+    shuffle:
+      too_small: 隊列太小，無法洗牌。
+      success: 隊列已重新排列順序。
+  pause:
+    already: 播放器已經暫停了。
+    success: 我已暫停播放器。
+  resume:
+    server_muted: 我在伺服器靜音時無法恢復播放。
+    already: 播放器並未處於暫停狀態。
+    success: 我已恢復播放器。
+  play:
+    domain:
+      other: 您提供的連結不受支援。
+      youtube: Eara 暫時移除了對 YouTube 連結的支援。
+      vote_locked: |
+        您必須在 **top.gg** 上為 {{mention}} 投票，才能使用 `{{domain}}` 連結！
+        -# $t(common.premium.uninterrupted_access)
+    nothing: 您的查詢沒有返回任何結果。
+    error: 載入您的查詢時發生錯誤。
+    invalid_url: 您傳入了無效的 URL。
+    queue_full: 隊列空間不足。請先移除一些歌曲再新增。
+    added: '已將 {{item}} 加入隊列。'
+    loaded:
+      album_one: '來自專輯 *{{collection}}* 的一首歌曲'
+      album_other: '來自專輯 *{{collection}}* 的 {{count, number}} 首歌曲'
+      artist_one: '*{{collection}}* 的熱門歌曲'
+      artist_other: '*{{collection}}* 的 {{count, number}} 首熱門歌曲'
+      playlist_one: '來自播放清單 *{{collection}}* 的一首歌曲'
+      playlist_other: '來自播放清單 *{{collection}}* 的 {{count, number}} 首歌曲'
+  stop:
+    success: 播放器已停止。
+  volume:
+    current: '目前音量為 {{volume, number}}。'
+    out_of_bounds: 音量必須介於 0 到 255 之間。
+    success: '音量已設定為 {{volume, number}}。'
+  effects:
+    enabled: '已啟用 ''*{{effect}}*'' 效果！'
+    disabled: '已停用 ''*{{effect}}*'' 效果！'
+    cleared: 已清除所有已啟用的效果！
+  immersive:
+    disabled: 沉浸模式已關閉。
