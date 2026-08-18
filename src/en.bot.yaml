@@ -52,6 +52,8 @@ common:
     vote_required: |
       You must vote for {{mention}} on **top.gg** to gain access to this command.
       -# $t(common.premium.uninterrupted_access)
+    get_premium: Get Premium
+    vote_locks_premium: "**Premium** removes vote locks for the whole server."
 buttons:
   remove:
     none: I couldn't find the item you wanted to remove...

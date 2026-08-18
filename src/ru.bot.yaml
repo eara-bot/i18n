@@ -15,6 +15,8 @@ common:
     vote_required: |
       Для доступа к этой команде вам нужно проголосовать за {{mention}} на сайте **top.gg** чтобьі получить доступ к этой команде
       -# $t(common.premium.uninterrupted_access)
+    get_premium: Получить Премиум
+    vote_locks_premium: "**Премиум** снимает голосовые блокировки сервера."
 events:
   command_failed: 
     message: Произошла ошибки при вьіполнении этой командьі
