@@ -9,7 +9,8 @@ checks:
   owner_only: You are not allowed to use this command.
   maintenance: The bot is undergoing maintenance, check back later.
 common:
-  join_our_server: "Join our [*Discord Server*]({{invite}} ) for more information"
+  join_our_server: >-
+    Join our [*Discord Server*]({{invite}} ) for more information
   message_deleted: "*Message was deleted*"
   vote: Vote on Top.gg
   discord_server: Support Server
@@ -47,10 +48,17 @@ common:
     confirm: Confirm
     deny: Deny
   premium:
-    sku_required: This server requires a **Premium Subscription** to access this command.
-    uninterrupted_access: After voting you will receive *up-to* 12 hours of uninterrupted access!
-    vote_required: |
-      You must vote for {{mention}} on **top.gg** to gain access to this command.
+    sku_required: >-
+      This server requires a **Premium Subscription** to access this command.
+    pricing_pitch: >-
+      -# Plans start at **{{price}}/month** for higher audio quality, bigger
+      queues, and YouTube access.
+    uninterrupted_access: >-
+      After voting you will receive *up-to* 12 hours of uninterrupted access!
+    vote_required: >-
+      You must vote for {{mention}} on **top.gg** to gain access to this
+      command.
+
       -# $t(common.premium.uninterrupted_access)
     get_premium: Get Premium
     vote_locks_premium: "**Premium** removes vote locks for the whole server."
@@ -62,7 +70,9 @@ buttons:
     none: The song(s) that were queued are nowhere to be found...
     done: "{{author}} removed {{count}} songs that were queued."
   play_now:
-    none: I could not find the songs you added in the queue, have you played them already?
+    none: >-
+      I could not find the songs you added in the queue, have you played them
+      already?
     not_found: Could not find that song in the queue.
     done_one: Prioritized one song requested by {{requester}}.
     done_other: Prioritized {{count}} songs requested by {{requester}}.
@@ -78,27 +88,45 @@ events:
   command_failed:
     message: This command has failed.
     reason:
-      unknown: An unexpected error has been raised, please report this to the developers.
-      panic: The task which was processing your command has panicked, please report this to the developers.
+      unknown: >-
+        An unexpected error has been raised, please report this to the
+        developers.
+      panic: >-
+        The task which was processing your command has panicked, please report
+        this to the developers.
     footer: "Give this ID to the developers: **{{eid}}**"
   player:
     tips:
       autoplay: Keep the music going when the queue ends with {{command}}.
-      crossfade: Did you know we have cross-fading? Use {{command}} to configure it.
+      crossfade: >-
+        Did you know we have cross-fading? Use {{command}} to configure it.
       effects: Give the current song a different feel with {{command}}.
-      history: Looking for something played earlier? {{command}} can also show queue history.
+      history: >-
+        Looking for something played earlier? {{command}} can also show queue
+        history.
       immersive: Use {{spatialize}} or {{orbit}} to liven up your experience!
-      loop: Want to hear it again? {{command}} can repeat this song or the whole queue.
-      move: Reorder or clean up the queue with {{move_command}} and {{remove_command}}.
-      notifications: Server managers can choose a dedicated player channel with {{command}}.
+      loop: >-
+        Want to hear it again? {{command}} can repeat this song or the whole
+        queue.
+      move: >-
+        Reorder or clean up the queue with {{move_command}} and
+        {{remove_command}}.
+      notifications: >-
+        Server managers can choose a dedicated player channel with {{command}}.
       seek: Jump to any point in this song with {{command}}.
       shuffle: Mix up the songs waiting in the queue with {{command}}.
-      voice_status: Server managers can show the current song in the voice-channel status with {{command}}.
+      voice_status: >-
+        Server managers can show the current song in the voice-channel status
+        with {{command}}.
     notification:
       join_failed: I failed to join your voice channel.
       playback_failed: Failed to play {{track}}
-      scheduler_failed: The player scheduler for this server failed. Please run `/leave`, then `/join`, and report this if it happens again.
-      playback_stalled: Too many failed playback attempts. If this continues, please join our Support Server.
+      scheduler_failed: >-
+        The player scheduler for this server failed. Please run `/leave`, then
+        `/join`, and report this if it happens again.
+      playback_stalled: >-
+        Too many failed playback attempts. If this continues, please join our
+        Support Server.
       idle_timeout: The player was idle for too long, so I disconnected.
     disconnect:
       alone: I was left all alone, disconnecting <t:{{timestamp}}:R>
@@ -110,7 +138,8 @@ events:
             message: Enjoying {{mention}}? Leave us a review!
             button: Leave a review
           vote:
-            message: Enjoying {{mention}}? Vote for us to help more people find it!
+            message: >-
+              Enjoying {{mention}}? Vote for us to help more people find it!
             button: Vote for us
           support:
             message: Need help or want to hang out? Join our Discord community!
@@ -124,7 +153,8 @@ commands:
     loop_indefinite: "{{mode}} (indefinite)"
     loop_remaining: "{{mode}} ({{count, number}} remaining)"
   dev:
-    entitlement_granted: Granted entitlement {{entitlement}} for SKU {{sku}} to guild {{guild}}.
+    entitlement_granted: >-
+      Granted entitlement {{entitlement}} for SKU {{sku}} to guild {{guild}}.
     player_not_found: No player exists for guild {{guild}}.
     joining: Joining {{channel}} ({{connection}})
     connected: Connected to {{channel}} ({{connection}})
@@ -148,11 +178,19 @@ commands:
     updated: Updated the default volume for this server to {{volume, number}}.
   do_vc_status_update:
     current:
-      enabled: "Currently, {{mention}} will update the voice channel status when the current song changes."
-      disabled: "Currently, {{mention}} will not update the voice channel status when the current song changes."
+      enabled: >-
+        Currently, {{mention}} will update the voice channel status when the
+        current song changes.
+      disabled: >-
+        Currently, {{mention}} will not update the voice channel status when the
+        current song changes.
     updated:
-      enabled: "{{mention}} will now update the voice channel status when the current song changes."
-      disabled: "{{mention}} will no longer update the voice channel status when the current song changes."
+      enabled: >-
+        {{mention}} will now update the voice channel status when the current
+        song changes.
+      disabled: >-
+        {{mention}} will no longer update the voice channel status when the
+        current song changes.
   autoplay:
     current:
       enabled: "Currently, {{mention}} will auto-play recommended songs."
@@ -165,7 +203,8 @@ commands:
       current:
         none: "{{mention}} is not sending notifications to a specific channel."
         some: "{{mention}} is currently sending notifications to {{channel}}"
-      clear: "{{mention}} will no longer send notifications to a specific channel."
+      clear: >-
+        {{mention}} will no longer send notifications to a specific channel.
       update: "{{mention}} will now send notifications to {{channel}}"
   ###
   ### Music Commands
@@ -185,15 +224,16 @@ commands:
   skip:
     success: Skipped.
     to:
-      invalid: I didn't recognize the song you gave me. Try using auto-complete :)
+      invalid: >-
+        I didn't recognize the song you gave me. Try using auto-complete :)
       none: I could not skip to that song, is it still in the queue?
   seek:
     unseekable: The current song is not seekable.
     no_duration: The current song has no duration.
     syntax: The timecode must be in the format `mm:ss`
     out_of_bounds: >-
-      The position you gave will exceeed the length of the current song, {{given}} >
-      {{length}}
+      The position you gave will exceeed the length of the current song,
+      {{given}} > {{length}}
     success: Seeked to {{given}}
   loop:
     nothing:
@@ -223,7 +263,8 @@ commands:
     remove:
       confirm: Are you sure you want to remove {{track}} from the queue?
       cancelled: Okay, I won't remove that song.
-      not_found: The provided song was not found in the queue, try using autocomplete.
+      not_found: >-
+        The provided song was not found in the queue, try using autocomplete.
       success: Removed {{track}} from the queue.
     shuffle:
       too_small: The queue is too small to be shuffled.
@@ -239,13 +280,16 @@ commands:
     domain:
       other: The link you provided is not supported.
       youtube: Eara has temporarily removed support for YouTube links.
-      vote_locked: |
-        You must vote for {{mention}} on **top.gg** for access to `{{domain}}` links!
+      vote_locked: >-
+        You must vote for {{mention}} on **top.gg** for access to `{{domain}}`
+        links!
+
         -# $t(common.premium.uninterrupted_access)
     nothing: Nothing was returned for your query.
     error: An error occurred while loading your query.
     invalid_url: You passed an invalid URL.
-    queue_full: The queue does not have enough room. Remove some songs before adding more.
+    queue_full: >-
+      The queue does not have enough room. Remove some songs before adding more.
     added: Added {{item}} to the queue.
     loaded:
       album_one: one song from album {{collection}}
