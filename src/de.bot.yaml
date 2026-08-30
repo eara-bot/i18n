@@ -135,6 +135,7 @@ events:
         Zu viele fehlgeschlagene Abspielversuche. Bitte treten Sie unserem
         Support-Server bei, wenn dies weitergeht.
       idle_timeout: 'Der Spieler war zu lange inaktiv, daher habe ich mich getrennt.'
+      restarting: Eara wird neu gestartet und sollte in Kürze wieder verfügbar sein.
     disconnect:
       alone: 'Ich war ganz allein zurückgelassen und trenne mich <t:{{timestamp}}:R>'
     queue:

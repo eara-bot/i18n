@@ -128,6 +128,7 @@ events:
         Quá nhiều lần phát nhạc thất bại. Nếu tình trạng tiếp diễn, vui lòng
         tham gia Máy chủ Hỗ trợ của chúng tôi.
       idle_timeout: 'Người chơi đã không hoạt động quá lâu, nên tôi đã ngắt kết nối.'
+      restarting: Eara đang khởi động lại và sẽ sớm hoạt động trở lại.
     disconnect:
       alone: 'Tôi đã bị bỏ lại một mình, ngắt kết nối <t:{{timestamp}}:R>'
     queue:

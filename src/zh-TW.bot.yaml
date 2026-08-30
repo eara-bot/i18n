@@ -100,6 +100,7 @@ events:
       scheduler_failed: 此伺服器的播放器排程器失敗。請執行 `/leave`，然後執行 `/join`，如果再次發生，請回報此問題。
       playback_stalled: 播放失敗次數過多。如果持續發生，請加入我們的支援伺服器。
       idle_timeout: 播放器閒置太久，所以我已斷開連接。
+      restarting: Eara 正在重新啟動，應該很快就會恢復。
     disconnect:
       alone: '我被孤單地留下來了，<t:{{timestamp}}:R> 已斷開連接'
     queue:

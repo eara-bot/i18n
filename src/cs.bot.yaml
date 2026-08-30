@@ -128,6 +128,7 @@ events:
         Příliš mnoho neúspěšných pokusů o přehrávání. Pokud problém přetrvává,
         připojte se k naší podpůrné skupině.
       idle_timeout: 'Hráč byl příliš dlouho nečinný, takže jsem se odpojil.'
+      restarting: Eara se restartuje a měla by být brzy zpět.
     disconnect:
       alone: 'Byl jsem tu úplně sám, odpojuji <t:{{timestamp}}:R>'
     queue:

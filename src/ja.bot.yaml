@@ -102,6 +102,7 @@ events:
         を行ってください。再発する場合は報告してください。
       playback_stalled: 再生試行が多すぎます。継続する場合は、サポートサーバーにご参加ください。
       idle_timeout: プレイヤーは長時間アイドル状態だったため、切断しました。
+      restarting: Eara は再起動中です。まもなく復帰する予定です。
     disconnect:
       alone: '取り残されたので、<t:{{timestamp}}:R>に切断します'
     queue:

@@ -117,6 +117,7 @@ events:
         Çok fazla başarısız çalma girişimi. Devam ederse, lütfen Destek
         Sunucumuza katılın.
       idle_timeout: 'The player was idle for too long, so I disconnected.'
+      restarting: Eara yeniden başlatılıyor ve kısa süre içinde geri dönecek.
     disconnect:
       alone: 'I was left all alone, disconnecting <t:{{timestamp}}:R>'
     queue:

@@ -124,6 +124,7 @@ events:
         Per daug nepavykusių grojimo bandymų. Jei problema išlieka, prašome
         prisijungti prie mūsų Pagalbos serverio.
       idle_timeout: 'Grotuvas buvo neveikiantis per ilgą laiką, todėl atsijungiau.'
+      restarting: „Eara“ paleidžiama iš naujo ir netrukus turėtų grįžti.
     disconnect:
       alone: 'Buvau paliktas visiškai vienas, atsijungiama <t:{{timestamp}}:R>'
     queue:

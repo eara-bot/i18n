@@ -122,6 +122,7 @@ events:
         Troppi tentativi di riproduzione falliti. Se il problema persiste,
         unisciti al nostro server di supporto.
       idle_timeout: 'Il player era inattivo da troppo tempo, quindi mi sono disconnesso.'
+      restarting: Eara si sta riavviando e dovrebbe tornare a breve.
     disconnect:
       alone: 'Sono stato lasciato solo, disconnessione <t:{{timestamp}}:R>'
     queue:

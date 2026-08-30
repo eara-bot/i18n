@@ -128,6 +128,7 @@ events:
         Too many failed playback attempts. If this continues, please join our
         Support Server.
       idle_timeout: The player was idle for too long, so I disconnected.
+      restarting: Eara is restarting and should be back shortly.
     disconnect:
       alone: I was left all alone, disconnecting <t:{{timestamp}}:R>
     queue:

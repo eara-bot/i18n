@@ -126,6 +126,7 @@ events:
         Terlalu banyak percobaan pemutaran yang gagal. Jika masalah berlanjut,
         harap bergabung ke Server Dukungan kami.
       idle_timeout: 'Pemutar terlalu lama tidak aktif, sehingga saya memutuskan koneksi.'
+      restarting: Eara sedang dimulai ulang dan akan segera kembali.
     disconnect:
       alone: 'Saya ditinggalkan sendirian, terputus <t:{{timestamp}}:R>'
     queue:

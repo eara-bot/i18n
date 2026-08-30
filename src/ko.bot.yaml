@@ -100,6 +100,7 @@ events:
       scheduler_failed: '이 서버의 플레이어 스케줄러가 실패했습니다. `/leave`, 그 후 `/join`을 실행해 주세요. 반복된다면 보고해 주세요.'
       playback_stalled: 재생 시도가 너무 많이 실패했습니다. 계속된다면 지원 서버에 참여해 주세요.
       idle_timeout: 플레이어가 너무 오래 유휴 상태였기 때문에 연결을 끊었습니다.
+      restarting: Eara가 재시작 중이며 곧 다시 온라인 상태가 됩니다.
     disconnect:
       alone: '저를 혼자 남겨두셨네요, <t:{{timestamp}}:R> 동안 연결이 해제됩니다'
     queue:

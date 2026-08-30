@@ -122,6 +122,7 @@ events:
         Liian monta virheellistä toistoyritystä. Jos ongelma jatkuu, liity
         tukipalvelimeemme.
       idle_timeout: 'Toistin oli poissa käytöstä liian pitkään, joten katkaisin yhteyden.'
+      restarting: Eara käynnistyy uudelleen ja palaa pian.
     disconnect:
       alone: 'Jätettiin yksin, katkaistaan yhteys <t:{{timestamp}}:R>'
     queue:

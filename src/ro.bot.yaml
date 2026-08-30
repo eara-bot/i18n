@@ -126,6 +126,7 @@ events:
         Prea multe tentative eșuate de redare. Dacă problema persistă, te rugăm
         să te alături serverului nostru de suport.
       idle_timeout: 'Playerul a fost inactiv prea mult timp, așa că m-am deconectat.'
+      restarting: Eara repornește și ar trebui să revină în curând.
     disconnect:
       alone: 'Am fost lăsat singur, deconectare <t:{{timestamp}}:R>'
     queue:

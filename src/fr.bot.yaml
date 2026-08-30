@@ -134,6 +134,7 @@ events:
         Trop de tentatives de lecture échouées. Si cela continue, veuillez
         rejoindre notre serveur de support.
       idle_timeout: 'Le lecteur est resté inactif trop longtemps, je me suis donc déconnecté.'
+      restarting: Eara redémarre et devrait bientôt être de retour.
     disconnect:
       alone: 'J''ai été laissé seul, déconnexion <t:{{timestamp}}:R>'
     queue:

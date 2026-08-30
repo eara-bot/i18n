@@ -124,6 +124,7 @@ events:
         For mange mislykkede afspilningsforsøg. Hvis det fortsætter, skal du
         venligst slutte dig til vores Support-server.
       idle_timeout: 'Spilleren var inaktiv i for lang tid, så jeg afbrød forbindelsen.'
+      restarting: Eara genstarter og burde snart være tilbage.
     disconnect:
       alone: 'Jeg blev efterladt alene, afbryder <t:{{timestamp}}:R>'
     queue:

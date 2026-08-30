@@ -132,6 +132,7 @@ events:
         Te veel mislukte afspeelpogingen. Als dit blijft gebeuren, neem dan
         contact op met onze Support Server.
       idle_timeout: 'De speler was te lang inactief, dus ik heb de verbinding verbroken.'
+      restarting: Eara wordt opnieuw opgestart en zou snel weer beschikbaar moeten zijn.
     disconnect:
       alone: >-
         Ik ben helemaal alleen achtergebleven, verbinding verbroken

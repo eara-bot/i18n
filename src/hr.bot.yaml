@@ -128,6 +128,7 @@ events:
         Previše neuspješnih pokušaja reprodukcije. Ako se i dalje nastavlja,
         pridružite se našem Support Serveru.
       idle_timeout: 'Igrač je bio neaktivan predugo, pa sam se odjavio.'
+      restarting: Eara se ponovno pokreće i uskoro bi se trebala vratiti.
     disconnect:
       alone: 'Ostao sam sam, odjavljujem se <t:{{timestamp}}:R>'
     queue:

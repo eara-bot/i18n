@@ -122,6 +122,7 @@ events:
         For mange mislykkede avspillingsforsøk. Hvis dette fortsetter, vennligst
         bli med i vår Support-server.
       idle_timeout: 'Spilleren var inaktiv for lenge, så jeg koblet fra.'
+      restarting: Eara starter på nytt og bør snart være tilbake.
     disconnect:
       alone: 'Jeg ble helt alene, koble fra <t:{{timestamp}}:R>'
     queue:

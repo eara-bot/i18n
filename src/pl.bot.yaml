@@ -129,6 +129,7 @@ events:
         Zbyt wiele nieudanych prób odtworzenia. Jeśli problem będzie się
         powtarzał, dołącz do naszego Serwera Wsparcia.
       idle_timeout: 'Odtwarzacz był zbyt długo bezczynny, więc zostałem rozłączony.'
+      restarting: Eara uruchamia się ponownie i powinna wkrótce wrócić.
     disconnect:
       alone: 'Zostałem sam, rozłączam się <t:{{timestamp}}:R>'
     queue:
