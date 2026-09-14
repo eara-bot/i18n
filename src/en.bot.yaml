@@ -106,6 +106,9 @@ events:
         Looking for something played earlier? {{command}} can also show queue
         history.
       immersive: Use {{spatialize}} or {{orbit}} to liven up your experience!
+      last_fm: >-
+        Link your Last.fm account with {{command}} to scrobble everything you
+        listen to here.
       loop: >-
         Want to hear it again? {{command}} can repeat this song or the whole
         queue.
@@ -301,6 +304,22 @@ commands:
       artist_other: "*{{collection}}*'s top {{count, number}} songs"
       playlist_one: one song from playlist *{{collection}}*
       playlist_other: "{{count, number}} songs from playlist *{{collection}}*"
+  last_fm:
+    unavailable: Last.fm connections are not available right now.
+    connect:
+      prompt: >-
+        Open the link below to connect your Last.fm account. It works once and
+        expires in {{minutes, number}} minutes, so keep it to yourself.
+      button: Connect Last.fm
+    disconnect:
+      done: Your Last.fm account has been disconnected.
+    status:
+      linked: Connected to Last.fm as **{{account}}**. Scrobbling is on.
+      paused: Connected to Last.fm as **{{account}}**. Scrobbling is off.
+      unlinked: You have not connected a Last.fm account yet.
+    scrobbling:
+      enabled: Scrobbling is now on.
+      disabled: Scrobbling is now off. Your account stays connected.
   stop:
     success: The player has been stopped.
   volume:
