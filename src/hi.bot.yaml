@@ -305,6 +305,9 @@ commands:
   effects:
     enabled: '''*{{effect}}*'' प्रभाव सक्षम किया गया!'
     disabled: '''*{{effect}}*'' प्रभाव अक्षम कर दिया गया!'
+    trial_enabled: 'वर्तमान गाने के लिए ''*{{effect}}*'' प्रभाव सक्षम किया गया!'
+    trial_disabled: >-
+      वर्तमान गाने के लिए '*{{effect}}*' प्रभाव अक्षम कर दिया गया!
     cleared: सभी टॉगल प्रभाव साफ कर दिए गए हैं!
   immersive:
     disabled: इमर्सिव मोड अक्षम है।

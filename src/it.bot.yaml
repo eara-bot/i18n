@@ -303,6 +303,9 @@ commands:
   effects:
     enabled: 'Effetto ''*{{effect}}*'' attivato!'
     disabled: 'Effetto ''*{{effect}}*'' disattivato!'
+    trial_enabled: 'Effetto ''*{{effect}}*'' attivato per il brano corrente!'
+    trial_disabled: >-
+      Effetto '*{{effect}}*' disattivato per il brano corrente!
     cleared: Tutti gli effetti attivi sono stati disattivati!
   immersive:
     disabled: Modalità immersiva disattivata.

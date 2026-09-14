@@ -301,6 +301,8 @@ commands:
   effects:
     enabled: 'Įjungtas efektas ''*{{effect}}*''!'
     disabled: 'Išjungtas efektas ''*{{effect}}*''!'
+    trial_enabled: 'Įjungtas efektas ''*{{effect}}*'' dabartiniam kūriniui!'
+    trial_disabled: 'Išjungtas efektas ''*{{effect}}*'' dabartiniam kūriniui!'
     cleared: Išvalyti visi įjungti efektai!
   immersive:
     disabled: Imersyvus režimas išjungtas.

@@ -301,6 +301,8 @@ commands:
   effects:
     enabled: 'Uključen efekt ''*{{effect}}*''!'
     disabled: 'Isključen efekt ''*{{effect}}*''!'
+    trial_enabled: 'Uključen efekt ''*{{effect}}*'' za trenutnu pjesmu!'
+    trial_disabled: 'Isključen efekt ''*{{effect}}*'' za trenutnu pjesmu!'
     cleared: Očišćeni svi uključeni efekti!
   immersive:
     disabled: Imersivni način rada onemogućen.

@@ -305,6 +305,10 @@ commands:
   effects:
     enabled: 'Efectul ''*{{effect}}*'' a fost activat!'
     disabled: 'Efectul ''*{{effect}}*'' a fost dezactivat!'
+    trial_enabled: >-
+      Efectul '*{{effect}}*' a fost activat pentru melodia curentă!
+    trial_disabled: >-
+      Efectul '*{{effect}}*' a fost dezactivat pentru melodia curentă!
     cleared: Toate efectele activate au fost resetate!
   immersive:
     disabled: Modul imersiv a fost dezactivat.

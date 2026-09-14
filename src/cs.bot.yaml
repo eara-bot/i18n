@@ -303,6 +303,8 @@ commands:
   effects:
     enabled: 'Efekt ''*{{effect}}*'' byl zapnut!'
     disabled: 'Efekt ''*{{effect}}*'' byl vypnut!'
+    trial_enabled: 'Efekt ''*{{effect}}*'' byl zapnut pro aktuální skladbu!'
+    trial_disabled: 'Efekt ''*{{effect}}*'' byl vypnut pro aktuální skladbu!'
     cleared: Všechny zapnuté efekty byly vymazány!
   immersive:
     disabled: Imersivní režim byl vypnut.

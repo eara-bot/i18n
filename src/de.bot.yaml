@@ -330,6 +330,10 @@ commands:
   effects:
     enabled: 'Die ''*{{effect}}*'' Efektwurde aktiviert!'
     disabled: 'Die ''*{{effect}}*'' Effekt wurde deaktiviert!'
+    trial_enabled: >-
+      Der '*{{effect}}*'-Effekt wurde für den aktuellen Song aktiviert!
+    trial_disabled: >-
+      Der '*{{effect}}*'-Effekt wurde für den aktuellen Song deaktiviert!
     cleared: Alle geschalteten Effekte wurden gelöscht.
   immersive:
     disabled: Immersiver Modus deaktiviert.

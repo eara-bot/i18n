@@ -305,6 +305,9 @@ commands:
   effects:
     enabled: 'Vaikutus ''*{{effect}}*'' käytössä!'
     disabled: 'Vaikutus ''*{{effect}}*'' poistettu käytöstä!'
+    trial_enabled: 'Vaikutus ''*{{effect}}*'' käytössä nykyisen kappaleen ajan!'
+    trial_disabled: >-
+      Vaikutus '*{{effect}}*' poistettu käytöstä nykyisessä kappaleessa!
     cleared: Kaikki käytössä olevat vaikutukset on poistettu!
   immersive:
     disabled: Immersiivitila poistettu käytöstä.

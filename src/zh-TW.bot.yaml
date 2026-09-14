@@ -251,6 +251,8 @@ commands:
   effects:
     enabled: '已啟用 ''*{{effect}}*'' 效果！'
     disabled: '已停用 ''*{{effect}}*'' 效果！'
+    trial_enabled: '已為目前歌曲啟用 ''*{{effect}}*'' 效果！'
+    trial_disabled: '已為目前歌曲停用 ''*{{effect}}*'' 效果！'
     cleared: 已清除所有已啟用的效果！
   immersive:
     disabled: 沉浸模式已關閉。

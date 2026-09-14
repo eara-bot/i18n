@@ -306,6 +306,8 @@ commands:
   effects:
     enabled: 'Ефект ''*{{effect}}*'' увімкнено!'
     disabled: 'Ефект ''*{{effect}}*'' вимкнено!'
+    trial_enabled: 'Ефект ''*{{effect}}*'' увімкнено для поточної пісні!'
+    trial_disabled: 'Ефект ''*{{effect}}*'' вимкнено для поточної пісні!'
     cleared: Усі активовані ефекти очищено!
   immersive:
     disabled: Іммерсивний режим вимкнено.

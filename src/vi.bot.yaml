@@ -301,6 +301,8 @@ commands:
   effects:
     enabled: 'Đã bật hiệu ứng ''*{{effect}}*''.'
     disabled: 'Đã tắt hiệu ứng ''*{{effect}}*''.'
+    trial_enabled: 'Đã bật hiệu ứng ''*{{effect}}*'' cho bài hát hiện tại.'
+    trial_disabled: 'Đã tắt hiệu ứng ''*{{effect}}*'' cho bài hát hiện tại.'
     cleared: Đã xóa tất cả các hiệu ứng đang bật.
   immersive:
     disabled: Chế độ đắm chìm đã bị tắt.

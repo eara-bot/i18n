@@ -251,6 +251,8 @@ commands:
   effects:
     enabled: '''*{{effect}}*'' 효과를 활성화했습니다!'
     disabled: '''*{{effect}}*'' 효과를 비활성화했습니다!'
+    trial_enabled: '현재 곡에 ''*{{effect}}*'' 효과를 활성화했습니다!'
+    trial_disabled: '현재 곡에 ''*{{effect}}*'' 효과를 비활성화했습니다!'
     cleared: 활성화된 모든 효과를 해제했습니다.
   immersive:
     disabled: 몰입형 모드가 비활성화되었습니다.

@@ -253,6 +253,8 @@ commands:
   effects:
     enabled: '『*{{effect}}*』エフェクトを有効にしました！'
     disabled: '『*{{effect}}*』エフェクトを無効にしました！'
+    trial_enabled: '現在の曲で『*{{effect}}*』エフェクトを有効にしました！'
+    trial_disabled: '現在の曲で『*{{effect}}*』エフェクトを無効にしました！'
     cleared: すべてのエフェクトをクリアしました！
   immersive:
     disabled: 没入モードが無効になりました。

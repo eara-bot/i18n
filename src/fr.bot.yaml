@@ -321,6 +321,8 @@ commands:
   effects:
     enabled: 'Enabled the ''*{{effect}}*'' effect!'
     disabled: 'Disabled the ''*{{effect}}*'' effect!'
+    trial_enabled: 'Effet ''*{{effect}}*'' activé pour le morceau actuel !'
+    trial_disabled: 'Effet ''*{{effect}}*'' désactivé pour le morceau actuel !'
     cleared: Cleared all toggled effects!
   immersive:
     disabled: Immersive mode disabled.

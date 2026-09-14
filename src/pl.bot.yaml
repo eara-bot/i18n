@@ -302,6 +302,8 @@ commands:
   effects:
     enabled: 'Włączono efekt ''*{{effect}}*''!'
     disabled: 'Wyłączono efekt ''*{{effect}}*''!'
+    trial_enabled: 'Włączono efekt ''*{{effect}}*'' dla bieżącego utworu!'
+    trial_disabled: 'Wyłączono efekt ''*{{effect}}*'' dla bieżącego utworu!'
     cleared: Usunięto wszystkie włączone efekty!
   immersive:
     disabled: Tryb immersyjny został wyłączony.

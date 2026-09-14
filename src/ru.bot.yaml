@@ -320,6 +320,8 @@ commands:
   effects:
     enabled: 'Эффект ''*{{effect}}*'' включен!'
     disabled: 'Эффект ''*{{effect}}*'' отключен!'
+    trial_enabled: 'Эффект ''*{{effect}}*'' включён для текущей песни!'
+    trial_disabled: 'Эффект ''*{{effect}}*'' отключён для текущей песни!'
     cleared: Все включённые эффекты сброшены!
   immersive:
     disabled: Иммерсивный режим отключён.

@@ -310,6 +310,8 @@ commands:
   effects:
     enabled: Enabled the '*{{effect}}*' effect!
     disabled: Disabled the '*{{effect}}*' effect!
+    trial_enabled: Enabled the '*{{effect}}*' effect for the current song!
+    trial_disabled: Disabled the '*{{effect}}*' effect for the current song!
     cleared: Cleared all toggled effects!
   immersive:
     disabled: Immersive mode disabled.

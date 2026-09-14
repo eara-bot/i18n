@@ -297,6 +297,9 @@ commands:
   effects:
     enabled: 'Aktiverede effekten ''*{{effect}}*''!'
     disabled: 'Deaktiverede effekten ''*{{effect}}*''!'
+    trial_enabled: 'Aktiverede effekten ''*{{effect}}*'' for den aktuelle sang!'
+    trial_disabled: >-
+      Deaktiverede effekten '*{{effect}}*' for den aktuelle sang!
     cleared: Rensede alle aktiverede effekter!
   immersive:
     disabled: Immersiv tilstand deaktiveret.

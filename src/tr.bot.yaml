@@ -282,6 +282,9 @@ commands:
   effects:
     enabled: '''*{{effect}}*'' efekti etkinleştirildi!'
     disabled: '''*{{effect}}*'' efekti devre dışı bırakıldı!'
+    trial_enabled: 'Mevcut şarkı için ''*{{effect}}*'' efekti etkinleştirildi!'
+    trial_disabled: >-
+      Mevcut şarkı için '*{{effect}}*' efekti devre dışı bırakıldı!
     cleared: Tüm etkiler temizlendi!
   immersive:
     disabled: Gömülü kip devre dışı.

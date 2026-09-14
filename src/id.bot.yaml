@@ -305,6 +305,9 @@ commands:
   effects:
     enabled: 'Efek ''*{{effect}}*'' telah diaktifkan!'
     disabled: 'Efek ''*{{effect}}*'' telah dinonaktifkan!'
+    trial_enabled: 'Efek ''*{{effect}}*'' telah diaktifkan untuk lagu saat ini!'
+    trial_disabled: >-
+      Efek '*{{effect}}*' telah dinonaktifkan untuk lagu saat ini!
     cleared: Semua efek yang diaktifkan telah dihapus!
   immersive:
     disabled: Mode imersif dinonaktifkan.

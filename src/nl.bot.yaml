@@ -315,6 +315,10 @@ commands:
   effects:
     enabled: 'Het effect ''*{{effect}}*'' is ingeschakeld!'
     disabled: 'Het effect ''*{{effect}}*'' is uitgeschakeld!'
+    trial_enabled: >-
+      Het effect '*{{effect}}*' is ingeschakeld voor het huidige nummer!
+    trial_disabled: >-
+      Het effect '*{{effect}}*' is uitgeschakeld voor het huidige nummer!
     cleared: Alle ingeschakelde effecten zijn gereset!
   immersive:
     disabled: Immersieve modus uitgeschakeld.
