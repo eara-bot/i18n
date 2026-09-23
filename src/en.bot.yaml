@@ -7,7 +7,14 @@ checks:
   nothing_playing: Nothing is playing.
   unknown_command: I don't recognize this command...
   owner_only: You are not allowed to use this command.
+  missing_permissions: You need the {{permissions}} permission(s) to use this command.
   maintenance: The bot is undergoing maintenance, check back later.
+  tier_required: >-
+    This server's plan doesn't include me. Subscribe at {{website}} to use me
+    here.
+  tier_lapsed: >-
+    This server's subscription has ended, so I've stopped playing. Renew at
+    {{website}} to start again.
 common:
   join_our_server: >-
     Join our [*Discord Server*]({{invite}} ) for more information
@@ -275,6 +282,17 @@ commands:
     shuffle:
       too_small: The queue is too small to be shuffled.
       success: The queue has been shuffled.
+  now_playing:
+    autoplay: Autoplay
+    requested_by: Requested by
+    ends: Ends
+    source: Source
+    streamed_from: Streamed from
+    queue: Queue
+    queue_summary: "{{queued, number}} queued • {{played, number}} played"
+    up_next: Up next
+    refresh: Refresh
+    open: Open
   pause:
     already: The player is already paused.
     success: I've paused the player.
