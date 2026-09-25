@@ -29,6 +29,7 @@ common:
   unavailable_track: "[unavailable track metadata]"
   unknown_url: Unknown URL
   unsupported_url: Unsupported URL
+  supported_sites: Supported Sites
   source_url: "{{source}} URL"
   unknown: Unknown
   unknown_channel: Unknown Channel
@@ -171,6 +172,8 @@ commands:
     joining: Joining {{channel}} ({{connection}})
     reconnecting: Reconnecting to {{channel}} ({{connection}})
     connected: Connected to {{channel}} ({{connection}})
+  help:
+    supported_sites: "-# Not sure a link will work? See [which sites eara can play from]({{url}})."
   ping:
     message: Pong!
     footer: Having issues? Join our **Support Server**!
@@ -350,5 +353,8 @@ commands:
     trial_enabled: Enabled the '*{{effect}}*' effect for the current song!
     trial_disabled: Disabled the '*{{effect}}*' effect for the current song!
     cleared: Cleared all toggled effects!
+    list:
+      none: No effects are on.
+      some: "Effects on: {{effects}}"
   immersive:
     disabled: Immersive mode disabled.
