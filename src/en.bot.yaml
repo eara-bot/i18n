@@ -21,6 +21,7 @@ common:
   message_deleted: "*Message was deleted*"
   vote: Vote on Top.gg
   discord_server: Support Server
+  help_center: Help Center
   remove: Remove
   play_now: Play Now
   next: Next
@@ -45,6 +46,7 @@ common:
     playing: Playing
     idle: Idle
     active: Active
+    on: On
     off: Off
     disconnected: Disconnected
     joining: Joining
@@ -85,25 +87,24 @@ buttons:
     not_found: Could not find that song in the queue.
     done_one: Prioritized one song requested by {{requester}}.
     done_other: Prioritized {{count}} songs requested by {{requester}}.
-    footer_a: Skipped to {{next}} from {{prev}}
-    footer_b: Skipped to {{next}}
+    footer_a: Skipped to {{next}} from {{prev}}.
+    footer_b: Skipped to {{next}}.
   item_actions:
     not_found: That song is no longer in the queue.
   previous:
     none: There are no previous songs...
-  skip_to: "{{user}} has skipped to {{track}}"
-  stop: "{{user}} has stopped the player."
+  skip_to: "{{user}} skipped to {{track}}."
+  stop: "{{user}} stopped the player."
 events:
   command_failed:
-    message: This command has failed.
+    message: Something went wrong
     reason:
-      unknown: >-
-        An unexpected error has been raised, please report this to the
-        developers.
-      panic: >-
-        The task which was processing your command has panicked, please report
-        this to the developers.
-    footer: "Give this ID to the developers: **{{eid}}**"
+      unknown: Try again in a moment.
+      player_restarted: The player had to restart. Try that again.
+    footer: >-
+      Error ID `{{eid}}` · share it in our Support Server if this keeps
+      happening.
+    usage: "That doesn't look right. Here's how to use it:"
   player:
     tips:
       autoplay: Keep the music going when the queue ends with {{command}}.
@@ -132,7 +133,7 @@ events:
         with {{command}}.
     notification:
       join_failed: I failed to join your voice channel.
-      playback_failed: Failed to play {{track}}
+      playback_failed: Failed to play {{track}}.
       scheduler_failed: >-
         The player scheduler for this server failed. Please run `/leave`, then
         `/join`, and report this if it happens again.
@@ -142,7 +143,7 @@ events:
       idle_timeout: The player was idle for too long, so I disconnected.
       restarting: Eara is restarting and should be back shortly.
     disconnect:
-      alone: I was left all alone, disconnecting <t:{{timestamp}}:R>
+      alone: I was left all alone, disconnecting <t:{{timestamp}}:R>.
     queue:
       end:
         message: The queue has ended.
@@ -176,7 +177,7 @@ commands:
     supported_sites: "-# Not sure a link will work? See [which sites eara can play from]({{url}})."
   ping:
     message: Pong!
-    footer: Having issues? Join our **Support Server**!
+    footer: Having issues? Check the **Help Center** or join our **Support Server**.
   stats:
     instance_failed: Failed to retrieve instance.
   ###
@@ -184,50 +185,41 @@ commands:
   ###
   crossfade:
     current:
-      enabled: Cross-fading duration is set to {{duration, number}}s.
-      disabled: Cross-fading is disabled.
+      enabled: Crossfade is set to {{duration, number}}s.
+      disabled: Crossfade is off.
     updated:
-      enabled: Crossfade duration set to {{duration, number}}s.
-      disabled: Crossfade disabled.
+      enabled: Crossfade set to {{duration, number}}s.
+      disabled: Crossfade turned off.
   default_volume:
-    current: The default volume for this server is currently {{volume, number}}.
-    updated: Updated the default volume for this server to {{volume, number}}.
+    current: The default volume is {{volume, number}}.
+    updated: Default volume set to {{volume, number}}.
   do_vc_status_update:
     current:
-      enabled: >-
-        Currently, {{mention}} will update the voice channel status when the
-        current song changes.
-      disabled: >-
-        Currently, {{mention}} will not update the voice channel status when the
-        current song changes.
+      enabled: Voice channel status updates are on.
+      disabled: Voice channel status updates are off.
     updated:
-      enabled: >-
-        {{mention}} will now update the voice channel status when the current
-        song changes.
-      disabled: >-
-        {{mention}} will no longer update the voice channel status when the
-        current song changes.
+      enabled: Voice channel status updates turned on.
+      disabled: Voice channel status updates turned off.
   autoplay:
     current:
-      enabled: "Currently, {{mention}} will auto-play recommended songs."
-      disabled: "Currently, {{mention}} is not auto-playing recommended songs."
+      enabled: Autoplay is on.
+      disabled: Autoplay is off.
     updated:
-      enabled: "{{mention}} will now auto-play recommended songs."
-      disabled: "{{mention}} will no longer auto-play recommended songs."
+      enabled: Autoplay turned on.
+      disabled: Autoplay turned off.
   notifications:
     channel:
       current:
-        none: "{{mention}} is not sending notifications to a specific channel."
-        some: "{{mention}} is currently sending notifications to {{channel}}"
-      clear: >-
-        {{mention}} will no longer send notifications to a specific channel.
-      update: "{{mention}} will now send notifications to {{channel}}"
+        none: No notifications channel is set.
+        some: Notifications go to {{channel}}.
+      clear: Notifications channel cleared.
+      update: Notifications channel set to {{channel}}.
   ###
   ### Music Commands
   ###
   leave:
     success_channel: Left {{channel}}.
-    destroyed: Destroyed the player for this server.
+    destroyed: Stopped the player for this server.
   join:
     conflict: I'm already in a voice channel.
     failure: I failed to join that voice channel.
@@ -236,9 +228,9 @@ commands:
       missing: >-
         I need permissions to **view**, **connect**, and **speak** in
         {{channel}}.
-    success: Okay, I joined {{channel}}.
+    success: Joined {{channel}}.
   skip:
-    success: Skipped.
+    success: "{{user}} skipped the song."
     to:
       invalid: >-
         I didn't recognize the song you gave me. Try using auto-complete :)
@@ -246,24 +238,23 @@ commands:
   seek:
     unseekable: The current song is not seekable.
     no_duration: The current song has no duration.
-    syntax: The timecode must be in the format `mm:ss`
+    syntax: The timecode must be in the format `mm:ss`.
     out_of_bounds: >-
-      The position you gave will exceeed the length of the current song,
-      {{given}} > {{length}}
-    success: Seeked to {{given}}
+      That position is past the end of the current song ({{given}} > {{length}}).
+    success: "{{user}} jumped to {{given}}."
   loop:
     nothing:
-      success: Looping has been disabled.
-      already: Looping was already disabled.
+      success: "{{user}} turned off looping."
+      already: Looping is already off.
     track:
-      indef: Now looping the the current song indefinitely.
-      times_one: The current song will loop once.
-      times_other: The current song will now loop for *{{count, number}} times*.
-      nuhuh: The current song is already been looped.
+      indef: "{{user}} set the current song to loop."
+      times_one: "{{user}} set the current song to loop once."
+      times_other: "{{user}} set the current song to loop {{count, number}} times."
+      nuhuh: The current song is already looping.
     queue:
-      indef: Now looping the queue indefinitely.
-      times_one: The queue will loop once.
-      times_other: The queue will now loop for *{{count, number}} times*.
+      indef: "{{user}} set the queue to loop."
+      times_one: "{{user}} set the queue to loop once."
+      times_other: "{{user}} set the queue to loop {{count, number}} times."
       nuhuh: The queue is already looping.
   queue:
     use_autocomplete: Hm? Try using the autocomplete to select a queued song.
@@ -271,20 +262,20 @@ commands:
       footer: Page {{cur, number}}/{{all, number}} ({{tot, number}} total)
     move:
       failed: Could not move that song to the requested position.
-      success: "Moved {{track}} to #{{index, number}}"
+      success: "{{user}} moved {{track}} to #{{index, number}}."
     clear:
       none: The queue was empty.
-      success_one: Removed 1 song from the queue.
-      success_other: Removed {{count, number}} songs from the queue.
+      success_one: "{{user}} cleared 1 song from the queue."
+      success_other: "{{user}} cleared {{count, number}} songs from the queue."
     remove:
       confirm: Are you sure you want to remove {{track}} from the queue?
       cancelled: Okay, I won't remove that song.
       not_found: >-
         The provided song was not found in the queue, try using autocomplete.
-      success: Removed {{track}} from the queue.
+      success: "{{user}} removed {{track}} from the queue."
     shuffle:
       too_small: The queue is too small to be shuffled.
-      success: The queue has been shuffled.
+      success: "{{user}} shuffled the queue."
   now_playing:
     autoplay: Autoplay
     requested_by: Requested by
@@ -292,17 +283,17 @@ commands:
     source: Source
     streamed_from: Streamed from
     queue: Queue
-    queue_summary: "{{queued, number}} queued • {{played, number}} played"
+    queue_summary: "{{queued, number}} queued · {{played, number}} played"
     up_next: Up next
     refresh: Refresh
     open: Open
   pause:
     already: The player is already paused.
-    success: I've paused the player.
+    success: "{{user}} paused the player."
   resume:
-    server_muted: Cannot resume the player while i'm server muted.
-    already: The player wasn't paused
-    success: I've resumed the player.
+    server_muted: I can't resume while I'm server muted.
+    already: The player isn't paused.
+    success: "{{user}} resumed the player."
   play:
     domain:
       other: The link you provided is not supported.
@@ -317,7 +308,7 @@ commands:
     invalid_url: You passed an invalid URL.
     queue_full: >-
       The queue does not have enough room. Remove some songs before adding more.
-    added: Added {{item}} to the queue.
+    added: "{{user}} added {{item}} to the queue."
     loaded:
       album_one: one song from album {{collection}}
       album_other: "{{count, number}} songs from album {{collection}}"
@@ -327,34 +318,38 @@ commands:
       playlist_other: "{{count, number}} songs from playlist *{{collection}}*"
   last_fm:
     unavailable: Last.fm connections are not available right now.
+    account: Account
     connect:
       prompt: >-
         Open the link below to connect your Last.fm account. It works once and
         expires in {{minutes, number}} minutes, so keep it to yourself.
       button: Connect Last.fm
+      open: Open Last.fm
     disconnect:
-      done: Your Last.fm account has been disconnected.
+      button: Disconnect
+      done: Last.fm account disconnected.
     status:
-      linked: Connected to Last.fm as **{{account}}**. Scrobbling is on.
-      paused: Connected to Last.fm as **{{account}}**. Scrobbling is off.
-      unlinked: You have not connected a Last.fm account yet.
+      unlinked: You haven't connected a Last.fm account yet.
     scrobbling:
-      enabled: Scrobbling is now on.
-      disabled: Scrobbling is now off. Your account stays connected.
+      label: Scrobbling
+      turn_on: Turn scrobbling on
+      turn_off: Turn scrobbling off
+      enabled: Scrobbling turned on.
+      disabled: Scrobbling turned off. Your account stays connected.
   stop:
-    success: The player has been stopped.
+    success: "{{user}} stopped the player."
   volume:
-    current: The current volume is {{volume, number}}.
+    current: The volume is {{volume, number}}.
     out_of_bounds: The volume must be between 0 and 255.
-    success: The volume has been set to {{volume, number}}.
+    success: "{{user}} set the volume to {{volume, number}}."
   effects:
-    enabled: Enabled the '*{{effect}}*' effect!
-    disabled: Disabled the '*{{effect}}*' effect!
-    trial_enabled: Enabled the '*{{effect}}*' effect for the current song!
-    trial_disabled: Disabled the '*{{effect}}*' effect for the current song!
-    cleared: Cleared all toggled effects!
+    enabled: "{{user}} turned on *{{effect}}*."
+    disabled: "{{user}} turned off *{{effect}}*."
+    trial_enabled: "{{user}} turned on *{{effect}}* for the current song."
+    trial_disabled: "{{user}} turned off *{{effect}}* for the current song."
+    cleared: "{{user}} turned off all effects."
     list:
       none: No effects are on.
-      some: "Effects on: {{effects}}"
+      some: "Effects on: {{effects}}."
   immersive:
-    disabled: Immersive mode disabled.
+    disabled: "{{user}} turned off immersive mode."
