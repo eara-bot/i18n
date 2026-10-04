@@ -22,6 +22,8 @@ common:
   vote: Vote on Top.gg
   discord_server: Support Server
   help_center: Help Center
+  open_player: Open player
+  open_in_web_player: Open in web player
   remove: Remove
   play_now: Play Now
   next: Next
@@ -126,6 +128,11 @@ events:
         {{remove_command}}.
       notifications: >-
         Server managers can choose a dedicated player channel with {{command}}.
+      player: >-
+        Follow live lyrics and manage the queue with {{command}} or in the
+        [web player]({{url}}).
+      player_web: >-
+        Follow live lyrics and manage the queue in the [web player]({{url}}).
       seek: Jump to any point in this song with {{command}}.
       shuffle: Mix up the songs waiting in the queue with {{command}}.
       voice_status: >-
@@ -158,6 +165,11 @@ events:
           support:
             message: Need help or want to hang out? Join our Discord community!
             button: Join our server
+          player:
+            message: >-
+              Pick what plays next from the web player: search, lyrics and the
+              queue in one place.
+            button: Open web player
 commands:
   ###
   ### Information Commands
@@ -174,6 +186,8 @@ commands:
     reconnecting: Reconnecting to {{channel}} ({{connection}})
     connected: Connected to {{channel}} ({{connection}})
   help:
+    details: "-# Use `/help` for details on any command."
+    player: "-# Live lyrics, the queue and controls are also in the [web player]({{url}})."
     supported_sites: "-# Not sure a link will work? See [which sites eara can play from]({{url}})."
   ping:
     message: Pong!
