@@ -128,9 +128,6 @@ events:
         {{remove_command}}.
       notifications: >-
         Server managers can choose a dedicated player channel with {{command}}.
-      player: >-
-        Follow live lyrics and manage the queue with {{command}} or in the
-        [web player]({{url}}).
       player_web: >-
         Follow live lyrics and manage the queue in the [web player]({{url}}).
       seek: Jump to any point in this song with {{command}}.
