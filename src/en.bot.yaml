@@ -15,6 +15,13 @@ checks:
   tier_lapsed: >-
     This server's subscription has ended, so I've stopped playing. Renew at
     {{website}} to start again.
+  dj_only:
+    role: >-
+      DJ mode is on, so only people with {{role}} or the **Manage Server**
+      permission can do that.
+    managers: >-
+      DJ mode is on, so only people with the **Manage Server** permission can
+      do that.
 common:
   join_our_server: >-
     Join our [*Discord Server*]({{invite}} ) for more information
@@ -218,6 +225,53 @@ commands:
     updated:
       enabled: Autoplay turned on.
       disabled: Autoplay turned off.
+  dj:
+    mode:
+      current:
+        enabled: DJ mode is on. Only DJs can control the player.
+        disabled: DJ mode is off. Everyone in the call can control the player.
+      updated:
+        enabled: >-
+          DJ mode turned on. Only DJs can control the player now; everyone else
+          can still add songs and vote to skip.
+        disabled: DJ mode turned off. Everyone in the call can control the player.
+    role:
+      current:
+        none: No DJ role is set.
+        some: The DJ role is {{role}}.
+      clear: DJ role cleared.
+      update: DJ role set to {{role}}.
+  max_volume:
+    current:
+      none: There's no volume limit for people who aren't DJs.
+      some: People who aren't DJs can set the volume up to {{volume, number}}.
+    updated: People who aren't DJs can now set the volume up to {{volume, number}}.
+    clear: Volume limit removed.
+  no_duplicates:
+    current:
+      enabled: Songs already in the queue can't be added again.
+      disabled: Songs already in the queue can be added again.
+    updated:
+      enabled: Songs already in the queue can no longer be added again.
+      disabled: Songs already in the queue can be added again.
+  fair_queue:
+    current:
+      enabled: The queue takes turns between the people adding songs.
+      disabled: The queue plays songs in the order they were added.
+    updated:
+      enabled: >-
+        Fair queue turned on. New songs take turns between the people adding
+        them.
+      disabled: Fair queue turned off. Songs play in the order they're added.
+  leave_cleanup:
+    current:
+      enabled: When someone leaves the call, their queued songs are removed.
+      disabled: When someone leaves the call, their queued songs stay.
+    updated:
+      enabled: >-
+        When someone leaves the call, their queued songs will now be removed
+        after 30 seconds.
+      disabled: When someone leaves the call, their queued songs will now stay.
   notifications:
     channel:
       current:
@@ -242,6 +296,13 @@ commands:
     success: Joined {{channel}}.
   skip:
     success: "{{user}} skipped the song."
+    vote:
+      counted: >-
+        {{user}} voted to skip the song. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        You already voted to skip this song.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} voted to skip, and the vote passed. Skipping the song."
     to:
       invalid: >-
         I didn't recognize the song you gave me. Try using auto-complete :)
@@ -291,8 +352,6 @@ commands:
     autoplay: Autoplay
     requested_by: Requested by
     ends: Ends
-    source: Source
-    streamed_from: Streamed from
     queue: Queue
     queue_summary: "{{queued, number}} queued · {{played, number}} played"
     up_next: Up next
@@ -306,6 +365,10 @@ commands:
     already: The player isn't paused.
     success: "{{user}} resumed the player."
   play:
+    duplicate: That's already in the queue.
+    duplicates_skipped_one: Skipped 1 song that was already in the queue.
+    duplicates_skipped_other: >-
+      Skipped {{count, number}} songs that were already in the queue.
     domain:
       other: The link you provided is not supported.
       youtube: Eara has temporarily removed support for YouTube links.
@@ -353,6 +416,8 @@ commands:
     current: The volume is {{volume, number}}.
     out_of_bounds: The volume must be between 0 and 255.
     success: "{{user}} set the volume to {{volume, number}}."
+    over_limit: >-
+      Only DJs can set the volume above {{limit, number}} in this server.
   effects:
     enabled: "{{user}} turned on *{{effect}}*."
     disabled: "{{user}} turned off *{{effect}}*."
@@ -362,5 +427,15 @@ commands:
     list:
       none: No effects are on.
       some: "Effects on: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} turned on 24/7. I'll stay in the call until someone uses
+      `/leave`.
+    disabled: >-
+      {{user}} turned off 24/7. I'll leave once the music stops or everyone
+      leaves.
+    already:
+      enabled: 24/7 is already on.
+      disabled: 24/7 is already off.
   immersive:
     disabled: "{{user}} turned off immersive mode."
