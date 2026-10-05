@@ -209,106 +209,136 @@ commands:
   ###
   ### Setting Commands
   ###
-  crossfade:
-    current:
-      enabled: Crossfade is set to {{duration, number}}s.
-      disabled: Crossfade is off.
-    updated:
-      enabled: Crossfade set to {{duration, number}}s.
-      disabled: Crossfade turned off.
-  default_volume:
-    current: The default volume is {{volume, number}}.
-    updated: Default volume set to {{volume, number}}.
-  do_vc_status_update:
-    current:
-      enabled: Voice channel status updates are on.
-      disabled: Voice channel status updates are off.
-    updated:
-      enabled: Voice channel status updates turned on.
-      disabled: Voice channel status updates turned off.
-  autoplay:
-    current:
-      enabled: Autoplay is on.
-      disabled: Autoplay is off.
-    updated:
-      enabled: Autoplay turned on.
-      disabled: Autoplay turned off.
-  dj:
-    mode:
-      current:
-        enabled: DJ mode is on. Only DJs can control the player.
-        disabled: DJ mode is off. Everyone in the call can control the player.
-      updated:
-        enabled: >-
-          DJ mode turned on. Only DJs can control the player now; everyone else
-          can still add songs and vote to skip.
-        disabled: DJ mode turned off. Everyone in the call can control the player.
-    role:
-      current:
-        none: No DJ role is set.
-        some: The DJ role is {{role}}.
-      clear: DJ role cleared.
-      update: DJ role set to {{role}}.
-  vote_skip:
-    current:
-      none: Skipping a song takes votes from more than half the listeners.
-      some: Skipping a song takes votes from {{percent, number}}% of listeners.
-    updated: Skipping a song now takes votes from {{percent, number}}% of listeners.
-    clear: Skipping a song now takes votes from more than half the listeners.
-  max_songs:
-    current:
-      none: There's no limit on how many songs each person can queue.
-      some_one: People who aren't DJs can have 1 song queued at a time.
-      some_other: >-
-        People who aren't DJs can have {{count, number}} songs queued at a
-        time.
-    updated_one: People who aren't DJs can now have 1 song queued at a time.
-    updated_other: >-
-      People who aren't DJs can now have {{count, number}} songs queued at a
-      time.
-    clear: Song limit removed.
-  max_length:
-    current:
-      none: There's no limit on how long songs can be.
-      some_one: People who aren't DJs can queue songs up to 1 minute long.
-      some_other: >-
-        People who aren't DJs can queue songs up to {{count, number}} minutes
-        long.
-    updated_one: People who aren't DJs can now queue songs up to 1 minute long.
-    updated_other: >-
-      People who aren't DJs can now queue songs up to {{count, number}} minutes
-      long.
-    clear: Song length limit removed.
-  voice:
-    not_voice: That isn't a voice or stage channel.
-    allowed: "I'll only play in these channels: {{channels}}."
-    all: I can play in any voice channel again.
-    always_on:
-      current:
-        none: No 24/7 channel is set.
-        some: I stay in {{channel}} around the clock.
-      updated: >-
-        I'll stay in {{channel}} around the clock, and join it on my own if I'm
-        not there.
-      clear: 24/7 channel cleared. I'll leave it like any other channel.
-      taken: >-
-        {{bot}} already stays in that channel around the clock. Pick another one
-        for me.
-  bot:
-    volume:
-      current:
-        none: I use the server's starting volume.
-        some: My starting volume here is {{volume, number}}.
-      updated: My starting volume here is now {{volume, number}}.
-      clear: I'll use the server's starting volume again.
-    notifications:
-      current:
-        none: I post what's playing in the server's notifications channel.
-        some: I post what's playing in {{channel}}.
-      updated: I'll post what's playing in {{channel}}.
-      clear: I'll post in the server's notifications channel again.
-    allowed: "I'll only play in these channels: {{channels}}."
-    server_channels: I'll play wherever the server's voice settings allow again.
+  settings:
+    title: Settings
+    footer: >-
+      Changes save right away. Everything here is also on the
+      [dashboard]({{url}}).
+    pages:
+      playback: Playback
+      dj: DJ
+      queue: Queue
+      voice: Voice
+      bot: This bot
+    about:
+      playback: How the music starts, sounds and keeps going, for the whole server.
+      dj: Who controls the player, and how a skip is decided.
+      queue: What can be added to the queue, and in what order it plays.
+      voice: Where our bots can play in this server, unless one has its own list.
+      bot: >-
+        Just for {{bot}}. Each of our bots in this server has its own, and
+        anything left empty follows the server's settings.
+    state:
+      "on": "On"
+      "off": "Off"
+    turn_on: Turn on
+    turn_off: Turn off
+    change: Change
+    premium: Premium
+    invalid: Enter a whole number from {{min, number}} to {{max, number}}.
+    invalid_optional: >-
+      Enter a whole number from {{min, number}} to {{max, number}}, or leave it
+      empty.
+    playback:
+      volume:
+        label: Starting volume
+        about: How loud I start playing.
+        input: From 0 to 250.
+      crossfade:
+        label: Crossfade
+        about: Blends the end of each song into the next.
+        value: "{{seconds, number}}s"
+        input: Seconds, from 0 to 30. 0 turns it off.
+      autoplay:
+        label: Autoplay
+        about: Keeps the music going with similar songs when the queue runs out.
+      vc_status:
+        label: Voice channel status
+        about: Shows what's playing as the voice channel's status.
+      notifications:
+        label: Now-playing channel
+        about: >-
+          Where I post each song. Leave it empty to post where the music was
+          started.
+        placeholder: Where the music was started
+    dj:
+      mode:
+        label: DJ mode
+        about: >-
+          Only DJs can control the player. Everyone can still add songs and vote
+          to skip.
+      role:
+        label: DJ role
+        about: >-
+          Members with this role are DJs, as is anyone with Manage Server or
+          alone in the call with me.
+        placeholder: No DJ role
+      max_volume:
+        label: Volume limit
+        about: The loudest someone who isn't a DJ can set.
+        none: No limit
+        input: From 0 to 250. Leave it empty for no limit.
+      vote_skip:
+        label: Votes to skip
+        about: The share of listeners it takes to skip a song.
+        none: More than half
+        value: "{{percent, number}}%"
+        input: A percentage, from 1 to 100. Leave it empty for more than half.
+    queue:
+      no_duplicates:
+        label: No duplicates
+        about: Songs already in the queue can't be added again.
+      fair:
+        label: Fair queue
+        about: Takes turns between the people adding songs.
+      leave_cleanup:
+        label: Leave cleanup
+        about: Removes someone's songs 30 seconds after they leave the call.
+      max_songs:
+        label: Songs per person
+        about: How many songs someone who isn't a DJ can have queued.
+        none: No limit
+        input: From 1 to 1000. Leave it empty for no limit.
+      max_length:
+        label: Longest song
+        about: The longest song someone who isn't a DJ can add.
+        none: No limit
+        value_one: 1 minute
+        value_other: "{{count, number}} minutes"
+        input: In minutes, from 1 to 1440. Leave it empty for no limit.
+    voice:
+      channels:
+        label: Voice channels
+        about: Where I can play. Leave it empty to play in any voice channel.
+        placeholder: Any voice channel
+    bot:
+      always_on:
+        label: 24/7 channel
+        about: >-
+          A channel this bot joins on its own and stays in, even when the music
+          stops.
+        placeholder: None
+        taken: >-
+          {{bot}} already stays in that channel around the clock. Pick another
+          one.
+      voice:
+        label: Voice channels
+        about: >-
+          Where this bot can play. Leave it empty to follow the server's voice
+          channels.
+        any: >-
+          This bot can play in any voice channel, whatever the server's say.
+          Pick some to keep it to those.
+        placeholder: The server's voice channels
+      notifications:
+        label: Now-playing channel
+        about: Where this bot posts each song, instead of the server's channel.
+        placeholder: The server's channel
+      volume:
+        label: Starting volume
+        about: How loud this bot starts, instead of the server's volume.
+        none: The server's ({{volume, number}})
+        input: From 0 to 250. Leave it empty to use the server's.
   history:
     title: Recently played
     footer: Press a number to queue that song again.
@@ -316,44 +346,6 @@ commands:
     not_playing: I'm not playing in this server. Use `/play` to start.
     gone: I couldn't find that song again. Try `/play` instead.
     queued: "{{user}} queued {{track}} again."
-  max_volume:
-    current:
-      none: There's no volume limit for people who aren't DJs.
-      some: People who aren't DJs can set the volume up to {{volume, number}}.
-    updated: People who aren't DJs can now set the volume up to {{volume, number}}.
-    clear: Volume limit removed.
-  no_duplicates:
-    current:
-      enabled: Songs already in the queue can't be added again.
-      disabled: Songs already in the queue can be added again.
-    updated:
-      enabled: Songs already in the queue can no longer be added again.
-      disabled: Songs already in the queue can be added again.
-  fair_queue:
-    current:
-      enabled: The queue takes turns between the people adding songs.
-      disabled: The queue plays songs in the order they were added.
-    updated:
-      enabled: >-
-        Fair queue turned on. New songs take turns between the people adding
-        them.
-      disabled: Fair queue turned off. Songs play in the order they're added.
-  leave_cleanup:
-    current:
-      enabled: When someone leaves the call, their queued songs are removed.
-      disabled: When someone leaves the call, their queued songs stay.
-    updated:
-      enabled: >-
-        When someone leaves the call, their queued songs will now be removed
-        after 30 seconds.
-      disabled: When someone leaves the call, their queued songs will now stay.
-  notifications:
-    channel:
-      current:
-        none: No notifications channel is set.
-        some: Notifications go to {{channel}}.
-      clear: Notifications channel cleared.
-      update: Notifications channel set to {{channel}}.
   ###
   ### Music Commands
   ###
@@ -506,7 +498,6 @@ commands:
     success: "{{user}} stopped the player."
   volume:
     current: The volume is {{volume, number}}.
-    out_of_bounds: The volume must be between 0 and 255.
     success: "{{user}} set the volume to {{volume, number}}."
     over_limit: >-
       Only DJs can set the volume above {{limit, number}} in this server.
