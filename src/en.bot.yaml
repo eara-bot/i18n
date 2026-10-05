@@ -209,6 +209,39 @@ commands:
   ###
   ### Setting Commands
   ###
+  autoplay:
+    enabled: "{{user}} turned on autoplay."
+    disabled: "{{user}} turned off autoplay."
+  crossfade:
+    current:
+      "on": Crossfade is {{seconds, number}}s.
+      "off": Crossfade is off.
+    updated:
+      "on": "{{user}} set crossfade to {{seconds, number}}s."
+      "off": "{{user}} turned off crossfade."
+  scope:
+    server: Saved for the whole server.
+    session: >-
+      Until the player stops. Someone with Manage Server can save it for the
+      server, here or in {{command}}.
+  dj:
+    current:
+      "on": DJ mode is **on**. Only DJs can control the player.
+      "off": DJ mode is **off**. Everyone in the call can control the player.
+    who:
+      role: >-
+        DJs are members with {{role}}, anyone with Manage Server, and anyone
+        alone in the call with me.
+      managers: >-
+        DJs are anyone with Manage Server, and anyone alone in the call with
+        me.
+    you:
+      "yes": You can control the player.
+      "no": You can't control the player right now.
+    updated:
+      "on": DJ mode turned on. Only DJs can control the player now.
+      "off": DJ mode turned off. Everyone in the call can control the player.
+      role: DJ role set to {{role}}.
   settings:
     title: Settings
     footer: >-
@@ -520,5 +553,12 @@ commands:
     already:
       enabled: 24/7 is already on.
       disabled: 24/7 is already off.
+    saved: >-
+      {{channel}} is now my 24/7 channel. I'll join it on my own whenever I'm
+      not playing somewhere else in this server.
+    forgotten: >-
+      I'll stop coming back to my 24/7 channel. If I'm in it now, I'll stay
+      until someone turns 24/7 off or uses `/leave`.
+    not_voice: That isn't a voice or stage channel.
   immersive:
     disabled: "{{user}} turned off immersive mode."
