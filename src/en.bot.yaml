@@ -15,6 +15,7 @@ checks:
   tier_lapsed: >-
     This server's subscription has ended, so I've stopped playing. Renew at
     {{website}} to start again.
+  voice_channel_not_allowed: "I can only play in these channels here: {{channels}}."
   dj_only:
     role: >-
       DJ mode is on, so only people with {{role}} or the **Manage Server**
@@ -22,6 +23,13 @@ checks:
     managers: >-
       DJ mode is on, so only people with the **Manage Server** permission can
       do that.
+stage:
+  hand_raised: >-
+    I've raised my hand on the stage. A stage moderator needs to invite me to
+    speak before anyone can hear the music.
+  cannot_speak: >-
+    I'm in the stage audience and can't ask to speak. Give me **Request to
+    Speak**, or invite me to speak yourself.
 common:
   join_our_server: >-
     Join our [*Discord Server*]({{invite}} ) for more information
@@ -241,6 +249,55 @@ commands:
         some: The DJ role is {{role}}.
       clear: DJ role cleared.
       update: DJ role set to {{role}}.
+  vote_skip:
+    current:
+      none: Skipping a song takes votes from more than half the listeners.
+      some: Skipping a song takes votes from {{percent, number}}% of listeners.
+    updated: Skipping a song now takes votes from {{percent, number}}% of listeners.
+    clear: Skipping a song now takes votes from more than half the listeners.
+  max_songs:
+    current:
+      none: There's no limit on how many songs each person can queue.
+      some_one: People who aren't DJs can have 1 song queued at a time.
+      some_other: >-
+        People who aren't DJs can have {{count, number}} songs queued at a
+        time.
+    updated_one: People who aren't DJs can now have 1 song queued at a time.
+    updated_other: >-
+      People who aren't DJs can now have {{count, number}} songs queued at a
+      time.
+    clear: Song limit removed.
+  max_length:
+    current:
+      none: There's no limit on how long songs can be.
+      some_one: People who aren't DJs can queue songs up to 1 minute long.
+      some_other: >-
+        People who aren't DJs can queue songs up to {{count, number}} minutes
+        long.
+    updated_one: People who aren't DJs can now queue songs up to 1 minute long.
+    updated_other: >-
+      People who aren't DJs can now queue songs up to {{count, number}} minutes
+      long.
+    clear: Song length limit removed.
+  voice:
+    not_voice: That isn't a voice or stage channel.
+    allowed: "I'll only play in these channels: {{channels}}."
+    all: I can play in any voice channel again.
+    always_on:
+      current:
+        none: No 24/7 channel is set.
+        some: I stay in {{channel}} around the clock.
+      updated: >-
+        I'll stay in {{channel}} around the clock, and join it on my own if I'm
+        not there.
+      clear: 24/7 channel cleared. I'll leave it like any other channel.
+  history:
+    title: Recently played
+    footer: Press a number to queue that song again.
+    empty: Nothing has been requested here yet.
+    not_playing: I'm not playing in this server. Use `/play` to start.
+    gone: I couldn't find that song again. Try `/play` instead.
+    queued: "{{user}} queued {{track}} again."
   max_volume:
     current:
       none: There's no volume limit for people who aren't DJs.
@@ -303,6 +360,9 @@ commands:
         You already voted to skip this song.
         ({{votes, number}}/{{needed, number}})
       passed: "{{user}} voted to skip, and the vote passed. Skipping the song."
+      requester_gone: >-
+        {{user}} skipped the song. Whoever queued it has left the call, so no
+        vote was needed.
     to:
       invalid: >-
         I didn't recognize the song you gave me. Try using auto-complete :)
@@ -366,6 +426,20 @@ commands:
     success: "{{user}} resumed the player."
   play:
     duplicate: That's already in the queue.
+    over_limit_one: You can only have 1 song in the queue at a time here.
+    over_limit_other: >-
+      You can only have {{count, number}} songs in the queue at a time here.
+    too_long_one: Songs here can't be longer than 1 minute.
+    too_long_other: Songs here can't be longer than {{count, number}} minutes.
+    too_long_skipped_one: >-
+      Skipped 1 song longer than {{minutes, number}} minutes.
+    too_long_skipped_other: >-
+      Skipped {{count, number}} songs longer than {{minutes, number}} minutes.
+    over_limit_skipped_one: >-
+      Skipped 1 song: you can have {{limit, number}} queued at a time.
+    over_limit_skipped_other: >-
+      Skipped {{count, number}} songs: you can have {{limit, number}} queued at
+      a time.
     duplicates_skipped_one: Skipped 1 song that was already in the queue.
     duplicates_skipped_other: >-
       Skipped {{count, number}} songs that were already in the queue.
