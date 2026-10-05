@@ -291,6 +291,24 @@ commands:
         I'll stay in {{channel}} around the clock, and join it on my own if I'm
         not there.
       clear: 24/7 channel cleared. I'll leave it like any other channel.
+      taken: >-
+        {{bot}} already stays in that channel around the clock. Pick another one
+        for me.
+  bot:
+    volume:
+      current:
+        none: I use the server's starting volume.
+        some: My starting volume here is {{volume, number}}.
+      updated: My starting volume here is now {{volume, number}}.
+      clear: I'll use the server's starting volume again.
+    notifications:
+      current:
+        none: I post what's playing in the server's notifications channel.
+        some: I post what's playing in {{channel}}.
+      updated: I'll post what's playing in {{channel}}.
+      clear: I'll post in the server's notifications channel again.
+    allowed: "I'll only play in these channels: {{channels}}."
+    server_channels: I'll play wherever the server's voice settings allow again.
   history:
     title: Recently played
     footer: Press a number to queue that song again.
