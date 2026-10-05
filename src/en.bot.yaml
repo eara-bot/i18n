@@ -143,6 +143,9 @@ events:
         {{remove_command}}.
       notifications: >-
         Server managers can choose a dedicated player channel with {{command}}.
+      player: >-
+        Follow live lyrics and manage the queue with {{command}} or in the
+        [web player]({{url}}).
       player_web: >-
         Follow live lyrics and manage the queue in the [web player]({{url}}).
       seek: Jump to any point in this song with {{command}}.
@@ -382,7 +385,10 @@ commands:
         input: From 0 to 250. Leave it empty to use the server's.
   history:
     title: Recently played
-    footer: Press a number to queue that song again.
+    title_by: Recently played by {{user}}
+    details: "{{artist}} · {{user}} · {{time}}"
+    page: Page {{page, number}} of {{pages, number}}
+    again: Queue one of these again
     empty: Nothing has been requested here yet.
     not_playing: I'm not playing in this server. Use `/play` to start.
     gone: I couldn't find that song again. Try `/play` instead.
