@@ -212,6 +212,8 @@ commands:
   autoplay:
     enabled: "{{user}} turned on autoplay."
     disabled: "{{user}} turned off autoplay."
+    turn_on: Turn on autoplay
+    turn_off: Turn off autoplay
   crossfade:
     current:
       "on": Crossfade is {{seconds, number}}s.
@@ -219,6 +221,8 @@ commands:
     updated:
       "on": "{{user}} set crossfade to {{seconds, number}}s."
       "off": "{{user}} turned off crossfade."
+    "off": "Off"
+    seconds: "{{seconds, number}}s"
   scope:
     server: Saved for the whole server.
     session: >-
@@ -239,9 +243,13 @@ commands:
       "yes": You can control the player.
       "no": You can't control the player right now.
     updated:
-      "on": DJ mode turned on. Only DJs can control the player now.
-      "off": DJ mode turned off. Everyone in the call can control the player.
-      role: DJ role set to {{role}}.
+      "on": "{{user}} turned on DJ mode."
+      "off": "{{user}} turned off DJ mode."
+      role: "{{user}} set the DJ role to {{role}}."
+      no_role: "{{user}} removed the DJ role."
+    turn_on: Turn on DJ mode
+    turn_off: Turn off DJ mode
+    role_placeholder: No DJ role
   settings:
     title: Settings
     footer: >-
@@ -560,5 +568,9 @@ commands:
       I'll stop coming back to my 24/7 channel. If I'm in it now, I'll stay
       until someone turns 24/7 off or uses `/leave`.
     not_voice: That isn't a voice or stage channel.
+    turn_on: Turn on 24/7
+    turn_off: Turn off 24/7
+    keep: Always come back here
+    forget: Stop coming back
   immersive:
     disabled: "{{user}} turned off immersive mode."
