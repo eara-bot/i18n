@@ -386,9 +386,9 @@ commands:
   history:
     title: Recently played
     title_by: Recently played by {{user}}
-    details: "{{artist}} · {{user}} · {{time}}"
+    details: "{{user}} · {{artist}} · {{time}}"
     page: Page {{page, number}} of {{pages, number}}
-    again: Queue one of these again
+    again: Queue again
     empty: Nothing has been requested here yet.
     not_playing: I'm not playing in this server. Use `/play` to start.
     gone: I couldn't find that song again. Try `/play` instead.
