@@ -407,6 +407,11 @@ commands:
       missing: >-
         I need permissions to **view**, **connect**, and **speak** in
         {{channel}}.
+      missing_named: >-
+        I can't play in {{channel}} because I'm missing {{permissions}} there.
+        Ask a server admin to give me these permissions, or re-invite me with
+        the button below.
+      reinvite: Re-invite with permissions
     success: Joined {{channel}}.
   skip:
     success: "{{user}} skipped the song."
@@ -503,12 +508,26 @@ commands:
     domain:
       other: The link you provided is not supported.
       youtube: Eara has temporarily removed support for YouTube links.
+      youtube_premium: >-
+        YouTube links are a **Premium** feature. Search by name or paste a
+        Spotify or Apple Music link to play it for free.
       vote_locked: >-
         You must vote for {{mention}} on **top.gg** for access to `{{domain}}`
         links!
 
         -# $t(common.premium.uninterrupted_access)
     nothing: Nothing was returned for your query.
+    youtube_match: >-
+      -# Playing the closest free match. **Premium** plays YouTube links
+      directly.
+    voice_wait:
+      waiting: >-
+        Join a voice channel and I'll start playing right away. I'll wait for
+        {{seconds, number}} seconds.
+      expired: >-
+        You didn't join a voice channel in time. Join one, then use `/play`
+        again.
+      replaced: Cancelled because you used `/play` again.
     error: An error occurred while loading your query.
     invalid_url: You passed an invalid URL.
     queue_full: >-
