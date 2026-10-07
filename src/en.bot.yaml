@@ -299,6 +299,11 @@ commands:
       vc_status:
         label: Voice channel status
         about: Shows what's playing as the voice channel's status.
+      auto_pause:
+        label: Pause 24/7 when empty
+        about: >-
+          A 24/7 player pauses while nobody is in its call, and plays again
+          when someone joins.
       notifications:
         label: Now-playing channel
         about: >-
@@ -597,5 +602,14 @@ commands:
     turn_off: Turn off 24/7
     keep: Always come back here
     forget: Stop coming back
+    auto_pause:
+      "on": >-
+        {{user}} turned on auto-pause. 24/7 players here pause while nobody is
+        in the call, and play again when someone joins.
+      "off": >-
+        {{user}} turned off auto-pause. 24/7 players here keep playing to an
+        empty call.
+      pause: Pause when empty
+      keep_playing: Keep playing when empty
   immersive:
     disabled: "{{user}} turned off immersive mode."
