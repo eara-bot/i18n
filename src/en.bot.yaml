@@ -204,6 +204,21 @@ commands:
     details: "-# Use `/help` for details on any command."
     player: "-# Live lyrics, the queue and controls are also in the [web player]({{url}})."
     supported_sites: "-# Not sure a link will work? See [which sites eara can play from]({{url}})."
+  feedback:
+    ask:
+      title: Are you enjoying {{mention}}?
+      note: Your answer helps us decide what to work on next.
+      "yes": "Yes"
+      "no": Not really
+    enjoying:
+      title: Thanks! Help others find {{mention}}
+      note: Servers find new bots on Top.gg. A review or a vote there helps us reach more people.
+      review: Write a review
+      vote: Vote on Top.gg
+    not_enjoying:
+      title: Sorry it's not working for you
+      note: Tell us what went wrong in our Discord server, so we can help sort it out and know what to fix.
+      support: Join our Discord server
   ping:
     message: Pong!
     footer: Having issues? Check the **Help Center** or join our **Support Server**.
