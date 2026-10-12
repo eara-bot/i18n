@@ -237,6 +237,13 @@ commands:
     disabled: "{{user}} turned off autoplay."
     turn_on: Turn on autoplay
     turn_off: Turn off autoplay
+  automix:
+    enabled: >-
+      {{user}} turned on automix. Each song now mixes into the next as they
+      fit best, in place of the crossfade.
+    disabled: "{{user}} turned off automix."
+    turn_on: Turn on automix
+    turn_off: Turn off automix
   crossfade:
     current:
       "on": Crossfade is {{seconds, number}}s.
