@@ -91,6 +91,11 @@ common:
     get_premium: Get Premium
     vote_locks_premium: "**Premium** removes vote locks for the whole server."
 buttons:
+  add:
+    title: Add to queue
+    label: Song name or link
+    placeholder: Search or paste a link
+    another: Add Another
   remove:
     none: I couldn't find the item you wanted to remove...
     done: "{{author}} removed {{track}} from the queue."
