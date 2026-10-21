@@ -1,310 +1,681 @@
 checks:
-  guild_only: Tento příkaz lze použít pouze na serveru.
-  not_playing: V tomto serveru nehrávám hudbu.
-  user_vc_none: 'Abyste mohli použít tento příkaz, musíte být ve hlasovém kanálu.'
+  guild_only: Tento příkaz lze použít jen na serveru.
+  not_playing: Na tomto serveru zrovna nehraju hudbu.
+  user_vc_none: Pro použití tohoto příkazu musíte být v hlasovém kanálu.
   user_vc_diff: >-
-    Abyste mohli použít tento příkaz, musíte být ve stejném hlasovém kanálu jako
-    já.
+    Pro použití tohoto příkazu musíte být ve stejném hlasovém kanálu jako já.
   queue_empty: Fronta je prázdná.
-  nothing_playing: Nic nehrává.
+  nothing_playing: Nic nehraje.
   unknown_command: Tento příkaz neznám...
-  owner_only: Nemáte oprávnění tento příkaz použít.
-  maintenance: 'Bota právě prochází údržbou, vraťte se později.'
+  owner_only: Tento příkaz nemůžete použít.
+  missing_permissions: "K použití tohoto příkazu potřebujete tato oprávnění: {{permissions}}."
+  maintenance: Bot prochází údržbou, zkuste to později.
+  tier_required: >-
+    Tarif tohoto serveru mě nezahrnuje. Předplaťte si ho na {{website}}, abyste
+    mě tu mohli používat.
+  tier_lapsed: >-
+    Předplatné tohoto serveru skončilo, a proto už nehraju. Obnovte ho na
+    {{website}} a můžu hrát dál.
+  voice_channel_not_allowed: "Tady můžu hrát jen v těchto kanálech: {{channels}}."
+  dj_only:
+    role: >-
+      Je zapnutý režim DJ, takže to můžou udělat jen lidé s rolí {{role}} nebo
+      s oprávněním **Spravovat server**.
+    managers: >-
+      Je zapnutý režim DJ, takže to můžou udělat jen lidé s oprávněním
+      **Spravovat server**.
+stage:
+  hand_raised: >-
+    Na pódiu mám zvednutou ruku. Než bude hudba slyšet, musí mě moderátor pódia
+    pozvat k mluvení.
+  cannot_speak: >-
+    Jsem v publiku pódia a nemůžu požádat o slovo. Dejte mi oprávnění
+    **Požádat o slovo**, nebo mě k mluvení pozvěte sami.
 common:
-  join_our_server: 'Připojte se k naší [*Discord Server*]({{invite}}) pro více informací'
-  message_deleted: '*Zpráva byla smazána*'
-  vote: Hlasujte na Top.gg
-  discord_server: Podpůrný server
+  join_our_server: "Další informace najdete na našem [*Discord serveru*]({{invite}} )."
+  message_deleted: "*Zpráva byla smazána*"
+  vote: Hlasovat na Top.gg
+  discord_server: Server podpory
+  help_center: Centrum nápovědy
+  open_player: Otevřít přehrávač
+  open_in_web_player: Otevřít ve webovém přehrávači
   remove: Odebrat
-  play_now: Přehrát nyní
+  play_now: Přehrát hned
   next: Další
   previous: Předchozí
-  unknown_artist: Neznámý umělec
-  unavailable_track: '[nedostupná metadata stopy]'
+  unknown_artist: Neznámý interpret
+  unavailable_track: "[nedostupná metadata skladby]"
   unknown_url: Neznámá URL
   unsupported_url: Nepodporovaná URL
-  source_url: '{{source}} URL'
-  unknown: Neznámý
+  supported_sites: Podporované weby
+  source_url: "URL {{source}}"
+  unknown: Neznámé
   unknown_channel: Neznámý kanál
-  none: Žádný
-  not_available: Není k dispozici
-  'yes': Ano
-  'no': Ne
-  track: Stopa
+  none: Žádné
+  not_available: Nedostupné
+  yes: Ano
+  no: Ne
+  track: Skladba
   queue: Fronta
   state:
     loading: Načítání
     paused: Pozastaveno
-    playing: Přehrávání
-    idle: Nečinný
+    playing: Hraje
+    idle: Nečinné
     active: Aktivní
-    'off': Vypnuto
-    disconnected: Odpojen
+    on: Zapnuto
+    off: Vypnuto
+    disconnected: Odpojeno
     joining: Připojování
+    reconnecting: Obnova připojení
     connected: Připojeno
   confirmation:
     prompt: |-
       {{message}}
-      -# Máte **30 sekund** na odpověď.
+      -# Na odpověď máte **30 sekund**.
     confirm: Potvrdit
     deny: Zamítnout
   premium:
     sku_required: >-
-      Tento server vyžaduje **Premium předplatné**, aby bylo možné použít tento
-      příkaz.
-    uninterrupted_access: Po hlasování získáte až 12 hodin nepřerušovaného přístupu!
-    vote_required: >
-      Musíte hlasovat pro {{mention}} na **top.gg**, abyste získali přístup k
-      tomuto příkazu.
+      Tento příkaz vyžaduje na tomto serveru **předplatné Premium**.
+    pricing_pitch: "-# Tarify začínají na **{{price}}/měsíc** a nabízejí vyšší kvalitu zvuku, delší fronty a přístup k YouTube."
+    uninterrupted_access: >-
+      Po hlasování získáte *až* 12 hodin nepřerušeného přístupu!
+    vote_required: >-
+      Pro přístup k tomuto příkazu musíte hlasovat pro {{mention}} na
+      **top.gg**.
 
       -# $t(common.premium.uninterrupted_access)
     get_premium: Získat Premium
-    vote_locks_premium: '**Premium** odstraňuje blokování hlasováním pro celý server.'
+    vote_locks_premium: "**Premium** ruší zámky hlasováním pro celý server."
 buttons:
+  add:
+    title: Přidat do fronty
+    label: Název skladby nebo odkaz
+    placeholder: Vyhledejte nebo vložte odkaz
+    another: Přidat další
   remove:
-    none: 'Nemohl jsem najít položku, kterou jste chtěli odebrat...'
-    done: '{{author}} odebral(a) {{track}} z fronty.'
+    none: Položku, kterou jste chtěli odebrat, se nepodařilo najít...
+    done: "{{author}} odebírá z fronty {{track}}."
   correlated_remove:
-    none: 'Skončené skladby, které byly zařazeny do fronty, nelze nalézt...'
-    done: '{{author}} odebral(a) {{count}} skladby z fronty.'
+    none: Skladby, které byly přidány do fronty, nikde nejsou...
+    done_one: "{{author}} odebírá z fronty 1 přidanou skladbu."
+    done_few: "{{author}} odebírá z fronty {{count, number}} přidané skladby."
+    done_many: "{{author}} odebírá z fronty {{count, number}} přidané skladby."
+    done_other: "{{author}} odebírá z fronty {{count, number}} přidaných skladeb."
   play_now:
     none: >-
-      Nemohl jsem najít skladby, které jste přidali do fronty. Už jste je
+      Skladby, které jste přidali, ve frontě nemůžu najít. Už jste je
       přehráli?
-    not_found: Nelze najít tuto skladbu ve frontě.
-    done_one: 'Zvýšil(a) prioritu jedné skladbě požadované uživatelem {{requester}}.'
-    done_other: >-
-      Zvýšil(a) prioritu {{count}} skladbám požadovaným uživatelem
-      {{requester}}.
-    footer_a: 'Přeskočeno z {{prev}} na {{next}}'
-    footer_b: 'Přeskočeno na {{next}}'
+    not_found: Tuto skladbu ve frontě nemůžu najít.
+    done_one: Upřednostněna 1 skladba od {{requester}}.
+    done_few: Upřednostněny {{count, number}} skladby od {{requester}}.
+    done_many: Upřednostněno {{count, number}} skladby od {{requester}}.
+    done_other: Upřednostněno {{count, number}} skladeb od {{requester}}.
+    footer_a: Přeskočeno z {{prev}} na {{next}}.
+    footer_b: Přeskočeno na {{next}}.
   item_actions:
-    not_found: Tato skladba již není ve frontě.
+    not_found: Tato skladba už ve frontě není.
   previous:
-    none: Nejsou k dispozici žádné předchozí skladby...
-  skip_to: '{{user}} přeskočil(a) na {{track}}'
-  stop: '{{user}} zastavil(a) přehrávání.'
+    none: Žádné předchozí skladby nejsou...
+  skip_to: "{{user}} přeskakuje na {{track}}."
+  stop: "{{user}} zastavuje přehrávač."
 events:
   command_failed:
-    message: Tento příkaz selhal.
+    message: Něco se pokazilo
     reason:
-      unknown: 'Došlo k neočekávané chybě, prosíme nahlášte to vývojářům.'
-      panic: 'Úloha zpracovávající váš příkaz selhala, prosíme nahlášte to vývojářům.'
-    footer: 'Dejte toto ID vývojářům: **{{eid}}**'
+      unknown: Zkuste to za chvíli znovu.
+      player_restarted: Přehrávač se musel restartovat. Zkuste to znovu.
+    footer: >-
+      ID chyby `{{eid}}` · pokud se to opakuje, pošlete ho na náš server
+      podpory.
+    usage: "To nevypadá správně. Takhle se to používá:"
   player:
     tips:
-      autoplay: 'Udržujte hudbu v chodu i po skončení fronty pomocí {{command}}.'
+      autoplay: Ať hudba hraje i po skončení fronty – stačí {{command}}.
       crossfade: >-
-        Věděli jste, že máme přechody se smícháním? Použijte {{command}} k
-        jejich nastavení.
-      effects: 'Dodějte aktuální skladbě jiný pocit pomocí {{command}}.'
+        Věděli jste, že umíme prolínání skladeb? Nastavíte ho pomocí
+        {{command}}.
+      effects: Dodejte aktuální skladbě jiný nádech pomocí {{command}}.
       history: >-
-        Hledáte něco, co bylo hráno dříve? {{command}} může zobrazit také
-        historii fronty.
-      immersive: >-
-        Použijte {{spatialize}} nebo {{orbit}}, abyste oživili své poslechové
-        zážitky!
+        Hledáte něco, co hrálo dřív? {{command}} umí zobrazit i historii
+        fronty.
+      immersive: Zpestřete si poslech pomocí {{spatialize}} nebo {{orbit}}!
+      last_fm: >-
+        Propojte svůj účet Last.fm pomocí {{command}} a scrobblujte všechno, co
+        tu posloucháte.
       loop: >-
-        Chcete to slyšet znovu? {{command}} může opakovat tuto skladbu nebo
+        Chcete si to pustit znovu? {{command}} umí opakovat tuto skladbu nebo
         celou frontu.
       move: >-
-        Změňte pořadí nebo vyčistěte frontu pomocí {{move_command}} a
+        Měňte pořadí ve frontě nebo ji pročistěte pomocí {{move_command}} a
         {{remove_command}}.
       notifications: >-
-        Správci serveru mohou vybrat vyhrazený kanál pro přehrávač pomocí
-        {{command}}.
-      seek: 'Přeskočte na libovolný bod této skladby pomocí {{command}}.'
-      shuffle: 'Zamíchejte skladby čekající ve frontě pomocí {{command}}.'
+        Správci serveru můžou pomocí {{command}} vybrat vyhrazený kanál pro
+        přehrávač.
+      player: >-
+        Sledujte texty v reálném čase a spravujte frontu pomocí {{command}} nebo
+        ve [webovém přehrávači]({{url}}).
+      player_web: >-
+        Sledujte texty v reálném čase a spravujte frontu ve [webovém
+        přehrávači]({{url}}).
+      seek: Skočte na libovolné místo v této skladbě pomocí {{command}}.
+      shuffle: Zamíchejte skladby čekající ve frontě pomocí {{command}}.
       voice_status: >-
-        Správci serveru mohou zobrazit aktuální skladbu ve stavu hlasového
-        kanálu pomocí {{command}}.
+        Správci serveru můžou pomocí {{command}} zobrazovat aktuální skladbu ve
+        stavu hlasového kanálu.
     notification:
-      join_failed: Nepodařilo se mi připojit k vašemu hlasovému kanálu.
-      playback_failed: 'Přehrávání {{track}} se nezdařilo'
+      join_failed: K vašemu hlasovému kanálu se nepodařilo připojit.
+      playback_failed: Skladbu {{track}} se nepodařilo přehrát.
       scheduler_failed: >-
-        Plánovač přehrávání pro tento server selhal. Spusťte prosím `/leave`,
-        poté `/join` a pokud se to stane znovu, nahlášte to.
+        Plánovač přehrávače na tomto serveru selhal. Použijte prosím `/leave`,
+        pak `/join`, a pokud se to stane znovu, nahlaste to.
       playback_stalled: >-
-        Příliš mnoho neúspěšných pokusů o přehrávání. Pokud problém přetrvává,
-        připojte se k naší podpůrné skupině.
-      idle_timeout: 'Hráč byl příliš dlouho nečinný, takže jsem se odpojil.'
-      restarting: Eara se restartuje a měla by být brzy zpět.
+        Příliš mnoho neúspěšných pokusů o přehrání. Pokud to bude pokračovat,
+        přidejte se prosím na náš server podpory.
+      idle_timeout: Přehrávač byl moc dlouho nečinný, proto se odpojuji.
+      restarting: Eara se restartuje a brzy bude zpátky.
     disconnect:
-      alone: 'Byl jsem tu úplně sám, odpojuji <t:{{timestamp}}:R>'
+      alone: Všichni odešli, odpojím se <t:{{timestamp}}:R>.
     queue:
       end:
         message: Fronta skončila.
         prompts:
           review:
-            message: 'Užíváte si {{mention}}? Napište nám recenzi!'
+            message: Líbí se vám {{mention}}? Napište nám recenzi!
             button: Napsat recenzi
           vote:
             message: >-
-              Užíváte si {{mention}}? Hlasujte pro nás a pomozte více lidem nás
-              najít!
+              Líbí se vám {{mention}}? Hlasujte pro nás, ať nás najde víc lidí!
             button: Hlasovat pro nás
           support:
             message: >-
-              Potřebujete pomoc nebo chcete pokecat? Připojte se k naší komunitě
+              Potřebujete pomoc nebo chcete pokecat? Přidejte se k naší komunitě
               na Discordu!
-            button: Připojit se na server
+            button: Přidat se na server
+          player:
+            message: >-
+              Vyberte, co bude hrát dál, ve webovém přehrávači – vyhledávání,
+              texty a fronta na jednom místě.
+            button: Otevřít webový přehrávač
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: 'Sdílejte toto shrnutí, když žádáte o pomoc s přehrávačem.'
-    loop_indefinite: '{{mode}} (neurčitě)'
-    loop_remaining: '{{mode}} (zbývá {{count, number}})'
+    footer: Toto shrnutí přiložte, když budete žádat o pomoc s přehrávačem.
+    loop_indefinite: "{{mode}} (bez omezení)"
+    loop_remaining: "{{mode}} (zbývá: {{count, number}})"
   dev:
-    entitlement_granted: 'Uděleno oprávnění {{entitlement}} pro SKU {{sku}} na guildu {{guild}}.'
-    player_not_found: 'Pro guildu {{guild}} neexistuje žádný přehrávač.'
-    joining: 'Připojuji se k {{channel}} ({{connection}})'
-    connected: 'Připojeno k {{channel}} ({{connection}})'
+    entitlement_granted: >-
+      Nárok {{entitlement}} pro SKU {{sku}} udělen serveru {{guild}}.
+    player_not_found: Pro server {{guild}} neexistuje žádný přehrávač.
+    joining: Připojování k {{channel}} ({{connection}})
+    reconnecting: Opětovné připojování k {{channel}} ({{connection}})
+    connected: Připojeno k {{channel}} ({{connection}})
+  help:
+    details: "-# Podrobnosti o kterémkoli příkazu najdete přes `/help`."
+    player: "-# Texty v reálném čase, fronta a ovládání jsou i ve [webovém přehrávači]({{url}})."
+    supported_sites: "-# Nevíte, jestli odkaz bude fungovat? Podívejte se, [ze kterých webů eara umí hrát]({{url}})."
+  feedback:
+    ask:
+      title: Líbí se vám {{mention}}?
+      note: Vaše odpověď nám pomůže rozhodnout, na čem pracovat dál.
+      "yes": "Ano"
+      "no": Moc ne
+    enjoying:
+      title: Díky! Pomozte ostatním najít {{mention}}
+      note: Servery hledají nové boty na Top.gg. Recenze nebo hlas od vás nám tam pomůže oslovit víc lidí.
+      review: Napsat recenzi
+      vote: Hlasovat na Top.gg
+    not_enjoying:
+      title: Mrzí nás, že vám to nevyhovuje
+      note: Napište nám na našem Discord serveru, co se pokazilo. Pomůžeme to vyřešit a budeme vědět, co opravit.
+      support: Přidat se na náš Discord server
   ping:
     message: Pong!
-    footer: Máte problémy? Přidejte se na náš **Support Server**!
+    footer: Máte potíže? Podívejte se do **Centra nápovědy** nebo se přidejte na náš **server podpory**.
   stats:
-    instance_failed: Nepodařilo se načíst instanci.
+    instance_failed: Statistiky tohoto bota se nepodařilo načíst.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} zapíná automatické přehrávání."
+    disabled: "{{user}} vypíná automatické přehrávání."
+    turn_on: Zapnout automatické přehrávání
+    turn_off: Vypnout automatické přehrávání
+  automix:
+    enabled: >-
+      {{user}} zapíná automix. Každá skladba teď místo prolínání přejde do další
+      v tom nejvhodnějším místě.
+    disabled: "{{user}} vypíná automix."
+    turn_on: Zapnout automix
+    turn_off: Vypnout automix
   crossfade:
     current:
-      enabled: 'Doba crossfadingu je nastavena na {{duration, number}}s.'
-      disabled: Crossfading je zakázán.
+      "on": Prolínání je nastavené na {{seconds, number}} s.
+      "off": Prolínání je vypnuté.
     updated:
-      enabled: 'Doba crossfadingu nastavena na {{duration, number}}s.'
-      disabled: Crossfading zakázán.
-  default_volume:
-    current: 'Aktuální výchozí hlasitost na tomto serveru je {{volume, number}}.'
-    updated: >-
-      Výchozí hlasitost na tomto serveru byla aktualizována na {{volume,
-      number}}.
-  do_vc_status_update:
+      "on": "{{user}} nastavuje prolínání na {{seconds, number}} s."
+      "off": "{{user}} vypíná prolínání."
+    "off": "Vypnuto"
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: Uloženo pro celý server.
+    session: >-
+      Do zastavení přehrávače. Kdo má oprávnění Spravovat server, může to uložit
+      pro celý server, tady nebo v {{command}}.
+  dj:
     current:
-      enabled: >-
-        Momentálně bude {{mention}} aktualizovat stav hlasového kanálu při změně
-        aktuální písně.
-      disabled: >-
-        Momentálně {{mention}} nebude aktualizovat stav hlasového kanálu při
-        změně aktuální písně.
+      "on": Režim DJ je **zapnutý**. Přehrávač můžou ovládat jen DJ.
+      "off": Režim DJ je **vypnutý**. Přehrávač může ovládat každý v hovoru.
+    who:
+      role: >-
+        DJ jsou členové s rolí {{role}}, kdokoli s oprávněním Spravovat server
+        a kdokoli, kdo mě v hovoru jako jediný poslouchá.
+      managers: >-
+        DJ jsou všichni s oprávněním Spravovat server a kdokoli, kdo mě
+        v hovoru jako jediný poslouchá.
+    you:
+      "yes": Přehrávač můžete ovládat.
+      "no": Přehrávač teď ovládat nemůžete.
     updated:
-      enabled: >-
-        {{mention}} bude nyní aktualizovat stav hlasového kanálu při změně
-        aktuální písně.
-      disabled: >-
-        {{mention}} již nebude aktualizovat stav hlasového kanálu při změně
-        aktuální písně.
-  autoplay:
-    current:
-      enabled: 'Momentálně {{mention}} bude automaticky přehrávat doporučené skladby.'
-      disabled: 'Momentálně {{mention}} nebude automaticky přehrávat doporučené skladby.'
-    updated:
-      enabled: '{{mention}} bude nyní automaticky přehrávat doporučené skladby.'
-      disabled: '{{mention}} již nebude automaticky přehrávat doporučené skladby.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} neposílá upozornění do konkrétního kanálu.'
-        some: '{{mention}} momentálně posílá upozornění do {{channel}}'
-      clear: '{{mention}} již nebude posílat upozornění do konkrétního kanálu.'
-      update: '{{mention}} bude nyní posílat upozornění do {{channel}}'
+      "on": "{{user}} zapíná režim DJ."
+      "off": "{{user}} vypíná režim DJ."
+      role: "{{user}} nastavuje roli DJ na {{role}}."
+      no_role: "{{user}} odebírá roli DJ."
+    turn_on: Zapnout režim DJ
+    turn_off: Vypnout režim DJ
+    role_placeholder: Bez role DJ
+  settings:
+    title: Nastavení
+    footer: >-
+      Změny se ukládají hned. Všechno odtud najdete i na [ovládacím
+      panelu]({{url}}).
+    pages:
+      playback: Přehrávání
+      dj: DJ
+      queue: Fronta
+      voice: Hlas
+      bot: Tento bot
+    about:
+      playback: Jak hudba začíná, zní a pokračuje na celém serveru.
+      dj: Kdo ovládá přehrávač a jak se rozhoduje o přeskočení.
+      queue: Co lze přidat do fronty a v jakém pořadí se hraje.
+      voice: Kde můžou naši boti na tomto serveru hrát, pokud některý nemá vlastní seznam.
+      bot: >-
+        Jen pro {{bot}}. Každý z našich botů na tomto serveru má vlastní
+        nastavení a co zůstane prázdné, řídí se nastavením serveru.
+    state:
+      "on": "Zapnuto"
+      "off": "Vypnuto"
+    turn_on: Zapnout
+    turn_off: Vypnout
+    change: Změnit
+    premium: Premium
+    invalid: Zadejte celé číslo od {{min, number}} do {{max, number}}.
+    invalid_optional: >-
+      Zadejte celé číslo od {{min, number}} do {{max, number}}, nebo pole
+      nechte prázdné.
+    playback:
+      volume:
+        label: Počáteční hlasitost
+        about: Jak nahlas začnu hrát.
+        input: Od 0 do 250.
+      crossfade:
+        label: Prolínání
+        about: Prolne konec každé skladby se začátkem další.
+        value: "{{seconds, number}} s"
+        input: V sekundách, od 0 do 30. Hodnota 0 ho vypne.
+      autoplay:
+        label: Automatické přehrávání
+        about: Když fronta dojde, hraje dál podobné skladby.
+      vc_status:
+        label: Stav hlasového kanálu
+        about: Zobrazuje, co hraje, jako stav hlasového kanálu.
+      auto_pause:
+        label: Pozastavit 24/7 naprázdno
+        about: >-
+          Přehrávač 24/7 se pozastaví, když nikdo není v hovoru, a znovu začne
+          hrát, když se někdo připojí.
+      notifications:
+        label: Kanál „Právě hraje“
+        about: >-
+          Kam posílám každou skladbu. Když ho necháte prázdný, budu psát tam, kde
+          se hudba spustila.
+        placeholder: Kanál, kde se hudba spustila
+    dj:
+      mode:
+        label: Režim DJ
+        about: >-
+          Přehrávač můžou ovládat jen DJ. Přidávat skladby a hlasovat
+          o přeskočení může dál každý.
+      role:
+        label: Role DJ
+        about: >-
+          Členové s touto rolí jsou DJ, stejně jako kdokoli s oprávněním
+          Spravovat server nebo kdo mě v hovoru jako jediný poslouchá.
+        placeholder: Bez role DJ
+      max_volume:
+        label: Limit hlasitosti
+        about: Nejvyšší hlasitost, kterou může nastavit někdo, kdo není DJ.
+        none: Bez limitu
+        input: Od 0 do 250. Když pole necháte prázdné, limit nebude.
+      vote_skip:
+        label: Hlasy pro přeskočení
+        about: Podíl posluchačů potřebný k přeskočení skladby.
+        none: Víc než polovina
+        value: "{{percent, number}} %"
+        input: Procento od 1 do 100. Když pole necháte prázdné, stačí víc než polovina.
+    queue:
+      no_duplicates:
+        label: Bez duplicit
+        about: Skladby, které už ve frontě jsou, nejde přidat znovu.
+      fair:
+        label: Férová fronta
+        about: Střídá lidi, kteří přidávají skladby.
+      leave_cleanup:
+        label: Úklid po odchodu
+        about: Odebere skladby člověka 30 sekund poté, co opustí hovor.
+      max_songs:
+        label: Skladeb na osobu
+        about: Kolik skladeb může mít ve frontě někdo, kdo není DJ.
+        none: Bez limitu
+        input: Od 1 do 1000. Když pole necháte prázdné, limit nebude.
+      max_length:
+        label: Nejdelší skladba
+        about: Nejdelší skladba, kterou může přidat někdo, kdo není DJ.
+        none: Bez limitu
+        value_one: 1 minuta
+        value_few: "{{count, number}} minuty"
+        value_many: "{{count, number}} minuty"
+        value_other: "{{count, number}} minut"
+        input: V minutách, od 1 do 1440. Když pole necháte prázdné, limit nebude.
+    voice:
+      channels:
+        label: Hlasové kanály
+        about: Kde můžu hrát. Když pole necháte prázdné, budu hrát v jakémkoli hlasovém kanálu.
+        placeholder: Jakýkoli hlasový kanál
+    bot:
+      always_on:
+        label: Kanál 24/7
+        about: >-
+          Kanál, do kterého se tento bot sám připojí a zůstane v něm, i když
+          hudba skončí.
+        placeholder: Žádný
+        taken: >-
+          {{bot}} už v tomto kanálu zůstává nepřetržitě. Vyberte jiný.
+      voice:
+        label: Hlasové kanály
+        about: >-
+          Kde může tento bot hrát. Když pole necháte prázdné, řídí se hlasovými
+          kanály serveru.
+        any: >-
+          Tento bot může hrát v jakémkoli hlasovém kanálu, který server
+          povoluje. Vyberte některé, pokud ho chcete omezit jen na ně.
+        placeholder: Hlasové kanály serveru
+      notifications:
+        label: Kanál „Právě hraje“
+        about: Kam tento bot posílá každou skladbu, místo kanálu serveru.
+        placeholder: Kanál serveru
+      volume:
+        label: Počáteční hlasitost
+        about: Jak nahlas tento bot začíná, místo hlasitosti serveru.
+        none: Podle serveru ({{volume, number}})
+        input: Od 0 do 250. Když pole necháte prázdné, použije se hlasitost serveru.
+  history:
+    title: Nedávno hrané
+    title_by: Nedávno vyžádané · {{user}}
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Strana {{page, number}} z {{pages, number}}
+    again: Znovu do fronty
+    empty: Tady zatím nikdo nic nepustil.
+    not_playing: Na tomto serveru nehraju. Začněte pomocí `/play`.
+    gone: Tu skladbu se nepodařilo znovu najít. Zkuste místo toho `/play`.
+    queued: "{{user}} znovu přidává do fronty {{track}}."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Opustil {{channel}}.'
-    destroyed: Zničil jsem přehrávač pro tento server.
+    success_channel: Opouštím {{channel}}.
+    destroyed: Přehrávač na tomto serveru je zastavený.
   join:
-    conflict: Už jsem ve hlasovém kanálu.
-    failure: Nepodařilo se mi připojit do daného hlasového kanálu.
-    in_progress: Právě se již připojuji do tohoto hlasového kanálu.
+    conflict: Už jsem v hlasovém kanálu.
+    failure: K tomu hlasovému kanálu se nepodařilo připojit.
+    in_progress: K tomu hlasovému kanálu se už připojuji.
     perms:
       missing: >-
-        Potřebuji oprávnění pro **zobrazení**, **připojení** a **mluvení** v
-        {{channel}}.
-    success: 'Dobře, připojil jsem se k {{channel}}.'
+        Potřebuji v {{channel}} oprávnění k **zobrazení**, **připojení**
+        a **mluvení**.
+      missing_named: >-
+        V {{channel}} nemůžu hrát, protože mi tam chybí {{permissions}}.
+        Požádejte správce serveru, ať mi tato oprávnění udělí, nebo mě znovu
+        pozvěte tlačítkem níže.
+      reinvite: Znovu pozvat s oprávněními
+    success: Připojeno k {{channel}}.
   skip:
-    success: Přeskočeno.
+    success: "{{user}} přeskakuje skladbu."
+    vote:
+      counted: >-
+        {{user}} hlasuje pro přeskočení skladby. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Pro přeskočení této skladby už jste hlasovali.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} hlasuje pro přeskočení a hlasování prošlo. Přeskakuji skladbu."
+      requester_gone: >-
+        {{user}} přeskakuje skladbu. Kdo ji přidal, už opustil hovor, takže
+        hlasování nebylo potřeba.
     to:
       invalid: >-
-        Nerozpoznal jsem píseň, kterou jsi mi zadal. Zkuste použít automatické
-        dokončování :)
-      none: 'Nemohl jsem přeskočit na tuto píseň, je stále ve frontě?'
+        Tuhle skladbu nepoznávám. Zkuste použít automatické doplňování :)
+      none: Na tuto skladbu se nepodařilo přeskočit. Je pořád ve frontě?
   seek:
-    unseekable: Aktuální píseň nelze vyhledat.
-    no_duration: Aktuální píseň nemá žádnou délku.
-    syntax: 'Časová značka musí být ve formátu `mm:ss`'
-    out_of_bounds: 'Zadaná pozice překračuje délku aktuální písně, {{given}} > {{length}}'
-    success: 'Přesunuto na {{given}}'
+    unseekable: V aktuální skladbě nejde přetáčet.
+    no_duration: Aktuální skladba nemá délku.
+    syntax: Časový údaj musí být ve formátu `mm:ss`.
+    out_of_bounds: >-
+      Tato pozice je za koncem aktuální skladby ({{given}} > {{length}}).
+    success: "{{user}} přetáčí na {{given}}."
   loop:
     nothing:
-      success: Opakování bylo zakázáno.
-      already: Opakování již bylo zakázáno.
+      success: "{{user}} vypíná opakování."
+      already: Opakování už je vypnuté.
     track:
-      indef: Nyní bude aktuální píseň opakována donekonečna.
-      times_one: Aktuální píseň se bude opakovat jednou.
-      times_other: 'Aktuální píseň se nyní bude opakovat *{{count, number}}krát*.'
-      nuhuh: Aktuální píseň je již nastavena na opakování.
+      indef: "{{user}} zapíná opakování aktuální skladby."
+      times_one: "{{user}} nastavuje, aby se aktuální skladba zopakovala ještě jednou."
+      times_few: "{{user}} nastavuje, aby se aktuální skladba zopakovala ještě {{count, number}}×."
+      times_many: "{{user}} nastavuje, aby se aktuální skladba zopakovala ještě {{count, number}}×."
+      times_other: "{{user}} nastavuje, aby se aktuální skladba zopakovala ještě {{count, number}}×."
+      nuhuh: Aktuální skladba se už opakuje.
     queue:
-      indef: Nyní bude fronta opakována donekonečna.
-      times_one: Fronta se bude opakovat jednou.
-      times_other: 'Fronta se nyní bude opakovat *{{count, number}}krát*.'
-      nuhuh: Fronta je již nastavena na opakování.
+      indef: "{{user}} zapíná opakování fronty."
+      times_one: "{{user}} nastavuje, aby se fronta zopakovala ještě jednou."
+      times_few: "{{user}} nastavuje, aby se fronta zopakovala ještě {{count, number}}×."
+      times_many: "{{user}} nastavuje, aby se fronta zopakovala ještě {{count, number}}×."
+      times_other: "{{user}} nastavuje, aby se fronta zopakovala ještě {{count, number}}×."
+      nuhuh: Fronta se už opakuje.
   queue:
-    use_autocomplete: Hm? Zkuste použít automatické dokončení pro výběr písně ve frontě.
+    use_autocomplete: Hm? Vyberte skladbu ve frontě pomocí automatického doplňování.
     view:
-      footer: 'Strana {{cur, number}}/{{all, number}} (celkem {{tot, number}})'
+      footer: Strana {{cur, number}}/{{all, number}} (celkem {{tot, number}})
     move:
-      failed: Nelze přesunout tuto píseň na požadovanou pozici.
-      success: 'Přesunuto: {{track}} na pozici #{{index, number}}'
+      failed: Tuto skladbu se nepodařilo přesunout na požadovanou pozici.
+      success: "{{user}} přesouvá {{track}} na pozici #{{index, number}}."
     clear:
       none: Fronta byla prázdná.
-      success_one: Odstraněna 1 píseň z fronty.
-      success_other: 'Odstraněno {{count, number}} písní z fronty.'
+      success_one: "{{user}} maže z fronty 1 skladbu."
+      success_few: "{{user}} maže z fronty {{count, number}} skladby."
+      success_many: "{{user}} maže z fronty {{count, number}} skladby."
+      success_other: "{{user}} maže z fronty {{count, number}} skladeb."
     remove:
-      confirm: 'Opravdu chcete odstranit píseň {{track}} z fronty?'
-      cancelled: 'Dobře, tuto píseň neodstraním.'
+      confirm: Opravdu chcete z fronty odebrat {{track}}?
+      cancelled: Dobře, tu skladbu neodeberu.
       not_found: >-
-        Zadaná píseň nebyla ve frontě nalezena, zkuste použít automatické
-        dokončení.
-      success: 'Odstraněno: {{track}} z fronty.'
+        Zadaná skladba ve frontě není, zkuste použít automatické doplňování.
+      success: "{{user}} odebírá z fronty {{track}}."
     shuffle:
-      too_small: 'Fronta je příliš malá, aby bylo možné ji zamíchat.'
-      success: Fronta byla zamíchána.
+      too_small: Fronta je na zamíchání moc malá.
+      success: "{{user}} míchá frontu."
+  now_playing:
+    autoplay: Automatické přehrávání
+    requested_by: Na přání
+    ends: Konec
+    queue: Fronta
+    queue_summary: "Ve frontě: {{queued, number}} · přehráno: {{played, number}}"
+    up_next: Další na řadě
+    refresh: Obnovit
+    open: Otevřít
   pause:
-    already: Přehrávač je již pozastaven.
-    success: Přehrávač byl pozastaven.
+    already: Přehrávač už je pozastavený.
+    success: "{{user}} pozastavuje přehrávač."
   resume:
-    server_muted: 'Nelze obnovit přehrávání, pokud jsem na serveru ztlumen.'
-    already: Přehrávač nebyl pozastaven.
-    success: Obnovil jsem přehrávání.
+    server_muted: Dokud mám na serveru ztlumený mikrofon, nemůžu pokračovat.
+    already: Přehrávač není pozastavený.
+    success: "{{user}} obnovuje přehrávání."
   play:
+    duplicate: To už ve frontě je.
+    over_limit_one: Tady můžete mít ve frontě najednou jen 1 skladbu.
+    over_limit_few: >-
+      Tady můžete mít ve frontě najednou jen {{count, number}} skladby.
+    over_limit_many: >-
+      Tady můžete mít ve frontě najednou jen {{count, number}} skladby.
+    over_limit_other: >-
+      Tady můžete mít ve frontě najednou jen {{count, number}} skladeb.
+    too_long_one: Skladby tu nesmí být delší než 1 minuta.
+    too_long_few: Skladby tu nesmí být delší než {{count, number}} minuty.
+    too_long_many: Skladby tu nesmí být delší než {{count, number}} minuty.
+    too_long_other: Skladby tu nesmí být delší než {{count, number}} minut.
+    too_long_skipped_one: >-
+      Přeskočena 1 skladba nad limit {{minutes, number}} min.
+    too_long_skipped_few: >-
+      Přeskočeny {{count, number}} skladby nad limit {{minutes, number}} min.
+    too_long_skipped_many: >-
+      Přeskočeno {{count, number}} skladby nad limit {{minutes, number}} min.
+    too_long_skipped_other: >-
+      Přeskočeno {{count, number}} skladeb nad limit {{minutes, number}} min.
+    over_limit_skipped_one: >-
+      Přeskočena 1 skladba: limit fronty je tu {{limit, number}} na osobu.
+    over_limit_skipped_few: >-
+      Přeskočeny {{count, number}} skladby: limit fronty je tu
+      {{limit, number}} na osobu.
+    over_limit_skipped_many: >-
+      Přeskočeno {{count, number}} skladby: limit fronty je tu
+      {{limit, number}} na osobu.
+    over_limit_skipped_other: >-
+      Přeskočeno {{count, number}} skladeb: limit fronty je tu
+      {{limit, number}} na osobu.
+    duplicates_skipped_one: Přeskočena 1 skladba, která už byla ve frontě.
+    duplicates_skipped_few: >-
+      Přeskočeny {{count, number}} skladby, které už byly ve frontě.
+    duplicates_skipped_many: >-
+      Přeskočeno {{count, number}} skladby, které už byly ve frontě.
+    duplicates_skipped_other: >-
+      Přeskočeno {{count, number}} skladeb, které už byly ve frontě.
     domain:
-      other: 'Odkaz, který jste poskytli, není podporován.'
-      youtube: Eara dočasně odstranila podporu pro odkazy z YouTube.
-      vote_locked: >
-        Musíte hlasovat pro {{mention}} na **top.gg**, abyste získali přístup k
-        odkazům `{{domain}}`!
+      other: Tento odkaz není podporovaný.
+      youtube: Eara dočasně odebrala podporu odkazů z YouTube.
+      youtube_premium: >-
+        Odkazy z YouTube jsou funkce **Premium**. Vyhledejte skladbu podle názvu
+        nebo vložte odkaz ze Spotify či Apple Music a pusťte si ji zdarma.
+      vote_locked: >-
+        Pro přístup k odkazům `{{domain}}` musíte hlasovat pro {{mention}} na
+        **top.gg**!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Pro vaši dotaz nebylo nic vráceno.
+    nothing: Pro váš dotaz se nic nenašlo.
+    youtube_match: "-# Hraju nejbližší bezplatnou shodu. **Premium** přehrává odkazy z YouTube přímo."
+    voice_wait:
+      waiting: >-
+        Připojte se do hlasového kanálu a hned začnu hrát. Počkám
+        {{seconds, number}} s.
+      expired: >-
+        Do hlasového kanálu jste se nepřipojili včas. Připojte se a pak znovu
+        použijte `/play`.
+      replaced: Zrušeno, protože jste znovu použili `/play`.
     error: Při načítání vašeho dotazu došlo k chybě.
-    invalid_url: Zadali jste neplatnou adresu URL.
+    invalid_url: Zadali jste neplatnou URL.
     queue_full: >-
-      Ve frontě není dostatek místa. Odstraňte některé skladby, než přidáte
-      další.
-    added: 'Přidáno {{item}} do fronty.'
+      Ve frontě není dost místa. Než přidáte další skladby, nějaké odeberte.
+    added: "{{user}} přidává do fronty {{item}}."
     loaded:
-      album_one: 'jednu skladbu z alba {{collection}}'
-      album_other: '{{count, number}} skladby z alba {{collection}}'
-      artist_one: 'nejhranější skladba z *{{collection}}*'
-      artist_other: 'nejhranější {{count, number}} skladby z *{{collection}}*'
-      playlist_one: 'jednu skladbu z playlistu *{{collection}}*'
-      playlist_other: '{{count, number}} skladby z playlistu *{{collection}}*'
+      album_one: jednu skladbu z alba {{collection}}
+      album_few: "{{count, number}} skladby z alba {{collection}}"
+      album_many: "{{count, number}} skladby z alba {{collection}}"
+      album_other: "{{count, number}} skladeb z alba {{collection}}"
+      artist_one: nejlepší skladbu interpreta *{{collection}}*
+      artist_few: "{{count, number}} nejlepší skladby interpreta *{{collection}}*"
+      artist_many: "{{count, number}} nejlepší skladby interpreta *{{collection}}*"
+      artist_other: "{{count, number}} nejlepších skladeb interpreta *{{collection}}*"
+      playlist_one: jednu skladbu z playlistu *{{collection}}*
+      playlist_few: "{{count, number}} skladby z playlistu *{{collection}}*"
+      playlist_many: "{{count, number}} skladby z playlistu *{{collection}}*"
+      playlist_other: "{{count, number}} skladeb z playlistu *{{collection}}*"
+  last_fm:
+    unavailable: Propojení s Last.fm teď není k dispozici.
+    account: Účet
+    connect:
+      prompt: >-
+        Otevřete odkaz níže a propojte svůj účet Last.fm. Funguje jen jednou
+        a vyprší za {{minutes, number}} min, takže si ho nechte pro sebe.
+      button: Propojit Last.fm
+      open: Otevřít Last.fm
+    disconnect:
+      button: Odpojit
+      done: Účet Last.fm je odpojený.
+    status:
+      unlinked: Zatím nemáte propojený účet Last.fm.
+    scrobbling:
+      label: Scrobblování
+      turn_on: Zapnout scrobblování
+      turn_off: Vypnout scrobblování
+      enabled: Scrobblování je zapnuté.
+      disabled: Scrobblování je vypnuté. Účet zůstává propojený.
   stop:
-    success: Přehrávání bylo zastaveno.
+    success: "{{user}} zastavuje přehrávač."
   volume:
-    current: 'Aktuální hlasitost je {{volume, number}}.'
-    out_of_bounds: Hlasitost musí být mezi 0 a 255.
-    success: 'Hlasitost byla nastavena na {{volume, number}}.'
+    current: Hlasitost je {{volume, number}}.
+    success: "{{user}} nastavuje hlasitost na {{volume, number}}."
+    over_limit: >-
+      Na tomto serveru můžou hlasitost nad {{limit, number}} nastavit jen DJ.
   effects:
-    enabled: 'Efekt ''*{{effect}}*'' byl zapnut!'
-    disabled: 'Efekt ''*{{effect}}*'' byl vypnut!'
-    trial_enabled: 'Efekt ''*{{effect}}*'' byl zapnut pro aktuální skladbu!'
-    trial_disabled: 'Efekt ''*{{effect}}*'' byl vypnut pro aktuální skladbu!'
-    cleared: Všechny zapnuté efekty byly vymazány!
+    enabled: "{{user}} zapíná efekt *{{effect}}*."
+    disabled: "{{user}} vypíná efekt *{{effect}}*."
+    trial_enabled: "{{user}} zapíná efekt *{{effect}}* pro aktuální skladbu."
+    trial_disabled: "{{user}} vypíná efekt *{{effect}}* pro aktuální skladbu."
+    cleared: "{{user}} vypíná všechny efekty."
+    list:
+      none: Žádné efekty nejsou zapnuté.
+      some: "Zapnuté efekty: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} zapíná 24/7. Zůstanu v hovoru, dokud někdo nepoužije `/leave`.
+    disabled: >-
+      {{user}} vypíná 24/7. Odejdu, jakmile hudba skončí nebo všichni
+      odejdou.
+    already:
+      enabled: 24/7 už je zapnuté.
+      disabled: 24/7 už je vypnuté.
+    saved: >-
+      {{channel}} je teď můj kanál 24/7. Budu se do něj připojovat automaticky,
+      kdykoli nebudu hrát jinde na tomto serveru.
+    forgotten: >-
+      Přestanu se vracet do svého kanálu 24/7. Pokud v něm teď jsem, zůstanu,
+      dokud někdo 24/7 nevypne nebo nepoužije `/leave`.
+    not_voice: To není hlasový kanál ani pódium.
+    turn_on: Zapnout 24/7
+    turn_off: Vypnout 24/7
+    keep: Vždy se sem vracet
+    forget: Přestat se vracet
+    auto_pause:
+      "on": >-
+        {{user}} zapíná automatické pozastavení. Přehrávače 24/7 se tu
+        pozastaví, když nikdo není v hovoru, a znovu začnou hrát, když se někdo
+        připojí.
+      "off": >-
+        {{user}} vypíná automatické pozastavení. Přehrávače 24/7 tu budou hrát
+        dál i do prázdného hovoru.
+      pause: Pozastavit naprázdno
+      keep_playing: Hrát dál i naprázdno
   immersive:
-    disabled: Imersivní režim byl vypnut.
+    disabled: "{{user}} vypíná imerzivní režim."

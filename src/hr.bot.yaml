@@ -1,308 +1,668 @@
 checks:
-  guild_only: Ova naredba se može koristiti samo na poslužitelju.
-  not_playing: Ne reproduciram glazbu na ovom poslužitelju.
-  user_vc_none: Morate biti u glasovnom kanalu kako biste koristili ovu naredbu.
+  guild_only: Ova se naredba može koristiti samo na poslužitelju.
+  not_playing: Ne puštam glazbu na ovom poslužitelju.
+  user_vc_none: Morate biti u glasovnom kanalu da biste koristili ovu naredbu.
   user_vc_diff: >-
-    Morate biti u istom glasovnom kanalu kao i ja kako biste koristili ovu
+    Morate biti u istom glasovnom kanalu kao ja da biste koristili ovu
     naredbu.
   queue_empty: Red čekanja je prazan.
-  nothing_playing: Ništa se ne reproducira.
+  nothing_playing: Ništa se ne pušta.
   unknown_command: Ne prepoznajem ovu naredbu...
-  owner_only: Nije vam dopušteno korištenje ove naredbe.
-  maintenance: 'Bot prolazi kroz održavanje, provjerite kasnije.'
+  owner_only: Nemate dopuštenje za korištenje ove naredbe.
+  missing_permissions: "Za korištenje ove naredbe potrebne su vam dozvole: {{permissions}}."
+  maintenance: Bot je trenutačno na održavanju, svratite kasnije.
+  tier_required: >-
+    Plan ovog poslužitelja ne uključuje mene. Pretplatite se na {{website}} da
+    biste me ovdje koristili.
+  tier_lapsed: >-
+    Pretplata ovog poslužitelja je istekla pa sam prestao puštati glazbu.
+    Obnovite je na {{website}} da biste ponovno krenuli.
+  voice_channel_not_allowed: "Ovdje mogu puštati glazbu samo u ovim kanalima: {{channels}}."
+  dj_only:
+    role: >-
+      DJ način rada je uključen pa to mogu učiniti samo osobe s ulogom {{role}}
+      ili dozvolom **Upravljanje poslužiteljem**.
+    managers: >-
+      DJ način rada je uključen pa to mogu učiniti samo osobe s dozvolom
+      **Upravljanje poslužiteljem**.
+stage:
+  hand_raised: >-
+    Podigao sam ruku na pozornici. Moderator pozornice me mora pozvati da
+    govorim prije nego što itko može čuti glazbu.
+  cannot_speak: >-
+    U publici sam pozornice i ne mogu zatražiti riječ. Dajte mi dozvolu
+    **Zahtjev za govor** ili me sami pozovite da govorim.
 common:
-  join_our_server: 'Pridružite se našem [*Discord Server*]({{invite}} ) za više informacija'
-  message_deleted: '*Poruka je izbrisana*'
-  vote: Glasujte na Top.gg
+  join_our_server: >-
+    Pridružite se našem [*Discord poslužitelju*]({{invite}} ) za više informacija.
+  message_deleted: "*Poruka je izbrisana*"
+  vote: Glasajte na Top.gg
   discord_server: Poslužitelj za podršku
+  help_center: Centar za pomoć
+  open_player: Otvori player
+  open_in_web_player: Otvori u web playeru
   remove: Ukloni
-  play_now: Reproduciraj sada
+  play_now: Pusti sada
   next: Sljedeće
   previous: Prethodno
-  unknown_artist: Nepoznati izvođač
-  unavailable_track: '[nedostupni metapodaci o pjesmi]'
-  unknown_url: Nepoznata URL adresa
-  unsupported_url: Nepodržana URL adresa
-  source_url: '{{source}} URL'
+  unknown_artist: Nepoznat izvođač
+  unavailable_track: "[podaci o pjesmi nisu dostupni]"
+  unknown_url: Nepoznat URL
+  unsupported_url: Nepodržan URL
+  supported_sites: Podržane stranice
+  source_url: "{{source}} URL"
   unknown: Nepoznato
-  unknown_channel: Nepoznati kanal
+  unknown_channel: Nepoznat kanal
   none: Ništa
   not_available: N/D
-  'yes': Da
-  'no': Ne
+  yes: Da
+  no: Ne
   track: Pjesma
   queue: Red čekanja
   state:
     loading: Učitavanje
     paused: Pauzirano
-    playing: Reprodukcija
+    playing: Svira
     idle: Neaktivno
     active: Aktivno
-    'off': Isključeno
+    on: Uključeno
+    off: Isključeno
     disconnected: Odspojeno
-    joining: Pridruživanje
+    joining: Spajanje
+    reconnecting: Ponovno spajanje
     connected: Spojeno
   confirmation:
     prompt: |-
       {{message}}
-      -# Imate **30 sekundi** da odgovorite.
+      -# Imate **30 sekundi** za odgovor.
     confirm: Potvrdi
     deny: Odbij
   premium:
     sku_required: >-
-      Ovaj server zahtijeva **Premium pretplatu** kako bi pristupili ovoj
-      naredbi.
-    uninterrupted_access: Nakon glasovanja dobit ćete *do* 12 sati neometanog pristupa!
-    vote_required: >
-      Morati ćete glasovati za {{mention}} na **top.gg** kako biste pristupili
-      ovoj naredbi.
+      Za ovu naredbu ovaj poslužitelj treba **Premium pretplatu**.
+    pricing_pitch: >-
+      -# Planovi kreću od **{{price}} mjesečno** i donose bolju kvalitetu zvuka,
+      veće redove čekanja i pristup YouTubeu.
+    uninterrupted_access: >-
+      Nakon glasanja dobivate *do* 12 sati neprekinutog pristupa!
+    vote_required: >-
+      Za pristup ovoj naredbi morate glasati za {{mention}} na **top.gg**.
 
       -# $t(common.premium.uninterrupted_access)
     get_premium: Nabavi Premium
-    vote_locks_premium: '**Premium** uklanja blokadu glasovanja za cijeli server.'
+    vote_locks_premium: "**Premium** uklanja zaključavanje glasanjem za cijeli poslužitelj."
 buttons:
+  add:
+    title: Dodaj u red čekanja
+    label: Naziv pjesme ili poveznica
+    placeholder: Pretražite ili zalijepite poveznicu
+    another: Dodaj još
   remove:
-    none: Nisam mogao pronaći stavku koju ste željeli ukloniti...
-    done: '{{author}} je uklonio {{track}} s reda.'
+    none: Nisam pronašao stavku koju ste htjeli ukloniti...
+    done: "{{author}} uklanja {{track}} iz reda čekanja."
   correlated_remove:
-    none: Pjesme koje su dodane u red nisu nigdje pronađene...
-    done: '{{author}} je uklonio {{count}} pjesama iz reda.'
+    none: Dodanih pjesama nema nigdje...
+    done_one: "{{author}} uklanja {{count, number}} dodanu pjesmu."
+    done_few: "{{author}} uklanja {{count, number}} dodane pjesme."
+    done_other: "{{author}} uklanja {{count, number}} dodanih pjesama."
   play_now:
     none: >-
-      Nisam mogao pronaći pjesme koje ste dodali u redu, možda ste ih već
-      reproducirali?
-    not_found: Nisam mogao pronaći tu pjesmu u redu.
-    done_one: 'Privilegirana jedna pjesma koju je zatražio {{requester}}.'
-    done_other: 'Privilegirane {{count}} pjesme koje je zatražio {{requester}}.'
-    footer_a: 'Preskočeno s {{prev}} na {{next}}'
-    footer_b: 'Preskočeno na {{next}}'
+      Ne mogu pronaći pjesme koje ste dodali u red čekanja. Jeste li ih već
+      pustili?
+    not_found: Ta pjesma nije pronađena u redu čekanja.
+    done_one: "Prednost dobiva {{count, number}} pjesma koju traži {{requester}}."
+    done_few: "Prednost dobivaju {{count, number}} pjesme koje traži {{requester}}."
+    done_other: "Prednost dobiva {{count, number}} pjesama koje traži {{requester}}."
+    footer_a: Preskočeno s {{prev}} na {{next}}.
+    footer_b: Preskočeno na {{next}}.
   item_actions:
-    not_found: Taj se pjesma više ne nalazi u redu.
+    not_found: Ta pjesma više nije u redu čekanja.
   previous:
     none: Nema prethodnih pjesama...
-  skip_to: '{{user}} je preskočio na {{track}}'
-  stop: '{{user}} je zaustavio reproduktor.'
+  skip_to: "{{user}} preskače na {{track}}."
+  stop: "{{user}} zaustavlja player."
 events:
   command_failed:
-    message: Ova naredba nije uspjela.
+    message: Nešto je pošlo po zlu
     reason:
-      unknown: 'Došlo je do neočekane pogreške, prijavite to razvijateljima.'
-      panic: >-
-        Zadatak koji je obrađivao vašu naredbu pao je, prijavite to
-        razvijateljima.
-    footer: 'Predajte ovaj ID razvijateljima: **{{eid}}**'
+      unknown: Pokušajte ponovno za trenutak.
+      player_restarted: Player se morao ponovno pokrenuti. Pokušajte ponovno.
+    footer: >-
+      ID pogreške `{{eid}}` · podijelite ga na našem poslužitelju za podršku ako
+      se ovo ponavlja.
+    usage: "To ne izgleda ispravno. Evo kako se koristi:"
   player:
     tips:
-      autoplay: 'Nastavi s reprodukcijom glazbe kada red završi pomoću {{command}}.'
+      autoplay: Neka glazba svira i kad red čekanja završi uz {{command}}.
       crossfade: >-
-        Znali ste da imamo prijelaz glasnoće? Koristite {{command}} za
-        podešavanje.
-      effects: 'Zadajte trenutnoj pjesmi drugačiji osjećaj pomoću {{command}}.'
+        Jeste li znali da imamo crossfade? Postavite ga pomoću {{command}}.
+      effects: Dajte trenutačnoj pjesmi drukčiji ugođaj pomoću {{command}}.
       history: >-
-        Tražite nešto što je ranije reproducirano? {{command}} može prikazati
-        povijest reda.
-      immersive: >-
-        Koristite {{spatialize}} ili {{orbit}} kako biste oživjeli svoje
-        iskustvo!
+        Tražite nešto što je ranije sviralo? {{command}} može prikazati i
+        povijest reda čekanja.
+      immersive: Oživite doživljaj uz {{spatialize}} ili {{orbit}}!
+      last_fm: >-
+        Povežite svoj Last.fm račun pomoću {{command}} i scrobblajte sve što
+        ovdje slušate.
       loop: >-
-        Želite li ponovno to čuti? {{command}} može ponoviti pjesmu ili čitav
-        red.
+        Želite to ponovno čuti? {{command}} može ponavljati ovu pjesmu ili cijeli
+        red čekanja.
       move: >-
-        Promijenite redoslijed ili očistite red sa {{move_command}} i
+        Presložite ili očistite red čekanja pomoću {{move_command}} i
         {{remove_command}}.
       notifications: >-
-        Administratori servera mogu odabrati posvećeni kanal za reprodukciju
-        glazbe pomoću {{command}}.
-      seek: 'Skočite na bilo koju točku ove pjesme pomoću {{command}}.'
-      shuffle: 'Izmiješajte pjesme koje čekaju u redu pomoću {{command}}.'
+        Upravitelji poslužitelja mogu odabrati poseban kanal za player pomoću
+        {{command}}.
+      player: >-
+        Pratite tekstove uživo i upravljajte redom čekanja pomoću {{command}} ili
+        u [web playeru]({{url}}).
+      player_web: >-
+        Pratite tekstove uživo i upravljajte redom čekanja u [web playeru]({{url}}).
+      seek: Skočite na bilo koji dio ove pjesme pomoću {{command}}.
+      shuffle: Izmiješajte pjesme koje čekaju u redu pomoću {{command}}.
       voice_status: >-
-        Administratori servera mogu prikazati trenutnu pjesmu u statusu
-        glazbenog kanala pomoću {{command}}.
+        Upravitelji poslužitelja mogu prikazati trenutačnu pjesmu u statusu
+        glasovnog kanala pomoću {{command}}.
     notification:
-      join_failed: Nisam uspio pristupiti vašem glasovnom kanalu.
-      playback_failed: 'Neuspješna reprodukcija {{track}}'
+      join_failed: Nisam se uspio pridružiti vašem glasovnom kanalu.
+      playback_failed: Puštanje pjesme {{track}} nije uspjelo.
       scheduler_failed: >-
-        Raspored reprodukcije za ovaj server nije uspio. Pokrenite `/leave`,
-        zatim `/join` te prijavite ovo ako se ponovno dogodi.
+        Planer playera za ovaj poslužitelj nije uspio. Pokrenite `/leave`, zatim
+        `/join`, i prijavite ovo ako se ponovi.
       playback_stalled: >-
-        Previše neuspješnih pokušaja reprodukcije. Ako se i dalje nastavlja,
-        pridružite se našem Support Serveru.
-      idle_timeout: 'Igrač je bio neaktivan predugo, pa sam se odjavio.'
+        Previše neuspjelih pokušaja puštanja. Ako se ovo nastavi, pridružite se
+        našem poslužitelju za podršku.
+      idle_timeout: Player je predugo bio neaktivan pa sam se odspojio.
       restarting: Eara se ponovno pokreće i uskoro bi se trebala vratiti.
     disconnect:
-      alone: 'Ostao sam sam, odjavljujem se <t:{{timestamp}}:R>'
+      alone: Ostao sam posve sam, odspajam se <t:{{timestamp}}:R>.
     queue:
       end:
-        message: Redoslijed pjesama je završio.
+        message: Red čekanja je završio.
         prompts:
           review:
-            message: 'Uživate u {{mention}}? Ostavite nam recenziju!'
+            message: Sviđa vam se {{mention}}? Ostavite nam recenziju!
             button: Ostavi recenziju
           vote:
             message: >-
-              Uživate u {{mention}}? Glasujte za nas kako bismo više ljudi moglo
-              pronaći nas!
-            button: Glasujte za nas
+              Sviđa vam se {{mention}}? Glasajte za nas da nas pronađe više ljudi!
+            button: Glasaj za nas
           support:
+            message: Trebate pomoć ili se želite družiti? Pridružite se našoj Discord zajednici!
+            button: Pridruži se poslužitelju
+          player:
             message: >-
-              Trebate pomoć ili želite družiti? Pridružite se našoj Discord
-              zajednici!
-            button: Pridruži se našem serveru
+              Odaberite što će sljedeće svirati u web playeru: pretraga, tekstovi
+              i red čekanja na jednom mjestu.
+            button: Otvori web player
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: Podijelite ovaj sažetak kada tražite pomoć za reproduktor.
-    loop_indefinite: '{{mode}} (neodređeno)'
-    loop_remaining: '{{mode}} ({{count, number}} preostalo)'
+    footer: Podijelite ovaj sažetak kad tražite pomoć oko playera.
+    loop_indefinite: "{{mode}} (neograničeno)"
+    loop_remaining: "{{mode}} (preostalo: {{count, number}})"
   dev:
-    entitlement_granted: 'Dodijeljeno pravo {{entitlement}} za SKU {{sku}} na guild {{guild}}.'
-    player_not_found: 'Ne postoji igrač za guild {{guild}}.'
-    joining: 'Pridružujem se {{channel}} ({{connection}})'
-    connected: 'Povezan s {{channel}} ({{connection}})'
+    entitlement_granted: >-
+      Pravo {{entitlement}} za SKU {{sku}} dodijeljeno poslužitelju {{guild}}.
+    player_not_found: Ne postoji player za poslužitelj {{guild}}.
+    joining: Spajanje na {{channel}} ({{connection}})
+    reconnecting: Ponovno spajanje na {{channel}} ({{connection}})
+    connected: Spojeno na {{channel}} ({{connection}})
+  help:
+    details: "-# Upotrijebite `/help` za pojedinosti o bilo kojoj naredbi."
+    player: "-# Tekstovi uživo, red čekanja i kontrole dostupni su i u [web playeru]({{url}})."
+    supported_sites: "-# Niste sigurni hoće li poveznica raditi? Pogledajte [s kojih stranica eara može puštati]({{url}})."
+  feedback:
+    ask:
+      title: Sviđa li vam se {{mention}}?
+      note: Vaš odgovor pomaže nam odlučiti na čemu dalje raditi.
+      "yes": "Da"
+      "no": Baš i ne
+    enjoying:
+      title: Hvala! Pomozite drugima pronaći {{mention}}
+      note: Poslužitelji nove botove pronalaze na Top.gg. Recenzija ili glas ondje pomaže nam doći do više ljudi.
+      review: Napiši recenziju
+      vote: Glasaj na Top.gg
+    not_enjoying:
+      title: Žao nam je što vam ne odgovara
+      note: Recite nam što nije u redu na našem Discord poslužitelju kako bismo vam pomogli i znali što popraviti.
+      support: Pridruži se Discord poslužitelju
   ping:
     message: Pong!
-    footer: Imate problema? Pridružite se našem **serveru za podršku**!
+    footer: Imate problema? Pogledajte **Centar za pomoć** ili se pridružite našem **poslužitelju za podršku**.
   stats:
-    instance_failed: Nije moguće dohvatiti instancu.
+    instance_failed: Učitavanje statistike ovog bota nije uspjelo.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} uključuje automatsko puštanje."
+    disabled: "{{user}} isključuje automatsko puštanje."
+    turn_on: Uključi automatsko puštanje
+    turn_off: Isključi automatsko puštanje
+  automix:
+    enabled: >-
+      {{user}} uključuje automix. Svaka se pjesma sada prelijeva u sljedeću
+      onako kako najbolje pristaju, umjesto crossfadea.
+    disabled: "{{user}} isključuje automix."
+    turn_on: Uključi automix
+    turn_off: Isključi automix
   crossfade:
     current:
-      enabled: 'Trajanje prelaska je postavljeno na {{duration, number}}s.'
-      disabled: Prelazak je onemogućen.
+      "on": Crossfade traje {{seconds, number}} s.
+      "off": Crossfade je isključen.
     updated:
-      enabled: 'Trajanje prelaska postavljeno na {{duration, number}}s.'
-      disabled: Prelazak onemogućen.
-  default_volume:
-    current: 'Trenutačna zadana glasnoća za ovaj poslužitelj je {{volume, number}}.'
-    updated: 'Zadana glasnoća za ovaj poslužitelj ažurirana na {{volume, number}}.'
-  do_vc_status_update:
+      "on": "{{user}} postavlja crossfade na {{seconds, number}} s."
+      "off": "{{user}} isključuje crossfade."
+    "off": Isključeno
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: Spremljeno za cijeli poslužitelj.
+    session: >-
+      Dok se player ne zaustavi. Netko s dozvolom Upravljanje poslužiteljem može
+      to spremiti za poslužitelj, ovdje ili u {{command}}.
+  dj:
     current:
-      enabled: >-
-        Trenutačno će {{mention}} ažurirati status glasnog kanala kad se
-        promijeni trenutna pjesma.
-      disabled: >-
-        Trenutačno {{mention}} neće ažurirati status glasnog kanala kad se
-        promijeni trenutna pjesma.
+      "on": DJ način rada je **uključen**. Samo DJ-evi mogu upravljati playerom.
+      "off": DJ način rada je **isključen**. Svi u pozivu mogu upravljati playerom.
+    who:
+      role: >-
+        DJ-evi su članovi s ulogom {{role}}, svi s dozvolom Upravljanje
+        poslužiteljem i svatko tko me jedini sluša u pozivu.
+      managers: >-
+        DJ-evi su svi s dozvolom Upravljanje poslužiteljem i svatko tko me
+        jedini sluša u pozivu.
+    you:
+      "yes": Možete upravljati playerom.
+      "no": Trenutačno ne možete upravljati playerom.
     updated:
-      enabled: >-
-        {{mention}} će sada ažurirati status glasnog kanala kad se promijeni
-        trenutna pjesma.
-      disabled: >-
-        {{mention}} više neće ažurirati status glasnog kanala kad se promijeni
-        trenutna pjesma.
-  autoplay:
-    current:
-      enabled: 'Trenutačno {{mention}} automatski reproducira preporučene pjesme.'
-      disabled: 'Trenutačno {{mention}} ne reproducira automatski preporučene pjesme.'
-    updated:
-      enabled: '{{mention}} će sada automatski reproducirati preporučene pjesme.'
-      disabled: '{{mention}} više neće automatski reproducirati preporučene pjesme.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} ne šalje obavijesti na određeni kanal.'
-        some: '{{mention}} trenutačno šalje obavijesti na {{channel}}'
-      clear: '{{mention}} više neće slati obavijesti na određeni kanal.'
-      update: '{{mention}} će sada slati obavijesti na {{channel}}'
+      "on": "{{user}} uključuje DJ način rada."
+      "off": "{{user}} isključuje DJ način rada."
+      role: "{{user}} postavlja DJ ulogu na {{role}}."
+      no_role: "{{user}} uklanja DJ ulogu."
+    turn_on: Uključi DJ način rada
+    turn_off: Isključi DJ način rada
+    role_placeholder: Nema DJ uloge
+  settings:
+    title: Postavke
+    footer: >-
+      Promjene se odmah spremaju. Sve ovo nalazi se i na
+      [nadzornoj ploči]({{url}}).
+    pages:
+      playback: Reprodukcija
+      dj: DJ
+      queue: Red čekanja
+      voice: Glas
+      bot: Ovaj bot
+    about:
+      playback: Kako glazba počinje, kako zvuči i kako se nastavlja na cijelom poslužitelju.
+      dj: Tko upravlja playerom i kako se odlučuje o preskakanju.
+      queue: Što se može dodati u red čekanja i kojim redoslijedom svira.
+      voice: Gdje naši botovi mogu svirati na ovom poslužitelju, osim ako neki ima svoj popis.
+      bot: >-
+        Samo za {{bot}}. Svaki naš bot na ovom poslužitelju ima svoje, a sve što
+        ostane prazno slijedi postavke poslužitelja.
+    state:
+      "on": Uključeno
+      "off": Isključeno
+    turn_on: Uključi
+    turn_off: Isključi
+    change: Promijeni
+    premium: Premium
+    invalid: Unesite cijeli broj od {{min, number}} do {{max, number}}.
+    invalid_optional: >-
+      Unesite cijeli broj od {{min, number}} do {{max, number}} ili ostavite
+      prazno.
+    playback:
+      volume:
+        label: Početna glasnoća
+        about: Koliko glasno počinjem svirati.
+        input: Od 0 do 250.
+      crossfade:
+        label: Crossfade
+        about: Stapa kraj svake pjesme s početkom sljedeće.
+        value: "{{seconds, number}} s"
+        input: Sekunde, od 0 do 30. 0 ga isključuje.
+      autoplay:
+        label: Automatsko puštanje
+        about: Nastavlja glazbu sličnim pjesmama kad se red čekanja isprazni.
+      vc_status:
+        label: Status glasovnog kanala
+        about: Prikazuje što svira kao status glasovnog kanala.
+      auto_pause:
+        label: Pauziraj 24/7 kad je prazno
+        about: >-
+          24/7 player pauzira dok nikoga nema u njegovom pozivu i nastavlja kad
+          se netko pridruži.
+      notifications:
+        label: Kanal za trenutačnu pjesmu
+        about: >-
+          Gdje objavljujem svaku pjesmu. Ostavite prazno za objavu ondje gdje je
+          glazba pokrenuta.
+        placeholder: Kanal u kojem je glazba pokrenuta
+    dj:
+      mode:
+        label: DJ način rada
+        about: >-
+          Samo DJ-evi mogu upravljati playerom. Svi i dalje mogu dodavati pjesme
+          i glasati za preskakanje.
+      role:
+        label: DJ uloga
+        about: >-
+          Članovi s ovom ulogom su DJ-evi, kao i svi s dozvolom Upravljanje
+          poslužiteljem ili svatko tko me jedini sluša u pozivu.
+        placeholder: Nema DJ uloge
+      max_volume:
+        label: Ograničenje glasnoće
+        about: Najveća glasnoća koju može postaviti netko tko nije DJ.
+        none: Bez ograničenja
+        input: Od 0 do 250. Ostavite prazno za bez ograničenja.
+      vote_skip:
+        label: Glasovi za preskakanje
+        about: Udio slušatelja potreban za preskakanje pjesme.
+        none: Više od pola
+        value: "{{percent, number}} %"
+        input: Postotak, od 1 do 100. Ostavite prazno za više od pola.
+    queue:
+      no_duplicates:
+        label: Bez duplikata
+        about: Pjesme koje su već u redu čekanja ne mogu se ponovno dodati.
+      fair:
+        label: Pravedan red
+        about: Izmjenjuje se između osoba koje dodaju pjesme.
+      leave_cleanup:
+        label: Čišćenje pri odlasku
+        about: Uklanja nečije pjesme 30 sekundi nakon što napusti poziv.
+      max_songs:
+        label: Pjesama po osobi
+        about: Koliko pjesama u redu čekanja može imati netko tko nije DJ.
+        none: Bez ograničenja
+        input: Od 1 do 1000. Ostavite prazno za bez ograničenja.
+      max_length:
+        label: Najdulja pjesma
+        about: Najdulja pjesma koju može dodati netko tko nije DJ.
+        none: Bez ograničenja
+        value_one: "{{count, number}} minuta"
+        value_few: "{{count, number}} minute"
+        value_other: "{{count, number}} minuta"
+        input: U minutama, od 1 do 1440. Ostavite prazno za bez ograničenja.
+    voice:
+      channels:
+        label: Glasovni kanali
+        about: Gdje mogu svirati. Ostavite prazno za sviranje u bilo kojem glasovnom kanalu.
+        placeholder: Bilo koji glasovni kanal
+    bot:
+      always_on:
+        label: 24/7 kanal
+        about: >-
+          Kanal kojem se ovaj bot sam pridružuje i u kojem ostaje, čak i kad glazba
+          stane.
+        placeholder: Ništa
+        taken: >-
+          {{bot}} već ostaje u tom kanalu danonoćno. Odaberite neki drugi.
+      voice:
+        label: Glasovni kanali
+        about: >-
+          Gdje ovaj bot može svirati. Ostavite prazno da slijedi glasovne kanale
+          poslužitelja.
+        any: >-
+          Ovaj bot može svirati u bilo kojem glasovnom kanalu koji poslužitelj
+          dopušta. Odaberite neke da ga ograničite na njih.
+        placeholder: Glasovni kanali poslužitelja
+      notifications:
+        label: Kanal za trenutačnu pjesmu
+        about: Gdje ovaj bot objavljuje svaku pjesmu, umjesto kanala poslužitelja.
+        placeholder: Kanal poslužitelja
+      volume:
+        label: Početna glasnoća
+        about: Koliko glasno ovaj bot počinje, umjesto glasnoće poslužitelja.
+        none: Glasnoća poslužitelja ({{volume, number}})
+        input: Od 0 do 250. Ostavite prazno za glasnoću poslužitelja.
+  history:
+    title: Nedavno puštano
+    title_by: Nedavno zatraženo – {{user}}
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Stranica {{page, number}} od {{pages, number}}
+    again: Ponovno u red
+    empty: Ovdje još ništa nije zatraženo.
+    not_playing: Ne puštam glazbu na ovom poslužitelju. Upotrijebite `/play` za početak.
+    gone: Ne mogu ponovno pronaći tu pjesmu. Pokušajte s `/play`.
+    queued: "{{user}} ponovno dodaje {{track}} u red čekanja."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Napustio {{channel}}.'
-    destroyed: Uništen igrač za ovaj poslužitelj.
+    success_channel: Napustio sam {{channel}}.
+    destroyed: Player za ovaj poslužitelj je zaustavljen.
   join:
-    conflict: Već sam u glasnom kanalu.
-    failure: Nisam uspio pridružiti se tom glasovnom kanalu.
+    conflict: Već sam u glasovnom kanalu.
+    failure: Nisam se uspio pridružiti tom glasovnom kanalu.
     in_progress: Već se pridružujem tom glasovnom kanalu.
     perms:
-      missing: 'Trebam dozvole za **pogled**, **povezivanje** i **govor** u {{channel}}.'
-    success: 'U redu, pridružio sam se {{channel}}.'
+      missing: >-
+        Trebam dozvole za **pregled**, **povezivanje** i **govor** u
+        {{channel}}.
+      missing_named: >-
+        Ne mogu svirati u {{channel}} jer mi ondje nedostaje {{permissions}}.
+        Zamolite administratora poslužitelja da mi da te dozvole ili me ponovno
+        pozovite gumbom ispod.
+      reinvite: Ponovno pozovi s dozvolama
+    success: Pridružio sam se {{channel}}.
   skip:
-    success: Preskočeno.
+    success: "{{user}} preskače pjesmu."
+    vote:
+      counted: >-
+        {{user}} glasa za preskakanje pjesme. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Već ste glasali za preskakanje ove pjesme.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} glasa za preskakanje i glasanje je prošlo. Preskačem pjesmu."
+      requester_gone: >-
+        {{user}} preskače pjesmu. Osoba koja ju je dodala napustila je poziv pa
+        glasanje nije bilo potrebno.
     to:
       invalid: >-
-        Nisam prepoznao pjesmu koju si mi dao. Pokušaj koristiti automatsku
-        dopunu :)
-      none: 'Nisam mogao preskočiti na tu pjesmu, nalazi li se još uvijek u redu?'
+        Ne prepoznajem pjesmu koju ste naveli. Pokušajte s automatskim dovršavanjem :)
+      none: Nisam mogao preskočiti na tu pjesmu. Je li još u redu čekanja?
   seek:
-    unseekable: Trenutna pjesma nije moguća za pretraživanje.
-    no_duration: Trenutna pjesma nema trajanje.
-    syntax: 'Vremenska oznaka mora biti u formatu `mm:ss`'
+    unseekable: U trenutačnoj pjesmi nije moguće premotavati.
+    no_duration: Trenutačna pjesma nema trajanje.
+    syntax: Vremenska oznaka mora biti u formatu `mm:ss`.
     out_of_bounds: >-
-      Pozicija koju ste dali premašuje duljinu trenutne pjesme, {{given}} >
-      {{length}}
-    success: 'Premotano na {{given}}'
+      Ta je pozicija iza kraja trenutačne pjesme ({{given}} > {{length}}).
+    success: "{{user}} premotava na {{given}}."
   loop:
     nothing:
-      success: Ponavljanje je onemogućeno.
-      already: Ponavljanje je već onemogućeno.
+      success: "{{user}} isključuje ponavljanje."
+      already: Ponavljanje je već isključeno.
     track:
-      indef: Sada se trenutna pjesma beskonačno ponavlja.
-      times_one: Trenutna pjesma će se ponoviti jednom.
-      times_other: 'Trenutna pjesma će se sada ponavljati *{{count, number}} puta*.'
-      nuhuh: Trenutna pjesma se već ponavlja.
+      indef: "{{user}} uključuje ponavljanje trenutačne pjesme."
+      times_one: "{{user}} postavlja da se trenutačna pjesma ponovi još {{count, number}} put."
+      times_few: "{{user}} postavlja da se trenutačna pjesma ponovi još {{count, number}} puta."
+      times_other: "{{user}} postavlja da se trenutačna pjesma ponovi još {{count, number}} puta."
+      nuhuh: Trenutačna se pjesma već ponavlja.
     queue:
-      indef: Sada se red beskonačno ponavlja.
-      times_one: Red će se ponoviti jednom.
-      times_other: 'Red će se sada ponavljati *{{count, number}} puta*.'
-      nuhuh: Red se već ponavlja.
+      indef: "{{user}} uključuje ponavljanje reda čekanja."
+      times_one: "{{user}} postavlja da se red čekanja ponovi još {{count, number}} put."
+      times_few: "{{user}} postavlja da se red čekanja ponovi još {{count, number}} puta."
+      times_other: "{{user}} postavlja da se red čekanja ponovi još {{count, number}} puta."
+      nuhuh: Red čekanja se već ponavlja.
   queue:
-    use_autocomplete: Hm? Pokušaj koristiti automatsku dopunu da odabereš pjesmu iz reda.
+    use_autocomplete: Hm? Odaberite pjesmu iz reda čekanja pomoću automatskog dovršavanja.
     view:
-      footer: 'Stranica {{cur, number}}/{{all, number}} (ukupno {{tot, number}})'
+      footer: Stranica {{cur, number}}/{{all, number}} (ukupno {{tot, number}})
     move:
-      failed: Nisam mogao pomaknuti tu pjesmu na traženu poziciju.
-      success: 'Pomaknut {{track}} na #{{index, number}}'
+      failed: Nisam mogao premjestiti tu pjesmu na traženo mjesto.
+      success: "{{user}} premješta {{track}} na #{{index, number}}."
     clear:
-      none: Red je bio prazan.
-      success_one: Uklonjena 1 pjesma iz reda.
-      success_other: 'Uklonjene {{count, number}} pjesme iz reda.'
+      none: Red čekanja je bio prazan.
+      success_one: "{{user}} uklanja {{count, number}} pjesmu iz reda čekanja."
+      success_few: "{{user}} uklanja {{count, number}} pjesme iz reda čekanja."
+      success_other: "{{user}} uklanja {{count, number}} pjesama iz reda čekanja."
     remove:
-      confirm: 'Jeste li sigurni da želite ukloniti {{track}} iz reda?'
-      cancelled: 'U redu, neću ukloniti tu pjesmu.'
+      confirm: Jeste li sigurni da želite ukloniti {{track}} iz reda čekanja?
+      cancelled: U redu, neću ukloniti tu pjesmu.
       not_found: >-
-        Navedena pjesma nije pronađena u redu, pokušajte koristiti automatsku
-        dopunu.
-      success: 'Uklonjena {{track}} iz reda.'
+        Navedena pjesma nije pronađena u redu čekanja, pokušajte s automatskim
+        dovršavanjem.
+      success: "{{user}} uklanja {{track}} iz reda čekanja."
     shuffle:
-      too_small: Red je prekratak za miješanje.
-      success: Red je promiješan.
+      too_small: Red čekanja je premalen za miješanje.
+      success: "{{user}} miješa red čekanja."
+  now_playing:
+    autoplay: Automatsko puštanje
+    requested_by: Zatražio/la
+    ends: Završava
+    queue: Red čekanja
+    queue_summary: "U redu: {{queued, number}} · puštano: {{played, number}}"
+    up_next: Sljedeće
+    refresh: Osvježi
+    open: Otvori
   pause:
-    already: Reproduktor je već pauziran.
-    success: Pauzirao sam reproduktor.
+    already: Player je već pauziran.
+    success: "{{user}} pauzira player."
   resume:
-    server_muted: Ne mogu nastaviti reprodukciju dok sam uklonjen iz zvuka na serveru.
-    already: Reproduktor nije bio pauziran.
-    success: Nastavio sam reprodukciju.
+    server_muted: Ne mogu nastaviti dok sam utišan na poslužitelju.
+    already: Player nije pauziran.
+    success: "{{user}} nastavlja reprodukciju."
   play:
+    duplicate: To je već u redu čekanja.
+    over_limit_one: Ovdje u redu čekanja istodobno možete imati samo {{count, number}} pjesmu.
+    over_limit_few: >-
+      Ovdje u redu čekanja istodobno možete imati samo {{count, number}} pjesme.
+    over_limit_other: >-
+      Ovdje u redu čekanja istodobno možete imati samo {{count, number}} pjesama.
+    too_long_one: Pjesme ovdje ne smiju biti dulje od {{count, number}} minute.
+    too_long_few: Pjesme ovdje ne smiju biti dulje od {{count, number}} minute.
+    too_long_other: Pjesme ovdje ne smiju biti dulje od {{count, number}} minuta.
+    too_long_skipped_one: >-
+      Preskočena je {{count, number}} pjesma iznad ograničenja od
+      {{minutes, number}} min.
+    too_long_skipped_few: >-
+      Preskočene su {{count, number}} pjesme iznad ograničenja od
+      {{minutes, number}} min.
+    too_long_skipped_other: >-
+      Preskočeno je {{count, number}} pjesama iznad ograničenja od
+      {{minutes, number}} min.
+    over_limit_skipped_one: >-
+      Preskočena je {{count, number}} pjesma: ograničenje reda ovdje je
+      {{limit, number}} po osobi.
+    over_limit_skipped_few: >-
+      Preskočene su {{count, number}} pjesme: ograničenje reda ovdje je
+      {{limit, number}} po osobi.
+    over_limit_skipped_other: >-
+      Preskočeno je {{count, number}} pjesama: ograničenje reda ovdje je
+      {{limit, number}} po osobi.
+    duplicates_skipped_one: Preskočena je {{count, number}} pjesma koja je već bila u redu čekanja.
+    duplicates_skipped_few: >-
+      Preskočene su {{count, number}} pjesme koje su već bile u redu čekanja.
+    duplicates_skipped_other: >-
+      Preskočeno je {{count, number}} pjesama koje su već bile u redu čekanja.
     domain:
-      other: Veza koju ste naveli nije podržana.
-      youtube: Eara je privremeno uklonila podršku za YouTube veze.
-      vote_locked: >
-        Morate glasati za {{mention}} na **top.gg** kako biste imali pristup
-        `{{domain}}` vezama!
+      other: Poveznica koju ste naveli nije podržana.
+      youtube: Eara je privremeno uklonila podršku za YouTube poveznice.
+      youtube_premium: >-
+        YouTube poveznice su **Premium** značajka. Pretražite po nazivu ili
+        zalijepite Spotify ili Apple Music poveznicu da biste besplatno slušali.
+      vote_locked: >-
+        Za pristup poveznicama s `{{domain}}` morate glasati za {{mention}} na
+        **top.gg**!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Ništa nije vraćeno za vaš upit.
+    nothing: Za vaš upit nije ništa pronađeno.
+    youtube_match: >-
+      -# Puštam najbliži besplatni rezultat. **Premium** pušta YouTube poveznice
+      izravno.
+    voice_wait:
+      waiting: >-
+        Pridružite se glasovnom kanalu i odmah počinjem svirati. Čekam još
+        {{seconds, number}} s.
+      expired: >-
+        Niste se na vrijeme pridružili glasovnom kanalu. Pridružite se jednom pa
+        ponovno upotrijebite `/play`.
+      replaced: Otkazano jer ste ponovno upotrijebili `/play`.
     error: Došlo je do pogreške pri učitavanju vašeg upita.
-    invalid_url: Naveli ste nevažeću URL adresu.
+    invalid_url: Naveli ste nevažeći URL.
     queue_full: >-
-      Red čekanja nema dovoljno mjesta. Uklonite neke pjesme prije dodavanja
+      U redu čekanja nema dovoljno mjesta. Uklonite neke pjesme prije dodavanja
       novih.
-    added: 'Dodano {{item}} u red čekanja.'
+    added: "{{user}} dodaje {{item}} u red čekanja."
     loaded:
-      album_one: 'jednu pjesmu s albuma {{collection}}'
-      album_other: '{{count, number}} pjesme s albuma {{collection}}'
-      artist_one: 'najbolju pjesmu s *{{collection}}*'
-      artist_other: 'najboljih {{count, number}} pjesama s *{{collection}}*'
-      playlist_one: 'jednu pjesmu s popisa za reprodukciju *{{collection}}*'
-      playlist_other: '{{count, number}} pjesme s popisa za reprodukciju *{{collection}}*'
+      album_one: "{{count, number}} pjesmu s albuma {{collection}}"
+      album_few: "{{count, number}} pjesme s albuma {{collection}}"
+      album_other: "{{count, number}} pjesama s albuma {{collection}}"
+      artist_one: "najpopularniju pjesmu izvođača *{{collection}}*"
+      artist_few: "{{count, number}} najpopularnije pjesme izvođača *{{collection}}*"
+      artist_other: "{{count, number}} najpopularnijih pjesama izvođača *{{collection}}*"
+      playlist_one: "{{count, number}} pjesmu s popisa za reprodukciju *{{collection}}*"
+      playlist_few: "{{count, number}} pjesme s popisa za reprodukciju *{{collection}}*"
+      playlist_other: "{{count, number}} pjesama s popisa za reprodukciju *{{collection}}*"
+  last_fm:
+    unavailable: Last.fm povezivanje trenutačno nije dostupno.
+    account: Račun
+    connect:
+      prompt: >-
+        Otvorite poveznicu ispod da biste povezali svoj Last.fm račun. Radi samo
+        jednom i istječe za {{minutes, number}} min, zato je zadržite za sebe.
+      button: Poveži Last.fm
+      open: Otvori Last.fm
+    disconnect:
+      button: Odspoji
+      done: Last.fm račun je odspojen.
+    status:
+      unlinked: Još niste povezali Last.fm račun.
+    scrobbling:
+      label: Scrobbling
+      turn_on: Uključi scrobbling
+      turn_off: Isključi scrobbling
+      enabled: Scrobbling je uključen.
+      disabled: Scrobbling je isključen. Vaš račun ostaje povezan.
   stop:
-    success: Reproduktor je zaustavljen.
+    success: "{{user}} zaustavlja player."
   volume:
-    current: 'Trenutačna jačina zvuka je {{volume, number}}.'
-    out_of_bounds: Jačina zvuka mora biti između 0 i 255.
-    success: 'Jačina zvuka postavljena na {{volume, number}}.'
+    current: Glasnoća je {{volume, number}}.
+    success: "{{user}} postavlja glasnoću na {{volume, number}}."
+    over_limit: >-
+      Na ovom poslužitelju samo DJ-evi mogu postaviti glasnoću iznad {{limit, number}}.
   effects:
-    enabled: 'Uključen efekt ''*{{effect}}*''!'
-    disabled: 'Isključen efekt ''*{{effect}}*''!'
-    trial_enabled: 'Uključen efekt ''*{{effect}}*'' za trenutnu pjesmu!'
-    trial_disabled: 'Isključen efekt ''*{{effect}}*'' za trenutnu pjesmu!'
-    cleared: Očišćeni svi uključeni efekti!
+    enabled: "{{user}} uključuje *{{effect}}*."
+    disabled: "{{user}} isključuje *{{effect}}*."
+    trial_enabled: "{{user}} uključuje *{{effect}}* za trenutačnu pjesmu."
+    trial_disabled: "{{user}} isključuje *{{effect}}* za trenutačnu pjesmu."
+    cleared: "{{user}} isključuje sve efekte."
+    list:
+      none: Nijedan efekt nije uključen.
+      some: "Uključeni efekti: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} uključuje 24/7. Ostajem u pozivu dok netko ne upotrijebi
+      `/leave`.
+    disabled: >-
+      {{user}} isključuje 24/7. Odlazim čim glazba stane ili svi odu.
+    already:
+      enabled: 24/7 je već uključen.
+      disabled: 24/7 je već isključen.
+    saved: >-
+      {{channel}} je sada moj 24/7 kanal. Sam ću mu se pridružiti kad god ne
+      sviram negdje drugdje na ovom poslužitelju.
+    forgotten: >-
+      Više se neću vraćati u svoj 24/7 kanal. Ako sam sada u njemu, ostajem dok
+      netko ne isključi 24/7 ili upotrijebi `/leave`.
+    not_voice: To nije glasovni kanal ni kanal pozornice.
+    turn_on: Uključi 24/7
+    turn_off: Isključi 24/7
+    keep: Uvijek se vraćaj ovamo
+    forget: Prestani se vraćati
+    auto_pause:
+      "on": >-
+        {{user}} uključuje automatsko pauziranje. 24/7 playeri ovdje pauziraju
+        dok nikoga nema u pozivu i nastavljaju kad se netko pridruži.
+      "off": >-
+        {{user}} isključuje automatsko pauziranje. 24/7 playeri ovdje nastavljaju
+        svirati i praznom pozivu.
+      pause: Pauziraj kad je prazno
+      keep_playing: Sviraj i kad je prazno
   immersive:
-    disabled: Imersivni način rada onemogućen.
+    disabled: "{{user}} isključuje imerzivni način rada."

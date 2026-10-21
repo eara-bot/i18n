@@ -1,311 +1,670 @@
 checks:
-  guild_only: Questo comando può essere usato solo in un server.
-  not_playing: Non sto riproducendo musica in questo server.
-  user_vc_none: Devi essere in un canale vocale per usare questo comando.
-  user_vc_diff: >-
-    Devi essere nello stesso canale vocale in cui sono io per usare questo
-    comando.
-  queue_empty: La coda è vuota.
-  nothing_playing: Non sta riproducendo nulla.
-  unknown_command: Non riconosco questo comando...
-  owner_only: Non ti è permesso usare questo comando.
-  maintenance: 'Il bot è in manutenzione, riprova più tardi.'
+  guild_only: "Questo comando si può usare solo in un server."
+  not_playing: "Non sto riproducendo musica in questo server."
+  user_vc_none: "Devi essere in un canale vocale per usare questo comando."
+  user_vc_diff: "Devi essere nel mio stesso canale vocale per usare questo comando."
+  queue_empty: "La coda è vuota."
+  nothing_playing: "Non c'è niente in riproduzione."
+  unknown_command: "Non riconosco questo comando..."
+  owner_only: "Non puoi usare questo comando."
+  missing_permissions: "Ti servono questi permessi per usare questo comando: {{permissions}}."
+  maintenance: "Il bot è in manutenzione, riprova più tardi."
+  tier_required: >-
+    Il piano di questo server non mi include. Abbonati su {{website}} per
+    usarmi qui.
+  tier_lapsed: >-
+    L'abbonamento di questo server è scaduto, quindi ho smesso di suonare.
+    Rinnovalo su {{website}} per ricominciare.
+  voice_channel_not_allowed: "Qui posso suonare solo in questi canali: {{channels}}."
+  dj_only:
+    role: >-
+      La modalità DJ è attiva, quindi solo chi ha {{role}} o il permesso
+      **Gestisci server** può farlo.
+    managers: >-
+      La modalità DJ è attiva, quindi solo chi ha il permesso **Gestisci
+      server** può farlo.
+stage:
+  hand_raised: >-
+    Ho alzato la mano nello Stage. Un moderatore dello Stage deve invitarmi a
+    parlare prima che qualcuno possa sentire la musica.
+  cannot_speak: >-
+    Sono nel pubblico dello Stage e non posso chiedere di parlare. Dammi il
+    permesso **Richiesta di parola**, oppure invitami tu a parlare.
 common:
-  join_our_server: 'Unisciti al nostro [*Server Discord*]({{invite}} ) per maggiori informazioni'
-  message_deleted: '*Messaggio eliminato*'
-  vote: Vota su Top.gg
-  discord_server: Server di supporto
-  remove: Rimuovi
-  play_now: Riproduci ora
-  next: Successivo
-  previous: Precedente
-  unknown_artist: Artista sconosciuto
-  unavailable_track: '[metadati traccia non disponibili]'
-  unknown_url: URL sconosciuto
-  unsupported_url: URL non supportato
-  source_url: 'URL {{source}}'
-  unknown: Sconosciuto
-  unknown_channel: Canale sconosciuto
-  none: Nessuno
-  not_available: N/D
-  'yes': Sì
-  'no': 'No'
-  track: Traccia
-  queue: Coda
+  join_our_server: >-
+    Unisciti al nostro [*server Discord*]({{invite}} ) per maggiori informazioni.
+  message_deleted: "*Il messaggio è stato eliminato*"
+  vote: "Vota su Top.gg"
+  discord_server: "Server di supporto"
+  help_center: "Centro assistenza"
+  open_player: "Apri il player"
+  open_in_web_player: "Apri nel web player"
+  remove: "Rimuovi"
+  play_now: "Riproduci ora"
+  next: "Successivo"
+  previous: "Precedente"
+  unknown_artist: "Artista sconosciuto"
+  unavailable_track: "[metadati del brano non disponibili]"
+  unknown_url: "URL sconosciuto"
+  unsupported_url: "URL non supportato"
+  supported_sites: "Siti supportati"
+  source_url: "URL di {{source}}"
+  unknown: "Sconosciuto"
+  unknown_channel: "Canale sconosciuto"
+  none: "Nessuno"
+  not_available: "N/D"
+  yes: "Sì"
+  no: "No"
+  track: "Brano"
+  queue: "Coda"
   state:
-    loading: Caricamento
-    paused: In pausa
-    playing: In riproduzione
-    idle: Inattivo
-    active: Attivo
-    'off': Spento
-    disconnected: Disconnesso
-    joining: Connessione in corso
-    connected: Connesso
+    loading: "Caricamento"
+    paused: "In pausa"
+    playing: "In riproduzione"
+    idle: "Inattivo"
+    active: "Attivo"
+    on: "Attivo"
+    off: "Disattivato"
+    disconnected: "Disconnesso"
+    joining: "Connessione"
+    reconnecting: "Riconnessione"
+    connected: "Connesso"
   confirmation:
     prompt: |-
       {{message}}
       -# Hai **30 secondi** per rispondere.
-    confirm: Conferma
-    deny: Negare
+    confirm: "Conferma"
+    deny: "Annulla"
   premium:
     sku_required: >-
-      Questo server richiede un **abbonamento Premium** per accedere a questo
+      Questo server ha bisogno di un **abbonamento Premium** per usare questo
       comando.
-    uninterrupted_access: Dopo aver votato riceverai fino a 12 ore di accesso ininterrotto!
-    vote_required: >
-      Devi votare per {{mention}} su **top.gg** per ottenere l'accesso a questo
+    pricing_pitch: "-# I piani partono da **{{price}}/mese** per una qualità audio migliore, code più lunghe e l'accesso a YouTube."
+    uninterrupted_access: >-
+      Dopo aver votato avrai *fino a* 12 ore di accesso senza interruzioni!
+    vote_required: >-
+      Devi votare per {{mention}} su **top.gg** per accedere a questo
       comando.
 
       -# $t(common.premium.uninterrupted_access)
-    get_premium: Ottieni Premium
-    vote_locks_premium: '**Premium** rimuove i blocchi per votazione per l''intero server.'
+    get_premium: "Passa a Premium"
+    vote_locks_premium: "**Premium** elimina il voto obbligatorio per tutto il server."
 buttons:
+  add:
+    title: "Aggiungi alla coda"
+    label: "Nome o link della canzone"
+    placeholder: "Cerca o incolla un link"
+    another: "Aggiungine un'altra"
   remove:
-    none: Non sono riuscito a trovare l'elemento che volevi rimuovere...
-    done: '{{author}} ha rimosso {{track}} dalla coda.'
+    none: "Non ho trovato l'elemento che volevi rimuovere..."
+    done: "{{author}} ha rimosso {{track}} dalla coda."
   correlated_remove:
-    none: Le canzoni in coda non si trovano da nessuna parte...
-    done: '{{author}} ha rimosso {{count}} canzoni messe in coda.'
+    none: "Le canzoni messe in coda non si trovano più da nessuna parte..."
+    done_one: "{{author}} ha rimosso 1 canzone che era stata messa in coda."
+    done_many: "{{author}} ha rimosso {{count, number}} canzoni che erano state messe in coda."
+    done_other: "{{author}} ha rimosso {{count, number}} canzoni che erano state messe in coda."
   play_now:
     none: >-
-      Non sono riuscito a trovare le canzoni che hai aggiunto in coda, le hai
-      già riprodotte?
-    not_found: Impossibile trovare quella canzone nella coda.
-    done_one: 'Prioritizzata una canzone richiesta da {{requester}}.'
-    done_other: 'Prioritizzate {{count}} canzoni richieste da {{requester}}.'
-    footer_a: 'Saltato a {{next}} da {{prev}}'
-    footer_b: 'Saltato a {{next}}'
+      Non trovo in coda le canzoni che hai aggiunto. Le hai già ascoltate?
+    not_found: "Non trovo quella canzone in coda."
+    done_one: "Messa in testa alla coda 1 canzone richiesta da {{requester}}."
+    done_many: "Messe in testa alla coda {{count, number}} canzoni richieste da {{requester}}."
+    done_other: "Messe in testa alla coda {{count, number}} canzoni richieste da {{requester}}."
+    footer_a: "Passato da {{prev}} a {{next}}."
+    footer_b: "Passato a {{next}}."
   item_actions:
-    not_found: Questa canzone non è più in coda.
+    not_found: "Quella canzone non è più in coda."
   previous:
-    none: Non ci sono canzoni precedenti...
-  skip_to: '{{user}} ha saltato a {{track}}'
-  stop: '{{user}} ha fermato il lettore.'
+    none: "Non ci sono canzoni precedenti..."
+  skip_to: "{{user}} è passato a {{track}}."
+  stop: "{{user}} ha fermato il player."
 events:
   command_failed:
-    message: Questo comando non è riuscito.
+    message: "Qualcosa è andato storto"
     reason:
-      unknown: 'Si è verificato un errore imprevisto, segnalalo agli sviluppatori.'
-      panic: >-
-        L'attività che stava elaborando il tuo comando si è interrotta,
-        segnalalo agli sviluppatori.
-    footer: 'Fornisci questo ID agli sviluppatori: **{{eid}}**'
+      unknown: "Riprova tra un momento."
+      player_restarted: "Il player si è dovuto riavviare. Riprova."
+    footer: >-
+      ID errore `{{eid}}` · condividilo nel nostro Server di supporto se
+      continua a succedere.
+    usage: "Qualcosa non torna. Ecco come si usa:"
   player:
     tips:
-      autoplay: 'Mantieni la musica attiva quando la coda termina con {{command}}.'
-      crossfade: 'Sapevi che abbiamo il crossfade? Usa {{command}} per configurarlo.'
-      effects: 'Dai un tocco diverso alla canzone attuale con {{command}}.'
+      autoplay: "Fai continuare la musica quando la coda finisce con {{command}}."
+      crossfade: >-
+        Sapevi che abbiamo il crossfade? Usa {{command}} per configurarlo.
+      effects: "Dai un tocco diverso alla canzone attuale con {{command}}."
       history: >-
-        Cerchi qualcosa riprodotta in precedenza? {{command}} può mostrare anche
-        la cronologia della coda.
-      immersive: 'Usa {{spatialize}} o {{orbit}} per rendere più vivace la tua esperienza!'
+        Cerchi qualcosa che è passato prima? {{command}} può mostrare anche la
+        cronologia della coda.
+      immersive: "Usa {{spatialize}} o {{orbit}} per rendere l'ascolto più coinvolgente!"
+      last_fm: >-
+        Collega il tuo account Last.fm con {{command}} per fare lo scrobbling
+        di tutto quello che ascolti qui.
       loop: >-
-        Vuoi riascoltarla? {{command}} può ripetere questa canzone o l'intera
+        Vuoi riascoltarla? {{command}} può ripetere questa canzone o tutta la
         coda.
-      move: 'Riordina o pulisci la coda con {{move_command}} e {{remove_command}}.'
+      move: >-
+        Riordina o ripulisci la coda con {{move_command}} e
+        {{remove_command}}.
       notifications: >-
-        I gestori del server possono scegliere un canale dedicato al lettore con
+        Chi gestisce il server può scegliere un canale dedicato al player con
         {{command}}.
-      seek: 'Vai a qualsiasi punto di questa canzone con {{command}}.'
-      shuffle: 'Mescola le canzoni in attesa nella coda con {{command}}.'
+      player: >-
+        Segui i testi in tempo reale e gestisci la coda con {{command}} o nel
+        [web player]({{url}}).
+      player_web: >-
+        Segui i testi in tempo reale e gestisci la coda nel [web player]({{url}}).
+      seek: "Salta a qualsiasi punto di questa canzone con {{command}}."
+      shuffle: "Mescola le canzoni in attesa nella coda con {{command}}."
       voice_status: >-
-        I gestori del server possono mostrare la canzone attuale nello stato del
+        Chi gestisce il server può mostrare la canzone attuale nello stato del
         canale vocale con {{command}}.
     notification:
-      join_failed: Non sono riuscito a connettermi al tuo canale vocale.
-      playback_failed: 'Riproduzione di {{track}} non riuscita'
+      join_failed: "Non sono riuscito a entrare nel tuo canale vocale."
+      playback_failed: "Impossibile riprodurre {{track}}."
       scheduler_failed: >-
-        Lo scheduler del lettore per questo server ha avuto un errore. Esegui
-        `/leave`, poi `/join` e segnala il problema se dovesse ripetersi.
+        Lo scheduler del player di questo server ha smesso di funzionare. Usa
+        `/leave`, poi `/join`, e segnalacelo se succede di nuovo.
       playback_stalled: >-
-        Troppi tentativi di riproduzione falliti. Se il problema persiste,
-        unisciti al nostro server di supporto.
-      idle_timeout: 'Il player era inattivo da troppo tempo, quindi mi sono disconnesso.'
-      restarting: Eara si sta riavviando e dovrebbe tornare a breve.
+        Troppi tentativi di riproduzione falliti. Se continua, unisciti al
+        nostro Server di supporto.
+      idle_timeout: "Il player è rimasto inattivo troppo a lungo, quindi mi sono disconnesso."
+      restarting: "Eara si sta riavviando e tornerà a breve."
     disconnect:
-      alone: 'Sono stato lasciato solo, disconnessione <t:{{timestamp}}:R>'
+      alone: "Sono rimasto da solo, mi disconnetto <t:{{timestamp}}:R>."
     queue:
       end:
-        message: La coda è terminata.
+        message: "La coda è finita."
         prompts:
           review:
-            message: 'Ti piace {{mention}}? Lasciaci una recensione!'
-            button: Lascia una recensione
+            message: "Ti piace {{mention}}? Lasciaci una recensione!"
+            button: "Lascia una recensione"
           vote:
             message: >-
-              Ti piace {{mention}}? Vota per noi per aiutare più persone a
-              trovarlo!
-            button: Vota per noi
+              Ti piace {{mention}}? Votaci per aiutare più persone a scoprirlo!
+            button: "Votaci"
           support:
+            message: "Ti serve aiuto o vuoi fare due chiacchiere? Unisciti alla nostra community Discord!"
+            button: "Entra nel server"
+          player:
             message: >-
-              Hai bisogno di aiuto o vuoi fare due chiacchiere? Unisciti alla
-              nostra community Discord!
-            button: Unisciti al server
+              Scegli cosa ascoltare dopo dal web player: ricerca, testi e coda
+              in un unico posto.
+            button: "Apri il web player"
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: Condividi questo riepilogo quando chiedi aiuto sul player.
-    loop_indefinite: '{{mode}} (indefinito)'
-    loop_remaining: '{{mode}} ({{count, number}} rimanenti)'
+    footer: "Condividi questo riepilogo quando chiedi aiuto con il player."
+    loop_indefinite: "{{mode}} (all'infinito)"
+    loop_remaining: "{{mode}} (ancora {{count, number}})"
   dev:
-    entitlement_granted: 'Entitlement {{entitlement}} concesso per SKU {{sku}} a guild {{guild}}.'
-    player_not_found: 'Nessun player esiste per la guild {{guild}}.'
-    joining: 'Connessione a {{channel}} ({{connection}})'
-    connected: 'Connesso a {{channel}} ({{connection}})'
+    entitlement_granted: >-
+      Entitlement {{entitlement}} per lo SKU {{sku}} concesso al server {{guild}}.
+    player_not_found: "Non esiste nessun player per il server {{guild}}."
+    joining: "Connessione a {{channel}} ({{connection}})"
+    reconnecting: "Riconnessione a {{channel}} ({{connection}})"
+    connected: "Connesso a {{channel}} ({{connection}})"
+  help:
+    details: "-# Usa `/help` per i dettagli su qualsiasi comando."
+    player: "-# Testi in tempo reale, coda e controlli sono anche nel [web player]({{url}})."
+    supported_sites: "-# Non sai se un link funzionerà? Guarda [da quali siti eara può riprodurre]({{url}})."
+  feedback:
+    ask:
+      title: "Ti piace {{mention}}?"
+      note: "La tua risposta ci aiuta a decidere su cosa lavorare dopo."
+      "yes": "Sì"
+      "no": "Non molto"
+    enjoying:
+      title: "Grazie! Aiuta altri a scoprire {{mention}}"
+      note: "I server scoprono nuovi bot su Top.gg. Una recensione o un voto lì ci aiuta a raggiungere più persone."
+      review: "Scrivi una recensione"
+      vote: "Vota su Top.gg"
+    not_enjoying:
+      title: "Ci dispiace che non vada bene per te"
+      note: "Raccontaci cosa non ha funzionato nel nostro server Discord, così possiamo aiutarti a risolvere e capire cosa sistemare."
+      support: "Entra nel nostro server Discord"
   ping:
-    message: Pong!
-    footer: Hai problemi? Unisciti al nostro **Support Server**!
+    message: "Pong!"
+    footer: "Hai problemi? Consulta il **Centro assistenza** o entra nel nostro **Server di supporto**."
   stats:
-    instance_failed: Recupero istanza non riuscito.
+    instance_failed: "Impossibile caricare le statistiche di questo bot."
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} ha attivato l'autoplay."
+    disabled: "{{user}} ha disattivato l'autoplay."
+    turn_on: "Attiva autoplay"
+    turn_off: "Disattiva autoplay"
+  automix:
+    enabled: >-
+      {{user}} ha attivato l'automix. Ora ogni canzone sfuma nella successiva
+      nel punto migliore, al posto del crossfade.
+    disabled: "{{user}} ha disattivato l'automix."
+    turn_on: "Attiva automix"
+    turn_off: "Disattiva automix"
   crossfade:
     current:
-      enabled: 'Durata del crossfade impostata su {{duration, number}}s.'
-      disabled: Il crossfade è disabilitato.
+      "on": "Il crossfade è di {{seconds, number}} s."
+      "off": "Il crossfade è disattivato."
     updated:
-      enabled: 'Durata del crossfade impostata su {{duration, number}}s.'
-      disabled: Crossfade disabilitato.
-  default_volume:
-    current: 'Il volume predefinito per questo server è attualmente {{volume, number}}.'
-    updated: 'Volume predefinito aggiornato per questo server a {{volume, number}}.'
-  do_vc_status_update:
+      "on": "{{user}} ha impostato il crossfade a {{seconds, number}} s."
+      "off": "{{user}} ha disattivato il crossfade."
+    "off": "Disattivato"
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: "Salvato per tutto il server."
+    session: >-
+      Fino a quando il player si ferma. Chi ha il permesso Gestisci server può
+      salvarlo per il server, qui o in {{command}}.
+  dj:
     current:
-      enabled: >-
-        Attualmente, {{mention}} aggiornerà lo stato del canale vocale quando la
-        canzone corrente cambia.
-      disabled: >-
-        Attualmente, {{mention}} non aggiornerà lo stato del canale vocale
-        quando la canzone corrente cambia.
+      "on": "La modalità DJ è **attiva**. Solo i DJ possono controllare il player."
+      "off": "La modalità DJ è **disattivata**. Tutti nella chiamata possono controllare il player."
+    who:
+      role: >-
+        I DJ sono i membri con {{role}}, chiunque abbia il permesso Gestisci
+        server e chiunque sia l'unica persona ad ascoltare nella chiamata con
+        me.
+      managers: >-
+        I DJ sono chiunque abbia il permesso Gestisci server e chiunque sia
+        l'unica persona ad ascoltare nella chiamata con me.
+    you:
+      "yes": "Puoi controllare il player."
+      "no": "Al momento non puoi controllare il player."
     updated:
-      enabled: >-
-        {{mention}} aggiornerà ora lo stato del canale vocale quando la canzone
-        corrente cambia.
-      disabled: >-
-        {{mention}} non aggiornerà più lo stato del canale vocale quando la
-        canzone corrente cambia.
-  autoplay:
-    current:
-      enabled: >-
-        Attualmente, {{mention}} riprodurrà automaticamente canzoni
-        raccomandate.
-      disabled: >-
-        Attualmente, {{mention}} non sta riproducendo automaticamente canzoni
-        raccomandate.
-    updated:
-      enabled: '{{mention}} riprodurrà ora automaticamente canzoni raccomandate.'
-      disabled: '{{mention}} non riprodurrà più automaticamente canzoni raccomandate.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} non sta inviando notifiche a un canale specifico.'
-        some: '{{mention}} sta attualmente inviando notifiche a {{channel}}'
-      clear: '{{mention}} non invierà più notifiche a un canale specifico.'
-      update: '{{mention}} invierà ora notifiche a {{channel}}'
+      "on": "{{user}} ha attivato la modalità DJ."
+      "off": "{{user}} ha disattivato la modalità DJ."
+      role: "{{user}} ha impostato il ruolo DJ su {{role}}."
+      no_role: "{{user}} ha rimosso il ruolo DJ."
+    turn_on: "Attiva modalità DJ"
+    turn_off: "Disattiva modalità DJ"
+    role_placeholder: "Nessun ruolo DJ"
+  settings:
+    title: "Impostazioni"
+    footer: >-
+      Le modifiche si salvano subito. Trovi tutto anche nella
+      [dashboard]({{url}}).
+    pages:
+      playback: "Riproduzione"
+      dj: "DJ"
+      queue: "Coda"
+      voice: "Voce"
+      bot: "Questo bot"
+    about:
+      playback: "Come parte la musica, come suona e come va avanti in tutto il server."
+      dj: "Chi controlla il player e come si decide uno skip."
+      queue: "Cosa si può aggiungere alla coda e in che ordine viene riprodotto."
+      voice: "Dove i nostri bot possono suonare in questo server, a meno che uno non abbia una lista sua."
+      bot: >-
+        Solo per {{bot}}. Ognuno dei nostri bot in questo server ha le sue, e
+        quelle lasciate vuote seguono le impostazioni del server.
+    state:
+      "on": "Attivo"
+      "off": "Disattivato"
+    turn_on: "Attiva"
+    turn_off: "Disattiva"
+    change: "Modifica"
+    premium: "Premium"
+    invalid: "Inserisci un numero intero da {{min, number}} a {{max, number}}."
+    invalid_optional: >-
+      Inserisci un numero intero da {{min, number}} a {{max, number}}, oppure
+      lascia vuoto.
+    playback:
+      volume:
+        label: "Volume iniziale"
+        about: "Il volume con cui inizio a suonare."
+        input: "Da 0 a 250."
+      crossfade:
+        label: "Crossfade"
+        about: "Sfuma la fine di ogni canzone nella successiva."
+        value: "{{seconds, number}} s"
+        input: "Secondi, da 0 a 30. 0 lo disattiva."
+      autoplay:
+        label: "Autoplay"
+        about: "Fa continuare la musica con canzoni simili quando la coda finisce."
+      vc_status:
+        label: "Stato del canale vocale"
+        about: "Mostra cosa sta suonando come stato del canale vocale."
+      auto_pause:
+        label: "Pausa 24/7 se vuoto"
+        about: >-
+          Un player 24/7 va in pausa quando non c'è nessuno nella chiamata e
+          riprende quando entra qualcuno.
+      notifications:
+        label: "Canale della riproduzione"
+        about: >-
+          Dove pubblico ogni canzone. Lascia vuoto per pubblicare dove è stata
+          avviata la musica.
+        placeholder: "Il canale dove è stata avviata la musica"
+    dj:
+      mode:
+        label: "Modalità DJ"
+        about: >-
+          Solo i DJ possono controllare il player. Tutti possono comunque
+          aggiungere canzoni e votare per saltare.
+      role:
+        label: "Ruolo DJ"
+        about: >-
+          I membri con questo ruolo sono DJ, così come chi ha il permesso
+          Gestisci server o è l'unica persona ad ascoltare nella chiamata con
+          me.
+        placeholder: "Nessun ruolo DJ"
+      max_volume:
+        label: "Limite di volume"
+        about: "Il volume massimo che può impostare chi non è DJ."
+        none: "Nessun limite"
+        input: "Da 0 a 250. Lascia vuoto per nessun limite."
+      vote_skip:
+        label: "Voti per saltare"
+        about: "La percentuale di ascoltatori necessaria per saltare una canzone."
+        none: "Più della metà"
+        value: "{{percent, number}}%"
+        input: "Una percentuale, da 1 a 100. Lascia vuoto per più della metà."
+    queue:
+      no_duplicates:
+        label: "Niente duplicati"
+        about: "Le canzoni già in coda non si possono aggiungere di nuovo."
+      fair:
+        label: "Coda equa"
+        about: "Alterna le canzoni tra le persone che le aggiungono."
+      leave_cleanup:
+        label: "Pulizia all'uscita"
+        about: "Rimuove le canzoni di qualcuno 30 secondi dopo che ha lasciato la chiamata."
+      max_songs:
+        label: "Canzoni a persona"
+        about: "Quante canzoni può avere in coda chi non è DJ."
+        none: "Nessun limite"
+        input: "Da 1 a 1000. Lascia vuoto per nessun limite."
+      max_length:
+        label: "Durata massima"
+        about: "La canzone più lunga che può aggiungere chi non è DJ."
+        none: "Nessun limite"
+        value_one: "1 minuto"
+        value_many: "{{count, number}} minuti"
+        value_other: "{{count, number}} minuti"
+        input: "In minuti, da 1 a 1440. Lascia vuoto per nessun limite."
+    voice:
+      channels:
+        label: "Canali vocali"
+        about: "Dove posso suonare. Lascia vuoto per suonare in qualsiasi canale vocale."
+        placeholder: "Qualsiasi canale vocale"
+    bot:
+      always_on:
+        label: "Canale 24/7"
+        about: >-
+          Un canale in cui questo bot entra da solo e resta, anche quando la
+          musica si ferma.
+        placeholder: "Nessuno"
+        taken: >-
+          {{bot}} resta già in quel canale 24 ore su 24. Scegline un altro.
+      voice:
+        label: "Canali vocali"
+        about: >-
+          Dove può suonare questo bot. Lascia vuoto per seguire i canali vocali
+          del server.
+        any: >-
+          Questo bot può suonare in qualsiasi canale vocale consentito dal
+          server. Scegline alcuni per limitarlo a quelli.
+        placeholder: "I canali vocali del server"
+      notifications:
+        label: "Canale della riproduzione"
+        about: "Dove questo bot pubblica ogni canzone, al posto del canale del server."
+        placeholder: "Il canale del server"
+      volume:
+        label: "Volume iniziale"
+        about: "Il volume con cui parte questo bot, al posto di quello del server."
+        none: "Quello del server ({{volume, number}})"
+        input: "Da 0 a 250. Lascia vuoto per usare quello del server."
+  history:
+    title: "Ascoltati di recente"
+    title_by: "Richiesti di recente da {{user}}"
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: "Pagina {{page, number}} di {{pages, number}}"
+    again: "Rimetti in coda"
+    empty: "Qui non è ancora stato richiesto niente."
+    not_playing: "Non sto suonando in questo server. Usa `/play` per iniziare."
+    gone: "Non riesco più a trovare quella canzone. Prova con `/play`."
+    queued: "{{user}} ha rimesso in coda {{track}}."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Lasciato {{channel}}.'
-    destroyed: Player distrutto per questo server.
+    success_channel: "Sono uscito da {{channel}}."
+    destroyed: "Ho fermato il player per questo server."
   join:
-    conflict: Sono già in un canale vocale.
-    failure: Non sono riuscito a entrare nel canale vocale.
-    in_progress: Sto già entrando in quel canale vocale.
+    conflict: "Sono già in un canale vocale."
+    failure: "Non sono riuscito a entrare in quel canale vocale."
+    in_progress: "Sto già entrando in quel canale vocale."
     perms:
       missing: >-
-        Ho bisogno dei permessi per **visualizzare**, **connettermi** e
+        Mi servono i permessi per **visualizzare**, **connettermi** e
         **parlare** in {{channel}}.
-    success: 'Ok, sono entrato in {{channel}}.'
+      missing_named: >-
+        Non posso suonare in {{channel}} perché lì mi mancano questi permessi:
+        {{permissions}}. Chiedi a un admin del server di darmeli, oppure
+        invitami di nuovo con il pulsante qui sotto.
+      reinvite: "Invita di nuovo con i permessi"
+    success: "Sono entrato in {{channel}}."
   skip:
-    success: Saltato.
+    success: "{{user}} ha saltato la canzone."
+    vote:
+      counted: >-
+        {{user}} ha votato per saltare la canzone. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Hai già votato per saltare questa canzone.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} ha votato per saltare e la votazione è passata. Salto la canzone."
+      requester_gone: >-
+        {{user}} ha saltato la canzone. Chi l'aveva messa in coda ha lasciato
+        la chiamata, quindi non serviva votare.
     to:
       invalid: >-
         Non ho riconosciuto la canzone che mi hai dato. Prova a usare il
         completamento automatico :)
-      none: 'Non posso saltare alla canzone indicata, è ancora in coda?'
+      none: "Non sono riuscito a passare a quella canzone. È ancora in coda?"
   seek:
-    unseekable: La canzone attuale non è seekable.
-    no_duration: La canzone attuale non ha una durata.
-    syntax: 'Il timecode deve essere nel formato `mm:ss`'
+    unseekable: "Nella canzone attuale non si può saltare a un punto preciso."
+    no_duration: "La canzone attuale non ha una durata."
+    syntax: "Il timecode deve essere nel formato `mm:ss`."
     out_of_bounds: >-
-      La posizione indicata supera la lunghezza della canzone attuale, {{given}}
-      > {{length}}
-    success: 'Avanzato a {{given}}'
+      Quella posizione è oltre la fine della canzone attuale ({{given}} >
+      {{length}}).
+    success: "{{user}} è passato a {{given}}."
   loop:
     nothing:
-      success: Il loop è stato disattivato.
-      already: Il loop era già disattivato.
+      success: "{{user}} ha disattivato la ripetizione."
+      already: "La ripetizione è già disattivata."
     track:
-      indef: Ora riprodurrò indefinitamente la canzone corrente.
-      times_one: La canzone corrente verrà ripetuta una volta.
-      times_other: 'La canzone corrente verrà ora ripetuta per *{{count, number}} volte*.'
-      nuhuh: La canzone corrente è già stata messa in loop.
+      indef: "{{user}} ha messo in ripetizione la canzone attuale."
+      times_one: "{{user}} ha impostato la ripetizione della canzone attuale per un'altra volta."
+      times_many: "{{user}} ha impostato la ripetizione della canzone attuale per altre {{count, number}} volte."
+      times_other: "{{user}} ha impostato la ripetizione della canzone attuale per altre {{count, number}} volte."
+      nuhuh: "La canzone attuale è già in ripetizione."
     queue:
-      indef: Ora la coda verrà ripetuta all'infinito.
-      times_one: La coda verrà ripetuta una volta.
-      times_other: 'La coda verrà ora ripetuta per *{{count, number}} volte*.'
-      nuhuh: La coda è già in loop.
+      indef: "{{user}} ha messo in ripetizione la coda."
+      times_one: "{{user}} ha impostato la ripetizione della coda per un'altra volta."
+      times_many: "{{user}} ha impostato la ripetizione della coda per altre {{count, number}} volte."
+      times_other: "{{user}} ha impostato la ripetizione della coda per altre {{count, number}} volte."
+      nuhuh: "La coda è già in ripetizione."
   queue:
-    use_autocomplete: >-
-      Eh? Prova a usare il completamento automatico per selezionare una canzone
-      in coda.
+    use_autocomplete: "Eh? Prova a usare il completamento automatico per scegliere una canzone in coda."
     view:
-      footer: 'Pagina {{cur, number}}/{{all, number}} ({{tot, number}} totali)'
+      footer: "Pagina {{cur, number}}/{{all, number}} (totale: {{tot, number}})"
     move:
-      failed: Impossibile spostare quella canzone alla posizione richiesta.
-      success: 'Spostata {{track}} al numero {{index, number}}'
+      failed: "Non sono riuscito a spostare quella canzone nella posizione richiesta."
+      success: "{{user}} ha spostato {{track}} alla posizione #{{index, number}}."
     clear:
-      none: La coda è vuota.
-      success_one: Rimossa 1 canzone dalla coda.
-      success_other: 'Rimosse {{count, number}} canzoni dalla coda.'
+      none: "La coda era vuota."
+      success_one: "{{user}} ha rimosso 1 canzone dalla coda."
+      success_many: "{{user}} ha rimosso {{count, number}} canzoni dalla coda."
+      success_other: "{{user}} ha rimosso {{count, number}} canzoni dalla coda."
     remove:
-      confirm: 'Sei sicuro di voler rimuovere {{track}} dalla coda?'
-      cancelled: 'Ok, non rimuoverò quella canzone.'
+      confirm: "Vuoi davvero rimuovere {{track}} dalla coda?"
+      cancelled: "Ok, non rimuovo quella canzone."
       not_found: >-
-        La canzone indicata non è stata trovata nella coda, prova a usare il
-        completamento automatico.
-      success: 'Rimossa {{track}} dalla coda.'
+        Non ho trovato quella canzone in coda, prova a usare il completamento
+        automatico.
+      success: "{{user}} ha rimosso {{track}} dalla coda."
     shuffle:
-      too_small: La coda è troppo piccola per essere mescolata.
-      success: La coda è stata mescolata.
+      too_small: "La coda è troppo corta per essere mescolata."
+      success: "{{user}} ha mescolato la coda."
+  now_playing:
+    autoplay: "Autoplay"
+    requested_by: "Richiesta da"
+    ends: "Finisce"
+    queue: "Coda"
+    queue_summary: "In coda: {{queued, number}} · Riprodotte: {{played, number}}"
+    up_next: "A seguire"
+    refresh: "Aggiorna"
+    open: "Apri"
   pause:
-    already: Il lettore è già in pausa.
-    success: Ho messo in pausa il lettore.
+    already: "Il player è già in pausa."
+    success: "{{user}} ha messo in pausa il player."
   resume:
-    server_muted: Impossibile riprendere la riproduzione mentre sono mutato dal server.
-    already: Il lettore non era in pausa.
-    success: Ho ripreso la riproduzione.
+    server_muted: "Non posso riprendere finché sono silenziato dal server."
+    already: "Il player non è in pausa."
+    success: "{{user}} ha ripreso la riproduzione."
   play:
+    duplicate: "È già in coda."
+    over_limit_one: "Qui puoi avere solo 1 canzone in coda alla volta."
+    over_limit_many: "Qui puoi avere solo {{count, number}} canzoni in coda alla volta."
+    over_limit_other: >-
+      Qui puoi avere solo {{count, number}} canzoni in coda alla volta.
+    too_long_one: "Qui le canzoni non possono durare più di 1 minuto."
+    too_long_many: "Qui le canzoni non possono durare più di {{count, number}} minuti."
+    too_long_other: "Qui le canzoni non possono durare più di {{count, number}} minuti."
+    too_long_skipped_one: >-
+      Ho saltato 1 canzone che supera il limite di {{minutes, number}} min.
+    too_long_skipped_many: >-
+      Ho saltato {{count, number}} canzoni che superano il limite di
+      {{minutes, number}} min.
+    too_long_skipped_other: >-
+      Ho saltato {{count, number}} canzoni che superano il limite di
+      {{minutes, number}} min.
+    over_limit_skipped_one: >-
+      Ho saltato 1 canzone: qui il limite della coda è di {{limit, number}} a
+      persona.
+    over_limit_skipped_many: >-
+      Ho saltato {{count, number}} canzoni: qui il limite della coda è di
+      {{limit, number}} a persona.
+    over_limit_skipped_other: >-
+      Ho saltato {{count, number}} canzoni: qui il limite della coda è di
+      {{limit, number}} a persona.
+    duplicates_skipped_one: "Ho saltato 1 canzone che era già in coda."
+    duplicates_skipped_many: >-
+      Ho saltato {{count, number}} canzoni che erano già in coda.
+    duplicates_skipped_other: >-
+      Ho saltato {{count, number}} canzoni che erano già in coda.
     domain:
-      other: Il link che hai fornito non è supportato.
-      youtube: Eara ha temporaneamente rimosso il supporto per i link di YouTube.
-      vote_locked: >
-        Devi votare {{mention}} su **top.gg** per avere accesso ai link di
+      other: "Il link che hai inserito non è supportato."
+      youtube: "Eara ha temporaneamente rimosso il supporto per i link di YouTube."
+      youtube_premium: >-
+        I link di YouTube sono una funzione **Premium**. Cerca per nome o
+        incolla un link di Spotify o Apple Music per ascoltarlo gratis.
+      vote_locked: >-
+        Devi votare per {{mention}} su **top.gg** per accedere ai link di
         `{{domain}}`!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Nessun risultato per la tua ricerca.
-    error: Si è verificato un errore durante il caricamento della tua ricerca.
-    invalid_url: Hai inserito un URL non valido.
+    nothing: "La tua ricerca non ha dato risultati."
+    youtube_match: >-
+      -# Riproduco la corrispondenza gratuita più simile. Con **Premium** i
+      link di YouTube vengono riprodotti direttamente.
+    voice_wait:
+      waiting: >-
+        Entra in un canale vocale e inizio subito a suonare. Ti aspetto per
+        {{seconds, number}} s.
+      expired: >-
+        Non sei entrato in un canale vocale in tempo. Entra in uno, poi usa di
+        nuovo `/play`.
+      replaced: "Annullato perché hai usato di nuovo `/play`."
+    error: "Si è verificato un errore durante il caricamento della tua ricerca."
+    invalid_url: "Hai inserito un URL non valido."
     queue_full: >-
-      La coda non ha abbastanza spazio. Rimuovi alcune canzoni prima di
+      Nella coda non c'è abbastanza spazio. Rimuovi qualche canzone prima di
       aggiungerne altre.
-    added: '{{item}} aggiunto alla coda.'
+    added: "{{user}} ha aggiunto {{item}} alla coda."
     loaded:
-      album_one: 'una canzone dall''album {{collection}}'
-      album_other: '{{count, number}} canzoni dall''album {{collection}}'
-      artist_one: 'la canzone più ascoltata di *{{collection}}*'
-      artist_other: 'le {{count, number}} canzoni più ascoltate di *{{collection}}*'
-      playlist_one: 'una canzone dalla playlist *{{collection}}*'
-      playlist_other: '{{count, number}} canzoni dalla playlist *{{collection}}*'
+      album_one: "una canzone dall'album {{collection}}"
+      album_many: "{{count, number}} canzoni dall'album {{collection}}"
+      album_other: "{{count, number}} canzoni dall'album {{collection}}"
+      artist_one: "la canzone più popolare di *{{collection}}*"
+      artist_many: "le {{count, number}} canzoni più popolari di *{{collection}}*"
+      artist_other: "le {{count, number}} canzoni più popolari di *{{collection}}*"
+      playlist_one: "una canzone dalla playlist *{{collection}}*"
+      playlist_many: "{{count, number}} canzoni dalla playlist *{{collection}}*"
+      playlist_other: "{{count, number}} canzoni dalla playlist *{{collection}}*"
+  last_fm:
+    unavailable: "I collegamenti a Last.fm non sono disponibili al momento."
+    account: "Account"
+    connect:
+      prompt: >-
+        Apri il link qui sotto per collegare il tuo account Last.fm. Funziona
+        una sola volta e scade tra {{minutes, number}} min, quindi non
+        condividerlo.
+      button: "Collega Last.fm"
+      open: "Apri Last.fm"
+    disconnect:
+      button: "Scollega"
+      done: "Account Last.fm scollegato."
+    status:
+      unlinked: "Non hai ancora collegato un account Last.fm."
+    scrobbling:
+      label: "Scrobbling"
+      turn_on: "Attiva scrobbling"
+      turn_off: "Disattiva scrobbling"
+      enabled: "Scrobbling attivato."
+      disabled: "Scrobbling disattivato. Il tuo account resta collegato."
   stop:
-    success: Il riproduttore è stato fermato.
+    success: "{{user}} ha fermato il player."
   volume:
-    current: 'Il volume attuale è {{volume, number}}.'
-    out_of_bounds: Il volume deve essere compreso tra 0 e 255.
-    success: 'Il volume è stato impostato a {{volume, number}}.'
+    current: "Il volume è {{volume, number}}."
+    success: "{{user}} ha impostato il volume a {{volume, number}}."
+    over_limit: >-
+      In questo server solo i DJ possono alzare il volume oltre {{limit, number}}.
   effects:
-    enabled: 'Effetto ''*{{effect}}*'' attivato!'
-    disabled: 'Effetto ''*{{effect}}*'' disattivato!'
-    trial_enabled: 'Effetto ''*{{effect}}*'' attivato per il brano corrente!'
-    trial_disabled: >-
-      Effetto '*{{effect}}*' disattivato per il brano corrente!
-    cleared: Tutti gli effetti attivi sono stati disattivati!
+    enabled: "{{user}} ha attivato *{{effect}}*."
+    disabled: "{{user}} ha disattivato *{{effect}}*."
+    trial_enabled: "{{user}} ha attivato *{{effect}}* per la canzone attuale."
+    trial_disabled: "{{user}} ha disattivato *{{effect}}* per la canzone attuale."
+    cleared: "{{user}} ha disattivato tutti gli effetti."
+    list:
+      none: "Nessun effetto attivo."
+      some: "Effetti attivi: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} ha attivato la modalità 24/7. Resto nella chiamata finché
+      qualcuno non usa `/leave`.
+    disabled: >-
+      {{user}} ha disattivato la modalità 24/7. Uscirò quando la musica si
+      ferma o se ne vanno tutti.
+    already:
+      enabled: "La modalità 24/7 è già attiva."
+      disabled: "La modalità 24/7 è già disattivata."
+    saved: >-
+      {{channel}} ora è il mio canale 24/7. Ci entrerò da solo ogni volta che
+      non sto suonando altrove in questo server.
+    forgotten: >-
+      Non tornerò più nel mio canale 24/7. Se ci sono adesso, resto finché
+      qualcuno non disattiva la modalità 24/7 o usa `/leave`.
+    not_voice: "Non è un canale vocale o Stage."
+    turn_on: "Attiva 24/7"
+    turn_off: "Disattiva 24/7"
+    keep: "Torna sempre qui"
+    forget: "Non tornare più"
+    auto_pause:
+      "on": >-
+        {{user}} ha attivato la pausa automatica. Qui i player 24/7 vanno in
+        pausa quando non c'è nessuno nella chiamata e riprendono quando entra
+        qualcuno.
+      "off": >-
+        {{user}} ha disattivato la pausa automatica. Qui i player 24/7
+        continuano a suonare anche con la chiamata vuota.
+      pause: "Pausa se vuoto"
+      keep_playing: "Continua se vuoto"
   immersive:
-    disabled: Modalità immersiva disattivata.
+    disabled: "{{user}} ha disattivato la modalità immersiva."

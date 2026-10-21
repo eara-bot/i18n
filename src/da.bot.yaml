@@ -1,34 +1,61 @@
 checks:
   guild_only: Denne kommando kan kun bruges på en server.
   not_playing: Jeg spiller ikke musik på denne server.
-  user_vc_none: Du skal være i en stemmekanal for at bruge denne kommando.
-  user_vc_diff: Du skal være i samme stemmekanal som mig for at bruge denne kommando.
+  user_vc_none: Du skal være i en talekanal for at bruge denne kommando.
+  user_vc_diff: Du skal være i samme talekanal som mig for at bruge denne kommando.
   queue_empty: Køen er tom.
-  nothing_playing: Der spiller intet.
-  unknown_command: Jeg genkender ikke denne kommando...
+  nothing_playing: Der spiller ikke noget.
+  unknown_command: Den kommando kender jeg ikke...
   owner_only: Du har ikke tilladelse til at bruge denne kommando.
-  maintenance: 'Bot''en er under vedligeholdelse, prøv igen senere.'
+  missing_permissions: "Du skal have disse tilladelser for at bruge denne kommando: {{permissions}}."
+  maintenance: Botten er under vedligeholdelse. Prøv igen senere.
+  tier_required: >-
+    Denne servers abonnement omfatter ikke mig. Abonner på {{website}} for at
+    bruge mig her.
+  tier_lapsed: >-
+    Denne servers abonnement er udløbet, så jeg er stoppet med at spille. Forny
+    på {{website}} for at starte igen.
+  voice_channel_not_allowed: "Her kan jeg kun spille i disse kanaler: {{channels}}."
+  dj_only:
+    role: >-
+      DJ-tilstand er slået til, så kun personer med {{role}} eller tilladelsen
+      **Administrer server** kan gøre det.
+    managers: >-
+      DJ-tilstand er slået til, så kun personer med tilladelsen **Administrer
+      server** kan gøre det.
+stage:
+  hand_raised: >-
+    Jeg har rakt hånden op på scenen. En scenemoderator skal invitere mig til at
+    tale, før nogen kan høre musikken.
+  cannot_speak: >-
+    Jeg er blandt publikum på scenen og kan ikke anmode om at tale. Giv mig
+    **Anmod om at tale**, eller inviter selv mig til at tale.
 common:
-  join_our_server: 'Tilslut vores [*Discord Server*]({{invite}} ) for mere information'
-  message_deleted: '*Besked blev slettet*'
+  join_our_server: >-
+    Bliv medlem af vores [*Discord-server*]({{invite}} ) for mere information.
+  message_deleted: "*Beskeden blev slettet*"
   vote: Stem på Top.gg
-  discord_server: Support Server
+  discord_server: Supportserver
+  help_center: Hjælpecenter
+  open_player: Åbn afspiller
+  open_in_web_player: Åbn i webafspilleren
   remove: Fjern
-  play_now: Spil nu
+  play_now: Afspil nu
   next: Næste
   previous: Forrige
   unknown_artist: Ukendt kunstner
-  unavailable_track: '[utilgængelig spor-metadata]'
+  unavailable_track: "[metadata for nummeret er utilgængelige]"
   unknown_url: Ukendt URL
-  unsupported_url: Ikke-understøttet URL
-  source_url: '{{source}} URL'
+  unsupported_url: URL understøttes ikke
+  supported_sites: Understøttede sider
+  source_url: "{{source}}-URL"
   unknown: Ukendt
   unknown_channel: Ukendt kanal
   none: Ingen
-  not_available: Ikke tilgængelig
-  'yes': Ja
-  'no': Nej
-  track: Spor
+  not_available: I/T
+  yes: Ja
+  no: Nej
+  track: Nummer
   queue: Kø
   state:
     loading: Indlæser
@@ -36,270 +63,584 @@ common:
     playing: Spiller
     idle: Inaktiv
     active: Aktiv
-    'off': Fra
-    disconnected: Frakoblet
-    joining: Tilslutter
-    connected: Tilsluttet
+    on: Til
+    off: Fra
+    disconnected: Afbrudt
+    joining: Forbinder
+    reconnecting: Genforbinder
+    connected: Forbundet
   confirmation:
     prompt: |-
       {{message}}
       -# Du har **30 sekunder** til at svare.
-    confirm: Confirmér
+    confirm: Bekræft
     deny: Afvis
   premium:
     sku_required: >-
       Denne server kræver et **Premium-abonnement** for at få adgang til denne
       kommando.
-    uninterrupted_access: Efter stemning vil du modtage *op til* 12 timer ubrudt adgang!
-    vote_required: >
-      Du skal stemme for {{mention}} på **top.gg** for at få adgang til denne
+    pricing_pitch: >-
+      -# Abonnementer fra **{{price}}/måned** med bedre lydkvalitet, større køer
+      og adgang til YouTube.
+    uninterrupted_access: >-
+      Når du har stemt, får du *op til* 12 timers uafbrudt adgang!
+    vote_required: >-
+      Du skal stemme på {{mention}} på **top.gg** for at få adgang til denne
       kommando.
 
       -# $t(common.premium.uninterrupted_access)
     get_premium: Få Premium
-    vote_locks_premium: '**Premium** fjerner stemmelås for hele serveren.'
+    vote_locks_premium: "**Premium** fjerner stemmelåse for hele serveren."
 buttons:
+  add:
+    title: Føj til køen
+    label: Sangnavn eller link
+    placeholder: Søg, eller indsæt et link
+    another: Tilføj en til
   remove:
-    none: 'Jeg kunne ikke finde det element, du ønskede at fjerne...'
-    done: '{{author}} fjernede {{track}} fra køen.'
+    none: Jeg kunne ikke finde det, du ville fjerne...
+    done: "{{author}} fjernede {{track}} fra køen."
   correlated_remove:
-    none: 'De sang(e), der var sat i kø, kan ikke findes...'
-    done: '{{author}} fjernede {{count}} sang(e) fra køen.'
+    none: Sangene, der blev sat i kø, er ikke til at finde...
+    done_one: "{{author}} fjernede 1 sang, der var sat i kø."
+    done_other: "{{author}} fjernede {{count, number}} sange, der var sat i kø."
   play_now:
     none: >-
-      Jeg kunne ikke finde de sange, du tilføjede i køen. Har du allerede
+      Jeg kunne ikke finde de sange, du tilføjede, i køen. Har du allerede
       afspillet dem?
     not_found: Kunne ikke finde den sang i køen.
-    done_one: 'Prioriterede én sang anmodet af {{requester}}.'
-    done_other: 'Prioriterede {{count}} sange anmodet af {{requester}}.'
-    footer_a: 'Sprang til {{next}} fra {{prev}}'
-    footer_b: 'Sprang til {{next}}'
+    done_one: Prioriterede 1 sang ønsket af {{requester}}.
+    done_other: Prioriterede {{count, number}} sange ønsket af {{requester}}.
+    footer_a: Sprang til {{next}} fra {{prev}}.
+    footer_b: Sprang til {{next}}.
   item_actions:
     not_found: Den sang er ikke længere i køen.
   previous:
     none: Der er ingen tidligere sange...
-  skip_to: '{{user}} har sprunget til {{track}}'
-  stop: '{{user}} har stoppet afspilleren.'
+  skip_to: "{{user}} sprang til {{track}}."
+  stop: "{{user}} stoppede afspilleren."
 events:
   command_failed:
-    message: Denne kommando mislykkedes.
+    message: Noget gik galt
     reason:
-      unknown: En uventet fejl er opstået. Rapporter venligst dette til udviklerne.
-      panic: >-
-        Opgaven, der behandlede din kommando, fejlede. Rapporter venligst dette
-        til udviklerne.
-    footer: 'Giv dette ID til udviklerne: **{{eid}}**'
+      unknown: Prøv igen om lidt.
+      player_restarted: Afspilleren måtte genstarte. Prøv igen.
+    footer: >-
+      Fejl-ID `{{eid}}` · del det på vores supportserver, hvis det bliver ved med
+      at ske.
+    usage: "Det ser ikke helt rigtigt ud. Sådan bruger du den:"
   player:
     tips:
-      autoplay: 'Keep musikken kørende, når køen slutter med {{command}}.'
+      autoplay: Hold musikken kørende, når køen slutter, med {{command}}.
       crossfade: >-
-        Vidste du, at vi har overtoning? Brug {{command}} til at konfigurere
-        det.
-      effects: 'Giv den nuværende sang en anden følelse med {{command}}.'
+        Vidste du, at vi har crossfade? Brug {{command}} til at indstille det.
+      effects: Giv den aktuelle sang et andet præg med {{command}}.
       history: >-
         Leder du efter noget, der blev spillet tidligere? {{command}} kan også
-        vise kø-historik.
-      immersive: 'Brug {{spatialize}} eller {{orbit}} for at forbedre din oplevelse!'
+        vise køens historik.
+      immersive: Brug {{spatialize}} eller {{orbit}} til at give lytningen mere liv!
+      last_fm: >-
+        Forbind din Last.fm-konto med {{command}} for at scrobble alt, du lytter
+        til her.
       loop: >-
-        Vil du høre det igen? {{command}} kan gentage denne sang eller hele
+        Vil du høre den igen? {{command}} kan gentage denne sang eller hele
         køen.
       move: >-
-        Omarrangér eller ryd op i køen med {{move_command}} og
+        Omarranger eller ryd op i køen med {{move_command}} og
         {{remove_command}}.
       notifications: >-
-        Serveradministratorer kan vælge en dedikeret afspiller-kanal med
-        {{command}}.
-      seek: 'Spring til ethvert punkt i denne sang med {{command}}.'
-      shuffle: 'Bland sangene, der venter i køen, med {{command}}.'
+        Serveradministratorer kan vælge en fast afspillerkanal med {{command}}.
+      player: >-
+        Følg sangteksten live, og styr køen med {{command}} eller i
+        [webafspilleren]({{url}}).
+      player_web: >-
+        Følg sangteksten live, og styr køen i [webafspilleren]({{url}}).
+      seek: Spring til et hvilket som helst sted i sangen med {{command}}.
+      shuffle: Bland sangene, der venter i køen, med {{command}}.
       voice_status: >-
-        Serveradministratorer kan vise den nuværende sang i status for
-        talekanalen med {{command}}.
+        Serveradministratorer kan vise den aktuelle sang i talekanalens status
+        med {{command}}.
     notification:
       join_failed: Jeg kunne ikke forbinde til din talekanal.
-      playback_failed: 'Kunne ikke afspille {{track}}'
+      playback_failed: Kunne ikke afspille {{track}}.
       scheduler_failed: >-
-        Afspillerplanlægningen for denne server mislykkedes. Kør venligst
-        `/leave`, derefter `/join`, og rapportér dette, hvis det sker igen.
+        Afspillerens planlægger for denne server fejlede. Brug `/leave` og
+        derefter `/join`, og rapportér det, hvis det sker igen.
       playback_stalled: >-
-        For mange mislykkede afspilningsforsøg. Hvis det fortsætter, skal du
-        venligst slutte dig til vores Support-server.
-      idle_timeout: 'Spilleren var inaktiv i for lang tid, så jeg afbrød forbindelsen.'
-      restarting: Eara genstarter og burde snart være tilbage.
+        For mange mislykkede afspilningsforsøg. Hvis det fortsætter, så kom forbi
+        vores supportserver.
+      idle_timeout: Afspilleren var inaktiv for længe, så jeg afbrød forbindelsen.
+      restarting: Eara genstarter og er snart tilbage.
     disconnect:
-      alone: 'Jeg blev efterladt alene, afbryder <t:{{timestamp}}:R>'
+      alone: Jeg blev efterladt helt alene og afbryder <t:{{timestamp}}:R>.
     queue:
       end:
-        message: Spillelisten er slut.
+        message: Køen er slut.
         prompts:
           review:
-            message: 'Nyder du {{mention}}? Efterlad os en anmeldelse!'
-            button: Efterlad en anmeldelse
+            message: Kan du lide {{mention}}? Skriv en anmeldelse!
+            button: Skriv en anmeldelse
           vote:
-            message: 'Nyder du {{mention}}? Stem for os, så flere kan finde den!'
-            button: Stem for os
+            message: >-
+              Kan du lide {{mention}}? Stem på os, så flere kan finde den!
+            button: Stem på os
           support:
             message: >-
-              Har du brug for hjælp eller lyst til at hygge? Slut dig til vores
+              Brug for hjælp, eller vil du bare hænge ud? Bliv en del af vores
               Discord-fællesskab!
-            button: Slut dig til vores server
+            button: Bliv medlem af serveren
+          player:
+            message: >-
+              Vælg, hvad der skal spilles næste gang, i webafspilleren: søgning,
+              sangtekster og køen samlet ét sted.
+            button: Åbn webafspilleren
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: 'Del dette resumé, når du beder om hjælp til spilleren.'
-    loop_indefinite: '{{mode}} (ubestemt)'
-    loop_remaining: '{{mode}} ({{count, number}} tilbage)'
+    footer: Del dette resumé, når du beder om hjælp med afspilleren.
+    loop_indefinite: "{{mode}} (uendeligt)"
+    loop_remaining: "{{mode}} ({{count, number}} tilbage)"
   dev:
-    entitlement_granted: 'Gav rettighed {{entitlement}} for SKU {{sku}} til guild {{guild}}.'
-    player_not_found: 'Ingen spiller findes for guild {{guild}}.'
-    joining: 'Forbinder til {{channel}} ({{connection}})'
-    connected: 'Forbundet til {{channel}} ({{connection}})'
+    entitlement_granted: >-
+      Tildelte rettigheden {{entitlement}} for SKU {{sku}} til serveren {{guild}}.
+    player_not_found: Der findes ingen afspiller for serveren {{guild}}.
+    joining: Forbinder til {{channel}} ({{connection}})
+    reconnecting: Genforbinder til {{channel}} ({{connection}})
+    connected: Forbundet til {{channel}} ({{connection}})
+  help:
+    details: "-# Brug `/help` for at få detaljer om en kommando."
+    player: "-# Live-sangtekster, køen og knapperne findes også i [webafspilleren]({{url}})."
+    supported_sites: "-# Usikker på, om et link virker? Se [hvilke sider eara kan spille fra]({{url}})."
+  feedback:
+    ask:
+      title: Kan du lide {{mention}}?
+      note: Dit svar hjælper os med at beslutte, hvad vi skal arbejde på næste gang.
+      "yes": "Ja"
+      "no": Ikke rigtig
+    enjoying:
+      title: Tak! Hjælp andre med at finde {{mention}}
+      note: Servere finder nye bots på Top.gg. En anmeldelse eller en stemme der hjælper os med at nå flere.
+      review: Skriv en anmeldelse
+      vote: Stem på Top.gg
+    not_enjoying:
+      title: Ærgerligt, at det ikke virker for dig
+      note: Fortæl os på vores Discord-server, hvad der gik galt, så vi kan hjælpe med at løse det og ved, hvad vi skal rette.
+      support: Bliv medlem af vores Discord-server
   ping:
     message: Pong!
-    footer: Oplever du problemer? Slut dig til vores **Support Server**!
+    footer: Har du problemer? Tjek **Hjælpecenter**, eller kom på vores **Supportserver**.
   stats:
-    instance_failed: Kunne ikke hente instans.
+    instance_failed: Kunne ikke indlæse statistikken for denne bot.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} slog autoplay til."
+    disabled: "{{user}} slog autoplay fra."
+    turn_on: Slå autoplay til
+    turn_off: Slå autoplay fra
+  automix:
+    enabled: >-
+      {{user}} slog automix til. Hver sang glider nu over i den næste, hvor det
+      passer bedst, i stedet for crossfade.
+    disabled: "{{user}} slog automix fra."
+    turn_on: Slå automix til
+    turn_off: Slå automix fra
   crossfade:
     current:
-      enabled: 'Crossfade-varighed er sat til {{duration, number}}s.'
-      disabled: Crossfade er deaktiveret.
+      "on": Crossfade er {{seconds, number}} s.
+      "off": Crossfade er slået fra.
     updated:
-      enabled: 'Crossfade-varighed sat til {{duration, number}}s.'
-      disabled: Crossfade deaktiveret.
-  default_volume:
-    current: 'Standardlydstyrken for denne server er i øjeblikket {{volume, number}}.'
-    updated: 'Opdaterede standardlydstyrken for denne server til {{volume, number}}.'
-  do_vc_status_update:
+      "on": "{{user}} satte crossfade til {{seconds, number}} s."
+      "off": "{{user}} slog crossfade fra."
+    "off": "Fra"
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: Gemt for hele serveren.
+    session: >-
+      Indtil afspilleren stopper. Nogen med Administrer server kan gemme det for
+      serveren, her eller i {{command}}.
+  dj:
     current:
-      enabled: >-
-        {{mention}} opdaterer i øjeblikket status i talekanalen, når det
-        aktuelle nummer skifter.
-      disabled: >-
-        {{mention}} opdaterer i øjeblikket ikke status i talekanalen, når det
-        aktuelle nummer skifter.
+      "on": DJ-tilstand er **slået til**. Kun DJ'er kan styre afspilleren.
+      "off": DJ-tilstand er **slået fra**. Alle i opkaldet kan styre afspilleren.
+    who:
+      role: >-
+        DJ'er er medlemmer med {{role}}, alle med Administrer server og den, der
+        er eneste lytter i opkaldet med mig.
+      managers: >-
+        DJ'er er alle med Administrer server og den, der er eneste lytter i
+        opkaldet med mig.
+    you:
+      "yes": Du kan styre afspilleren.
+      "no": Du kan ikke styre afspilleren lige nu.
     updated:
-      enabled: >-
-        {{mention}} vil nu opdatere status i talekanalen, når det aktuelle
-        nummer skifter.
-      disabled: >-
-        {{mention}} vil ikke længere opdatere status i talekanalen, når det
-        aktuelle nummer skifter.
-  autoplay:
-    current:
-      enabled: '{{mention}} spiller i øjeblikket automatisk anbefalede sange.'
-      disabled: '{{mention}} spiller i øjeblikket ikke automatisk anbefalede sange.'
-    updated:
-      enabled: '{{mention}} vil nu spille anbefalede sange automatisk.'
-      disabled: '{{mention}} vil ikke længere spille anbefalede sange automatisk.'
-  notifications:
-    channel:
-      current:
-        none: >-
-          {{mention}} sender i øjeblikket ikke notifikationer til en bestemt
-          kanal.
-        some: '{{mention}} sender i øjeblikket notifikationer til {{channel}}'
-      clear: '{{mention}} vil ikke længere sende notifikationer til en bestemt kanal.'
-      update: '{{mention}} vil nu sende notifikationer til {{channel}}'
+      "on": "{{user}} slog DJ-tilstand til."
+      "off": "{{user}} slog DJ-tilstand fra."
+      role: "{{user}} satte DJ-rollen til {{role}}."
+      no_role: "{{user}} fjernede DJ-rollen."
+    turn_on: Slå DJ-tilstand til
+    turn_off: Slå DJ-tilstand fra
+    role_placeholder: Ingen DJ-rolle
+  settings:
+    title: Indstillinger
+    footer: >-
+      Ændringer gemmes med det samme. Alt her findes også på
+      [dashboardet]({{url}}).
+    pages:
+      playback: Afspilning
+      dj: DJ
+      queue: Kø
+      voice: Tale
+      bot: Denne bot
+    about:
+      playback: Hvordan musikken starter, lyder og fortsætter på hele serveren.
+      dj: Hvem der styrer afspilleren, og hvordan der stemmes om at springe over.
+      queue: Hvad der kan føjes til køen, og i hvilken rækkefølge det spilles.
+      voice: Hvor vores bots kan spille på denne server, medmindre en bot har sin egen liste.
+      bot: >-
+        Kun for {{bot}}. Hver af vores bots på denne server har sine egne, og
+        alt, der står tomt, følger serverens indstillinger.
+    state:
+      "on": "Til"
+      "off": "Fra"
+    turn_on: Slå til
+    turn_off: Slå fra
+    change: Skift
+    premium: Premium
+    invalid: Indtast et helt tal fra {{min, number}} til {{max, number}}.
+    invalid_optional: >-
+      Indtast et helt tal fra {{min, number}} til {{max, number}}, eller lad
+      feltet stå tomt.
+    playback:
+      volume:
+        label: Startlydstyrke
+        about: Hvor højt jeg begynder at spille.
+        input: Fra 0 til 250.
+      crossfade:
+        label: Crossfade
+        about: Lader slutningen af hver sang glide over i den næste.
+        value: "{{seconds, number}} s"
+        input: Sekunder, fra 0 til 30. 0 slår det fra.
+      autoplay:
+        label: Autoplay
+        about: Holder musikken kørende med lignende sange, når køen løber tør.
+      vc_status:
+        label: Talekanalstatus
+        about: Viser, hvad der spiller, som talekanalens status.
+      auto_pause:
+        label: Pause 24/7 ved tom kanal
+        about: >-
+          En 24/7-afspiller holder pause, mens ingen er i opkaldet, og spiller
+          igen, når nogen kommer ind.
+      notifications:
+        label: Nu spiller-kanal
+        about: >-
+          Hvor jeg poster hver sang. Lad den stå tom for at poste, hvor musikken
+          blev startet.
+        placeholder: Kanalen, hvor musikken blev startet
+    dj:
+      mode:
+        label: DJ-tilstand
+        about: >-
+          Kun DJ'er kan styre afspilleren. Alle kan stadig tilføje sange og
+          stemme om at springe over.
+      role:
+        label: DJ-rolle
+        about: >-
+          Medlemmer med denne rolle er DJ'er, ligesom alle med Administrer
+          server eller den, der er eneste lytter i opkaldet med mig.
+        placeholder: Ingen DJ-rolle
+      max_volume:
+        label: Lydstyrkegrænse
+        about: Den højeste lydstyrke, som en, der ikke er DJ, kan vælge.
+        none: Ingen grænse
+        input: Fra 0 til 250. Lad den stå tom for ingen grænse.
+      vote_skip:
+        label: Stemmer for at springe over
+        about: Den andel af lytterne, der skal til for at springe en sang over.
+        none: Mere end halvdelen
+        value: "{{percent, number}} %"
+        input: En procentdel fra 1 til 100. Lad den stå tom for mere end halvdelen.
+    queue:
+      no_duplicates:
+        label: Ingen dubletter
+        about: Sange, der allerede er i køen, kan ikke tilføjes igen.
+      fair:
+        label: Fair kø
+        about: Skiftes mellem de personer, der tilføjer sange.
+      leave_cleanup:
+        label: Oprydning ved afgang
+        about: Fjerner en persons sange 30 sekunder efter, at personen har forladt opkaldet.
+      max_songs:
+        label: Sange pr. person
+        about: Hvor mange sange en, der ikke er DJ, kan have i kø.
+        none: Ingen grænse
+        input: Fra 1 til 1000. Lad den stå tom for ingen grænse.
+      max_length:
+        label: Længste sang
+        about: Den længste sang, en, der ikke er DJ, kan tilføje.
+        none: Ingen grænse
+        value_one: 1 minut
+        value_other: "{{count, number}} minutter"
+        input: I minutter, fra 1 til 1440. Lad den stå tom for ingen grænse.
+    voice:
+      channels:
+        label: Talekanaler
+        about: Hvor jeg kan spille. Lad den stå tom for at spille i alle talekanaler.
+        placeholder: Alle talekanaler
+    bot:
+      always_on:
+        label: 24/7-kanal
+        about: >-
+          En kanal, som denne bot selv går ind i og bliver i, også når musikken
+          stopper.
+        placeholder: Ingen
+        taken: >-
+          {{bot}} bliver allerede i den kanal døgnet rundt. Vælg en anden.
+      voice:
+        label: Talekanaler
+        about: >-
+          Hvor denne bot kan spille. Lad den stå tom for at følge serverens
+          talekanaler.
+        any: >-
+          Denne bot kan spille i alle talekanaler, som serveren tillader. Vælg
+          nogle for at begrænse den til dem.
+        placeholder: Serverens talekanaler
+      notifications:
+        label: Nu spiller-kanal
+        about: Hvor denne bot poster hver sang i stedet for serverens kanal.
+        placeholder: Serverens kanal
+      volume:
+        label: Startlydstyrke
+        about: Hvor højt denne bot starter i stedet for serverens lydstyrke.
+        none: Serverens ({{volume, number}})
+        input: Fra 0 til 250. Lad den stå tom for at bruge serverens.
+  history:
+    title: Senest afspillet
+    title_by: Senest ønsket af {{user}}
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Side {{page, number}} af {{pages, number}}
+    again: Sæt i kø igen
+    empty: Der er ikke blevet ønsket noget her endnu.
+    not_playing: Jeg spiller ikke på denne server. Brug `/play` for at starte.
+    gone: Jeg kunne ikke finde den sang igen. Prøv `/play` i stedet.
+    queued: "{{user}} satte {{track}} i kø igen."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Forlod {{channel}}.'
-    destroyed: Slettede spilleren for denne server.
+    success_channel: Forlod {{channel}}.
+    destroyed: Stoppede afspilleren for denne server.
   join:
     conflict: Jeg er allerede i en talekanal.
-    failure: Jeg kunne ikke deltage i den stemmekanal.
-    in_progress: Jeg er allerede ved at deltage i den stemmekanal.
+    failure: Jeg kunne ikke forbinde til den talekanal.
+    in_progress: Jeg er allerede ved at forbinde til den talekanal.
     perms:
       missing: >-
-        Jeg har brug for tilladelser til **se**, **forbinde** og **tale** i
+        Jeg skal have tilladelse til at **se**, **forbinde** og **tale** i
         {{channel}}.
-    success: 'Okay, jeg deltog i {{channel}}.'
+      missing_named: >-
+        Jeg kan ikke spille i {{channel}}, fordi jeg mangler {{permissions}} der.
+        Bed en serveradministrator om at give mig disse tilladelser, eller
+        inviter mig igen med knappen nedenfor.
+      reinvite: Inviter igen med tilladelser
+    success: Gik ind i {{channel}}.
   skip:
-    success: Sprunget over.
+    success: "{{user}} sprang sangen over."
+    vote:
+      counted: >-
+        {{user}} stemte for at springe sangen over. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Du har allerede stemt for at springe denne sang over.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} stemte for at springe over, og afstemningen gik igennem. Springer sangen over."
+      requester_gone: >-
+        {{user}} sprang sangen over. Den, der satte den i kø, har forladt
+        opkaldet, så der var ikke brug for en afstemning.
     to:
       invalid: >-
-        Jeg genkendte ikke det sange, du gav mig. Prøv at bruge autofuldførelse
-        :)
-      none: 'Jeg kunne ikke springe til det sange, er det stadig i køen?'
+        Jeg genkendte ikke den sang, du gav mig. Prøv at bruge autofuldførelse :)
+      none: Jeg kunne ikke springe til den sang. Er den stadig i køen?
   seek:
-    unseekable: Det nuværende sange er ikke søgbart.
-    no_duration: Det nuværende sange har ingen varighed.
-    syntax: 'Tidskoden skal være i formatet `mm:ss`'
+    unseekable: Man kan ikke spole i den aktuelle sang.
+    no_duration: Den aktuelle sang har ingen varighed.
+    syntax: Tidskoden skal have formatet `mm:ss`.
     out_of_bounds: >-
-      Den position, du gav, overstiger længden af det nuværende sange, {{given}}
-      > {{length}}
-    success: 'Søgt til {{given}}'
+      Den position ligger efter slutningen af den aktuelle sang ({{given}} > {{length}}).
+    success: "{{user}} spolede til {{given}}."
   loop:
     nothing:
-      success: Gentagelse er blevet deaktiveret.
-      already: Gentagelse var allerede deaktiveret.
+      success: "{{user}} slog gentagelse fra."
+      already: Gentagelse er allerede slået fra.
     track:
-      indef: Nu gentages det nuværende sange i ubestemt tid.
-      times_one: Det nuværende sange vil gentages én gang.
-      times_other: 'Det nuværende sange vil nu gentages i *{{count, number}} gange*.'
-      nuhuh: Det nuværende sange er allerede blevet gentaget.
+      indef: "{{user}} satte den aktuelle sang på gentagelse."
+      times_one: "{{user}} satte den aktuelle sang til at blive gentaget én gang mere."
+      times_other: "{{user}} satte den aktuelle sang til at blive gentaget {{count, number}} gange mere."
+      nuhuh: Den aktuelle sang gentages allerede.
     queue:
-      indef: Nu gentages køen i ubestemt tid.
-      times_one: Køen vil gentages én gang.
-      times_other: 'Køen vil nu gentages i *{{count, number}} gange*.'
+      indef: "{{user}} satte køen på gentagelse."
+      times_one: "{{user}} satte køen til at blive gentaget én gang mere."
+      times_other: "{{user}} satte køen til at blive gentaget {{count, number}} gange mere."
       nuhuh: Køen gentages allerede.
   queue:
-    use_autocomplete: Hm? Prøv at bruge autofuldførelse til at vælge et sang i køen.
+    use_autocomplete: Hm? Prøv at bruge autofuldførelse til at vælge en sang i køen.
     view:
-      footer: 'Side {{cur, number}}/{{all, number}} ({{tot, number}} i alt)'
+      footer: Side {{cur, number}}/{{all, number}} ({{tot, number}} i alt)
     move:
-      failed: Kunne ikke flytte det sange til den ønskede position.
-      success: 'Flyttet {{track}} til #{{index, number}}'
+      failed: Kunne ikke flytte den sang til den ønskede position.
+      success: "{{user}} flyttede {{track}} til #{{index, number}}."
     clear:
       none: Køen var tom.
-      success_one: Fjernede 1 sange fra køen.
-      success_other: 'Fjernede {{count, number}} sange fra køen.'
+      success_one: "{{user}} fjernede 1 sang fra køen."
+      success_other: "{{user}} fjernede {{count, number}} sange fra køen."
     remove:
-      confirm: 'Er du sikker på, at du vil fjerne {{track}} fra køen?'
-      cancelled: 'Okay, jeg fjerner ikke det sange.'
+      confirm: Er du sikker på, at du vil fjerne {{track}} fra køen?
+      cancelled: Okay, jeg fjerner ikke den sang.
       not_found: >-
-        Det angivne sange blev ikke fundet i køen, prøv at bruge
-        autofuldførelse.
-      success: 'Fjernede {{track}} fra køen.'
+        Den angivne sang blev ikke fundet i køen. Prøv at bruge autofuldførelse.
+      success: "{{user}} fjernede {{track}} fra køen."
     shuffle:
       too_small: Køen er for lille til at blive blandet.
-      success: Køen er blevet blandet.
+      success: "{{user}} blandede køen."
+  now_playing:
+    autoplay: Autoplay
+    requested_by: Ønsket af
+    ends: Slutter
+    queue: Kø
+    queue_summary: "{{queued, number}} i kø · {{played, number}} afspillet"
+    up_next: Næste
+    refresh: Opdater
+    open: Åbn
   pause:
-    already: Spilleren er allerede sat på pause.
-    success: Jeg har sat spilleren på pause.
+    already: Afspilleren er allerede sat på pause.
+    success: "{{user}} satte afspilleren på pause."
   resume:
-    server_muted: Kan ikke genoptage spilleren mens jeg er server-muted.
-    already: Spilleren var ikke sat på pause.
-    success: Jeg har genoptaget spilleren.
+    server_muted: Jeg kan ikke genoptage, mens jeg er gjort lydløs på serveren.
+    already: Afspilleren er ikke sat på pause.
+    success: "{{user}} genoptog afspilleren."
   play:
+    duplicate: Den er allerede i køen.
+    over_limit_one: Du kan kun have 1 sang i køen ad gangen her.
+    over_limit_other: >-
+      Du kan kun have {{count, number}} sange i køen ad gangen her.
+    too_long_one: Sange her må ikke være længere end 1 minut.
+    too_long_other: Sange her må ikke være længere end {{count, number}} minutter.
+    too_long_skipped_one: >-
+      Sprang 1 sang over, der oversteg grænsen på {{minutes, number}} min.
+    too_long_skipped_other: >-
+      Sprang {{count, number}} sange over, der oversteg grænsen på
+      {{minutes, number}} min.
+    over_limit_skipped_one: >-
+      Sprang 1 sang over: køgrænsen her er {{limit, number}} pr. person.
+    over_limit_skipped_other: >-
+      Sprang {{count, number}} sange over: køgrænsen her er {{limit, number}}
+      pr. person.
+    duplicates_skipped_one: Sprang 1 sang over, der allerede var i køen.
+    duplicates_skipped_other: >-
+      Sprang {{count, number}} sange over, der allerede var i køen.
     domain:
-      other: 'Linket, du har angivet, understøttes ikke.'
+      other: Det link, du angav, understøttes ikke.
       youtube: Eara har midlertidigt fjernet understøttelse af YouTube-links.
-      vote_locked: >
-        Du skal stemme for {{mention}} på **top.gg** for at få adgang til
+      youtube_premium: >-
+        YouTube-links er en **Premium**-funktion. Søg efter navn, eller indsæt et
+        Spotify- eller Apple Music-link for at spille det gratis.
+      vote_locked: >-
+        Du skal stemme på {{mention}} på **top.gg** for at få adgang til
         `{{domain}}`-links!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Ingenting blev returneret for din forespørgsel.
-    error: Der opstod en fejl under indlæsning af din forespørgsel.
-    invalid_url: Du har angivet en ugyldig URL.
-    queue_full: 'Køen har ikke plads nok. Fjern nogle sange, før du tilføjer flere.'
-    added: 'Tilføjede {{item}} til køen.'
+    nothing: Din søgning gav ingen resultater.
+    youtube_match: >-
+      -# Spiller det nærmeste gratis match. **Premium** afspiller YouTube-links
+      direkte.
+    voice_wait:
+      waiting: >-
+        Gå ind i en talekanal, så begynder jeg at spille med det samme. Jeg venter
+        i {{seconds, number}} sek.
+      expired: >-
+        Du gik ikke ind i en talekanal i tide. Gå ind i en, og brug så `/play`
+        igen.
+      replaced: Annulleret, fordi du brugte `/play` igen.
+    error: Der opstod en fejl under indlæsning af din søgning.
+    invalid_url: Du angav en ugyldig URL.
+    queue_full: >-
+      Der er ikke plads nok i køen. Fjern nogle sange, før du tilføjer flere.
+    added: "{{user}} føjede {{item}} til køen."
     loaded:
-      album_one: 'én sang fra albummet {{collection}}'
-      album_other: '{{count, number}} sange fra albummet {{collection}}'
-      artist_one: '*{{collection}}*''s bedste sang'
-      artist_other: '*{{collection}}*''s bedste {{count, number}} sange'
-      playlist_one: 'én sang fra spillelisten *{{collection}}*'
-      playlist_other: '{{count, number}} sange fra spillelisten *{{collection}}*'
+      album_one: én sang fra albummet {{collection}}
+      album_other: "{{count, number}} sange fra albummet {{collection}}"
+      artist_one: den mest populære sang af *{{collection}}*
+      artist_other: de {{count, number}} mest populære sange af *{{collection}}*
+      playlist_one: én sang fra playlisten *{{collection}}*
+      playlist_other: "{{count, number}} sange fra playlisten *{{collection}}*"
+  last_fm:
+    unavailable: Last.fm-forbindelser er ikke tilgængelige lige nu.
+    account: Konto
+    connect:
+      prompt: >-
+        Åbn linket nedenfor for at forbinde din Last.fm-konto. Det virker én gang
+        og udløber om {{minutes, number}} min., så hold det for dig selv.
+      button: Forbind Last.fm
+      open: Åbn Last.fm
+    disconnect:
+      button: Afbryd forbindelse
+      done: Forbindelsen til Last.fm-kontoen er afbrudt.
+    status:
+      unlinked: Du har ikke forbundet en Last.fm-konto endnu.
+    scrobbling:
+      label: Scrobbling
+      turn_on: Slå scrobbling til
+      turn_off: Slå scrobbling fra
+      enabled: Scrobbling er slået til.
+      disabled: Scrobbling er slået fra. Din konto forbliver forbundet.
   stop:
-    success: Afspilleren er blevet stoppet.
+    success: "{{user}} stoppede afspilleren."
   volume:
-    current: 'Den nuværende lydstyrke er {{volume, number}}.'
-    out_of_bounds: Lydstyrken skal være mellem 0 og 255.
-    success: 'Lydstyrken er sat til {{volume, number}}.'
+    current: Lydstyrken er {{volume, number}}.
+    success: "{{user}} satte lydstyrken til {{volume, number}}."
+    over_limit: >-
+      Kun DJ'er kan sætte lydstyrken over {{limit, number}} på denne server.
   effects:
-    enabled: 'Aktiverede effekten ''*{{effect}}*''!'
-    disabled: 'Deaktiverede effekten ''*{{effect}}*''!'
-    trial_enabled: 'Aktiverede effekten ''*{{effect}}*'' for den aktuelle sang!'
-    trial_disabled: >-
-      Deaktiverede effekten '*{{effect}}*' for den aktuelle sang!
-    cleared: Rensede alle aktiverede effekter!
+    enabled: "{{user}} slog *{{effect}}* til."
+    disabled: "{{user}} slog *{{effect}}* fra."
+    trial_enabled: "{{user}} slog *{{effect}}* til for den aktuelle sang."
+    trial_disabled: "{{user}} slog *{{effect}}* fra for den aktuelle sang."
+    cleared: "{{user}} slog alle effekter fra."
+    list:
+      none: Ingen effekter er slået til.
+      some: "Aktive effekter: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} slog 24/7 til. Jeg bliver i opkaldet, indtil nogen bruger
+      `/leave`.
+    disabled: >-
+      {{user}} slog 24/7 fra. Jeg går, når musikken stopper, eller når alle er
+      gået.
+    already:
+      enabled: 24/7 er allerede slået til.
+      disabled: 24/7 er allerede slået fra.
+    saved: >-
+      {{channel}} er nu min 24/7-kanal. Jeg går selv ind i den, når jeg ikke
+      spiller et andet sted på denne server.
+    forgotten: >-
+      Jeg holder op med at vende tilbage til min 24/7-kanal. Hvis jeg er i den
+      nu, bliver jeg, indtil nogen slår 24/7 fra eller bruger `/leave`.
+    not_voice: Det er ikke en tale- eller scenekanal.
+    turn_on: Slå 24/7 til
+    turn_off: Slå 24/7 fra
+    keep: Kom altid tilbage hertil
+    forget: Stop med at komme tilbage
+    auto_pause:
+      "on": >-
+        {{user}} slog auto-pause til. 24/7-afspillere her holder pause, mens
+        ingen er i opkaldet, og spiller igen, når nogen kommer ind.
+      "off": >-
+        {{user}} slog auto-pause fra. 24/7-afspillere her bliver ved med at
+        spille for et tomt opkald.
+      pause: Pause ved tom kanal
+      keep_playing: Spil videre ved tom kanal
   immersive:
-    disabled: Immersiv tilstand deaktiveret.
+    disabled: "{{user}} slog immersiv tilstand fra."

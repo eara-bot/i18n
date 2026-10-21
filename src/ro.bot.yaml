@@ -1,314 +1,691 @@
 checks:
-  guild_only: Thisă comandă poate fi folosită doar pe un server.
+  guild_only: Această comandă poate fi folosită doar pe un server.
   not_playing: Nu redau muzică pe acest server.
-  user_vc_none: Trebuie să fii într-un canal vocal pentru a folosi această comandă.
+  user_vc_none: Trebuie să fii într-un canal vocal ca să folosești această comandă.
   user_vc_diff: >-
-    Trebuie să fii în același canal vocal ca mine pentru a folosi această
+    Trebuie să fii în același canal vocal ca mine ca să folosești această
     comandă.
-  queue_empty: Coadă este goală.
+  queue_empty: Coada este goală.
   nothing_playing: Nu se redă nimic.
   unknown_command: Nu recunosc această comandă...
   owner_only: Nu ai voie să folosești această comandă.
-  maintenance: 'Botul este în întreținere, revino mai târziu.'
+  missing_permissions: >-
+    Ai nevoie de aceste permisiuni ca să folosești această comandă:
+    {{permissions}}.
+  maintenance: Botul este în mentenanță, revino mai târziu.
+  tier_required: >-
+    Planul acestui server nu mă include. Abonează-te pe {{website}} ca să mă
+    poți folosi aici.
+  tier_lapsed: >-
+    Abonamentul acestui server s-a încheiat, așa că am oprit redarea.
+    Reînnoiește-l pe {{website}} ca să pornesc din nou.
+  voice_channel_not_allowed: "Aici pot reda doar în aceste canale: {{channels}}."
+  dj_only:
+    role: >-
+      Modul DJ este pornit, așa că doar cei cu {{role}} sau cu permisiunea
+      **Gestionează serverul** pot face asta.
+    managers: >-
+      Modul DJ este pornit, așa că doar cei cu permisiunea **Gestionează
+      serverul** pot face asta.
+stage:
+  hand_raised: >-
+    Am ridicat mâna pe scenă. Un moderator al scenei trebuie să mă invite să
+    vorbesc înainte ca cineva să poată auzi muzica.
+  cannot_speak: >-
+    Sunt în publicul scenei și nu pot cere să vorbesc. Dă-mi permisiunea
+    **Solicită să vorbești** sau invită-mă tu să vorbesc.
 common:
-  join_our_server: 'Alătură-te [*serverului Discord*]({{invite}} ) pentru mai multe informații'
-  message_deleted: '*Mesajul a fost șters*'
+  join_our_server: >-
+    Intră pe [*serverul nostru de Discord*]({{invite}} ) pentru mai multe
+    informații.
+  message_deleted: "*Mesajul a fost șters*"
   vote: Votează pe Top.gg
-  discord_server: Server de suport
+  discord_server: Server de asistență
+  help_center: Centru de ajutor
+  open_player: Deschide playerul
+  open_in_web_player: Deschide în playerul web
   remove: Elimină
   play_now: Redă acum
-  next: Următorul
-  previous: Precedentul
+  next: Următoarea
+  previous: Anterioara
   unknown_artist: Artist necunoscut
-  unavailable_track: '[metadatele pistei indisponibile]'
+  unavailable_track: "[metadatele piesei indisponibile]"
   unknown_url: URL necunoscut
-  unsupported_url: URL nesuportat
-  source_url: 'URL {{source}}'
+  unsupported_url: URL neacceptat
+  supported_sites: Site-uri acceptate
+  source_url: "URL {{source}}"
   unknown: Necunoscut
   unknown_channel: Canal necunoscut
   none: Niciunul
   not_available: N/A
-  'yes': Da
-  'no': Nu
-  track: Pistă
+  yes: Da
+  no: Nu
+  track: Piesă
   queue: Coadă
   state:
-    loading: Încărcare
-    paused: Pauză
-    playing: Redare
+    loading: Se încarcă
+    paused: În pauză
+    playing: Se redă
     idle: Inactiv
     active: Activ
-    'off': Oprit
+    on: Pornit
+    off: Oprit
     disconnected: Deconectat
     joining: Se conectează
+    reconnecting: Se reconectează
     connected: Conectat
   confirmation:
     prompt: |-
       {{message}}
-      -# Ai **30 de secunde** la dispoziție pentru a răspunde.
+      -# Ai **30 de secunde** să răspunzi.
     confirm: Confirmă
     deny: Refuză
   premium:
     sku_required: >-
-      Acest server necesită un **abonament Premium** pentru a accesa această
+      Acest server are nevoie de un **abonament Premium** pentru această
       comandă.
-    uninterrupted_access: După votare vei primi *până la* 12 ore de acces neîntrerupt!
-    vote_required: >
-      Trebuie să votezi pentru {{mention}} pe **top.gg** pentru a obține acces
-      la această comandă.
+    pricing_pitch: >-
+      -# Planurile pornesc de la **{{price}}/lună** pentru calitate audio mai
+      bună, cozi mai mari și acces la YouTube.
+    uninterrupted_access: >-
+      După ce votezi, primești *până la* 12 ore de acces neîntrerupt!
+    vote_required: >-
+      Trebuie să votezi pentru {{mention}} pe **top.gg** ca să ai acces la
+      această comandă.
 
       -# $t(common.premium.uninterrupted_access)
-    get_premium: Obține Premium
-    vote_locks_premium: '**Premium** elimină blocarea prin vot pentru întregul server.'
+    get_premium: Ia Premium
+    vote_locks_premium: "**Premium** elimină votul obligatoriu pentru tot serverul."
 buttons:
+  add:
+    title: Adaugă în coadă
+    label: Numele melodiei sau link
+    placeholder: Caută sau lipește un link
+    another: Mai adaugă
   remove:
-    none: Nu am găsit elementul pe care doreai să-l elimini...
-    done: '{{author}} a eliminat {{track}} din coadă.'
+    none: Nu am găsit elementul pe care voiai să-l elimini...
+    done: "{{author}} a eliminat {{track}} din coadă."
   correlated_remove:
-    none: Melodiile adăugate în coadă nu mai pot fi găsite...
-    done: '{{author}} a eliminat {{count}} melodii din coadă.'
+    none: Melodiile adăugate în coadă nu mai sunt de găsit...
+    done_one: "{{author}} a eliminat 1 melodie adăugată în coadă."
+    done_few: "{{author}} a eliminat {{count, number}} melodii adăugate în coadă."
+    done_other: "{{author}} a eliminat {{count, number}} de melodii adăugate în coadă."
   play_now:
     none: >-
-      Nu am putut găsi melodiile pe care le-ai adăugat în coadă, le-ai jucat
-      deja?
-    not_found: Nu am putut găsi acea melodie în coadă.
-    done_one: 'A priorizat o melodie cerută de {{requester}}.'
-    done_other: 'A priorizat {{count}} melodii cerute de {{requester}}.'
-    footer_a: 'A sărit la {{next}} din {{prev}}'
-    footer_b: 'A sărit la {{next}}'
+      Nu găsesc în coadă melodiile pe care le-ai adăugat. Le-ai redat deja?
+    not_found: Nu am găsit melodia în coadă.
+    done_one: Am prioritizat 1 melodie cerută de {{requester}}.
+    done_few: Am prioritizat {{count, number}} melodii cerute de {{requester}}.
+    done_other: Am prioritizat {{count, number}} de melodii cerute de {{requester}}.
+    footer_a: Am sărit de la {{prev}} la {{next}}.
+    footer_b: Am sărit la {{next}}.
   item_actions:
-    not_found: Această melodie nu mai este în coadă.
+    not_found: Melodia nu mai este în coadă.
   previous:
     none: Nu există melodii anterioare...
-  skip_to: '{{user}} a sărit la {{track}}'
-  stop: '{{user}} a oprit redarea.'
+  skip_to: "{{user}} a sărit la {{track}}."
+  stop: "{{user}} a oprit playerul."
 events:
   command_failed:
-    message: Această comandă a eșuat.
+    message: Ceva n-a mers bine
     reason:
-      unknown: >-
-        A apărut o eroare neașteptată, te rugăm să raportezi acest lucru
-        dezvoltatorilor.
-      panic: >-
-        Sarcina care procesa comanda ta a eșuat, te rugăm să raportezi acest
-        lucru dezvoltatorilor.
-    footer: 'Transmite acest ID dezvoltatorilor: **{{eid}}**'
+      unknown: Încearcă din nou peste câteva momente.
+      player_restarted: Playerul a trebuit să repornească. Încearcă din nou.
+    footer: >-
+      ID eroare `{{eid}}` · trimite-l pe serverul nostru de asistență dacă
+      problema persistă.
+    usage: "Ceva nu pare în regulă. Iată cum se folosește:"
   player:
     tips:
-      autoplay: 'Păstrează muzica în derulare când coada se termină cu {{command}}.'
+      autoplay: Ține muzica pornită când se termină coada, cu {{command}}.
       crossfade: >-
-        Știai că avem trecere progresivă? Folosește {{command}} pentru a o
-        configura.
-      effects: 'Dă melodiei curente o altă senzație cu {{command}}.'
-      history: 'Cauți ceva jucat anterior? {{command}} poate afișa și istoricul cozii.'
-      immersive: >-
-        Folosește {{spatialize}} sau {{orbit}} pentru a îmbunătăți experiența
-        ta!
+        Știai că avem crossfade? Folosește {{command}} ca să-l configurezi.
+      effects: Dă melodiei curente un alt aer cu {{command}}.
+      history: >-
+        Cauți ceva redat mai devreme? {{command}} poate afișa și istoricul
+        cozii.
+      immersive: Folosește {{spatialize}} sau {{orbit}} ca să-ți animezi experiența!
+      last_fm: >-
+        Conectează-ți contul Last.fm cu {{command}} ca să faci scrobbling la tot
+        ce asculți aici.
       loop: >-
-        Vrei să o auzi din nou? {{command}} poate repeta această melodie sau
-        întreaga coadă.
-      move: 'Rearanjează sau curăță coada cu {{move_command}} și {{remove_command}}.'
+        Vrei s-o mai auzi o dată? {{command}} poate repeta melodia asta sau
+        toată coada.
+      move: >-
+        Reordonează sau curăță coada cu {{move_command}} și
+        {{remove_command}}.
       notifications: >-
-        Administratorii serverului pot alege un canal dedicat pentru player cu
+        Administratorii serverului pot alege un canal dedicat playerului cu
         {{command}}.
-      seek: 'Saltă la orice moment din această melodie cu {{command}}.'
-      shuffle: 'Amestecă melodii așteptând în coadă cu {{command}}.'
+      player: >-
+        Urmărește versurile live și gestionează coada cu {{command}} sau în
+        [playerul web]({{url}}).
+      player_web: >-
+        Urmărește versurile live și gestionează coada în [playerul web]({{url}}).
+      seek: Sari la orice moment din melodie cu {{command}}.
+      shuffle: Amestecă melodiile care așteaptă în coadă cu {{command}}.
       voice_status: >-
         Administratorii serverului pot afișa melodia curentă în statusul
         canalului vocal cu {{command}}.
     notification:
-      join_failed: Nu am reușit să mă alătur canalului tău vocal.
-      playback_failed: 'Eșec la redarea {{track}}'
+      join_failed: Nu am reușit să intru în canalul tău vocal.
+      playback_failed: Nu am putut reda {{track}}.
       scheduler_failed: >-
-        Planificatorul playerului pentru acest server a eșuat. Te rugăm rulează
-        `/leave`, apoi `/join`, și raportează dacă se întâmplă din nou.
+        Planificatorul playerului pentru acest server a eșuat. Rulează `/leave`,
+        apoi `/join`, și raportează problema dacă se repetă.
       playback_stalled: >-
-        Prea multe tentative eșuate de redare. Dacă problema persistă, te rugăm
-        să te alături serverului nostru de suport.
-      idle_timeout: 'Playerul a fost inactiv prea mult timp, așa că m-am deconectat.'
+        Prea multe încercări de redare eșuate. Dacă problema continuă, intră pe
+        serverul nostru de asistență.
+      idle_timeout: Playerul a fost inactiv prea mult, așa că m-am deconectat.
       restarting: Eara repornește și ar trebui să revină în curând.
     disconnect:
-      alone: 'Am fost lăsat singur, deconectare <t:{{timestamp}}:R>'
+      alone: Au plecat toți, mă deconectez <t:{{timestamp}}:R>.
     queue:
       end:
-        message: Coada s-a încheiat.
+        message: Coada s-a terminat.
         prompts:
           review:
-            message: 'Te bucuri de {{mention}}? Lăsați-ne o recenzie!'
-            button: Lăsați o recenzie
+            message: Îți place {{mention}}? Lasă-ne o recenzie!
+            button: Lasă o recenzie
           vote:
             message: >-
-              Te bucuri de {{mention}}? Votează pentru noi ca mai mulți oameni
-              să ne poată găsi!
-            button: Votează pentru noi
+              Îți place {{mention}}? Votează-ne ca să-l găsească mai mulți
+              oameni!
+            button: Votează-ne
           support:
             message: >-
-              Ai nevoie de ajutor sau vrei să stăm de vorbă? Alătură-te
-              comunității noastre Discord!
-            button: Alătură-te serverului nostru
+              Ai nevoie de ajutor sau vrei să stai cu noi? Intră în comunitatea
+              noastră de Discord!
+            button: Intră pe server
+          player:
+            message: >-
+              Alege ce urmează din playerul web: căutare, versuri și coada, toate
+              într-un singur loc.
+            button: Deschide playerul web
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: Distribuie acest rezumat când ceri ajutor pentru player.
-    loop_indefinite: '{{mode}} (indefinit)'
-    loop_remaining: '{{mode}} (mai rămân {{count, number}})'
+    footer: Trimite acest rezumat când ceri ajutor cu playerul.
+    loop_indefinite: "{{mode}} (nelimitat)"
+    loop_remaining: "{{mode}} (rămase: {{count, number}})"
   dev:
     entitlement_granted: >-
-      A fost acordat dreptul {{entitlement}} pentru SKU-ul {{sku}} serverului
+      Am acordat dreptul {{entitlement}} pentru SKU-ul {{sku}} serverului
       {{guild}}.
-    player_not_found: 'Nu există niciun player pentru serverul {{guild}}.'
-    joining: 'Mă conectez la {{channel}} ({{connection}})'
-    connected: 'Conectat la {{channel}} ({{connection}})'
+    player_not_found: Nu există niciun player pentru serverul {{guild}}.
+    joining: Mă conectez la {{channel}} ({{connection}})
+    reconnecting: Mă reconectez la {{channel}} ({{connection}})
+    connected: Conectat la {{channel}} ({{connection}})
+  help:
+    details: "-# Folosește `/help` pentru detalii despre orice comandă."
+    player: "-# Versurile live, coada și controalele sunt și în [playerul web]({{url}})."
+    supported_sites: "-# Nu știi sigur dacă un link merge? Vezi [de pe ce site-uri poate reda eara]({{url}})."
+  feedback:
+    ask:
+      title: Îți place {{mention}}?
+      note: Răspunsul tău ne ajută să decidem la ce lucrăm în continuare.
+      "yes": "Da"
+      "no": Nu prea
+    enjoying:
+      title: Mersi! Ajută-i și pe alții să găsească {{mention}}
+      note: >-
+        Serverele găsesc boți noi pe Top.gg. O recenzie sau un vot acolo ne
+        ajută să ajungem la mai mulți oameni.
+      review: Scrie o recenzie
+      vote: Votează pe Top.gg
+    not_enjoying:
+      title: Ne pare rău că nu merge pentru tine
+      note: >-
+        Spune-ne ce n-a mers pe serverul nostru de Discord, ca să te putem ajuta
+        și să știm ce trebuie reparat.
+      support: Intră pe serverul nostru de Discord
   ping:
     message: Pong!
-    footer: Ai probleme? Alătură-te **Serverului de Suport**!
+    footer: >-
+      Ai probleme? Verifică **Centrul de ajutor** sau intră pe **Serverul de
+      asistență**.
   stats:
-    instance_failed: Eșec la recuperarea instanței.
+    instance_failed: Nu am putut încărca statisticile acestui bot.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} a pornit redarea automată."
+    disabled: "{{user}} a oprit redarea automată."
+    turn_on: Pornește redarea automată
+    turn_off: Oprește redarea automată
+  automix:
+    enabled: >-
+      {{user}} a pornit automix. Fiecare melodie trece acum în următoarea în
+      punctul potrivit, în locul crossfade-ului.
+    disabled: "{{user}} a oprit automix."
+    turn_on: Pornește automix
+    turn_off: Oprește automix
   crossfade:
     current:
-      enabled: 'Durata cross-fade este setată la {{duration, number}}s.'
-      disabled: Cross-fading este dezactivat.
+      "on": Crossfade-ul este de {{seconds, number}} s.
+      "off": Crossfade-ul este oprit.
     updated:
-      enabled: 'Durata crossfade a fost setată la {{duration, number}}s.'
-      disabled: Crossfade dezactivat.
-  default_volume:
-    current: 'Volumul implicit pentru acest server este acum {{volume, number}}.'
-    updated: 'Am actualizat volumul implicit pentru acest server la {{volume, number}}.'
-  do_vc_status_update:
+      "on": "{{user}} a setat crossfade-ul la {{seconds, number}} s."
+      "off": "{{user}} a oprit crossfade-ul."
+    "off": "Oprit"
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: Salvat pentru tot serverul.
+    session: >-
+      Până se oprește playerul. Cineva cu Gestionează serverul îl poate salva
+      pentru server, aici sau în {{command}}.
+  dj:
     current:
-      enabled: >-
-        În prezent, {{mention}} va actualiza statusul canalului vocal atunci
-        când se schimbă piesa curentă.
-      disabled: >-
-        În prezent, {{mention}} nu va actualiza statusul canalului vocal atunci
-        când se schimbă piesa curentă.
+      "on": Modul DJ este **pornit**. Doar DJ-ii pot controla playerul.
+      "off": Modul DJ este **oprit**. Oricine din apel poate controla playerul.
+    who:
+      role: >-
+        DJ-ii sunt membrii cu {{role}}, oricine are Gestionează serverul și
+        oricine e singura persoană care ascultă în apel cu mine.
+      managers: >-
+        DJ-ii sunt cei care au Gestionează serverul și oricine e singura
+        persoană care ascultă în apel cu mine.
+    you:
+      "yes": Poți controla playerul.
+      "no": Momentan nu poți controla playerul.
     updated:
-      enabled: >-
-        {{mention}} va actualiza acum statusul canalului vocal atunci când se
-        schimbă piesa curentă.
-      disabled: >-
-        {{mention}} nu va mai actualiza statusul canalului vocal atunci când se
-        schimbă piesa curentă.
-  autoplay:
-    current:
-      enabled: 'În prezent, {{mention}} redă automat piese recomandate.'
-      disabled: 'În prezent, {{mention}} nu redă automat piese recomandate.'
-    updated:
-      enabled: '{{mention}} va reda acum automat piese recomandate.'
-      disabled: '{{mention}} nu va mai reda automat piese recomandate.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} nu trimite notificări către un canal specific.'
-        some: '{{mention}} trimite în prezent notificări către {{channel}}'
-      clear: '{{mention}} nu va mai trimite notificări către un canal specific.'
-      update: '{{mention}} va trimite acum notificări către {{channel}}'
+      "on": "{{user}} a pornit modul DJ."
+      "off": "{{user}} a oprit modul DJ."
+      role: "{{user}} a setat rolul de DJ la {{role}}."
+      no_role: "{{user}} a eliminat rolul de DJ."
+    turn_on: Pornește modul DJ
+    turn_off: Oprește modul DJ
+    role_placeholder: Fără rol de DJ
+  settings:
+    title: Setări
+    footer: >-
+      Modificările se salvează imediat. Totul de aici e și în
+      [panoul de control]({{url}}).
+    pages:
+      playback: Redare
+      dj: DJ
+      queue: Coadă
+      voice: Voce
+      bot: Acest bot
+    about:
+      playback: Cum pornește, cum sună și cum continuă muzica pe tot serverul.
+      dj: Cine controlează playerul și cum se decide un skip.
+      queue: Ce poate fi adăugat în coadă și în ce ordine se redă.
+      voice: >-
+        Unde pot reda boții noștri pe acest server, dacă unul nu are lista lui.
+      bot: >-
+        Doar pentru {{bot}}. Fiecare bot de-al nostru de pe server are setările
+        lui, iar ce rămâne gol urmează setările serverului.
+    state:
+      "on": "Pornit"
+      "off": "Oprit"
+    turn_on: Pornește
+    turn_off: Oprește
+    change: Schimbă
+    premium: Premium
+    invalid: Introdu un număr întreg de la {{min, number}} la {{max, number}}.
+    invalid_optional: >-
+      Introdu un număr întreg de la {{min, number}} la {{max, number}} sau lasă
+      câmpul gol.
+    playback:
+      volume:
+        label: Volum inițial
+        about: Cât de tare încep să redau.
+        input: De la 0 la 250.
+      crossfade:
+        label: Crossfade
+        about: Îmbină finalul fiecărei melodii cu următoarea.
+        value: "{{seconds, number}} s"
+        input: Secunde, de la 0 la 30. 0 îl oprește.
+      autoplay:
+        label: Redare automată
+        about: Ține muzica pornită cu melodii similare când se termină coada.
+      vc_status:
+        label: Status canal vocal
+        about: Afișează ce se redă ca status al canalului vocal.
+      auto_pause:
+        label: Pauză 24/7 când e gol
+        about: >-
+          Un player 24/7 ia pauză cât timp nu e nimeni în apel și pornește din
+          nou când intră cineva.
+      notifications:
+        label: Canal „Acum se redă”
+        about: >-
+          Unde postez fiecare melodie. Lasă gol ca să postez unde a fost pornită
+          muzica.
+        placeholder: Canalul în care a fost pornită muzica
+    dj:
+      mode:
+        label: Modul DJ
+        about: >-
+          Doar DJ-ii pot controla playerul. Toată lumea poate adăuga melodii și
+          vota pentru skip.
+      role:
+        label: Rol de DJ
+        about: >-
+          Membrii cu acest rol sunt DJ, la fel ca oricine are Gestionează
+          serverul sau e singura persoană care ascultă în apel cu mine.
+        placeholder: Fără rol de DJ
+      max_volume:
+        label: Limită de volum
+        about: Volumul maxim pe care îl poate seta cineva care nu e DJ.
+        none: Fără limită
+        input: De la 0 la 250. Lasă gol pentru fără limită.
+      vote_skip:
+        label: Voturi pentru skip
+        about: Ce procent din ascultători e nevoie ca să sari peste o melodie.
+        none: Peste jumătate
+        value: "{{percent, number}}%"
+        input: Un procent, de la 1 la 100. Lasă gol pentru peste jumătate.
+    queue:
+      no_duplicates:
+        label: Fără duplicate
+        about: Melodiile deja din coadă nu pot fi adăugate din nou.
+      fair:
+        label: Coadă echitabilă
+        about: Alternează între persoanele care adaugă melodii.
+      leave_cleanup:
+        label: Curățare la plecare
+        about: Elimină melodiile cuiva la 30 de secunde după ce iese din apel.
+      max_songs:
+        label: Melodii de persoană
+        about: Câte melodii poate avea în coadă cineva care nu e DJ.
+        none: Fără limită
+        input: De la 1 la 1000. Lasă gol pentru fără limită.
+      max_length:
+        label: Durată maximă
+        about: Cea mai lungă melodie pe care o poate adăuga cineva care nu e DJ.
+        none: Fără limită
+        value_one: 1 minut
+        value_few: "{{count, number}} minute"
+        value_other: "{{count, number}} de minute"
+        input: În minute, de la 1 la 1440. Lasă gol pentru fără limită.
+    voice:
+      channels:
+        label: Canale vocale
+        about: Unde pot reda. Lasă gol ca să redau în orice canal vocal.
+        placeholder: Orice canal vocal
+    bot:
+      always_on:
+        label: Canal 24/7
+        about: >-
+          Un canal în care acest bot intră singur și rămâne, chiar și când se
+          oprește muzica.
+        placeholder: Niciunul
+        taken: >-
+          {{bot}} stă deja non-stop în acel canal. Alege altul.
+      voice:
+        label: Canale vocale
+        about: >-
+          Unde poate reda acest bot. Lasă gol ca să urmeze canalele vocale ale
+          serverului.
+        any: >-
+          Acest bot poate reda în orice canal vocal permis de server. Alege
+          câteva ca să-l limitezi la ele.
+        placeholder: Canalele vocale ale serverului
+      notifications:
+        label: Canal „Acum se redă”
+        about: Unde postează acest bot fiecare melodie, în locul canalului serverului.
+        placeholder: Canalul serverului
+      volume:
+        label: Volum inițial
+        about: Cât de tare pornește acest bot, în locul volumului serverului.
+        none: Al serverului ({{volume, number}})
+        input: De la 0 la 250. Lasă gol ca să folosești volumul serverului.
+  history:
+    title: Redate recent
+    title_by: Cerute recent de {{user}}
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Pagina {{page, number}} din {{pages, number}}
+    again: Pune din nou în coadă
+    empty: Nu s-a cerut încă nimic aici.
+    not_playing: Nu redau pe acest server. Folosește `/play` ca să începi.
+    gone: Nu am mai găsit melodia. Încearcă `/play`.
+    queued: "{{user}} a pus din nou în coadă {{track}}."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Am părăsit {{channel}}.'
-    destroyed: Am distrus playerul pentru acest server.
+    success_channel: Am ieșit din {{channel}}.
+    destroyed: Am oprit playerul pentru acest server.
   join:
     conflict: Sunt deja într-un canal vocal.
-    failure: Nu am reușit să mă alătur canalului vocal.
-    in_progress: Deja mă alătur acelui canal vocal.
+    failure: Nu am reușit să intru în acel canal vocal.
+    in_progress: Deja intru în acel canal vocal.
     perms:
       missing: >-
-        Am nevoie de permisiuni pentru a **vedea**, **conecta** și **vorbi** în
-        {{channel}}.
-    success: 'OK, m-am alăturat lui {{channel}}.'
+        Am nevoie de permisiuni ca să **văd**, să mă **conectez** și să
+        **vorbesc** în {{channel}}.
+      missing_named: >-
+        Nu pot reda în {{channel}} pentru că îmi lipsește {{permissions}} acolo.
+        Roagă un administrator al serverului să-mi dea aceste permisiuni sau
+        invită-mă din nou cu butonul de mai jos.
+      reinvite: Reinvită cu permisiuni
+    success: Am intrat în {{channel}}.
   skip:
-    success: Sărit.
+    success: "{{user}} a sărit peste melodie."
+    vote:
+      counted: >-
+        {{user}} a votat să sară peste melodie. ({{votes, number}}/{{needed,
+        number}})
+      repeated: >-
+        Ai votat deja să sari peste această melodie.
+        ({{votes, number}}/{{needed, number}})
+      passed: >-
+        {{user}} a votat pentru skip și votul a trecut. Sar peste melodie.
+      requester_gone: >-
+        {{user}} a sărit peste melodie. Cine a adăugat-o a ieșit din apel, așa
+        că nu a fost nevoie de vot.
     to:
       invalid: >-
-        Nu am recunoscut piesa pe care mi-ai dat-o. Încearcă să folosești
+        Nu am recunoscut melodia pe care mi-ai dat-o. Încearcă să folosești
         completarea automată :)
-      none: 'Nu am putut trece la acea piesă, este încă în coadă?'
+      none: Nu am putut sări la acea melodie. Mai e în coadă?
   seek:
-    unseekable: Piesa actuală nu poate fi căutată.
-    no_duration: Piesa actuală nu are durată.
-    syntax: 'Timecode-ul trebuie să fie în formatul `mm:ss`'
+    unseekable: Nu se poate derula în melodia curentă.
+    no_duration: Melodia curentă nu are durată.
+    syntax: Momentul trebuie să fie în formatul `mm:ss`.
     out_of_bounds: >-
-      Poziția pe care ai dat-o va depăși lungimea piesei actuale, {{given}} >
-      {{length}}
-    success: 'Căutare la {{given}}'
+      Poziția depășește finalul melodiei curente ({{given}} > {{length}}).
+    success: "{{user}} a sărit la {{given}}."
   loop:
     nothing:
-      success: Repetarea a fost dezactivată.
-      already: Repetarea era deja dezactivată.
+      success: "{{user}} a oprit repetarea."
+      already: Repetarea este deja oprită.
     track:
-      indef: Acum se repetă la infinit piesa curentă.
-      times_one: Piesa curentă se va repeta o dată.
-      times_other: 'Piesa curentă se va repeta acum de *{{count, number}} ori*.'
-      nuhuh: Piesa curentă este deja repetată.
+      indef: "{{user}} a setat melodia curentă să se repete."
+      times_one: "{{user}} a setat melodia curentă să se mai repete o dată."
+      times_few: "{{user}} a setat melodia curentă să se mai repete de {{count, number}} ori."
+      times_other: >-
+        {{user}} a setat melodia curentă să se mai repete de {{count, number}}
+        de ori.
+      nuhuh: Melodia curentă se repetă deja.
     queue:
-      indef: Acum se repetă la infinit coada.
-      times_one: Coada se va repeta o dată.
-      times_other: 'Coada se va repeta acum de *{{count, number}} ori*.'
-      nuhuh: Coada este deja în modul repetare.
+      indef: "{{user}} a setat coada să se repete."
+      times_one: "{{user}} a setat coada să se mai repete o dată."
+      times_few: "{{user}} a setat coada să se mai repete de {{count, number}} ori."
+      times_other: "{{user}} a setat coada să se mai repete de {{count, number}} de ori."
+      nuhuh: Coada se repetă deja.
   queue:
     use_autocomplete: >-
-      Hm? Încearcă să folosești completarea automată pentru a selecta o piesă
-      din coadă.
+      Hm? Folosește completarea automată ca să alegi o melodie din coadă.
     view:
-      footer: 'Pagina {{cur, number}}/{{all, number}} ({{tot, number}} total)'
+      footer: "Pagina {{cur, number}}/{{all, number}} (total: {{tot, number}})"
     move:
-      failed: Nu am putut muta acea piesă la poziția solicitată.
-      success: 'Mutat {{track}} la #{{index, number}}'
+      failed: Nu am putut muta melodia pe poziția cerută.
+      success: "{{user}} a mutat {{track}} pe poziția #{{index, number}}."
     clear:
       none: Coada era goală.
-      success_one: Eliminată 1 piesă din coadă.
-      success_other: 'Eliminate {{count, number}} piese din coadă.'
+      success_one: "{{user}} a scos 1 melodie din coadă."
+      success_few: "{{user}} a scos {{count, number}} melodii din coadă."
+      success_other: "{{user}} a scos {{count, number}} de melodii din coadă."
     remove:
-      confirm: 'Ești sigur că vrei să elimini {{track}} din coadă?'
-      cancelled: 'OK, nu voi elimina acea piesă.'
+      confirm: Sigur vrei să elimini {{track}} din coadă?
+      cancelled: Bine, nu elimin melodia.
       not_found: >-
-        Piesa furnizată nu a fost găsită în coadă, încearcă să folosești
-        completarea automată.
-      success: 'Eliminat {{track}} din coadă.'
+        Nu am găsit melodia în coadă. Încearcă să folosești completarea
+        automată.
+      success: "{{user}} a eliminat {{track}} din coadă."
     shuffle:
-      too_small: Coada este prea mică pentru a fi amestecată.
-      success: Coada a fost amestecată.
+      too_small: Coada e prea mică pentru a fi amestecată.
+      success: "{{user}} a amestecat coada."
+  now_playing:
+    autoplay: Redare automată
+    requested_by: Cerută de
+    ends: Se termină
+    queue: Coadă
+    queue_summary: "În coadă: {{queued, number}} · Redate: {{played, number}}"
+    up_next: Urmează
+    refresh: Reîmprospătează
+    open: Deschide
   pause:
     already: Playerul este deja în pauză.
-    success: Am pus playerul în pauză.
+    success: "{{user}} a pus playerul pe pauză."
   resume:
-    server_muted: Nu pot relua playerul când sunt mutat pe server.
-    already: Playerul nu era în pauză.
-    success: Am reluat playerul.
+    server_muted: Nu pot relua redarea cât timp am microfonul dezactivat pe server.
+    already: Playerul nu este în pauză.
+    success: "{{user}} a reluat redarea."
   play:
+    duplicate: Asta e deja în coadă.
+    over_limit_one: Aici poți avea doar 1 melodie în coadă odată.
+    over_limit_few: >-
+      Aici poți avea doar {{count, number}} melodii în coadă odată.
+    over_limit_other: >-
+      Aici poți avea doar {{count, number}} de melodii în coadă odată.
+    too_long_one: Melodiile de aici nu pot dura mai mult de 1 minut.
+    too_long_few: Melodiile de aici nu pot dura mai mult de {{count, number}} minute.
+    too_long_other: Melodiile de aici nu pot dura mai mult de {{count, number}} de minute.
+    too_long_skipped_one: >-
+      Am sărit peste 1 melodie care depășește limita de {{minutes, number}}
+      min.
+    too_long_skipped_few: >-
+      Am sărit peste {{count, number}} melodii care depășesc limita de
+      {{minutes, number}} min.
+    too_long_skipped_other: >-
+      Am sărit peste {{count, number}} de melodii care depășesc limita de
+      {{minutes, number}} min.
+    over_limit_skipped_one: >-
+      Am sărit peste 1 melodie: limita cozii aici este de {{limit, number}}
+      pe persoană.
+    over_limit_skipped_few: >-
+      Am sărit peste {{count, number}} melodii: limita cozii aici este de
+      {{limit, number}} pe persoană.
+    over_limit_skipped_other: >-
+      Am sărit peste {{count, number}} de melodii: limita cozii aici este de
+      {{limit, number}} pe persoană.
+    duplicates_skipped_one: Am sărit peste 1 melodie care era deja în coadă.
+    duplicates_skipped_few: >-
+      Am sărit peste {{count, number}} melodii care erau deja în coadă.
+    duplicates_skipped_other: >-
+      Am sărit peste {{count, number}} de melodii care erau deja în coadă.
     domain:
-      other: Link-ul furnizat nu este suportat.
-      youtube: Eara a eliminat temporar suportul pentru link-urile YouTube.
-      vote_locked: >
-        Trebuie să votați pentru {{mention}} pe **top.gg** pentru a avea acces
-        la link-urile `{{domain}}`!
+      other: Linkul pe care l-ai dat nu este acceptat.
+      youtube: Eara a eliminat temporar suportul pentru linkurile YouTube.
+      youtube_premium: >-
+        Linkurile YouTube sunt o funcție **Premium**. Caută după nume sau
+        lipește un link Spotify sau Apple Music ca s-o redai gratuit.
+      vote_locked: >-
+        Trebuie să votezi pentru {{mention}} pe **top.gg** ca să ai acces la
+        linkurile `{{domain}}`!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Nu a fost returnat nimic pentru interogarea dvs.
-    error: A apărut o eroare în timpul încărcării interogării dvs.
-    invalid_url: Ați furnizat un URL nevalid.
+    nothing: Căutarea ta nu a returnat nimic.
+    youtube_match: >-
+      -# Redau cea mai apropiată variantă gratuită. **Premium** redă direct
+      linkurile YouTube.
+    voice_wait:
+      waiting: >-
+        Intră într-un canal vocal și încep imediat să redau. Aștept
+        {{seconds, number}} s.
+      expired: >-
+        Nu ai intrat la timp într-un canal vocal. Intră într-unul, apoi
+        folosește `/play` din nou.
+      replaced: Anulat pentru că ai folosit `/play` din nou.
+    error: A apărut o eroare la încărcarea căutării tale.
+    invalid_url: Ai dat un URL nevalid.
     queue_full: >-
-      Coada nu are suficient spațiu. Eliminați câteva melodii înainte de a
-      adăuga altele.
-    added: 'Am adăugat {{item}} în coadă.'
+      Nu mai e destul loc în coadă. Elimină câteva melodii înainte să adaugi
+      altele.
+    added: "{{user}} a adăugat {{item}} în coadă."
     loaded:
-      album_one: 'o melodie din albumul {{collection}}'
-      album_other: '{{count, number}} melodii din albumul {{collection}}'
-      artist_one: 'cea mai bună melodie din *{{collection}}*'
-      artist_other: 'cele mai bune {{count, number}} melodii din *{{collection}}*'
-      playlist_one: 'o melodie din playlistul *{{collection}}*'
-      playlist_other: '{{count, number}} melodii din playlistul *{{collection}}*'
+      album_one: o melodie din albumul {{collection}}
+      album_few: "{{count, number}} melodii din albumul {{collection}}"
+      album_other: "{{count, number}} de melodii din albumul {{collection}}"
+      artist_one: cea mai populară melodie de la *{{collection}}*
+      artist_few: "cele mai populare {{count, number}} melodii de la *{{collection}}*"
+      artist_other: "cele mai populare {{count, number}} de melodii de la *{{collection}}*"
+      playlist_one: o melodie din playlistul *{{collection}}*
+      playlist_few: "{{count, number}} melodii din playlistul *{{collection}}*"
+      playlist_other: "{{count, number}} de melodii din playlistul *{{collection}}*"
+  last_fm:
+    unavailable: Conectarea cu Last.fm nu este disponibilă acum.
+    account: Cont
+    connect:
+      prompt: >-
+        Deschide linkul de mai jos ca să-ți conectezi contul Last.fm. Merge o
+        singură dată și expiră în {{minutes, number}} min, așa că nu-l da
+        nimănui.
+      button: Conectează Last.fm
+      open: Deschide Last.fm
+    disconnect:
+      button: Deconectează
+      done: Contul Last.fm a fost deconectat.
+    status:
+      unlinked: Nu ai conectat încă un cont Last.fm.
+    scrobbling:
+      label: Scrobbling
+      turn_on: Pornește scrobbling
+      turn_off: Oprește scrobbling
+      enabled: Scrobbling pornit.
+      disabled: Scrobbling oprit. Contul tău rămâne conectat.
   stop:
-    success: Redarea a fost oprită.
+    success: "{{user}} a oprit playerul."
   volume:
-    current: 'Volumul actual este {{volume, number}}.'
-    out_of_bounds: Volumul trebuie să fie între 0 și 255.
-    success: 'Volumul a fost setat la {{volume, number}}.'
+    current: Volumul este {{volume, number}}.
+    success: "{{user}} a setat volumul la {{volume, number}}."
+    over_limit: >-
+      Doar DJ-ii pot seta volumul peste {{limit, number}} pe acest server.
   effects:
-    enabled: 'Efectul ''*{{effect}}*'' a fost activat!'
-    disabled: 'Efectul ''*{{effect}}*'' a fost dezactivat!'
-    trial_enabled: >-
-      Efectul '*{{effect}}*' a fost activat pentru melodia curentă!
-    trial_disabled: >-
-      Efectul '*{{effect}}*' a fost dezactivat pentru melodia curentă!
-    cleared: Toate efectele activate au fost resetate!
+    enabled: "{{user}} a pornit *{{effect}}*."
+    disabled: "{{user}} a oprit *{{effect}}*."
+    trial_enabled: "{{user}} a pornit *{{effect}}* pentru melodia curentă."
+    trial_disabled: "{{user}} a oprit *{{effect}}* pentru melodia curentă."
+    cleared: "{{user}} a oprit toate efectele."
+    list:
+      none: Niciun efect nu este pornit.
+      some: "Efecte pornite: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} a pornit 24/7. Rămân în apel până când cineva folosește
+      `/leave`.
+    disabled: >-
+      {{user}} a oprit 24/7. Plec când se oprește muzica sau când pleacă toată
+      lumea.
+    already:
+      enabled: 24/7 este deja pornit.
+      disabled: 24/7 este deja oprit.
+    saved: >-
+      {{channel}} este acum canalul meu 24/7. Intru singur în el ori de câte ori
+      nu redau în altă parte pe acest server.
+    forgotten: >-
+      Nu mă mai întorc în canalul meu 24/7. Dacă sunt acum în el, rămân până
+      când cineva oprește 24/7 sau folosește `/leave`.
+    not_voice: Acesta nu e un canal vocal sau de scenă.
+    turn_on: Pornește 24/7
+    turn_off: Oprește 24/7
+    keep: Revino mereu aici
+    forget: Nu mai reveni
+    auto_pause:
+      "on": >-
+        {{user}} a pornit pauza automată. Playerele 24/7 de aici iau pauză cât
+        timp nu e nimeni în apel și pornesc din nou când intră cineva.
+      "off": >-
+        {{user}} a oprit pauza automată. Playerele 24/7 de aici continuă să
+        redea și într-un apel gol.
+      pause: Pauză când e gol
+      keep_playing: Redă și când e gol
   immersive:
-    disabled: Modul imersiv a fost dezactivat.
+    disabled: "{{user}} a oprit modul imersiv."

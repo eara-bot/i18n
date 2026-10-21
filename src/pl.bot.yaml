@@ -1,309 +1,687 @@
 checks:
-  guild_only: Ta komenda może być używana tylko na serwerze.
-  not_playing: Nie odtwarzam muzyki na tym serwerze.
-  user_vc_none: 'Aby użyć tej komendy, musisz znajdować się na kanale głosowym.'
-  user_vc_diff: >-
-    Aby użyć tej komendy, musisz znajdować się na tym samym kanale głosowym, co
-    ja.
+  guild_only: Tej komendy można używać tylko na serwerze.
+  not_playing: Nie gram muzyki na tym serwerze.
+  user_vc_none: Musisz być na kanale głosowym, aby użyć tej komendy.
+  user_vc_diff: Musisz być na tym samym kanale głosowym co ja, aby użyć tej komendy.
   queue_empty: Kolejka jest pusta.
   nothing_playing: Nic nie jest odtwarzane.
-  unknown_command: Nie rozpoznaję tej komendy...
-  owner_only: Nie masz uprawnień do użycia tej komendy.
-  maintenance: 'Bot jest aktualnie w trakcie konserwacji, spróbuj ponownie później.'
+  unknown_command: Nie znam tej komendy...
+  owner_only: Nie możesz używać tej komendy.
+  missing_permissions: "Aby użyć tej komendy, potrzebujesz uprawnień: {{permissions}}."
+  maintenance: Trwają prace konserwacyjne bota. Wróć później.
+  tier_required: >-
+    Plan tego serwera mnie nie obejmuje. Wykup subskrypcję na {{website}}, aby
+    używać mnie tutaj.
+  tier_lapsed: >-
+    Subskrypcja tego serwera wygasła, więc odtwarzanie zostało zatrzymane.
+    Odnów ją na {{website}}, aby znowu zacząć.
+  voice_channel_not_allowed: "Tutaj mogę grać tylko na tych kanałach: {{channels}}."
+  dj_only:
+    role: >-
+      Tryb DJ jest włączony, więc mogą to zrobić tylko osoby z rolą {{role}}
+      lub uprawnieniem **Zarządzaj serwerem**.
+    managers: >-
+      Tryb DJ jest włączony, więc mogą to zrobić tylko osoby z uprawnieniem
+      **Zarządzaj serwerem**.
+stage:
+  hand_raised: >-
+    Podniosłem rękę na scenie. Moderator sceny musi zaprosić mnie do mówienia,
+    zanim ktokolwiek usłyszy muzykę.
+  cannot_speak: >-
+    Jestem na scenie wśród publiczności i nie mogę poprosić o głos. Daj mi
+    uprawnienie **Prośba o zabranie głosu** albo zaproś mnie do mówienia
+    bezpośrednio.
 common:
   join_our_server: >-
-    Dołącz do naszego [*serwera Discord*]({{invite}}), aby uzyskać więcej
-    informacji
-  message_deleted: '*Wiadomość została usunięta*'
+    Dołącz do naszego [*serwera Discord*]({{invite}} ), aby dowiedzieć się
+    więcej.
+  message_deleted: "*Wiadomość została usunięta*"
   vote: Głosuj na Top.gg
   discord_server: Serwer wsparcia
+  help_center: Centrum pomocy
+  open_player: Otwórz odtwarzacz
+  open_in_web_player: Otwórz w odtwarzaczu internetowym
   remove: Usuń
   play_now: Odtwórz teraz
   next: Następny
   previous: Poprzedni
-  unknown_artist: Nieznany artysta
-  unavailable_track: '[niedostępne metadane utworu]'
-  unknown_url: Nieznany URL
-  unsupported_url: Nieobsługiwany URL
-  source_url: '{{source}} URL'
-  unknown: Nieznany
+  unknown_artist: Nieznany wykonawca
+  unavailable_track: "[niedostępne dane utworu]"
+  unknown_url: Nieznany adres URL
+  unsupported_url: Nieobsługiwany adres URL
+  supported_sites: Obsługiwane strony
+  source_url: "Adres URL ({{source}})"
+  unknown: Nieznane
   unknown_channel: Nieznany kanał
   none: Brak
   not_available: N/D
-  'yes': Tak
-  'no': Nie
+  yes: Tak
+  no: Nie
   track: Utwór
   queue: Kolejka
   state:
-    loading: Ładowanie
+    loading: Wczytywanie
     paused: Wstrzymano
     playing: Odtwarzanie
     idle: Bezczynny
     active: Aktywny
-    'off': Wyłączony
-    disconnected: Rozłączony
-    joining: Łączenie
-    connected: Połączony
+    on: Włączone
+    off: Wyłączone
+    disconnected: Rozłączono
+    joining: Dołączanie
+    reconnecting: Ponowne łączenie
+    connected: Połączono
   confirmation:
     prompt: |-
       {{message}}
-      -# Masz **30 sekund**, aby odpowiedzieć.
+      -# Masz **30 sekund** na odpowiedź.
     confirm: Potwierdź
     deny: Odrzuć
   premium:
     sku_required: >-
-      Ten serwer wymaga **subskrypcji Premium**, aby uzyskać dostęp do tej
-      komendy.
-    uninterrupted_access: Po oddaniu głosu otrzymasz *do* 12 godzin nieprzerwanego dostępu!
-    vote_required: >
-      Musisz zagłosować za {{mention}} na **top.gg**, aby uzyskać dostęp do tej
+      Ten serwer wymaga **subskrypcji Premium**, aby korzystać z tej komendy.
+    pricing_pitch: >-
+      -# Plany od **{{price}}/mies.** – lepsza jakość dźwięku, większe kolejki
+      i dostęp do YouTube.
+    uninterrupted_access: >-
+      Po zagłosowaniu dostaniesz *do* 12 godzin nieprzerwanego dostępu!
+    vote_required: >-
+      Musisz zagłosować na {{mention}} na **top.gg**, aby uzyskać dostęp do tej
       komendy.
 
       -# $t(common.premium.uninterrupted_access)
-    get_premium: Uzyskaj Premium
-    vote_locks_premium: '**Premium** usuwa blokady głosowe dla całego serwera.'
+    get_premium: Kup Premium
+    vote_locks_premium: "**Premium** znosi blokady głosowania na całym serwerze."
 buttons:
+  add:
+    title: Dodaj do kolejki
+    label: Nazwa utworu lub link
+    placeholder: Wyszukaj lub wklej link
+    another: Dodaj kolejny
   remove:
-    none: 'Nie mogłem znaleźć elementu, który chciałeś usunąć...'
-    done: '{{author}} usunął {{track}} z kolejki.'
+    none: Nie mogę znaleźć elementu, który chcesz usunąć...
+    done: "{{author}} usuwa {{track}} z kolejki."
   correlated_remove:
-    none: 'Utwor(y), które zostały dodane do kolejki, są nieodnależne...'
-    done: '{{author}} usunął {{count}} utworów z kolejki.'
+    none: Nigdzie nie ma utworów, które zostały dodane do kolejki...
+    done_one: "{{author}} usuwa 1 dodany utwór."
+    done_few: "{{author}} usuwa {{count, number}} dodane utwory."
+    done_many: "{{author}} usuwa {{count, number}} dodanych utworów."
+    done_other: "{{author}} usuwa {{count, number}} dodanego utworu."
   play_now:
     none: >-
-      Nie mogę znaleźć utworów, które dodałeś do kolejki – czy przypadkiem już
-      ich nie odtworzyłeś?
+      Nie mogę znaleźć w kolejce dodanych przez ciebie utworów. Może zostały już
+      odtworzone?
     not_found: Nie można znaleźć tego utworu w kolejce.
-    done_one: 'Wyróżniono jeden utwór żądany przez {{requester}}.'
-    done_other: 'Wyróżniono {{count}} utworów żądanych przez {{requester}}.'
-    footer_a: 'Pominięto do {{next}} z {{prev}}'
-    footer_b: 'Pominięto do {{next}}'
+    done_one: Przesunięto na początek 1 utwór dodany przez {{requester}}.
+    done_few: Przesunięto na początek {{count, number}} utwory dodane przez {{requester}}.
+    done_many: Przesunięto na początek {{count, number}} utworów dodanych przez {{requester}}.
+    done_other: Przesunięto na początek {{count, number}} utworu dodanego przez {{requester}}.
+    footer_a: Przeskoczono z {{prev}} do {{next}}.
+    footer_b: Przeskoczono do {{next}}.
   item_actions:
-    not_found: Ten utwór już nie znajduje się w kolejce.
+    not_found: Tego utworu nie ma już w kolejce.
   previous:
     none: Nie ma poprzednich utworów...
-  skip_to: '{{user}} przeszedł do {{track}}'
-  stop: '{{user}} zatrzymał odtwarzacz.'
+  skip_to: "{{user}} przeskakuje do {{track}}."
+  stop: "{{user}} zatrzymuje odtwarzacz."
 events:
   command_failed:
-    message: Ta komenda nie powiodła się.
+    message: Coś poszło nie tak
     reason:
-      unknown: 'Wystąpił nieoczekiwany błąd, prosimy o zgłoszenie go deweloperom.'
-      panic: >-
-        Zadanie przetwarzające Twoją komendę uległo awarii, prosimy o zgłoszenie
-        tego deweloperom.
-    footer: 'Przekaż ten ID deweloperom: **{{eid}}**'
+      unknown: Spróbuj ponownie za chwilę.
+      player_restarted: Odtwarzacz musiał się zrestartować. Spróbuj jeszcze raz.
+    footer: >-
+      Identyfikator błędu `{{eid}}` · podaj go na naszym serwerze wsparcia,
+      jeśli problem się powtarza.
+    usage: "Coś tu nie gra. Oto jak tego używać:"
   player:
     tips:
-      autoplay: 'Kontynuuj muzykę po zakończeniu kolejki za pomocą {{command}}.'
+      autoplay: Niech muzyka gra dalej po końcu kolejki – użyj {{command}}.
       crossfade: >-
-        Czy wiedziałeś, że oferujemy płynne przejścia? Skorzystaj z {{command}},
-        aby je skonfigurować.
-      effects: 'Dodaj obecnemu utworowi inny klimat za pomocą {{command}}.'
+        Wiesz, że mamy przenikanie utworów? Ustawisz je za pomocą {{command}}.
+      effects: Nadaj bieżącemu utworowi inny klimat za pomocą {{command}}.
       history: >-
-        Szukasz czegoś, co było wcześniej odtwarzane? {{command}} może również
-        pokazywać historię kolejki.
-      immersive: 'Skorzystaj z {{spatialize}} lub {{orbit}}, aby wzbogacić swoje wrażenia!'
+        Szukasz czegoś, co grało wcześniej? {{command}} pokazuje też historię
+        kolejki.
+      immersive: Użyj {{spatialize}} lub {{orbit}}, aby ożywić odsłuch!
+      last_fm: >-
+        Połącz konto Last.fm za pomocą {{command}}, aby scrobblować wszystko,
+        czego tu słuchasz.
       loop: >-
-        Chcesz to ponownie usłyszeć? {{command}} może powtarzać ten utwór lub
-        całą kolejkę.
+        Chcesz posłuchać jeszcze raz? {{command}} powtórzy ten utwór lub całą
+        kolejkę.
       move: >-
-        Zmień kolejność lub wyczyść kolejkę za pomocą {{move_command}} i
+        Zmieniaj kolejność i porządkuj kolejkę za pomocą {{move_command}} i
         {{remove_command}}.
       notifications: >-
-        Administratorzy serwera mogą wybrać dedykowany kanał odtwarzacza za
-        pomocą {{command}}.
-      seek: 'Przejdź do dowolnego momentu tego utworu za pomocą {{command}}.'
-      shuffle: 'Wymieszaj utwory oczekujące w kolejce za pomocą {{command}}.'
+        Zarządzający serwerem mogą wybrać osobny kanał odtwarzacza za pomocą
+        {{command}}.
+      player: >-
+        Śledź tekst na żywo i zarządzaj kolejką za pomocą {{command}} lub w
+        [odtwarzaczu internetowym]({{url}}).
+      player_web: >-
+        Śledź tekst na żywo i zarządzaj kolejką w [odtwarzaczu
+        internetowym]({{url}}).
+      seek: Przeskocz do dowolnego momentu tego utworu za pomocą {{command}}.
+      shuffle: Przetasuj utwory czekające w kolejce za pomocą {{command}}.
       voice_status: >-
-        Administratorzy serwera mogą wyświetlać aktualnie odtwarzany utwór w
-        statusie kanału głosowego za pomocą {{command}}.
+        Zarządzający serwerem mogą wyświetlać bieżący utwór w statusie kanału
+        głosowego za pomocą {{command}}.
     notification:
-      join_failed: Nie udało mi się dołączyć do Twojego kanału głosowego.
-      playback_failed: 'Nie udało się odtworzyć {{track}}'
+      join_failed: Nie udało mi się dołączyć do twojego kanału głosowego.
+      playback_failed: Nie udało się odtworzyć {{track}}.
       scheduler_failed: >-
-        Harmonogram odtwarzacza dla tego serwera uległ awarii. Uruchom proszę
-        `/leave`, a następnie `/join` i zgłoś to ponownie, jeśli problem będzie
-        się powtarzał.
+        Harmonogram odtwarzacza na tym serwerze uległ awarii. Użyj `/leave`,
+        potem `/join`, a jeśli to się powtórzy, zgłoś problem.
       playback_stalled: >-
-        Zbyt wiele nieudanych prób odtworzenia. Jeśli problem będzie się
-        powtarzał, dołącz do naszego Serwera Wsparcia.
-      idle_timeout: 'Odtwarzacz był zbyt długo bezczynny, więc zostałem rozłączony.'
-      restarting: Eara uruchamia się ponownie i powinna wkrótce wrócić.
+        Zbyt wiele nieudanych prób odtwarzania. Jeśli to się powtarza, dołącz do
+        naszego serwera wsparcia.
+      idle_timeout: Odtwarzacz był zbyt długo bezczynny, więc się rozłączyłem.
+      restarting: Eara uruchamia się ponownie i zaraz wróci.
     disconnect:
-      alone: 'Zostałem sam, rozłączam się <t:{{timestamp}}:R>'
+      alone: Zostałem zupełnie sam, rozłączam się <t:{{timestamp}}:R>.
     queue:
       end:
-        message: Kolejka została zakończona.
+        message: Kolejka się skończyła.
         prompts:
           review:
-            message: 'Cieszysz się {{mention}}? Zostaw nam opinię!'
+            message: Podoba ci się {{mention}}? Zostaw nam opinię!
             button: Zostaw opinię
           vote:
             message: >-
-              Cieszysz się {{mention}}? Zagłosuj na nas, aby więcej osób mogło
-              nas znaleźć!
+              Podoba ci się {{mention}}? Zagłosuj na nas i pomóż innym nas
+              znaleźć!
             button: Zagłosuj na nas
           support:
             message: >-
-              Potrzebujesz pomocy lub chcesz porozmawiać? Dołącz do społeczności
-              Discord!
+              Potrzebujesz pomocy albo chcesz pogadać? Dołącz do naszej
+              społeczności na Discordzie!
             button: Dołącz do serwera
+          player:
+            message: >-
+              Wybierz, co zagra dalej, w odtwarzaczu internetowym: wyszukiwanie,
+              teksty i kolejka w jednym miejscu.
+            button: Otwórz odtwarzacz internetowy
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: 'Udostępnij ten podsumowanie, prosząc o pomoc dotyczącą odtwarzacza.'
-    loop_indefinite: '{{mode}} (bezwzględnie)'
-    loop_remaining: '{{mode}} (pozostało: {{count, number}})'
+    footer: Udostępnij to podsumowanie, gdy prosisz o pomoc z odtwarzaczem.
+    loop_indefinite: "{{mode}} (bez końca)"
+    loop_remaining: "{{mode}} (pozostało: {{count, number}})"
   dev:
-    entitlement_granted: 'Przyznano uprawnienie {{entitlement}} dla SKU {{sku}} na gildię {{guild}}.'
-    player_not_found: 'Nie istnieje odtwarzacz dla gildii {{guild}}.'
-    joining: 'Łączenie z {{channel}} ({{connection}})'
-    connected: 'Połączono z {{channel}} ({{connection}})'
+    entitlement_granted: >-
+      Przyznano uprawnienie {{entitlement}} dla SKU {{sku}} na serwerze {{guild}}.
+    player_not_found: Brak odtwarzacza na serwerze {{guild}}.
+    joining: Dołączanie do {{channel}} ({{connection}})
+    reconnecting: Ponowne łączenie z {{channel}} ({{connection}})
+    connected: Połączono z {{channel}} ({{connection}})
+  help:
+    details: "-# Użyj `/help`, aby zobaczyć szczegóły dowolnej komendy."
+    player: "-# Teksty na żywo, kolejka i sterowanie są też w [odtwarzaczu internetowym]({{url}})."
+    supported_sites: "-# Nie wiesz, czy link zadziała? Sprawdź, [z jakich stron eara może odtwarzać]({{url}})."
+  feedback:
+    ask:
+      title: Podoba ci się {{mention}}?
+      note: Twoja odpowiedź pomoże nam zdecydować, nad czym pracować dalej.
+      "yes": "Tak"
+      "no": Nie bardzo
+    enjoying:
+      title: Dzięki! Pomóż innym znaleźć {{mention}}
+      note: Serwery znajdują nowe boty na Top.gg. Opinia lub głos pomogą nam dotrzeć do większej liczby osób.
+      review: Napisz opinię
+      vote: Głosuj na Top.gg
+    not_enjoying:
+      title: Przykro nam, że coś nie działa tak, jak trzeba
+      note: Napisz na naszym serwerze Discord, co poszło nie tak – pomożemy to rozwiązać i będziemy wiedzieć, co poprawić.
+      support: Dołącz do naszego serwera Discord
   ping:
     message: Pong!
-    footer: Masz problemy? Dołącz do naszego **serwera wsparcia**!
+    footer: Masz problemy? Zajrzyj do **Centrum pomocy** albo dołącz do naszego **serwera wsparcia**.
   stats:
-    instance_failed: Nie udało się pobrać instancji.
+    instance_failed: Nie udało się wczytać statystyk tego bota.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} włącza autoodtwarzanie."
+    disabled: "{{user}} wyłącza autoodtwarzanie."
+    turn_on: Włącz autoodtwarzanie
+    turn_off: Wyłącz autoodtwarzanie
+  automix:
+    enabled: >-
+      {{user}} włącza automix. Zamiast przenikania każdy utwór przechodzi teraz
+      w następny w najlepiej dopasowanym miejscu.
+    disabled: "{{user}} wyłącza automix."
+    turn_on: Włącz automix
+    turn_off: Wyłącz automix
   crossfade:
     current:
-      enabled: 'Czas crossfadingu ustawiony na {{duration, number}}s.'
-      disabled: Crossfading jest wyłączony.
+      "on": "Przenikanie: {{seconds, number}} s."
+      "off": Przenikanie jest wyłączone.
     updated:
-      enabled: 'Czas crossfadingu ustawiony na {{duration, number}}s.'
-      disabled: Crossfading wyłączony.
-  default_volume:
-    current: 'Domyślna głośność na tym serwerze wynosi obecnie {{volume, number}}.'
-    updated: 'Zaktualizowano domyślną głośność tego serwera na {{volume, number}}.'
-  do_vc_status_update:
+      "on": "{{user}} ustawia przenikanie na {{seconds, number}} s."
+      "off": "{{user}} wyłącza przenikanie."
+    "off": "Wyłączone"
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: Zapisano dla całego serwera.
+    session: >-
+      Do zatrzymania odtwarzacza. Osoba z uprawnieniem Zarządzaj serwerem może
+      zapisać to dla serwera tutaj lub w {{command}}.
+  dj:
     current:
-      enabled: >-
-        Obecnie {{mention}} będzie aktualizować status kanału głosowego przy
-        zmianie aktualnej piosenki.
-      disabled: >-
-        Obecnie {{mention}} nie będzie aktualizować statusu kanału głosowego
-        przy zmianie aktualnej piosenki.
+      "on": Tryb DJ jest **włączony**. Tylko DJ-e mogą sterować odtwarzaczem.
+      "off": Tryb DJ jest **wyłączony**. Każdy na kanale może sterować odtwarzaczem.
+    who:
+      role: >-
+        DJ-e to członkowie z rolą {{role}}, osoby z uprawnieniem Zarządzaj
+        serwerem oraz każdy, kto jako jedyny słucha mnie na kanale.
+      managers: >-
+        DJ-e to osoby z uprawnieniem Zarządzaj serwerem oraz każdy, kto jako
+        jedyny słucha mnie na kanale.
+    you:
+      "yes": Możesz sterować odtwarzaczem.
+      "no": Teraz nie możesz sterować odtwarzaczem.
     updated:
-      enabled: >-
-        {{mention}} teraz będzie aktualizować status kanału głosowego przy
-        zmianie aktualnej piosenki.
-      disabled: >-
-        {{mention}} już nie będzie aktualizować statusu kanału głosowego przy
-        zmianie aktualnej piosenki.
-  autoplay:
-    current:
-      enabled: 'Obecnie {{mention}} automatycznie odtwarza polecane utwory.'
-      disabled: 'Obecnie {{mention}} nie odtwarza automatycznie polecanych utworów.'
-    updated:
-      enabled: '{{mention}} teraz będzie automatycznie odtwarzać polecane utwory.'
-      disabled: '{{mention}} już nie będzie automatycznie odtwarzać polecanych utworów.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} nie wysyła powiadomień do konkretnego kanału.'
-        some: '{{mention}} obecnie wysyła powiadomienia do {{channel}}'
-      clear: '{{mention}} już nie będzie wysyłać powiadomień do konkretnego kanału.'
-      update: '{{mention}} teraz będzie wysyłać powiadomienia do {{channel}}'
+      "on": "{{user}} włącza tryb DJ."
+      "off": "{{user}} wyłącza tryb DJ."
+      role: "{{user}} ustawia rolę DJ na {{role}}."
+      no_role: "{{user}} usuwa rolę DJ."
+    turn_on: Włącz tryb DJ
+    turn_off: Wyłącz tryb DJ
+    role_placeholder: Brak roli DJ
+  settings:
+    title: Ustawienia
+    footer: >-
+      Zmiany zapisują się od razu. Wszystko to znajdziesz też w
+      [panelu]({{url}}).
+    pages:
+      playback: Odtwarzanie
+      dj: DJ
+      queue: Kolejka
+      voice: Kanały głosowe
+      bot: Ten bot
+    about:
+      playback: Jak muzyka się zaczyna, brzmi i gra dalej na całym serwerze.
+      dj: Kto steruje odtwarzaczem i jak zapada decyzja o pominięciu.
+      queue: Co można dodać do kolejki i w jakiej kolejności to gra.
+      voice: Gdzie nasze boty mogą grać na tym serwerze, chyba że któryś ma własną listę.
+      bot: >-
+        Tylko dla {{bot}}. Każdy z naszych botów na tym serwerze ma własne
+        ustawienia, a puste pola przejmują ustawienia serwera.
+    state:
+      "on": "Włączone"
+      "off": "Wyłączone"
+    turn_on: Włącz
+    turn_off: Wyłącz
+    change: Zmień
+    premium: Premium
+    invalid: Podaj liczbę całkowitą od {{min, number}} do {{max, number}}.
+    invalid_optional: >-
+      Podaj liczbę całkowitą od {{min, number}} do {{max, number}} albo zostaw
+      puste pole.
+    playback:
+      volume:
+        label: Głośność początkowa
+        about: Jak głośno zaczynam grać.
+        input: Od 0 do 250.
+      crossfade:
+        label: Przenikanie
+        about: Płynnie łączy koniec każdego utworu z następnym.
+        value: "{{seconds, number}} s"
+        input: Sekundy, od 0 do 30. 0 wyłącza przenikanie.
+      autoplay:
+        label: Autoodtwarzanie
+        about: Gdy kolejka się skończy, muzyka gra dalej z podobnymi utworami.
+      vc_status:
+        label: Status kanału głosowego
+        about: Pokazuje, co gra, jako status kanału głosowego.
+      auto_pause:
+        label: Pauza 24/7, gdy pusto
+        about: >-
+          Odtwarzacz 24/7 pauzuje, gdy nikogo nie ma na kanale, i gra dalej, gdy
+          ktoś dołączy.
+      notifications:
+        label: Kanał „Teraz gra”
+        about: >-
+          Gdzie publikuję każdy utwór. Zostaw puste, aby publikować tam, gdzie
+          włączono muzykę.
+        placeholder: Kanał, na którym włączono muzykę
+    dj:
+      mode:
+        label: Tryb DJ
+        about: >-
+          Tylko DJ-e mogą sterować odtwarzaczem. Każdy nadal może dodawać utwory
+          i głosować za pominięciem.
+      role:
+        label: Rola DJ
+        about: >-
+          Członkowie z tą rolą są DJ-ami, podobnie jak osoby z uprawnieniem
+          Zarządzaj serwerem i każdy, kto jako jedyny słucha mnie na kanale.
+        placeholder: Brak roli DJ
+      max_volume:
+        label: Limit głośności
+        about: Największa głośność, jaką może ustawić ktoś, kto nie jest DJ-em.
+        none: Bez limitu
+        input: Od 0 do 250. Zostaw puste, aby nie ustawiać limitu.
+      vote_skip:
+        label: Głosy za pominięciem
+        about: Jaka część słuchaczy musi zagłosować, aby pominąć utwór.
+        none: Ponad połowa
+        value: "{{percent, number}}%"
+        input: Procent, od 1 do 100. Zostaw puste, aby wymagać ponad połowy.
+    queue:
+      no_duplicates:
+        label: Bez duplikatów
+        about: Utworów, które już są w kolejce, nie można dodać ponownie.
+      fair:
+        label: Sprawiedliwa kolejka
+        about: Utwory dodawane przez różne osoby grają na zmianę.
+      leave_cleanup:
+        label: Sprzątanie po wyjściu
+        about: Usuwa utwory danej osoby 30 sekund po tym, jak opuści kanał.
+      max_songs:
+        label: Utwory na osobę
+        about: Ile utworów może mieć w kolejce ktoś, kto nie jest DJ-em.
+        none: Bez limitu
+        input: Od 1 do 1000. Zostaw puste, aby nie ustawiać limitu.
+      max_length:
+        label: Najdłuższy utwór
+        about: Najdłuższy utwór, jaki może dodać ktoś, kto nie jest DJ-em.
+        none: Bez limitu
+        value_one: 1 minuta
+        value_few: "{{count, number}} minuty"
+        value_many: "{{count, number}} minut"
+        value_other: "{{count, number}} minuty"
+        input: W minutach, od 1 do 1440. Zostaw puste, aby nie ustawiać limitu.
+    voice:
+      channels:
+        label: Kanały głosowe
+        about: Gdzie mogę grać. Zostaw puste, aby grać na dowolnym kanale głosowym.
+        placeholder: Dowolny kanał głosowy
+    bot:
+      always_on:
+        label: Kanał 24/7
+        about: >-
+          Kanał, do którego ten bot dołącza automatycznie i na którym zostaje,
+          nawet gdy muzyka ucichnie.
+        placeholder: Brak
+        taken: >-
+          {{bot}} już siedzi na tym kanale całą dobę. Wybierz inny.
+      voice:
+        label: Kanały głosowe
+        about: >-
+          Gdzie ten bot może grać. Zostaw puste, aby stosować kanały głosowe
+          serwera.
+        any: >-
+          Ten bot może grać na dowolnym kanale głosowym, na który pozwala
+          serwer. Wybierz kilka, aby go do nich ograniczyć.
+        placeholder: Kanały głosowe serwera
+      notifications:
+        label: Kanał „Teraz gra”
+        about: Gdzie ten bot publikuje każdy utwór zamiast na kanale serwera.
+        placeholder: Kanał serwera
+      volume:
+        label: Głośność początkowa
+        about: Jak głośno zaczyna grać ten bot zamiast głośności serwera.
+        none: Jak na serwerze ({{volume, number}})
+        input: Od 0 do 250. Zostaw puste, aby użyć głośności serwera.
+  history:
+    title: Ostatnio odtwarzane
+    title_by: Ostatnio dodane przez {{user}}
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Strona {{page, number}} z {{pages, number}}
+    again: Dodaj ponownie
+    empty: Nikt jeszcze niczego tu nie zamówił.
+    not_playing: Nie gram na tym serwerze. Użyj `/play`, aby zacząć.
+    gone: Nie mogę ponownie znaleźć tego utworu. Spróbuj `/play`.
+    queued: "{{user}} ponownie dodaje {{track}} do kolejki."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Opuszczono {{channel}}.'
-    destroyed: Zniszczono odtwarzacz dla tego serwera.
+    success_channel: Opuszczono {{channel}}.
+    destroyed: Zatrzymano odtwarzacz na tym serwerze.
   join:
-    conflict: Już znajduję się na kanale głosowym.
+    conflict: Jestem już na kanale głosowym.
     failure: Nie udało mi się dołączyć do tego kanału głosowego.
     in_progress: Już dołączam do tego kanału głosowego.
     perms:
       missing: >-
-        Potrzebuję uprawnień, aby **wyswietlać**, **łączyć** i **mówić** na
-        {{channel}}.
-    success: 'W porządku, dołączyłem do {{channel}}.'
+        Potrzebuję uprawnień do **wyświetlania**, **łączenia** i **mówienia** na
+        kanale {{channel}}.
+      missing_named: >-
+        Nie mogę grać na kanale {{channel}}, bo brakuje mi tam uprawnień:
+        {{permissions}}. Poproś administratora serwera o ich nadanie albo zaproś
+        mnie ponownie przyciskiem poniżej.
+      reinvite: Zaproś ponownie z uprawnieniami
+    success: Dołączono do {{channel}}.
   skip:
-    success: Pominięto.
+    success: "{{user}} pomija utwór."
+    vote:
+      counted: >-
+        {{user}} głosuje za pominięciem utworu. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Twój głos za pominięciem tego utworu jest już policzony.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} głosuje za pominięciem i głosowanie przechodzi. Pomijam utwór."
+      requester_gone: >-
+        {{user}} pomija utwór. Osoba, która go dodała, opuściła kanał, więc
+        głosowanie nie było potrzebne.
     to:
-      invalid: 'Nie rozpoznałem podanej piosenki. Spróbuj użyć autouzupełniania :)'
-      none: 'Nie mogłem przewinąć do tej piosenki, czy nadal znajduje się w kolejce?'
+      invalid: >-
+        Nie rozpoznaję podanego utworu. Spróbuj autouzupełniania :)
+      none: Nie mogę przeskoczyć do tego utworu. Czy nadal jest w kolejce?
   seek:
-    unseekable: Aktualna piosenka nie jest możliwa do przewijania.
-    no_duration: Aktualna piosenka nie ma określonej długości.
-    syntax: 'Znacznik czasu musi być w formacie `mm:ss`'
+    unseekable: Bieżącego utworu nie da się przewijać.
+    no_duration: Bieżący utwór nie ma określonej długości.
+    syntax: Znacznik czasu musi mieć format `mm:ss`.
     out_of_bounds: >-
-      Podana pozycja przekracza długość aktualnej piosenki, {{given}} >
-      {{length}}
-    success: 'Przewinięto do {{given}}'
+      Ta pozycja wykracza poza koniec bieżącego utworu ({{given}} > {{length}}).
+    success: "{{user}} przeskakuje do {{given}}."
   loop:
     nothing:
-      success: Powtarzanie zostało wyłączone.
-      already: Powtarzanie było już wyłączone.
+      success: "{{user}} wyłącza zapętlanie."
+      already: Zapętlanie jest już wyłączone.
     track:
-      indef: Teraz aktualna piosenka będzie powtarzana w nieskończoność.
-      times_one: Aktualna piosenka zostanie powtórzona raz.
-      times_other: 'Aktualna piosenka będzie teraz powtarzana *{{count, number}} razy*.'
-      nuhuh: Aktualna piosenka jest już zapętlona.
+      indef: "{{user}} zapętla bieżący utwór."
+      times_one: "{{user}} ustawia jeszcze jedno powtórzenie bieżącego utworu."
+      times_few: "{{user}} ustawia jeszcze {{count, number}} powtórzenia bieżącego utworu."
+      times_many: "{{user}} ustawia jeszcze {{count, number}} powtórzeń bieżącego utworu."
+      times_other: "{{user}} ustawia jeszcze {{count, number}} powtórzenia bieżącego utworu."
+      nuhuh: Bieżący utwór jest już zapętlony.
     queue:
-      indef: Teraz kolejka będzie powtarzana w nieskończoność.
-      times_one: Kolejka zostanie powtórzona raz.
-      times_other: 'Kolejka będzie teraz powtarzana *{{count, number}} razy*.'
+      indef: "{{user}} zapętla kolejkę."
+      times_one: "{{user}} ustawia jeszcze jedno powtórzenie kolejki."
+      times_few: "{{user}} ustawia jeszcze {{count, number}} powtórzenia kolejki."
+      times_many: "{{user}} ustawia jeszcze {{count, number}} powtórzeń kolejki."
+      times_other: "{{user}} ustawia jeszcze {{count, number}} powtórzenia kolejki."
       nuhuh: Kolejka jest już zapętlona.
   queue:
-    use_autocomplete: 'Hm? Spróbuj użyć autouzupełniania, aby wybrać piosenkę z kolejki.'
+    use_autocomplete: Hm? Wybierz utwór z kolejki za pomocą autouzupełniania.
     view:
-      footer: 'Strona {{cur, number}}/{{all, number}} (razem: {{tot, number}})'
+      footer: "Strona {{cur, number}}/{{all, number}} (łącznie: {{tot, number}})"
     move:
-      failed: Nie można przenieść tej piosenki do żądanej pozycji.
-      success: 'Przeniesiono {{track}} na pozycję #{{index, number}}'
+      failed: Nie można przenieść tego utworu na wskazaną pozycję.
+      success: "{{user}} przenosi {{track}} na pozycję #{{index, number}}."
     clear:
       none: Kolejka była pusta.
-      success_one: Usunięto 1 piosenkę z kolejki.
-      success_other: 'Usunięto {{count, number}} piosenek z kolejki.'
+      success_one: "{{user}} usuwa 1 utwór z kolejki."
+      success_few: "{{user}} usuwa {{count, number}} utwory z kolejki."
+      success_many: "{{user}} usuwa {{count, number}} utworów z kolejki."
+      success_other: "{{user}} usuwa {{count, number}} utworu z kolejki."
     remove:
-      confirm: 'Czy na pewno chcesz usunąć {{track}} z kolejki?'
-      cancelled: 'W porządku, nie usunę tej piosenki.'
+      confirm: Na pewno chcesz usunąć {{track}} z kolejki?
+      cancelled: OK, nie usunę tego utworu.
       not_found: >-
-        Podana piosenka nie została znaleziona w kolejce, spróbuj użyć
-        autouzupełniania.
-      success: 'Usunięto {{track}} z kolejki.'
+        Nie znaleziono podanego utworu w kolejce. Spróbuj autouzupełniania.
+      success: "{{user}} usuwa {{track}} z kolejki."
     shuffle:
-      too_small: 'Kolejka jest zbyt mała, aby ją potasować.'
-      success: Kolejka została potasowana.
+      too_small: Kolejka jest za mała, aby ją przetasować.
+      success: "{{user}} tasuje kolejkę."
+  now_playing:
+    autoplay: Autoodtwarzanie
+    requested_by: Dodane przez
+    ends: Koniec
+    queue: Kolejka
+    queue_summary: "W kolejce: {{queued, number}} · odtworzono: {{played, number}}"
+    up_next: Następne
+    refresh: Odśwież
+    open: Otwórz
   pause:
     already: Odtwarzacz jest już wstrzymany.
-    success: Wstrzymałem odtwarzacz.
+    success: "{{user}} wstrzymuje odtwarzacz."
   resume:
-    server_muted: 'Nie mogę wznowić odtwarzania, gdy jestem wyciszony na serwerze.'
-    already: Odtwarzacz nie był wstrzymany.
-    success: Wznowiłem odtwarzanie.
+    server_muted: Nie mogę wznowić, gdy jestem wyciszony na serwerze.
+    already: Odtwarzacz nie jest wstrzymany.
+    success: "{{user}} wznawia odtwarzacz."
   play:
+    duplicate: To już jest w kolejce.
+    over_limit_one: Możesz tu mieć w kolejce tylko 1 utwór naraz.
+    over_limit_few: Możesz tu mieć w kolejce tylko {{count, number}} utwory naraz.
+    over_limit_many: Możesz tu mieć w kolejce tylko {{count, number}} utworów naraz.
+    over_limit_other: Możesz tu mieć w kolejce tylko {{count, number}} utworu naraz.
+    too_long_one: Utwory nie mogą tu być dłuższe niż 1 minuta.
+    too_long_few: Utwory nie mogą tu być dłuższe niż {{count, number}} minuty.
+    too_long_many: Utwory nie mogą tu być dłuższe niż {{count, number}} minut.
+    too_long_other: Utwory nie mogą tu być dłuższe niż {{count, number}} minuty.
+    too_long_skipped_one: >-
+      Pominięto 1 utwór przekraczający limit {{minutes, number}} min.
+    too_long_skipped_few: >-
+      Pominięto {{count, number}} utwory przekraczające limit
+      {{minutes, number}} min.
+    too_long_skipped_many: >-
+      Pominięto {{count, number}} utworów przekraczających limit
+      {{minutes, number}} min.
+    too_long_skipped_other: >-
+      Pominięto {{count, number}} utworu przekraczającego limit
+      {{minutes, number}} min.
+    over_limit_skipped_one: >-
+      Pominięto 1 utwór – limit kolejki to tutaj {{limit, number}} na osobę.
+    over_limit_skipped_few: >-
+      Pominięto {{count, number}} utwory – limit kolejki to tutaj
+      {{limit, number}} na osobę.
+    over_limit_skipped_many: >-
+      Pominięto {{count, number}} utworów – limit kolejki to tutaj
+      {{limit, number}} na osobę.
+    over_limit_skipped_other: >-
+      Pominięto {{count, number}} utworu – limit kolejki to tutaj
+      {{limit, number}} na osobę.
+    duplicates_skipped_one: Pominięto 1 utwór, który już był w kolejce.
+    duplicates_skipped_few: >-
+      Pominięto {{count, number}} utwory, które już były w kolejce.
+    duplicates_skipped_many: >-
+      Pominięto {{count, number}} utworów, które już były w kolejce.
+    duplicates_skipped_other: >-
+      Pominięto {{count, number}} utworu, które już były w kolejce.
     domain:
       other: Podany link nie jest obsługiwany.
-      youtube: Eara tymczasowo usunęła wsparcie dla linków YouTube.
-      vote_locked: >
+      youtube: Eara tymczasowo wyłączyła obsługę linków YouTube.
+      youtube_premium: >-
+        Linki YouTube to funkcja **Premium**. Wyszukaj utwór po nazwie albo
+        wklej link ze Spotify lub Apple Music, aby odtworzyć go za darmo.
+      vote_locked: >-
         Musisz zagłosować na {{mention}} na **top.gg**, aby uzyskać dostęp do
         linków `{{domain}}`!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Nic nie zostało zwrócone dla Twojego zapytania.
-    error: Wystąpił błąd podczas ładowania Twojego zapytania.
-    invalid_url: Przekazano nieprawidłowy adres URL.
+    nothing: Nic nie znaleziono dla twojego zapytania.
+    youtube_match: >-
+      -# Odtwarzam najbliższy darmowy odpowiednik. **Premium** odtwarza linki
+      YouTube bezpośrednio.
+    voice_wait:
+      waiting: >-
+        Dołącz do kanału głosowego, a od razu zacznę grać. Poczekam
+        {{seconds, number}} s.
+      expired: >-
+        Nie udało ci się dołączyć do kanału głosowego na czas. Dołącz do
+        jakiegoś, a potem znowu użyj `/play`.
+      replaced: Anulowano, bo ponownie użyto `/play`.
+    error: Podczas wczytywania zapytania wystąpił błąd.
+    invalid_url: Podano nieprawidłowy adres URL.
     queue_full: >-
-      Kolejka nie ma wystarczającej ilości miejsca. Usuń niektóre utwory przed
-      dodaniem nowych.
-    added: 'Dodano {{item}} do kolejki.'
+      W kolejce brakuje miejsca. Usuń kilka utworów, zanim dodasz kolejne.
+    added: "{{user}} dodaje {{item}} do kolejki."
     loaded:
-      album_one: 'jeden utwór z albumu {{collection}}'
-      album_other: '{{count, number}} utworów z albumu {{collection}}'
-      artist_one: 'najlepszy utwór z *{{collection}}*'
-      artist_other: 'najlepsze {{count, number}} utworów z *{{collection}}*'
-      playlist_one: 'jeden utwór z listy odtwarzania *{{collection}}*'
-      playlist_other: '{{count, number}} utworów z listy odtwarzania *{{collection}}*'
+      album_one: jeden utwór z albumu {{collection}}
+      album_few: "{{count, number}} utwory z albumu {{collection}}"
+      album_many: "{{count, number}} utworów z albumu {{collection}}"
+      album_other: "{{count, number}} utworu z albumu {{collection}}"
+      artist_one: najpopularniejszy utwór wykonawcy *{{collection}}*
+      artist_few: "{{count, number}} najpopularniejsze utwory wykonawcy *{{collection}}*"
+      artist_many: "{{count, number}} najpopularniejszych utworów wykonawcy *{{collection}}*"
+      artist_other: "{{count, number}} najpopularniejszego utworu wykonawcy *{{collection}}*"
+      playlist_one: jeden utwór z playlisty *{{collection}}*
+      playlist_few: "{{count, number}} utwory z playlisty *{{collection}}*"
+      playlist_many: "{{count, number}} utworów z playlisty *{{collection}}*"
+      playlist_other: "{{count, number}} utworu z playlisty *{{collection}}*"
+  last_fm:
+    unavailable: Łączenie z Last.fm jest teraz niedostępne.
+    account: Konto
+    connect:
+      prompt: >-
+        Otwórz poniższy link, aby połączyć konto Last.fm. Działa jednorazowo i
+        wygasa za {{minutes, number}} min, więc nikomu go nie pokazuj.
+      button: Połącz Last.fm
+      open: Otwórz Last.fm
+    disconnect:
+      button: Rozłącz
+      done: Rozłączono konto Last.fm.
+    status:
+      unlinked: Nie masz jeszcze połączonego konta Last.fm.
+    scrobbling:
+      label: Scrobblowanie
+      turn_on: Włącz scrobblowanie
+      turn_off: Wyłącz scrobblowanie
+      enabled: Scrobblowanie włączone.
+      disabled: Scrobblowanie wyłączone. Konto pozostaje połączone.
   stop:
-    success: Odtwarzacz został zatrzymany.
+    success: "{{user}} zatrzymuje odtwarzacz."
   volume:
-    current: 'Bieżąca głośność to {{volume, number}}.'
-    out_of_bounds: Głośność musi być między 0 a 255.
-    success: 'Głośność została ustawiona na {{volume, number}}.'
+    current: Głośność wynosi {{volume, number}}.
+    success: "{{user}} ustawia głośność na {{volume, number}}."
+    over_limit: >-
+      Na tym serwerze tylko DJ-e mogą ustawić głośność powyżej {{limit, number}}.
   effects:
-    enabled: 'Włączono efekt ''*{{effect}}*''!'
-    disabled: 'Wyłączono efekt ''*{{effect}}*''!'
-    trial_enabled: 'Włączono efekt ''*{{effect}}*'' dla bieżącego utworu!'
-    trial_disabled: 'Wyłączono efekt ''*{{effect}}*'' dla bieżącego utworu!'
-    cleared: Usunięto wszystkie włączone efekty!
+    enabled: "{{user}} włącza efekt *{{effect}}*."
+    disabled: "{{user}} wyłącza efekt *{{effect}}*."
+    trial_enabled: "{{user}} włącza efekt *{{effect}}* dla bieżącego utworu."
+    trial_disabled: "{{user}} wyłącza efekt *{{effect}}* dla bieżącego utworu."
+    cleared: "{{user}} wyłącza wszystkie efekty."
+    list:
+      none: Żadne efekty nie są włączone.
+      some: "Włączone efekty: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} włącza tryb 24/7. Zostanę na kanale, dopóki ktoś nie użyje
+      `/leave`.
+    disabled: >-
+      {{user}} wyłącza tryb 24/7. Wyjdę, gdy muzyka ucichnie albo wszyscy
+      wyjdą.
+    already:
+      enabled: Tryb 24/7 jest już włączony.
+      disabled: Tryb 24/7 jest już wyłączony.
+    saved: >-
+      {{channel}} to teraz mój kanał 24/7. Będę do niego dołączać automatycznie,
+      gdy nie gram nigdzie indziej na tym serwerze.
+    forgotten: >-
+      Przestanę wracać na mój kanał 24/7. Jeśli teraz na nim jestem, zostanę,
+      dopóki ktoś nie wyłączy 24/7 albo nie użyje `/leave`.
+    not_voice: To nie jest kanał głosowy ani kanał sceniczny.
+    turn_on: Włącz 24/7
+    turn_off: Wyłącz 24/7
+    keep: Zawsze tu wracaj
+    forget: Przestań wracać
+    auto_pause:
+      "on": >-
+        {{user}} włącza autopauzę. Odtwarzacze 24/7 na tym serwerze pauzują, gdy
+        nikogo nie ma na kanale, i grają dalej, gdy ktoś dołączy.
+      "off": >-
+        {{user}} wyłącza autopauzę. Odtwarzacze 24/7 na tym serwerze grają dalej
+        nawet na pustym kanale.
+      pause: Pauza, gdy pusto
+      keep_playing: Graj dalej, gdy pusto
   immersive:
-    disabled: Tryb immersyjny został wyłączony.
+    disabled: "{{user}} wyłącza tryb immersyjny."

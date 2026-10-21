@@ -1,308 +1,523 @@
 checks:
-  guild_only: Lệnh này chỉ có thể được sử dụng trong máy chủ.
-  not_playing: Tôi không đang phát nhạc trong máy chủ này.
-  user_vc_none: Bạn phải ở trong một kênh thoại để sử dụng lệnh này.
-  user_vc_diff: Bạn phải ở cùng kênh thoại với tôi để dùng lệnh này.
-  queue_empty: Hàng đợi trống.
-  nothing_playing: Không có bài nào đang phát.
-  unknown_command: Tôi không nhận ra lệnh này...
-  owner_only: Bạn không được phép sử dụng lệnh này.
-  maintenance: 'Bot đang bảo trì, hãy quay lại sau.'
+  guild_only: "Lệnh này chỉ dùng được trong máy chủ."
+  not_playing: "Mình không phát nhạc trong máy chủ này."
+  user_vc_none: "Bạn phải ở trong một kênh thoại để dùng lệnh này."
+  user_vc_diff: "Bạn phải ở cùng kênh thoại với mình để dùng lệnh này."
+  queue_empty: "Hàng đợi đang trống."
+  nothing_playing: "Không có bài nào đang phát."
+  unknown_command: "Mình không nhận ra lệnh này..."
+  owner_only: "Bạn không được phép dùng lệnh này."
+  missing_permissions: "Bạn cần các quyền sau để dùng lệnh này: {{permissions}}."
+  maintenance: "Bot đang bảo trì, bạn quay lại sau nhé."
+  tier_required: "Gói của máy chủ này không bao gồm mình. Đăng ký tại {{website}} để dùng mình ở đây."
+  tier_lapsed: "Gói đăng ký của máy chủ này đã hết hạn nên mình đã ngừng phát. Gia hạn tại {{website}} để phát lại."
+  voice_channel_not_allowed: "Ở đây mình chỉ phát được trong các kênh sau: {{channels}}."
+  dj_only:
+    role: "Chế độ DJ đang bật, nên chỉ người có {{role}} hoặc quyền **Quản lý máy chủ** mới làm được việc đó."
+    managers: "Chế độ DJ đang bật, nên chỉ người có quyền **Quản lý máy chủ** mới làm được việc đó."
+stage:
+  hand_raised: "Mình đã giơ tay trên sân khấu. Người điều phối sân khấu cần mời mình lên phát biểu thì mọi người mới nghe được nhạc."
+  cannot_speak: "Mình đang ở hàng khán giả của sân khấu và không thể xin phát biểu. Hãy cấp cho mình quyền **Yêu cầu phát biểu**, hoặc tự mời mình lên phát biểu."
 common:
-  join_our_server: 'Tham gia [*Máy chủ Discord*]({{invite}}) để biết thêm thông tin'
-  message_deleted: '*Tin nhắn đã bị xóa*'
-  vote: Bình chọn trên Top.gg
-  discord_server: Máy chủ hỗ trợ
-  remove: Xóa
-  play_now: Phát ngay
-  next: Tiếp theo
-  previous: Trước đó
-  unknown_artist: Nghệ sĩ chưa biết
-  unavailable_track: '[dữ liệu bài hát không khả dụng]'
-  unknown_url: URL không xác định
-  unsupported_url: URL không được hỗ trợ
-  source_url: 'URL {{source}}'
-  unknown: Chưa biết
-  unknown_channel: Kênh chưa biết
-  none: Không có
-  not_available: Không áp dụng
-  'yes': Có
-  'no': Không
-  track: Bài hát
-  queue: Hàng đợi
+  join_our_server: "Tham gia [*máy chủ Discord*]({{invite}} ) của chúng mình để biết thêm thông tin."
+  message_deleted: "*Tin nhắn đã bị xóa*"
+  vote: "Bình chọn trên Top.gg"
+  discord_server: "Máy chủ hỗ trợ"
+  help_center: "Trung tâm trợ giúp"
+  open_player: "Mở trình phát"
+  open_in_web_player: "Mở trong trình phát web"
+  remove: "Xóa"
+  play_now: "Phát ngay"
+  next: "Tiếp"
+  previous: "Trước"
+  unknown_artist: "Nghệ sĩ không rõ"
+  unavailable_track: "[không có thông tin bài hát]"
+  unknown_url: "URL không rõ"
+  unsupported_url: "URL không được hỗ trợ"
+  supported_sites: "Trang được hỗ trợ"
+  source_url: "URL {{source}}"
+  unknown: "Không rõ"
+  unknown_channel: "Kênh không rõ"
+  none: "Không có"
+  not_available: "Không có"
+  yes: "Có"
+  no: "Không"
+  track: "Bài hát"
+  queue: "Hàng đợi"
   state:
-    loading: Đang tải
-    paused: Tạm dừng
-    playing: Đang phát
-    idle: Không hoạt động
-    active: Hoạt động
-    'off': Tắt
-    disconnected: Đã ngắt kết nối
-    joining: Đang tham gia
-    connected: Đã kết nối
+    loading: "Đang tải"
+    paused: "Đã tạm dừng"
+    playing: "Đang phát"
+    idle: "Rảnh"
+    active: "Hoạt động"
+    on: "Bật"
+    off: "Tắt"
+    disconnected: "Đã ngắt kết nối"
+    joining: "Đang vào"
+    reconnecting: "Đang kết nối lại"
+    connected: "Đã kết nối"
   confirmation:
     prompt: |-
       {{message}}
-      -# Bạn có **30 giây** để phản hồi.
-    confirm: Xác nhận
-    deny: Từ chối
+      -# Bạn có **30 giây** để trả lời.
+    confirm: "Xác nhận"
+    deny: "Từ chối"
   premium:
-    sku_required: Máy chủ này yêu cầu **Đăng ký Premium** để truy cập lệnh này.
-    uninterrupted_access: 'Sau khi bình chọn, bạn sẽ nhận được *tối đa* 12 giờ truy cập liên tục!'
-    vote_required: >
-      Bạn phải bình chọn cho {{mention}} trên **top.gg** để có thể truy cập lệnh
-      này.
+    sku_required: "Máy chủ này cần **gói Premium** để dùng lệnh này."
+    pricing_pitch: "-# Gói chỉ từ **{{price}}/tháng** cho chất lượng âm thanh cao hơn, hàng đợi lớn hơn và truy cập YouTube."
+    uninterrupted_access: "Sau khi bình chọn, bạn sẽ được dùng liên tục *tối đa* 12 giờ!"
+    vote_required: >-
+      Bạn phải bình chọn cho {{mention}} trên **top.gg** để dùng lệnh này.
 
       -# $t(common.premium.uninterrupted_access)
-    get_premium: Nhận Premium
-    vote_locks_premium: '**Premium** loại bỏ khóa bình chọn cho toàn bộ máy chủ.'
+    get_premium: "Mua Premium"
+    vote_locks_premium: "**Premium** bỏ yêu cầu bình chọn cho cả máy chủ."
 buttons:
+  add:
+    title: "Thêm vào hàng đợi"
+    label: "Tên bài hát hoặc liên kết"
+    placeholder: "Tìm kiếm hoặc dán liên kết"
+    another: "Thêm bài khác"
   remove:
-    none: Tôi không tìm thấy bài hát mà bạn muốn xóa...
-    done: '{{author}} đã xóa {{track}} khỏi hàng đợi.'
+    none: "Mình không tìm thấy mục bạn muốn xóa..."
+    done: "{{author}} đã xóa {{track}} khỏi hàng đợi."
   correlated_remove:
-    none: Các bài hát đã được xếp vào hàng đợi hiện không tìm thấy...
-    done: '{{author}} đã xóa {{count}} bài hát đã được xếp hàng.'
+    none: "Không tìm thấy các bài hát đã được thêm vào hàng đợi..."
+    done_one: "{{author}} đã xóa {{count, number}} bài hát đã thêm vào hàng đợi."
+    done_other: "{{author}} đã xóa {{count, number}} bài hát đã thêm vào hàng đợi."
   play_now:
-    none: >-
-      Tôi không thể tìm thấy các bài hát bạn đã thêm vào hàng đợi, bạn đã phát
-      chúng rồi à?
-    not_found: Không thể tìm thấy bài hát đó trong hàng đợi.
-    done_one: 'Đã ưu tiên một bài hát do {{requester}} yêu cầu.'
-    done_other: 'Đã ưu tiên {{count}} bài hát do {{requester}} yêu cầu.'
-    footer_a: 'Đã chuyển sang {{next}} từ {{prev}}'
-    footer_b: 'Đã chuyển sang {{next}}'
+    none: "Mình không tìm thấy các bài bạn đã thêm trong hàng đợi. Có phải bạn đã phát chúng rồi không?"
+    not_found: "Không tìm thấy bài hát đó trong hàng đợi."
+    done_one: "Đã ưu tiên {{count, number}} bài hát do {{requester}} yêu cầu."
+    done_other: "Đã ưu tiên {{count, number}} bài hát do {{requester}} yêu cầu."
+    footer_a: "Đã chuyển từ {{prev}} sang {{next}}."
+    footer_b: "Đã chuyển sang {{next}}."
   item_actions:
-    not_found: Bài hát đó không còn trong hàng đợi nữa.
+    not_found: "Bài hát đó không còn trong hàng đợi."
   previous:
-    none: Không có bài hát nào trước đó...
-  skip_to: '{{user}} đã bỏ qua sang {{track}}'
-  stop: '{{user}} đã dừng trình phát.'
+    none: "Không có bài hát nào trước đó..."
+  skip_to: "{{user}} đã chuyển sang {{track}}."
+  stop: "{{user}} đã dừng trình phát."
 events:
   command_failed:
-    message: Lệnh này đã thất bại.
+    message: "Đã xảy ra lỗi"
     reason:
-      unknown: >-
-        Một lỗi bất ngờ đã xảy ra, vui lòng báo cáo sự cố này cho đội phát
-        triển.
-      panic: >-
-        Nhiệm vụ xử lý lệnh của bạn đã bị lỗi, vui lòng báo cáo điều này cho đội
-        phát triển.
-    footer: 'Cung cấp mã ID này cho đội phát triển: **{{eid}}**'
+      unknown: "Hãy thử lại sau giây lát."
+      player_restarted: "Trình phát đã phải khởi động lại. Hãy thử lại nhé."
+    footer: "Mã lỗi `{{eid}}` · hãy gửi mã này trong máy chủ hỗ trợ của chúng mình nếu lỗi cứ lặp lại."
+    usage: "Có vẻ chưa đúng. Đây là cách dùng:"
   player:
     tips:
-      autoplay: 'Giữ nhạc tiếp tục phát khi hàng đợi kết thúc bằng lệnh {{command}}.'
-      crossfade: >-
-        Bạn có biết chúng tôi có tính năng chuyển tiếp mượt? Sử dụng lệnh
-        {{command}} để cấu hình.
-      effects: 'Thay đổi cảm giác bài hát hiện tại với lệnh {{command}}.'
-      history: >-
-        Đang tìm kiếm thứ gì đó đã phát trước đó? Lệnh {{command}} cũng có thể
-        hiển thị lịch sử hàng đợi.
-      immersive: >-
-        Sử dụng {{spatialize}} hoặc {{orbit}} để tăng thêm trải nghiệm nghe
-        nhạc!
-      loop: >-
-        Muốn nghe lại? Lệnh {{command}} có thể lặp lại bài hát này hoặc cả hàng
-        đợi.
-      move: >-
-        Sắp xếp lại hoặc dọn dẹp hàng đợi với lệnh {{move_command}} và
-        {{remove_command}}.
-      notifications: >-
-        Quản trị viên máy chủ có thể chọn kênh phát nhạc riêng biệt bằng lệnh
-        {{command}}.
-      seek: 'Chuyển đến bất kỳ điểm nào trong bài hát này bằng lệnh {{command}}.'
-      shuffle: >-
-        Trộn ngẫu nhiên các bài hát đang chờ trong hàng đợi bằng lệnh
-        {{command}}.
-      voice_status: >-
-        Quản trị viên máy chủ có thể hiển thị bài hát hiện tại trong trạng thái
-        kênh thoại bằng lệnh {{command}}.
+      autoplay: "Giữ nhạc tiếp tục khi hết hàng đợi với {{command}}."
+      crossfade: "Bạn có biết chúng mình có chuyển tiếp mượt không? Dùng {{command}} để thiết lập."
+      effects: "Làm mới cảm giác của bài hát hiện tại với {{command}}."
+      history: "Tìm bài đã phát lúc trước? {{command}} cũng hiển thị được lịch sử hàng đợi."
+      immersive: "Dùng {{spatialize}} hoặc {{orbit}} để trải nghiệm thêm sống động!"
+      last_fm: "Liên kết tài khoản Last.fm với {{command}} để scrobble mọi bài bạn nghe ở đây."
+      loop: "Muốn nghe lại? {{command}} có thể lặp bài này hoặc cả hàng đợi."
+      move: "Sắp xếp lại hoặc dọn dẹp hàng đợi với {{move_command}} và {{remove_command}}."
+      notifications: "Người quản lý máy chủ có thể chọn một kênh riêng cho trình phát bằng {{command}}."
+      player: "Theo dõi lời bài hát trực tiếp và quản lý hàng đợi bằng {{command}} hoặc trong [trình phát web]({{url}})."
+      player_web: "Theo dõi lời bài hát trực tiếp và quản lý hàng đợi trong [trình phát web]({{url}})."
+      seek: "Tua đến bất kỳ đoạn nào của bài này với {{command}}."
+      shuffle: "Xáo trộn các bài đang chờ trong hàng đợi với {{command}}."
+      voice_status: "Người quản lý máy chủ có thể hiển thị bài đang phát ở trạng thái kênh thoại bằng {{command}}."
     notification:
-      join_failed: Tôi không thể tham gia kênh thoại của bạn.
-      playback_failed: 'Phát {{track}} thất bại'
-      scheduler_failed: >-
-        Lịch biểu trình phát cho máy chủ này đã gặp lỗi. Vui lòng thực hiện
-        `/leave`, sau đó là `/join`, và báo cáo nếu lỗi vẫn xảy ra.
-      playback_stalled: >-
-        Quá nhiều lần phát nhạc thất bại. Nếu tình trạng tiếp diễn, vui lòng
-        tham gia Máy chủ Hỗ trợ của chúng tôi.
-      idle_timeout: 'Người chơi đã không hoạt động quá lâu, nên tôi đã ngắt kết nối.'
-      restarting: Eara đang khởi động lại và sẽ sớm hoạt động trở lại.
+      join_failed: "Mình không vào được kênh thoại của bạn."
+      playback_failed: "Không phát được {{track}}."
+      scheduler_failed: "Bộ lập lịch trình phát của máy chủ này đã gặp lỗi. Hãy dùng `/leave`, rồi `/join`, và báo cho chúng mình nếu lỗi lặp lại."
+      playback_stalled: "Phát thất bại quá nhiều lần. Nếu vẫn tiếp tục, hãy tham gia máy chủ hỗ trợ của chúng mình."
+      idle_timeout: "Trình phát không hoạt động quá lâu nên mình đã ngắt kết nối."
+      restarting: "Eara đang khởi động lại và sẽ sớm quay lại."
     disconnect:
-      alone: 'Tôi đã bị bỏ lại một mình, ngắt kết nối <t:{{timestamp}}:R>'
+      alone: "Mình bị bỏ lại một mình, sẽ ngắt kết nối <t:{{timestamp}}:R>."
     queue:
       end:
-        message: Hàng đợi đã kết thúc.
+        message: "Hàng đợi đã hết."
         prompts:
           review:
-            message: 'Thích {{mention}} chứ? Hãy để lại đánh giá cho chúng tôi!'
-            button: Để lại đánh giá
+            message: "Bạn thích {{mention}} chứ? Để lại đánh giá cho chúng mình nhé!"
+            button: "Viết đánh giá"
           vote:
-            message: >-
-              Thích {{mention}} chứ? Hãy bình chọn cho chúng tôi để giúp nhiều
-              người hơn tìm thấy nó!
-            button: Bình chọn cho chúng tôi
+            message: "Bạn thích {{mention}} chứ? Bình chọn để nhiều người biết đến hơn nhé!"
+            button: "Bình chọn"
           support:
-            message: >-
-              Cần trợ giúp hay muốn trò chuyện? Tham gia cộng đồng Discord của
-              chúng tôi!
-            button: Tham gia máy chủ của chúng tôi
+            message: "Cần trợ giúp hay muốn giao lưu? Tham gia cộng đồng Discord của chúng mình!"
+            button: "Vào máy chủ"
+          player:
+            message: "Chọn bài tiếp theo từ trình phát web: tìm kiếm, lời bài hát và hàng đợi ở cùng một chỗ."
+            button: "Mở trình phát web"
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: Chia sẻ bản tóm tắt này khi yêu cầu trợ giúp về người chơi.
-    loop_indefinite: '{{mode}} (vô thời hạn)'
-    loop_remaining: '{{mode}} (còn {{count, number}})'
+    footer: "Gửi kèm bản tóm tắt này khi cần trợ giúp về trình phát."
+    loop_indefinite: "{{mode}} (không giới hạn)"
+    loop_remaining: "{{mode}} (còn {{count, number}})"
   dev:
-    entitlement_granted: 'Đã cấp quyền lợi {{entitlement}} cho SKU {{sku}} tại máy chủ {{guild}}.'
-    player_not_found: 'Không tồn tại người chơi nào cho máy chủ {{guild}}.'
-    joining: 'Đang tham gia {{channel}} ({{connection}})'
-    connected: 'Đã kết nối tới {{channel}} ({{connection}})'
+    entitlement_granted: "Đã cấp quyền lợi {{entitlement}} cho SKU {{sku}} trong máy chủ {{guild}}."
+    player_not_found: "Không có trình phát nào cho máy chủ {{guild}}."
+    joining: "Đang vào {{channel}} ({{connection}})"
+    reconnecting: "Đang kết nối lại với {{channel}} ({{connection}})"
+    connected: "Đã kết nối với {{channel}} ({{connection}})"
+  help:
+    details: "-# Dùng `/help` để xem chi tiết về bất kỳ lệnh nào."
+    player: "-# Lời bài hát trực tiếp, hàng đợi và các nút điều khiển cũng có trong [trình phát web]({{url}})."
+    supported_sites: "-# Không chắc liên kết có chạy không? Xem [eara phát được từ những trang nào]({{url}})."
+  feedback:
+    ask:
+      title: "Bạn có thích {{mention}} không?"
+      note: "Câu trả lời của bạn giúp chúng mình quyết định nên làm gì tiếp theo."
+      "yes": "Có"
+      "no": "Không hẳn"
+    enjoying:
+      title: "Cảm ơn bạn! Giúp người khác biết đến {{mention}} nhé"
+      note: "Các máy chủ tìm bot mới trên Top.gg. Một đánh giá hoặc lượt bình chọn ở đó giúp chúng mình đến với nhiều người hơn."
+      review: "Viết đánh giá"
+      vote: "Bình chọn trên Top.gg"
+    not_enjoying:
+      title: "Xin lỗi vì bot chưa ổn với bạn"
+      note: "Hãy kể cho chúng mình chuyện gì không ổn trong máy chủ Discord, để chúng mình giúp bạn xử lý và biết cần sửa gì."
+      support: "Vào máy chủ Discord"
   ping:
-    message: Pong!
-    footer: Gặp sự cố? Hãy tham gia **Máy chủ Hỗ trợ** của chúng tôi!
+    message: "Pong!"
+    footer: "Gặp sự cố? Xem **Trung tâm trợ giúp** hoặc vào **Máy chủ hỗ trợ** của chúng mình."
   stats:
-    instance_failed: Không thể truy xuất phiên bản.
+    instance_failed: "Không tải được số liệu thống kê của bot này."
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} đã bật tự động phát."
+    disabled: "{{user}} đã tắt tự động phát."
+    turn_on: "Bật tự động phát"
+    turn_off: "Tắt tự động phát"
+  automix:
+    enabled: "{{user}} đã bật automix. Giờ mỗi bài sẽ được mix sang bài tiếp theo ở điểm hợp nhất, thay cho chuyển tiếp mượt."
+    disabled: "{{user}} đã tắt automix."
+    turn_on: "Bật automix"
+    turn_off: "Tắt automix"
   crossfade:
     current:
-      enabled: >-
-        Thời lượng chuyển tiếp chéo hiện được đặt thành {{duration, number}}
-        giây.
-      disabled: Chuyển tiếp chéo đã bị tắt.
+      "on": "Chuyển tiếp mượt đang là {{seconds, number}} giây."
+      "off": "Chuyển tiếp mượt đang tắt."
     updated:
-      enabled: 'Thời lượng chuyển tiếp chéo đã được đặt thành {{duration, number}} giây.'
-      disabled: Chuyển tiếp chéo đã bị tắt.
-  default_volume:
-    current: 'Hiện tại âm lượng mặc định cho máy chủ này là {{volume, number}}.'
-    updated: 'Đã cập nhật âm lượng mặc định cho máy chủ này thành {{volume, number}}.'
-  do_vc_status_update:
+      "on": "{{user}} đã đặt chuyển tiếp mượt thành {{seconds, number}} giây."
+      "off": "{{user}} đã tắt chuyển tiếp mượt."
+    "off": "Tắt"
+    seconds: "{{seconds, number}} giây"
+  scope:
+    server: "Đã lưu cho cả máy chủ."
+    session: "Đến khi trình phát dừng. Người có quyền Quản lý máy chủ có thể lưu cho cả máy chủ, tại đây hoặc trong {{command}}."
+  dj:
     current:
-      enabled: >-
-        Hiện tại, {{mention}} sẽ cập nhật trạng thái kênh thoại khi bài hát hiện
-        tại thay đổi.
-      disabled: >-
-        Hiện tại, {{mention}} sẽ không cập nhật trạng thái kênh thoại khi bài
-        hát hiện tại thay đổi.
+      "on": "Chế độ DJ đang **bật**. Chỉ DJ mới điều khiển được trình phát."
+      "off": "Chế độ DJ đang **tắt**. Mọi người trong cuộc gọi đều điều khiển được trình phát."
+    who:
+      role: "DJ là thành viên có {{role}}, bất kỳ ai có quyền Quản lý máy chủ, và bất kỳ ai là người nghe duy nhất cùng mình trong cuộc gọi."
+      managers: "DJ là bất kỳ ai có quyền Quản lý máy chủ, và bất kỳ ai là người nghe duy nhất cùng mình trong cuộc gọi."
+    you:
+      "yes": "Bạn có thể điều khiển trình phát."
+      "no": "Hiện bạn không thể điều khiển trình phát."
     updated:
-      enabled: >-
-        {{mention}} sẽ bắt đầu cập nhật trạng thái kênh thoại khi bài hát hiện
-        tại thay đổi.
-      disabled: >-
-        {{mention}} sẽ không còn cập nhật trạng thái kênh thoại khi bài hát hiện
-        tại thay đổi.
-  autoplay:
-    current:
-      enabled: 'Hiện tại, {{mention}} sẽ tự động phát các bài hát được đề xuất.'
-      disabled: 'Hiện tại, {{mention}} không tự động phát các bài hát được đề xuất.'
-    updated:
-      enabled: '{{mention}} sẽ bắt đầu tự động phát các bài hát được đề xuất.'
-      disabled: '{{mention}} sẽ không còn tự động phát các bài hát được đề xuất.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} hiện không gửi thông báo đến kênh cụ thể nào.'
-        some: '{{mention}} hiện đang gửi thông báo đến {{channel}}'
-      clear: '{{mention}} sẽ không còn gửi thông báo đến kênh cụ thể nào.'
-      update: '{{mention}} sẽ bắt đầu gửi thông báo đến {{channel}}'
+      "on": "{{user}} đã bật chế độ DJ."
+      "off": "{{user}} đã tắt chế độ DJ."
+      role: "{{user}} đã đặt vai trò DJ là {{role}}."
+      no_role: "{{user}} đã gỡ vai trò DJ."
+    turn_on: "Bật chế độ DJ"
+    turn_off: "Tắt chế độ DJ"
+    role_placeholder: "Không có vai trò DJ"
+  settings:
+    title: "Cài đặt"
+    footer: "Thay đổi được lưu ngay. Mọi thứ ở đây cũng có trên [bảng điều khiển]({{url}})."
+    pages:
+      playback: "Phát nhạc"
+      dj: "DJ"
+      queue: "Hàng đợi"
+      voice: "Kênh thoại"
+      bot: "Bot này"
+    about:
+      playback: "Cách nhạc bắt đầu, nghe ra sao và tiếp tục phát trên toàn máy chủ."
+      dj: "Ai điều khiển trình phát, và việc bỏ qua bài được quyết định thế nào."
+      queue: "Những gì có thể thêm vào hàng đợi, và thứ tự phát."
+      voice: "Nơi các bot của chúng mình được phát trong máy chủ này, trừ khi bot có danh sách riêng."
+      bot: "Chỉ dành cho {{bot}}. Mỗi bot của chúng mình trong máy chủ này có cài đặt riêng, mục nào để trống sẽ theo cài đặt của máy chủ."
+    state:
+      "on": "Bật"
+      "off": "Tắt"
+    turn_on: "Bật"
+    turn_off: "Tắt"
+    change: "Đổi"
+    premium: "Premium"
+    invalid: "Nhập một số nguyên từ {{min, number}} đến {{max, number}}."
+    invalid_optional: "Nhập một số nguyên từ {{min, number}} đến {{max, number}}, hoặc để trống."
+    playback:
+      volume:
+        label: "Âm lượng ban đầu"
+        about: "Mức âm lượng khi mình bắt đầu phát."
+        input: "Từ 0 đến 250."
+      crossfade:
+        label: "Chuyển tiếp mượt"
+        about: "Hòa phần cuối mỗi bài vào bài tiếp theo."
+        value: "{{seconds, number}} giây"
+        input: "Số giây, từ 0 đến 30. 0 là tắt."
+      autoplay:
+        label: "Tự động phát"
+        about: "Tiếp tục phát các bài tương tự khi hết hàng đợi."
+      vc_status:
+        label: "Trạng thái kênh thoại"
+        about: "Hiển thị bài đang phát làm trạng thái của kênh thoại."
+      auto_pause:
+        label: "Dừng 24/7 khi trống"
+        about: "Trình phát 24/7 sẽ tạm dừng khi không có ai trong cuộc gọi, và phát lại khi có người vào."
+      notifications:
+        label: "Kênh đang phát"
+        about: "Nơi mình đăng từng bài. Để trống để đăng ở nơi bắt đầu phát nhạc."
+        placeholder: "Kênh nơi bắt đầu phát nhạc"
+    dj:
+      mode:
+        label: "Chế độ DJ"
+        about: "Chỉ DJ mới điều khiển được trình phát. Mọi người vẫn có thể thêm bài và bỏ phiếu bỏ qua."
+      role:
+        label: "Vai trò DJ"
+        about: "Thành viên có vai trò này là DJ, cũng như bất kỳ ai có quyền Quản lý máy chủ hoặc là người nghe duy nhất cùng mình trong cuộc gọi."
+        placeholder: "Không có vai trò DJ"
+      max_volume:
+        label: "Giới hạn âm lượng"
+        about: "Mức âm lượng cao nhất mà người không phải DJ có thể đặt."
+        none: "Không giới hạn"
+        input: "Từ 0 đến 250. Để trống nếu không giới hạn."
+      vote_skip:
+        label: "Phiếu để bỏ qua"
+        about: "Tỉ lệ người nghe cần để bỏ qua một bài."
+        none: "Hơn một nửa"
+        value: "{{percent, number}}%"
+        input: "Phần trăm, từ 1 đến 100. Để trống để dùng mức hơn một nửa."
+    queue:
+      no_duplicates:
+        label: "Không trùng lặp"
+        about: "Không thể thêm lại bài đã có trong hàng đợi."
+      fair:
+        label: "Hàng đợi công bằng"
+        about: "Lần lượt phát bài của từng người thêm bài."
+      leave_cleanup:
+        label: "Dọn khi rời đi"
+        about: "Xóa các bài của một người 30 giây sau khi họ rời cuộc gọi."
+      max_songs:
+        label: "Số bài mỗi người"
+        about: "Số bài tối đa mà người không phải DJ có thể có trong hàng đợi."
+        none: "Không giới hạn"
+        input: "Từ 1 đến 1000. Để trống nếu không giới hạn."
+      max_length:
+        label: "Bài dài nhất"
+        about: "Độ dài tối đa của bài mà người không phải DJ có thể thêm."
+        none: "Không giới hạn"
+        value_one: "{{count, number}} phút"
+        value_other: "{{count, number}} phút"
+        input: "Tính bằng phút, từ 1 đến 1440. Để trống nếu không giới hạn."
+    voice:
+      channels:
+        label: "Kênh thoại"
+        about: "Nơi mình được phát. Để trống để phát trong mọi kênh thoại."
+        placeholder: "Mọi kênh thoại"
+    bot:
+      always_on:
+        label: "Kênh 24/7"
+        about: "Kênh mà bot này tự vào và ở lại, kể cả khi nhạc đã dừng."
+        placeholder: "Không có"
+        taken: "{{bot}} đã ở kênh đó suốt ngày đêm rồi. Hãy chọn kênh khác."
+      voice:
+        label: "Kênh thoại"
+        about: "Nơi bot này được phát. Để trống để theo các kênh thoại của máy chủ."
+        any: "Bot này có thể phát trong mọi kênh thoại mà máy chủ cho phép. Chọn vài kênh để giới hạn trong các kênh đó."
+        placeholder: "Kênh thoại của máy chủ"
+      notifications:
+        label: "Kênh đang phát"
+        about: "Nơi bot này đăng từng bài, thay cho kênh của máy chủ."
+        placeholder: "Kênh của máy chủ"
+      volume:
+        label: "Âm lượng ban đầu"
+        about: "Mức âm lượng khi bot này bắt đầu phát, thay cho âm lượng của máy chủ."
+        none: "Theo máy chủ ({{volume, number}})"
+        input: "Từ 0 đến 250. Để trống để dùng mức của máy chủ."
+  history:
+    title: "Đã phát gần đây"
+    title_by: "{{user}} đã yêu cầu gần đây"
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: "Trang {{page, number}}/{{pages, number}}"
+    again: "Thêm lại"
+    empty: "Chưa có ai yêu cầu bài nào ở đây."
+    not_playing: "Mình không phát nhạc trong máy chủ này. Dùng `/play` để bắt đầu."
+    gone: "Mình không tìm lại được bài đó. Hãy thử dùng `/play`."
+    queued: "{{user}} đã thêm lại {{track}} vào hàng đợi."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Đã rời khỏi {{channel}}.'
-    destroyed: Đã hủy người chơi cho máy chủ này.
+    success_channel: "Đã rời {{channel}}."
+    destroyed: "Đã dừng trình phát cho máy chủ này."
   join:
-    conflict: Tôi đã đang ở trong một kênh thoại.
-    failure: Tôi không thể tham gia kênh thoại đó.
-    in_progress: Tôi đã đang tham gia kênh thoại đó.
+    conflict: "Mình đang ở trong một kênh thoại rồi."
+    failure: "Mình không vào được kênh thoại đó."
+    in_progress: "Mình đang vào kênh thoại đó rồi."
     perms:
-      missing: 'Tôi cần quyền **xem**, **kết nối** và **nói** trong {{channel}}.'
-    success: 'Được rồi, tôi đã tham gia {{channel}}.'
+      missing: "Mình cần quyền **xem**, **kết nối** và **nói** trong {{channel}}."
+      missing_named: "Mình không phát được trong {{channel}} vì thiếu {{permissions}} ở đó. Hãy nhờ quản trị viên máy chủ cấp các quyền này cho mình, hoặc mời lại mình bằng nút bên dưới."
+      reinvite: "Mời lại kèm quyền"
+    success: "Đã vào {{channel}}."
   skip:
-    success: Đã bỏ qua.
+    success: "{{user}} đã bỏ qua bài hát."
+    vote:
+      counted: "{{user}} đã bỏ phiếu bỏ qua bài hát. ({{votes, number}}/{{needed, number}})"
+      repeated: "Bạn đã bỏ phiếu bỏ qua bài này rồi. ({{votes, number}}/{{needed, number}})"
+      passed: "{{user}} đã bỏ phiếu bỏ qua và đủ phiếu. Đang bỏ qua bài hát."
+      requester_gone: "{{user}} đã bỏ qua bài hát. Người thêm bài đã rời cuộc gọi nên không cần bỏ phiếu."
     to:
-      invalid: >-
-        Tôi không nhận ra bài hát bạn đưa. Hãy thử dùng chức năng tự động hoàn
-        thành :)
-      none: 'Tôi không thể bỏ qua đến bài hát đó, liệu nó vẫn còn trong hàng đợi?'
+      invalid: "Mình không nhận ra bài bạn đưa. Thử dùng tự động hoàn thành nhé :)"
+      none: "Mình không chuyển đến bài đó được. Bài vẫn còn trong hàng đợi chứ?"
   seek:
-    unseekable: Bài hát hiện tại không thể tua được.
-    no_duration: Bài hát hiện tại không có độ dài.
-    syntax: 'Thời gian phải ở định dạng `mm:ss`'
-    out_of_bounds: >-
-      Vị trí bạn đưa ra sẽ vượt quá độ dài bài hát hiện tại, {{given}} >
-      {{length}}
-    success: 'Đã tua đến {{given}}'
+    unseekable: "Không tua được bài hiện tại."
+    no_duration: "Bài hiện tại không có thời lượng."
+    syntax: "Mốc thời gian phải theo định dạng `mm:ss`."
+    out_of_bounds: "Vị trí đó vượt quá cuối bài hiện tại ({{given}} > {{length}})."
+    success: "{{user}} đã tua đến {{given}}."
   loop:
     nothing:
-      success: Chế độ lặp đã bị tắt.
-      already: Chế độ lặp đã tắt từ trước.
+      success: "{{user}} đã tắt lặp lại."
+      already: "Lặp lại đang tắt rồi."
     track:
-      indef: Bắt đầu lặp bài hát hiện tại vô hạn.
-      times_one: Bài hát hiện tại sẽ lặp một lần.
-      times_other: 'Bài hát hiện tại sẽ lặp trong *{{count, number}} lần*.'
-      nuhuh: Bài hát hiện tại đã được đặt lặp rồi.
+      indef: "{{user}} đã đặt lặp bài hiện tại."
+      times_one: "{{user}} đã đặt lặp lại bài hiện tại thêm {{count, number}} lần."
+      times_other: "{{user}} đã đặt lặp lại bài hiện tại thêm {{count, number}} lần."
+      nuhuh: "Bài hiện tại đang được lặp rồi."
     queue:
-      indef: Bắt đầu lặp hàng đợi vô hạn.
-      times_one: Hàng đợi sẽ lặp một lần.
-      times_other: 'Hàng đợi sẽ lặp trong *{{count, number}} lần*.'
-      nuhuh: Hàng đợi đang trong chế độ lặp.
+      indef: "{{user}} đã đặt lặp hàng đợi."
+      times_one: "{{user}} đã đặt lặp lại hàng đợi thêm {{count, number}} lần."
+      times_other: "{{user}} đã đặt lặp lại hàng đợi thêm {{count, number}} lần."
+      nuhuh: "Hàng đợi đang được lặp rồi."
   queue:
-    use_autocomplete: Hả? Hãy thử dùng tự động hoàn thành để chọn bài hát trong hàng đợi.
+    use_autocomplete: "Hửm? Thử dùng tự động hoàn thành để chọn một bài trong hàng đợi."
     view:
-      footer: 'Trang {{cur, number}}/{{all, number}} (tổng {{tot, number}})'
+      footer: "Trang {{cur, number}}/{{all, number}} (tổng {{tot, number}})"
     move:
-      failed: Không thể di chuyển bài hát đó đến vị trí yêu cầu.
-      success: 'Đã di chuyển {{track}} đến vị trí #{{index, number}}'
+      failed: "Không chuyển được bài đó đến vị trí yêu cầu."
+      success: "{{user}} đã chuyển {{track}} đến vị trí #{{index, number}}."
     clear:
-      none: Hàng đợi đang trống.
-      success_one: Đã xóa 1 bài hát khỏi hàng đợi.
-      success_other: 'Đã xóa {{count, number}} bài hát khỏi hàng đợi.'
+      none: "Hàng đợi vốn đã trống."
+      success_one: "{{user}} đã xóa {{count, number}} bài khỏi hàng đợi."
+      success_other: "{{user}} đã xóa {{count, number}} bài khỏi hàng đợi."
     remove:
-      confirm: 'Bạn có chắc muốn xóa {{track}} khỏi hàng đợi?'
-      cancelled: 'Được rồi, tôi sẽ không xóa bài hát đó.'
-      not_found: >-
-        Bài hát bạn cung cấp không tìm thấy trong hàng đợi, hãy thử dùng tự động
-        hoàn thành.
-      success: 'Đã xóa {{track}} khỏi hàng đợi.'
+      confirm: "Bạn có chắc muốn xóa {{track}} khỏi hàng đợi không?"
+      cancelled: "Được rồi, mình sẽ không xóa bài đó."
+      not_found: "Không tìm thấy bài đó trong hàng đợi, thử dùng tự động hoàn thành nhé."
+      success: "{{user}} đã xóa {{track}} khỏi hàng đợi."
     shuffle:
-      too_small: Hàng đợi quá ngắn để xáo trộn.
-      success: Hàng đợi đã được xáo trộn.
+      too_small: "Hàng đợi quá ít bài để xáo trộn."
+      success: "{{user}} đã xáo trộn hàng đợi."
+  now_playing:
+    autoplay: "Tự động phát"
+    requested_by: "Yêu cầu bởi"
+    ends: "Kết thúc"
+    queue: "Hàng đợi"
+    queue_summary: "{{queued, number}} đang chờ · {{played, number}} đã phát"
+    up_next: "Tiếp theo"
+    refresh: "Làm mới"
+    open: "Mở"
   pause:
-    already: Trình phát đã tạm dừng rồi.
-    success: Tôi đã tạm dừng trình phát.
+    already: "Trình phát đang tạm dừng rồi."
+    success: "{{user}} đã tạm dừng trình phát."
   resume:
-    server_muted: Không thể tiếp tục phát khi tôi bị tắt tiếng trên máy chủ.
-    already: Trình phát chưa được tạm dừng
-    success: Tôi đã tiếp tục phát trình phát.
+    server_muted: "Mình không thể phát tiếp khi đang bị tắt tiếng trên máy chủ."
+    already: "Trình phát đâu có tạm dừng."
+    success: "{{user}} đã tiếp tục trình phát."
   play:
+    duplicate: "Bài đó đã có trong hàng đợi rồi."
+    over_limit_one: "Ở đây mỗi người chỉ được có {{count, number}} bài trong hàng đợi cùng lúc."
+    over_limit_other: "Ở đây mỗi người chỉ được có {{count, number}} bài trong hàng đợi cùng lúc."
+    too_long_one: "Bài hát ở đây không được dài quá {{count, number}} phút."
+    too_long_other: "Bài hát ở đây không được dài quá {{count, number}} phút."
+    too_long_skipped_one: "Đã bỏ qua {{count, number}} bài vượt giới hạn {{minutes, number}} phút."
+    too_long_skipped_other: "Đã bỏ qua {{count, number}} bài vượt giới hạn {{minutes, number}} phút."
+    over_limit_skipped_one: "Đã bỏ qua {{count, number}} bài: giới hạn hàng đợi ở đây là {{limit, number}} bài mỗi người."
+    over_limit_skipped_other: "Đã bỏ qua {{count, number}} bài: giới hạn hàng đợi ở đây là {{limit, number}} bài mỗi người."
+    duplicates_skipped_one: "Đã bỏ qua {{count, number}} bài đã có trong hàng đợi."
+    duplicates_skipped_other: "Đã bỏ qua {{count, number}} bài đã có trong hàng đợi."
     domain:
-      other: Liên kết bạn cung cấp không được hỗ trợ.
-      youtube: Eara tạm thời đã gỡ bỏ hỗ trợ các liên kết YouTube.
-      vote_locked: >
-        Bạn phải bình chọn cho {{mention}} trên **top.gg** để truy cập các liên
-        kết `{{domain}}`!
+      other: "Liên kết bạn đưa không được hỗ trợ."
+      youtube: "Eara tạm thời ngừng hỗ trợ liên kết YouTube."
+      youtube_premium: "Liên kết YouTube là tính năng **Premium**. Tìm theo tên hoặc dán liên kết Spotify hay Apple Music để phát miễn phí."
+      vote_locked: >-
+        Bạn phải bình chọn cho {{mention}} trên **top.gg** để dùng liên kết `{{domain}}`!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Không có kết quả nào được trả về cho truy vấn của bạn.
-    error: Đã xảy ra lỗi khi tải truy vấn của bạn.
-    invalid_url: Bạn đã nhập một URL không hợp lệ.
-    queue_full: Hàng đợi không còn đủ chỗ. Hãy xóa bớt bài hát trước khi thêm mới.
-    added: 'Đã thêm {{item}} vào hàng đợi.'
+    nothing: "Không tìm thấy kết quả nào cho yêu cầu của bạn."
+    youtube_match: "-# Đang phát bản miễn phí gần giống nhất. **Premium** phát trực tiếp liên kết YouTube."
+    voice_wait:
+      waiting: "Vào một kênh thoại là mình sẽ phát ngay. Mình sẽ chờ {{seconds, number}} giây."
+      expired: "Bạn chưa vào kênh thoại kịp. Hãy vào một kênh rồi dùng lại `/play`."
+      replaced: "Đã hủy vì bạn dùng lại `/play`."
+    error: "Đã xảy ra lỗi khi tải yêu cầu của bạn."
+    invalid_url: "URL bạn đưa không hợp lệ."
+    queue_full: "Hàng đợi không còn đủ chỗ. Hãy xóa bớt bài trước khi thêm."
+    added: "{{user}} đã thêm {{item}} vào hàng đợi."
     loaded:
-      album_one: 'một bài hát từ album {{collection}}'
-      album_other: '{{count, number}} bài hát từ album {{collection}}'
-      artist_one: 'bài hát hàng đầu của *{{collection}}*'
-      artist_other: '{{count, number}} bài hát hàng đầu của *{{collection}}*'
-      playlist_one: 'một bài hát từ danh sách phát *{{collection}}*'
-      playlist_other: '{{count, number}} bài hát từ danh sách phát *{{collection}}*'
+      album_one: "{{count, number}} bài từ album {{collection}}"
+      album_other: "{{count, number}} bài từ album {{collection}}"
+      artist_one: "bài nổi bật nhất của *{{collection}}*"
+      artist_other: "{{count, number}} bài nổi bật nhất của *{{collection}}*"
+      playlist_one: "{{count, number}} bài từ danh sách phát *{{collection}}*"
+      playlist_other: "{{count, number}} bài từ danh sách phát *{{collection}}*"
+  last_fm:
+    unavailable: "Hiện chưa thể kết nối Last.fm."
+    account: "Tài khoản"
+    connect:
+      prompt: "Mở liên kết bên dưới để kết nối tài khoản Last.fm của bạn. Liên kết chỉ dùng được một lần và hết hạn sau {{minutes, number}} phút, nên đừng chia sẻ cho ai."
+      button: "Kết nối Last.fm"
+      open: "Mở Last.fm"
+    disconnect:
+      button: "Ngắt kết nối"
+      done: "Đã ngắt kết nối tài khoản Last.fm."
+    status:
+      unlinked: "Bạn chưa kết nối tài khoản Last.fm nào."
+    scrobbling:
+      label: "Scrobble"
+      turn_on: "Bật scrobble"
+      turn_off: "Tắt scrobble"
+      enabled: "Đã bật scrobble."
+      disabled: "Đã tắt scrobble. Tài khoản của bạn vẫn được kết nối."
   stop:
-    success: Trình phát đã được dừng.
+    success: "{{user}} đã dừng trình phát."
   volume:
-    current: 'Âm lượng hiện tại là {{volume, number}}.'
-    out_of_bounds: Âm lượng phải nằm trong khoảng từ 0 đến 255.
-    success: 'Âm lượng đã được đặt thành {{volume, number}}.'
+    current: "Âm lượng đang là {{volume, number}}."
+    success: "{{user}} đã đặt âm lượng thành {{volume, number}}."
+    over_limit: "Trong máy chủ này, chỉ DJ mới đặt được âm lượng trên {{limit, number}}."
   effects:
-    enabled: 'Đã bật hiệu ứng ''*{{effect}}*''.'
-    disabled: 'Đã tắt hiệu ứng ''*{{effect}}*''.'
-    trial_enabled: 'Đã bật hiệu ứng ''*{{effect}}*'' cho bài hát hiện tại.'
-    trial_disabled: 'Đã tắt hiệu ứng ''*{{effect}}*'' cho bài hát hiện tại.'
-    cleared: Đã xóa tất cả các hiệu ứng đang bật.
+    enabled: "{{user}} đã bật *{{effect}}*."
+    disabled: "{{user}} đã tắt *{{effect}}*."
+    trial_enabled: "{{user}} đã bật *{{effect}}* cho bài hiện tại."
+    trial_disabled: "{{user}} đã tắt *{{effect}}* cho bài hiện tại."
+    cleared: "{{user}} đã tắt mọi hiệu ứng."
+    list:
+      none: "Không có hiệu ứng nào đang bật."
+      some: "Hiệu ứng đang bật: {{effects}}."
+  always_on:
+    enabled: "{{user}} đã bật 24/7. Mình sẽ ở lại cuộc gọi cho đến khi có người dùng `/leave`."
+    disabled: "{{user}} đã tắt 24/7. Mình sẽ rời đi khi nhạc dừng hoặc mọi người rời cuộc gọi."
+    already:
+      enabled: "24/7 đang bật rồi."
+      disabled: "24/7 đang tắt rồi."
+    saved: "{{channel}} giờ là kênh 24/7 của mình. Mình sẽ tự vào kênh này mỗi khi không phát ở nơi khác trong máy chủ."
+    forgotten: "Mình sẽ không quay lại kênh 24/7 nữa. Nếu mình đang ở đó, mình sẽ ở lại cho đến khi có người tắt 24/7 hoặc dùng `/leave`."
+    not_voice: "Đó không phải kênh thoại hay kênh sân khấu."
+    turn_on: "Bật 24/7"
+    turn_off: "Tắt 24/7"
+    keep: "Luôn quay lại đây"
+    forget: "Thôi quay lại"
+    auto_pause:
+      "on": "{{user}} đã bật tự động tạm dừng. Các trình phát 24/7 ở đây sẽ tạm dừng khi không có ai trong cuộc gọi, và phát lại khi có người vào."
+      "off": "{{user}} đã tắt tự động tạm dừng. Các trình phát 24/7 ở đây sẽ tiếp tục phát dù cuộc gọi trống."
+      pause: "Dừng khi trống"
+      keep_playing: "Vẫn phát khi trống"
   immersive:
-    disabled: Chế độ đắm chìm đã bị tắt.
+    disabled: "{{user}} đã tắt chế độ đắm chìm."

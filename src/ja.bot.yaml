@@ -1,260 +1,589 @@
 checks:
   guild_only: このコマンドはサーバー内でのみ使用できます。
-  not_playing: このサーバーで音楽を再生していません。
-  user_vc_none: このコマンドを使用するには、ボイスチャンネルに参加している必要があります。
-  user_vc_diff: このコマンドを使用するには、私と同じボイスチャンネルに参加している必要があります。
+  not_playing: このサーバーでは音楽を再生していません。
+  user_vc_none: このコマンドを使うには、ボイスチャンネルに参加している必要があります。
+  user_vc_diff: このコマンドを使うには、私と同じボイスチャンネルに参加している必要があります。
   queue_empty: キューは空です。
-  nothing_playing: 再生中の曲はありません。
-  unknown_command: このコマンドは認識できません...
-  owner_only: あなたはこのコマンドを使用する許可がありません。
-  maintenance: ボットはメンテナンス中です。後ほど再確認してください。
+  nothing_playing: 何も再生していません。
+  unknown_command: このコマンドは認識できません…
+  owner_only: このコマンドを使用する権限がありません。
+  missing_permissions: "このコマンドを使うには次の権限が必要です：{{permissions}}。"
+  maintenance: ボットはメンテナンス中です。しばらくしてからもう一度お試しください。
+  tier_required: >-
+    このサーバーのプランでは私を利用できません。ここで使うには{{website}}で登録してください。
+  tier_lapsed: >-
+    このサーバーのサブスクリプションが終了したため、再生を停止しました。再開するには{{website}}で更新してください。
+  voice_channel_not_allowed: "このサーバーで再生できるのは次のチャンネルだけです：{{channels}}"
+  dj_only:
+    role: >-
+      DJモードがオンのため、{{role}}を持つメンバーか**サーバー管理**権限を持つメンバーしか操作できません。
+    managers: >-
+      DJモードがオンのため、**サーバー管理**権限を持つメンバーしか操作できません。
+stage:
+  hand_raised: >-
+    ステージで手を挙げました。音楽が聞こえるようにするには、ステージモデレーターが私をスピーカーに招待する必要があります。
+  cannot_speak: >-
+    ステージの視聴者側にいるため、発言をリクエストできません。私に**スピーカー参加をリクエスト**権限を付与するか、直接スピーカーに招待してください。
 common:
-  join_our_server: '詳しくは、[*Discord サーバー*]({{invite}} )にご参加ください'
-  message_deleted: '*メッセージは削除されました*'
-  vote: Top.ggで投票する
+  join_our_server: >-
+    詳しくは[*Discordサーバー*]({{invite}} )に参加してください。
+  message_deleted: "*メッセージは削除されました*"
+  vote: Top.ggで投票
   discord_server: サポートサーバー
+  help_center: ヘルプセンター
+  open_player: プレイヤーを開く
+  open_in_web_player: Webプレイヤーで開く
   remove: 削除
   play_now: 今すぐ再生
   next: 次へ
   previous: 前へ
   unknown_artist: 不明なアーティスト
-  unavailable_track: '[利用不可のトラックメタデータ]'
+  unavailable_track: "[トラック情報を取得できません]"
   unknown_url: 不明なURL
-  unsupported_url: サポートされていないURL
-  source_url: '{{source}} URL'
+  unsupported_url: 非対応のURL
+  supported_sites: 対応サイト
+  source_url: "{{source}}のURL"
   unknown: 不明
   unknown_channel: 不明なチャンネル
   none: なし
   not_available: 該当なし
-  'yes': はい
-  'no': いいえ
+  yes: はい
+  no: いいえ
   track: トラック
   queue: キュー
   state:
     loading: 読み込み中
     paused: 一時停止中
     playing: 再生中
-    idle: アイドル中
+    idle: 待機中
     active: アクティブ
-    'off': オフ
+    on: オン
+    off: オフ
     disconnected: 切断済み
-    joining: 接続中
+    joining: 参加中
+    reconnecting: 再接続中
     connected: 接続済み
   confirmation:
     prompt: |-
       {{message}}
-      -# 応答する時間は**30秒**です。
-    confirm: 確認
-    deny: 拒否
+      -# **30秒**以内に応答してください。
+    confirm: 確定
+    deny: キャンセル
   premium:
-    sku_required: このサーバーでは、このコマンドにアクセスするには**プレミアムサブスクリプション**が必要です。
-    uninterrupted_access: 投票後、最大12時間の中断なしの利用が可能になります！
-    vote_required: |
-      このコマンドを使用するには、**top.gg**で{{mention}}に投票する必要があります。
+    sku_required: >-
+      このサーバーでこのコマンドを使うには**Premiumサブスクリプション**が必要です。
+    pricing_pitch: "-# プランは**月額{{price}}**から。より高い音質、より大きなキュー、YouTubeの再生が利用できます。"
+    uninterrupted_access: >-
+      投票すると、*最大*12時間途切れることなく利用できます！
+    vote_required: >-
+      このコマンドを使うには、**top.gg**で{{mention}}に投票する必要があります。
+
       -# $t(common.premium.uninterrupted_access)
-    get_premium: プレミアムを取得
-    vote_locks_premium: '**プレミアム**はサーバー全体の投票ロックを解除します。'
+    get_premium: Premiumを入手
+    vote_locks_premium: "**Premium**ならサーバー全体で投票なしで利用できます。"
 buttons:
+  add:
+    title: キューに追加
+    label: 曲名またはリンク
+    placeholder: 検索またはリンクを貼り付け
+    another: さらに追加
   remove:
-    none: 削除しようとしたアイテムが見つかりませんでした...
-    done: '{{author}} がキューから {{track}} を削除しました。'
+    none: 削除しようとした項目が見つかりませんでした…
+    done: "{{author}}が{{track}}をキューから削除しました。"
   correlated_remove:
-    none: キューに追加された楽曲が見つかりません...
-    done: '{{author}} がキューから {{count}} 曲を削除しました。'
+    none: 追加された曲がどこにも見つかりません…
+    done_one: "{{author}}が追加された{{count, number}}曲を削除しました。"
+    done_other: "{{author}}が追加された{{count, number}}曲を削除しました。"
   play_now:
-    none: キューに追加した楽曲が見つかりません。すでに再生済みですか？
-    not_found: キュー内にその楽曲が見つかりません。
-    done_one: '{{requester}} がリクエストした楽曲1曲を優先しました。'
-    done_other: '{{requester}} がリクエストした楽曲{{count}}曲を優先しました。'
-    footer_a: '{{prev}} から {{next}} にスキップしました'
-    footer_b: '{{next}} にスキップしました'
+    none: >-
+      追加した曲がキューに見つかりませんでした。もう再生済みではありませんか？
+    not_found: その曲はキューに見つかりませんでした。
+    done_one: "{{requester}}がリクエストした{{count, number}}曲を優先しました。"
+    done_other: "{{requester}}がリクエストした{{count, number}}曲を優先しました。"
+    footer_a: "{{prev}}から{{next}}にスキップしました。"
+    footer_b: "{{next}}にスキップしました。"
   item_actions:
-    not_found: その楽曲はもはやキューにありません。
+    not_found: その曲はもうキューにありません。
   previous:
-    none: 以前の楽曲はありません...
-  skip_to: '{{user}} が {{track}} にスキップしました'
-  stop: '{{user}} がプレイヤーを停止しました。'
+    none: 前の曲はありません…
+  skip_to: "{{user}}が{{track}}にスキップしました。"
+  stop: "{{user}}がプレイヤーを停止しました。"
 events:
   command_failed:
-    message: このコマンドは失敗しました。
+    message: 問題が発生しました
     reason:
-      unknown: 予期しないエラーが発生しました。開発者に報告してください。
-      panic: コマンドを処理していたタスクが異常終了しました。開発者に報告してください。
-    footer: '開発者にこのIDを伝えてください: **{{eid}}**'
+      unknown: 少し時間をおいてもう一度お試しください。
+      player_restarted: プレイヤーが再起動しました。もう一度お試しください。
+    footer: >-
+      エラーID `{{eid}}` · 何度も発生する場合はサポートサーバーで共有してください。
+    usage: "入力が正しくないようです。使い方は次のとおりです："
   player:
     tips:
-      autoplay: 'キューの最後でも音楽を続けます。{{command}}を使用してください。'
-      crossfade: 'ご存知でしたか？クロスフェード機能があります。設定には{{command}}をご利用ください。'
-      effects: '現在の楽曲の雰囲気を変えるには{{command}}を使ってください。'
-      history: '以前に再生された楽曲を探していますか？{{command}}でキュー履歴も表示できます。'
-      immersive: '{{spatialize}}または{{orbit}}を使って体験を盛り上げましょう！'
-      loop: 'もう一度聞きたいですか？{{command}}でこの楽曲やキュー全体を繰り返せます。'
-      move: '{{move_command}}と{{remove_command}}でキューを並べ替えたり整理したりできます。'
-      notifications: 'サーバー管理者は{{command}}で専用のプレイヤーチャンネルを指定できます。'
-      seek: 'この楽曲内の任意の位置に移動するには{{command}}を使用してください。'
-      shuffle: 'キュー内の楽曲をシャッフルするには{{command}}を使ってください。'
-      voice_status: 'サーバー管理者は{{command}}でボイスチャンネルのステータスに現在の楽曲を表示できます。'
+      autoplay: "{{command}}を使うと、キューが終わっても音楽を流し続けられます。"
+      crossfade: >-
+        クロスフェード機能があるのをご存知ですか？{{command}}で設定できます。
+      effects: "{{command}}で今の曲の雰囲気を変えてみましょう。"
+      history: >-
+        前に再生した曲をお探しですか？{{command}}ではキューの履歴も表示できます。
+      immersive: "{{spatialize}}や{{orbit}}で、もっと臨場感のある体験を！"
+      last_fm: >-
+        {{command}}でLast.fmアカウントを連携すると、ここで聴いた曲をすべてスクロブルできます。
+      loop: >-
+        もう一度聴きたいですか？{{command}}でこの曲やキュー全体をリピートできます。
+      move: >-
+        {{move_command}}と{{remove_command}}でキューを並べ替えたり整理したりできます。
+      notifications: >-
+        サーバー管理者は{{command}}で専用のプレイヤーチャンネルを設定できます。
+      player: >-
+        {{command}}または[Webプレイヤー]({{url}})で、リアルタイムの歌詞を見ながらキューを管理できます。
+      player_web: >-
+        [Webプレイヤー]({{url}})で、リアルタイムの歌詞を見ながらキューを管理できます。
+      seek: "{{command}}で今の曲の好きな位置にジャンプできます。"
+      shuffle: "{{command}}でキューの待機中の曲をシャッフルできます。"
+      voice_status: >-
+        サーバー管理者は{{command}}で、再生中の曲をボイスチャンネルのステータスに表示できます。
     notification:
-      join_failed: あなたのボイスチャンネルに参加できませんでした。
-      playback_failed: '{{track}} の再生に失敗しました'
+      join_failed: ボイスチャンネルに参加できませんでした。
+      playback_failed: "{{track}}を再生できませんでした。"
       scheduler_failed: >-
-        このサーバーのプレイヤースケジューラーが失敗しました。`/leave` を実行し、その後 `/join`
-        を行ってください。再発する場合は報告してください。
-      playback_stalled: 再生試行が多すぎます。継続する場合は、サポートサーバーにご参加ください。
-      idle_timeout: プレイヤーは長時間アイドル状態だったため、切断しました。
-      restarting: Eara は再起動中です。まもなく復帰する予定です。
+        このサーバーのプレイヤースケジューラーでエラーが発生しました。`/leave`を実行してから`/join`を実行し、再発する場合は報告してください。
+      playback_stalled: >-
+        再生の失敗が続いています。この状態が続く場合は、サポートサーバーに参加してください。
+      idle_timeout: プレイヤーが長時間待機状態だったため、切断しました。
+      restarting: Earaは再起動中です。まもなく戻ります。
     disconnect:
-      alone: '取り残されたので、<t:{{timestamp}}:R>に切断します'
+      alone: "ひとりになったので、<t:{{timestamp}}:R>に切断します。"
     queue:
       end:
-        message: キューが終了しました。
+        message: キューの再生が終わりました。
         prompts:
           review:
-            message: '{{mention}}を気に入っていただけましたか？レビューを残してください！'
+            message: "{{mention}}を楽しんでいますか？ぜひレビューを書いてください！"
             button: レビューを書く
           vote:
-            message: '{{mention}}を気に入っていただけましたか？より多くの人に見つけてもらうために、私たちに投票してください！'
+            message: >-
+              {{mention}}を楽しんでいますか？投票して、もっと多くの人に広めるのを手伝ってください！
             button: 投票する
           support:
-            message: ヘルプが必要ですか？それとも交流したいですか？Discordコミュニティに参加してください！
+            message: ヘルプが必要な方も、交流したい方も、Discordコミュニティに参加しましょう！
             button: サーバーに参加
+          player:
+            message: >-
+              次に流す曲はWebプレイヤーで選べます。検索、歌詞、キューがひとつの場所にまとまっています。
+            button: Webプレイヤーを開く
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: プレイヤーのサポートを求める際に、この要約を共有してください。
-    loop_indefinite: '{{mode}}（無期限）'
-    loop_remaining: '{{mode}}（残り{{count, number}}）'
+    footer: プレイヤーについて質問するときは、この概要を共有してください。
+    loop_indefinite: "{{mode}}（無期限）"
+    loop_remaining: "{{mode}}（残り{{count, number}}回）"
   dev:
-    entitlement_granted: 'ギルド {{guild}} に SKU {{sku}} のエンタイトルメント {{entitlement}} を付与しました。'
-    player_not_found: 'このギルド {{guild}} 用のプレイヤーは存在しません。'
-    joining: '{{channel}}（{{connection}}）に接続しています'
-    connected: '{{channel}}（{{connection}}）に接続しました'
+    entitlement_granted: >-
+      サーバー{{guild}}にSKU {{sku}}のエンタイトルメント{{entitlement}}を付与しました。
+    player_not_found: "サーバー{{guild}}のプレイヤーは存在しません。"
+    joining: "{{channel}}に参加中（{{connection}}）"
+    reconnecting: "{{channel}}に再接続中（{{connection}}）"
+    connected: "{{channel}}に接続しました（{{connection}}）"
+  help:
+    details: "-# 各コマンドの詳細は`/help`で確認できます。"
+    player: "-# リアルタイムの歌詞、キュー、操作は[Webプレイヤー]({{url}})でも利用できます。"
+    supported_sites: "-# リンクが使えるかわからない場合は、[earaが再生できるサイト]({{url}})をご覧ください。"
+  feedback:
+    ask:
+      title: "{{mention}}を楽しんでいますか？"
+      note: 回答は今後の開発の参考にさせていただきます。
+      "yes": "はい"
+      "no": いまいち
+    enjoying:
+      title: "ありがとうございます！{{mention}}を広めてください"
+      note: サーバーはTop.ggで新しいボットを見つけています。そこでレビューや投票をしてもらえると、より多くの人に届きます。
+      review: レビューを書く
+      vote: Top.ggで投票
+    not_enjoying:
+      title: ご期待に添えずすみません
+      note: 何が問題だったか、Discordサーバーで教えてください。解決のお手伝いをし、修正すべき点を把握できます。
+      support: Discordサーバーに参加
   ping:
-    message: ポン！
-    footer: 問題がありますか？**サポートサーバー**に参加してください！
+    message: Pong!
+    footer: 問題がありますか？**ヘルプセンター**を確認するか、**サポートサーバー**に参加してください。
   stats:
-    instance_failed: インスタンスの取得に失敗しました。
+    instance_failed: このボットの統計情報を読み込めませんでした。
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}}が自動再生をオンにしました。"
+    disabled: "{{user}}が自動再生をオフにしました。"
+    turn_on: 自動再生をオン
+    turn_off: 自動再生をオフ
+  automix:
+    enabled: >-
+      {{user}}がオートミックスをオンにしました。クロスフェードの代わりに、各曲が最適なタイミングで次の曲へつながります。
+    disabled: "{{user}}がオートミックスをオフにしました。"
+    turn_on: オートミックスをオン
+    turn_off: オートミックスをオフ
   crossfade:
     current:
-      enabled: 'クロスフェードの持続時間は{{duration, number}}秒に設定されています。'
-      disabled: クロスフェードは無効になっています。
+      "on": "クロスフェードは{{seconds, number}}秒です。"
+      "off": クロスフェードはオフです。
     updated:
-      enabled: 'クロスフェードの持続時間を{{duration, number}}秒に設定しました。'
-      disabled: クロスフェードを無効にしました。
-  default_volume:
-    current: 'このサーバーのデフォルト音量は現在{{volume, number}}です。'
-    updated: 'このサーバーのデフォルト音量を{{volume, number}}に更新しました。'
-  do_vc_status_update:
+      "on": "{{user}}がクロスフェードを{{seconds, number}}秒に設定しました。"
+      "off": "{{user}}がクロスフェードをオフにしました。"
+    "off": "オフ"
+    seconds: "{{seconds, number}}秒"
+  scope:
+    server: サーバー全体に保存しました。
+    session: >-
+      プレイヤーが停止するまで有効です。サーバー管理権限を持つメンバーは、ここまたは{{command}}でサーバーに保存できます。
+  dj:
     current:
-      enabled: '現在、{{mention}}は再生中の曲が変わるたびにボイスチャンネルのステータスを更新します。'
-      disabled: '現在、{{mention}}は再生中の曲が変わってもボイスチャンネルのステータスを更新しません。'
+      "on": DJモードは**オン**です。DJだけがプレイヤーを操作できます。
+      "off": DJモードは**オフ**です。通話中の全員がプレイヤーを操作できます。
+    who:
+      role: >-
+        DJは、{{role}}を持つメンバー、サーバー管理権限を持つメンバー、そして私との通話で唯一のリスナーになっているメンバーです。
+      managers: >-
+        DJは、サーバー管理権限を持つメンバーと、私との通話で唯一のリスナーになっているメンバーです。
+    you:
+      "yes": あなたはプレイヤーを操作できます。
+      "no": 現在、あなたはプレイヤーを操作できません。
     updated:
-      enabled: '{{mention}}はこれから再生中の曲が変わるたびにボイスチャンネルのステータスを更新します。'
-      disabled: '{{mention}}はこれ以上再生中の曲が変わってもボイスチャンネルのステータスを更新しません。'
-  autoplay:
-    current:
-      enabled: '現在、{{mention}}はおすすめの曲を自動再生しています。'
-      disabled: '現在、{{mention}}はおすすめの曲を自動再生していません。'
-    updated:
-      enabled: '{{mention}}はこれからおすすめの曲を自動再生します。'
-      disabled: '{{mention}}はこれ以上おすすめの曲を自動再生しません。'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}}は特定のチャンネルに通知を送信していません。'
-        some: '{{mention}}は現在{{channel}}に通知を送信しています'
-      clear: '{{mention}}はこれ以上特定のチャンネルに通知を送信しません。'
-      update: '{{mention}}はこれから{{channel}}に通知を送信します'
+      "on": "{{user}}がDJモードをオンにしました。"
+      "off": "{{user}}がDJモードをオフにしました。"
+      role: "{{user}}がDJロールを{{role}}に設定しました。"
+      no_role: "{{user}}がDJロールを削除しました。"
+    turn_on: DJモードをオン
+    turn_off: DJモードをオフ
+    role_placeholder: DJロールなし
+  settings:
+    title: 設定
+    footer: >-
+      変更はすぐに保存されます。ここの設定はすべて[ダッシュボード]({{url}})でも変更できます。
+    pages:
+      playback: 再生
+      dj: DJ
+      queue: キュー
+      voice: ボイス
+      bot: このボット
+    about:
+      playback: サーバー全体での、音楽の始まり方、音、再生の続け方。
+      dj: 誰がプレイヤーを操作できるか、スキップをどう決めるか。
+      queue: キューに追加できるものと、再生される順番。
+      voice: このサーバーで私たちのボットが再生できる場所（個別のリストを持つボットを除く）。
+      bot: >-
+        {{bot}}だけの設定です。このサーバーにいる私たちのボットはそれぞれ個別の設定を持ち、空欄の項目はサーバーの設定に従います。
+    state:
+      "on": "オン"
+      "off": "オフ"
+    turn_on: オンにする
+    turn_off: オフにする
+    change: 変更
+    premium: Premium
+    invalid: "{{min, number}}から{{max, number}}までの整数を入力してください。"
+    invalid_optional: >-
+      {{min, number}}から{{max, number}}までの整数を入力するか、空欄のままにしてください。
+    playback:
+      volume:
+        label: 開始時の音量
+        about: 再生開始時の音量です。
+        input: 0〜250。
+      crossfade:
+        label: クロスフェード
+        about: 各曲の終わりを次の曲へなめらかにつなげます。
+        value: "{{seconds, number}}秒"
+        input: 秒数（0〜30）。0でオフになります。
+      autoplay:
+        label: 自動再生
+        about: キューがなくなったら、似た曲を流して音楽を続けます。
+      vc_status:
+        label: ボイスチャンネルのステータス
+        about: 再生中の曲をボイスチャンネルのステータスに表示します。
+      auto_pause:
+        label: 無人時に24/7を一時停止
+        about: >-
+          24/7プレイヤーは通話に誰もいない間は一時停止し、誰かが参加すると再生を再開します。
+      notifications:
+        label: 再生中の通知チャンネル
+        about: >-
+          曲ごとに投稿する場所です。空欄の場合は、音楽を開始したチャンネルに投稿します。
+        placeholder: 音楽を開始したチャンネル
+    dj:
+      mode:
+        label: DJモード
+        about: >-
+          DJだけがプレイヤーを操作できます。曲の追加とスキップ投票は誰でもできます。
+      role:
+        label: DJロール
+        about: >-
+          このロールを持つメンバーはDJになります。サーバー管理権限を持つメンバーや、私との通話で唯一のリスナーになっているメンバーもDJです。
+        placeholder: DJロールなし
+      max_volume:
+        label: 音量の上限
+        about: DJ以外のメンバーが設定できる最大音量です。
+        none: 上限なし
+        input: 0〜250。空欄の場合は上限なし。
+      vote_skip:
+        label: スキップに必要な票
+        about: 曲をスキップするのに必要なリスナーの割合です。
+        none: 過半数
+        value: "{{percent, number}}%"
+        input: 割合（1〜100）。空欄の場合は過半数。
+    queue:
+      no_duplicates:
+        label: 重複禁止
+        about: すでにキューにある曲は追加できません。
+      fair:
+        label: 公平なキュー
+        about: 曲を追加した人の順番に交互に再生します。
+      leave_cleanup:
+        label: 退出時に削除
+        about: 通話から退出したメンバーの曲を30秒後に削除します。
+      max_songs:
+        label: 1人あたりの曲数
+        about: DJ以外のメンバーがキューに入れられる曲数です。
+        none: 上限なし
+        input: 1〜1000。空欄の場合は上限なし。
+      max_length:
+        label: 曲の最大長
+        about: DJ以外のメンバーが追加できる曲の最大の長さです。
+        none: 上限なし
+        value_one: "{{count, number}}分"
+        value_other: "{{count, number}}分"
+        input: 分単位（1〜1440）。空欄の場合は上限なし。
+    voice:
+      channels:
+        label: ボイスチャンネル
+        about: 再生できる場所です。空欄の場合はどのボイスチャンネルでも再生できます。
+        placeholder: すべてのボイスチャンネル
+    bot:
+      always_on:
+        label: 24/7チャンネル
+        about: >-
+          このボットが自動で参加し、音楽が止まってもとどまり続けるチャンネルです。
+        placeholder: なし
+        taken: >-
+          {{bot}}はすでにそのチャンネルに常駐しています。別のチャンネルを選んでください。
+      voice:
+        label: ボイスチャンネル
+        about: >-
+          このボットが再生できる場所です。空欄の場合はサーバーのボイスチャンネル設定に従います。
+        any: >-
+          このボットは、サーバーで許可されているどのボイスチャンネルでも再生できます。制限するにはチャンネルを選んでください。
+        placeholder: サーバーのボイスチャンネル
+      notifications:
+        label: 再生中の通知チャンネル
+        about: サーバーのチャンネルの代わりに、このボットが曲ごとに投稿する場所です。
+        placeholder: サーバーのチャンネル
+      volume:
+        label: 開始時の音量
+        about: サーバーの音量の代わりに、このボットが再生を開始するときの音量です。
+        none: "サーバーの設定（{{volume, number}}）"
+        input: 0〜250。空欄の場合はサーバーの設定を使います。
+  history:
+    title: 最近再生した曲
+    title_by: "{{user}}が最近リクエストした曲"
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: "{{page, number}} / {{pages, number}}ページ"
+    again: もう一度追加
+    empty: ここではまだ何もリクエストされていません。
+    not_playing: このサーバーでは再生していません。`/play`で始めましょう。
+    gone: その曲が見つかりませんでした。代わりに`/play`をお試しください。
+    queued: "{{user}}が{{track}}をもう一度キューに追加しました。"
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: '{{channel}}から退出しました。'
-    destroyed: このサーバーのプレイヤーを破棄しました。
+    success_channel: "{{channel}}から退出しました。"
+    destroyed: このサーバーのプレイヤーを停止しました。
   join:
     conflict: すでにボイスチャンネルにいます。
     failure: そのボイスチャンネルに参加できませんでした。
-    in_progress: 既にそのボイスチャンネルに参加しています。
+    in_progress: すでにそのボイスチャンネルに参加しようとしています。
     perms:
-      missing: '{{channel}}で**閲覧**、**接続**、および**発言**する権限が必要です。'
-    success: '了解しました。{{channel}}に参加しました。'
+      missing: >-
+        {{channel}}で**表示**、**接続**、**発言**する権限が必要です。
+      missing_named: >-
+        {{channel}}で{{permissions}}が不足しているため再生できません。サーバー管理者にこれらの権限を付与してもらうか、下のボタンから再招待してください。
+      reinvite: 権限付きで再招待
+    success: "{{channel}}に参加しました。"
   skip:
-    success: スキップしました。
+    success: "{{user}}が曲をスキップしました。"
+    vote:
+      counted: >-
+        {{user}}がスキップに投票しました。（{{votes, number}}/{{needed, number}}）
+      repeated: >-
+        この曲のスキップにはすでに投票しています。（{{votes, number}}/{{needed, number}}）
+      passed: "{{user}}がスキップに投票し、可決されました。曲をスキップします。"
+      requester_gone: >-
+        {{user}}が曲をスキップしました。曲を追加した人が通話から退出しているため、投票は不要でした。
     to:
-      invalid: '指定された曲を認識できませんでした。オートコンプリートを使ってください :)'
-      none: その曲にスキップできませんでした。キュー内にまだありますか？
+      invalid: >-
+        指定された曲を認識できませんでした。オートコンプリートを使ってみてください :)
+      none: その曲にスキップできませんでした。まだキューにありますか？
   seek:
     unseekable: 現在の曲はシークできません。
-    no_duration: 現在の曲には再生時間情報がありません。
-    syntax: 'タイムコードは`mm:ss`の形式である必要があります'
-    out_of_bounds: '指定された位置が現在の曲の長さを超えています。{{given}} > {{length}}'
-    success: '{{given}}にシークしました'
+    no_duration: 現在の曲には再生時間がありません。
+    syntax: タイムコードは`mm:ss`の形式で入力してください。
+    out_of_bounds: >-
+      その位置は現在の曲の長さを超えています（{{given}} > {{length}}）。
+    success: "{{user}}が{{given}}にジャンプしました。"
   loop:
     nothing:
-      success: ループは無効になりました。
-      already: 既にループは無効です。
+      success: "{{user}}がリピートをオフにしました。"
+      already: リピートはすでにオフです。
     track:
-      indef: 現在の曲を無期限にループします。
-      times_one: 現在の曲は1回ループします。
-      times_other: '現在の曲は今後*{{count, number}}回*ループします。'
-      nuhuh: 現在の曲は既にループされています。
+      indef: "{{user}}が現在の曲をリピートに設定しました。"
+      times_one: "{{user}}が現在の曲をあと{{count, number}}回リピートするよう設定しました。"
+      times_other: "{{user}}が現在の曲をあと{{count, number}}回リピートするよう設定しました。"
+      nuhuh: 現在の曲はすでにリピート中です。
     queue:
-      indef: キューを無期限にループします。
-      times_one: キューは1回ループします。
-      times_other: 'キューは今後*{{count, number}}回*ループします。'
-      nuhuh: キューは既にループ中です。
+      indef: "{{user}}がキューをリピートに設定しました。"
+      times_one: "{{user}}がキューをあと{{count, number}}回リピートするよう設定しました。"
+      times_other: "{{user}}がキューをあと{{count, number}}回リピートするよう設定しました。"
+      nuhuh: キューはすでにリピート中です。
   queue:
-    use_autocomplete: えっ？キューされた曲を選択するにはオートコンプリートを使ってください。
+    use_autocomplete: あれ？オートコンプリートを使ってキュー内の曲を選んでください。
     view:
-      footer: 'ページ {{cur, number}}/{{all, number}}（合計{{tot, number}}）'
+      footer: "{{cur, number}}/{{all, number}}ページ（全{{tot, number}}曲）"
     move:
-      failed: その曲を指定された位置に移動できませんでした。
-      success: '{{track}}を#{{index, number}}に移動しました'
+      failed: その曲を指定した位置に移動できませんでした。
+      success: "{{user}}が{{track}}を#{{index, number}}に移動しました。"
     clear:
-      none: キューは空です。
-      success_one: キューから1曲が削除されました。
-      success_other: 'キューから{{count, number}}曲が削除されました。'
+      none: キューは空でした。
+      success_one: "{{user}}がキューから{{count, number}}曲を削除しました。"
+      success_other: "{{user}}がキューから{{count, number}}曲を削除しました。"
     remove:
-      confirm: '本当にキューから{{track}}を削除しますか？'
-      cancelled: 了解しました。その曲は削除しません。
-      not_found: 指定された曲はキューに見つかりませんでした。オートコンプリートを使ってください。
-      success: '{{track}}をキューから削除しました。'
+      confirm: "{{track}}をキューから削除してもよろしいですか？"
+      cancelled: わかりました。その曲は削除しません。
+      not_found: >-
+        指定された曲はキューに見つかりませんでした。オートコンプリートを使ってみてください。
+      success: "{{user}}が{{track}}をキューから削除しました。"
     shuffle:
-      too_small: シャッフルするにはキューが小さすぎます。
-      success: キューはシャッフルされました。
+      too_small: キューの曲が少なすぎてシャッフルできません。
+      success: "{{user}}がキューをシャッフルしました。"
+  now_playing:
+    autoplay: 自動再生
+    requested_by: リクエスト
+    ends: 終了
+    queue: キュー
+    queue_summary: "待機中{{queued, number}}曲 · 再生済み{{played, number}}曲"
+    up_next: 次の曲
+    refresh: 更新
+    open: 開く
   pause:
-    already: プレイヤーは既に一時停止しています。
-    success: プレイヤーを一時停止しました。
+    already: プレイヤーはすでに一時停止しています。
+    success: "{{user}}がプレイヤーを一時停止しました。"
   resume:
-    server_muted: サーバーでミュートされている間は再生を再開できません。
-    already: プレイヤーは一時停止されていませんでした。
-    success: プレイヤーの再生を再開しました。
+    server_muted: サーバーミュートされている間は再開できません。
+    already: プレイヤーは一時停止していません。
+    success: "{{user}}がプレイヤーを再開しました。"
   play:
+    duplicate: その曲はすでにキューにあります。
+    over_limit_one: "このサーバーでは、一度にキューに入れられるのは{{count, number}}曲までです。"
+    over_limit_other: >-
+      このサーバーでは、一度にキューに入れられるのは{{count, number}}曲までです。
+    too_long_one: "このサーバーでは、{{count, number}}分を超える曲は追加できません。"
+    too_long_other: "このサーバーでは、{{count, number}}分を超える曲は追加できません。"
+    too_long_skipped_one: >-
+      {{minutes, number}}分の上限を超える曲を{{count, number}}曲スキップしました。
+    too_long_skipped_other: >-
+      {{minutes, number}}分の上限を超える曲を{{count, number}}曲スキップしました。
+    over_limit_skipped_one: >-
+      {{count, number}}曲をスキップしました。ここでキューに入れられるのは1人{{limit, number}}曲までです。
+    over_limit_skipped_other: >-
+      {{count, number}}曲をスキップしました。ここでキューに入れられるのは1人{{limit, number}}曲までです。
+    duplicates_skipped_one: "すでにキューにある{{count, number}}曲をスキップしました。"
+    duplicates_skipped_other: >-
+      すでにキューにある{{count, number}}曲をスキップしました。
     domain:
-      other: 提供されたリンクはサポートされていません。
-      youtube: Earaは一時的にYouTubeリンクのサポートを停止しています。
-      vote_locked: |
-        `{{domain}}`リンクにアクセスするには、**top.gg**で{{mention}}の投票が必要です！
+      other: このリンクには対応していません。
+      youtube: Earaは現在、一時的にYouTubeリンクに対応していません。
+      youtube_premium: >-
+        YouTubeリンクは**Premium**の機能です。曲名で検索するか、SpotifyやApple Musicのリンクを貼り付ければ無料で再生できます。
+      vote_locked: >-
+        `{{domain}}`のリンクを使うには、**top.gg**で{{mention}}に投票する必要があります！
+
         -# $t(common.premium.uninterrupted_access)
-    nothing: 検索クエリに対して何も返されませんでした。
-    error: クエリの読み込み中にエラーが発生しました。
-    invalid_url: 無効なURLを入力しました。
-    queue_full: キューに空きがありません。曲を追加する前にいくつか削除してください。
-    added: '{{item}}をキューに追加しました。'
+    nothing: 検索結果が見つかりませんでした。
+    youtube_match: "-# 最も近い無料の候補を再生しています。**Premium**ならYouTubeリンクを直接再生できます。"
+    voice_wait:
+      waiting: >-
+        ボイスチャンネルに参加すると、すぐに再生を始めます。{{seconds, number}}秒間待ちます。
+      expired: >-
+        時間内にボイスチャンネルに参加しませんでした。参加してから、もう一度`/play`を使ってください。
+      replaced: もう一度`/play`が使われたため、キャンセルしました。
+    error: 検索結果の読み込み中にエラーが発生しました。
+    invalid_url: 無効なURLです。
+    queue_full: >-
+      キューに空きがありません。曲を追加する前に、いくつか削除してください。
+    added: "{{user}}が{{item}}をキューに追加しました。"
     loaded:
-      album_one: 'アルバム『{{collection}}』からの1曲'
-      album_other: 'アルバム『{{collection}}』からの{{count, number}}曲'
-      artist_one: 'アルバム『{{collection}}』の人気1曲目'
-      artist_other: 'アルバム『{{collection}}』の人気上位{{count, number}}曲'
-      playlist_one: 'プレイリスト『*{{collection}}*』からの1曲'
-      playlist_other: 'プレイリスト『*{{collection}}*』からの{{count, number}}曲'
+      album_one: "アルバム「{{collection}}」の{{count, number}}曲"
+      album_other: "アルバム「{{collection}}」の{{count, number}}曲"
+      artist_one: "*{{collection}}*の人気曲{{count, number}}曲"
+      artist_other: "*{{collection}}*の人気曲トップ{{count, number}}"
+      playlist_one: "プレイリスト*{{collection}}*の{{count, number}}曲"
+      playlist_other: "プレイリスト*{{collection}}*の{{count, number}}曲"
+  last_fm:
+    unavailable: 現在、Last.fmとの連携は利用できません。
+    account: アカウント
+    connect:
+      prompt: >-
+        下のリンクを開いて、Last.fmアカウントを連携してください。リンクは1回だけ使え、{{minutes, number}}分で期限切れになります。他の人には共有しないでください。
+      button: Last.fmと連携
+      open: Last.fmを開く
+    disconnect:
+      button: 連携を解除
+      done: Last.fmアカウントの連携を解除しました。
+    status:
+      unlinked: まだLast.fmアカウントを連携していません。
+    scrobbling:
+      label: スクロブル
+      turn_on: スクロブルをオン
+      turn_off: スクロブルをオフ
+      enabled: スクロブルをオンにしました。
+      disabled: スクロブルをオフにしました。アカウントの連携は維持されます。
   stop:
-    success: プレーヤーは停止しました。
+    success: "{{user}}がプレイヤーを停止しました。"
   volume:
-    current: '現在のボリュームは{{volume, number}}です。'
-    out_of_bounds: ボリュームは0から255の間で設定する必要があります。
-    success: 'ボリュームを{{volume, number}}に設定しました。'
+    current: "音量は{{volume, number}}です。"
+    success: "{{user}}が音量を{{volume, number}}に設定しました。"
+    over_limit: >-
+      このサーバーでは、音量を{{limit, number}}より上げられるのはDJだけです。
   effects:
-    enabled: '『*{{effect}}*』エフェクトを有効にしました！'
-    disabled: '『*{{effect}}*』エフェクトを無効にしました！'
-    trial_enabled: '現在の曲で『*{{effect}}*』エフェクトを有効にしました！'
-    trial_disabled: '現在の曲で『*{{effect}}*』エフェクトを無効にしました！'
-    cleared: すべてのエフェクトをクリアしました！
+    enabled: "{{user}}が*{{effect}}*をオンにしました。"
+    disabled: "{{user}}が*{{effect}}*をオフにしました。"
+    trial_enabled: "{{user}}が現在の曲で*{{effect}}*をオンにしました。"
+    trial_disabled: "{{user}}が現在の曲で*{{effect}}*をオフにしました。"
+    cleared: "{{user}}がすべてのエフェクトをオフにしました。"
+    list:
+      none: オンになっているエフェクトはありません。
+      some: "オンのエフェクト：{{effects}}"
+  always_on:
+    enabled: >-
+      {{user}}が24/7をオンにしました。誰かが`/leave`を使うまで通話にとどまります。
+    disabled: >-
+      {{user}}が24/7をオフにしました。音楽が止まるか全員が退出したら退出します。
+    already:
+      enabled: 24/7はすでにオンです。
+      disabled: 24/7はすでにオフです。
+    saved: >-
+      {{channel}}を24/7チャンネルに設定しました。このサーバーで他の場所で再生していないときは、自動でここに参加します。
+    forgotten: >-
+      24/7チャンネルに戻らないようにしました。今そのチャンネルにいる場合は、誰かが24/7をオフにするか`/leave`を使うまでとどまります。
+    not_voice: それはボイスチャンネルでもステージチャンネルでもありません。
+    turn_on: 24/7をオン
+    turn_off: 24/7をオフ
+    keep: 常にここに戻る
+    forget: 戻らないようにする
+    auto_pause:
+      "on": >-
+        {{user}}が自動一時停止をオンにしました。このサーバーの24/7プレイヤーは、通話に誰もいない間は一時停止し、誰かが参加すると再生を再開します。
+      "off": >-
+        {{user}}が自動一時停止をオフにしました。このサーバーの24/7プレイヤーは、誰もいない通話でも再生を続けます。
+      pause: 無人時に一時停止
+      keep_playing: 無人時も再生を続ける
   immersive:
-    disabled: 没入モードが無効になりました。
+    disabled: "{{user}}が没入モードをオフにしました。"

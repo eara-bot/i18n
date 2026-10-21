@@ -6,28 +6,54 @@ checks:
   queue_empty: Kuyruk boş.
   nothing_playing: Çalan bir şey yok.
   unknown_command: Bu komutu tanımıyorum...
-  owner_only: Bu komutu kullanmaya izniniz yok.
-  maintenance: 'Bot bakımda, daha sonra tekrar kontrol edin.'
+  owner_only: Bu komutu kullanma izniniz yok.
+  missing_permissions: "Bu komutu kullanmak için şu izinlere sahip olmalısınız: {{permissions}}."
+  maintenance: Bot bakımda, daha sonra tekrar deneyin.
+  tier_required: >-
+    Bu sunucunun planı beni kapsamıyor. Beni burada kullanmak için {{website}}
+    üzerinden abone olun.
+  tier_lapsed: >-
+    Bu sunucunun aboneliği sona erdi, bu yüzden çalmayı durdurdum. Yeniden
+    başlatmak için {{website}} üzerinden yenileyin.
+  voice_channel_not_allowed: "Burada yalnızca şu kanallarda çalabilirim: {{channels}}."
+  dj_only:
+    role: >-
+      DJ modu açık, bu yüzden bunu yalnızca {{role}} rolüne veya **Sunucuyu
+      Yönet** iznine sahip kişiler yapabilir.
+    managers: >-
+      DJ modu açık, bu yüzden bunu yalnızca **Sunucuyu Yönet** iznine sahip
+      kişiler yapabilir.
+stage:
+  hand_raised: >-
+    Sahnede elimi kaldırdım. Müziğin duyulabilmesi için bir sahne moderatörünün
+    beni konuşmaya davet etmesi gerekiyor.
+  cannot_speak: >-
+    Sahne dinleyicileri arasındayım ve konuşma isteğinde bulunamıyorum. Bana
+    **Konuşma İsteği** iznini verin ya da beni kendiniz konuşmaya davet edin.
 common:
-  join_our_server: 'Daha fazla bilgi için [*Discord Sunucusuna*]({{invite}} ) katılın'
-  message_deleted: '*Mesaj silindi*'
+  join_our_server: "Daha fazla bilgi için [*Discord Sunucumuza*]({{invite}} ) katılın."
+  message_deleted: "*Mesaj silindi*"
   vote: Top.gg'de oy ver
   discord_server: Destek Sunucusu
+  help_center: Yardım Merkezi
+  open_player: Oynatıcıyı aç
+  open_in_web_player: Web oynatıcıda aç
   remove: Kaldır
-  play_now: Şimdi Oynat
+  play_now: Şimdi Çal
   next: Sonraki
   previous: Önceki
   unknown_artist: Bilinmeyen Sanatçı
-  unavailable_track: '[kullanılamayan parça meta verisi]'
+  unavailable_track: "[parça bilgileri kullanılamıyor]"
   unknown_url: Bilinmeyen URL
   unsupported_url: Desteklenmeyen URL
-  source_url: '{{source}} URL'
+  supported_sites: Desteklenen Siteler
+  source_url: "{{source}} URL'si"
   unknown: Bilinmiyor
   unknown_channel: Bilinmeyen Kanal
   none: Yok
-  not_available: Yok
-  'yes': Evet
-  'no': Hayır
+  not_available: Mevcut değil
+  yes: Evet
+  no: Hayır
   track: Parça
   queue: Kuyruk
   state:
@@ -36,9 +62,11 @@ common:
     playing: Çalıyor
     idle: Boşta
     active: Etkin
-    'off': Kapalı
-    disconnected: Bağlantı Kesildi
-    joining: Bağlanılıyor
+    on: Açık
+    off: Kapalı
+    disconnected: Bağlantı kesildi
+    joining: Katılıyor
+    reconnecting: Yeniden bağlanıyor
     connected: Bağlandı
   confirmation:
     prompt: |-
@@ -47,244 +75,575 @@ common:
     confirm: Onayla
     deny: Reddet
   premium:
-    sku_required: Bu sunucu bu komuta erişmek için **Premium Aboneliği** gerektirir.
-    uninterrupted_access: Oyladıktan sonra *en fazla* 12 saat kesintisiz erişim alacaksınız!
-    vote_required: >
+    sku_required: >-
+      Bu komuta erişmek için bu sunucunun **Premium Aboneliği** olması
+      gerekiyor.
+    pricing_pitch: >-
+      -# Planlar **aylık {{price}}** fiyatından başlıyor; daha yüksek ses
+      kalitesi, daha büyük kuyruklar ve YouTube erişimi sunuyor.
+    uninterrupted_access: >-
+      Oy verdikten sonra *en fazla* 12 saat kesintisiz erişim kazanırsınız!
+    vote_required: >-
       Bu komuta erişmek için **top.gg** üzerinde {{mention}} için oy
       vermelisiniz.
 
       -# $t(common.premium.uninterrupted_access)
     get_premium: Premium Al
-    vote_locks_premium: '**Premium**, sunucu genelinde oylama kilitlerini kaldırır.'
+    vote_locks_premium: "**Premium**, tüm sunucu için oy kilitlerini kaldırır."
 buttons:
+  add:
+    title: Kuyruğa ekle
+    label: Şarkı adı veya bağlantı
+    placeholder: Arayın veya bağlantı yapıştırın
+    another: Bir tane daha ekle
   remove:
     none: Kaldırmak istediğiniz öğeyi bulamadım...
-    done: '{{author}}, kuyruktan {{track}} parçasını kaldırdı.'
+    done: "{{author}}, {{track}} parçasını kuyruktan kaldırdı."
   correlated_remove:
-    none: Kuyruğa eklenen şarkı(lar) artık hiçbir yerde bulunamıyor...
-    done: '{{author}}, kuyruktan {{count}} şarkı kaldırdı.'
+    none: Kuyruğa eklenen şarkılar hiçbir yerde bulunamıyor...
+    done_one: "{{author}}, kuyruğa eklenen 1 şarkıyı kaldırdı."
+    done_other: "{{author}}, kuyruğa eklenen {{count, number}} şarkıyı kaldırdı."
   play_now:
-    none: 'Zaten çalmış mıydınız, eklediğiniz şarkıları kuyrukta bulamadım.'
-    not_found: Kuyrukta bu şarkıyı bulamadım.
-    done_one: '{{requester}} tarafından istenen bir şarkıyı öncelikli hale getirdi.'
-    done_other: '{{requester}} tarafından istenen {{count}} şarkıyı öncelikli hale getirdi.'
-    footer_a: '{{prev}} konumundan {{next}} konumuna atlandı'
-    footer_b: '{{next}} konumuna atlandı'
+    none: >-
+      Eklediğiniz şarkıları kuyrukta bulamadım. Onları zaten çaldınız mı?
+    not_found: Bu şarkı kuyrukta bulunamadı.
+    done_one: "{{requester}} tarafından istenen 1 şarkı öne alındı."
+    done_other: "{{requester}} tarafından istenen {{count, number}} şarkı öne alındı."
+    footer_a: "{{prev}} parçasından {{next}} parçasına geçildi."
+    footer_b: "{{next}} parçasına geçildi."
   item_actions:
-    not_found: O şarkı artık kuyrukta değil.
+    not_found: Bu şarkı artık kuyrukta değil.
   previous:
-    none: Daha önceki şarkılar yok...
-  skip_to: '{{user}}, {{track}} parçasına atladı'
-  stop: '{{user}}, oynatıcıyı durdurdu.'
+    none: Önceki şarkı yok...
+  skip_to: "{{user}}, {{track}} parçasına geçti."
+  stop: "{{user}} oynatıcıyı durdurdu."
 events:
   command_failed:
-    message: Bu komut başarısız oldu.
+    message: Bir şeyler ters gitti
     reason:
-      unknown: 'Beklenmeyen bir hata oluştu, lütfen bunu geliştiricilere bildirin.'
-      panic: 'Komutunuzu işleyen görev çöktü, lütfen bunu geliştiricilere bildirin.'
-    footer: 'Geliştiricilere bu kimliği verin: **{{eid}}**'
+      unknown: Birazdan tekrar deneyin.
+      player_restarted: Oynatıcının yeniden başlaması gerekti. Tekrar deneyin.
+    footer: >-
+      Hata kimliği `{{eid}}` · bu sorun devam ederse Destek Sunucumuzda
+      paylaşın.
+    usage: "Bu doğru görünmüyor. Şöyle kullanılır:"
   player:
     tips:
-      autoplay: 'Kuyruk bittikten sonra müziğin devam etmesini {{command}} ile sağlayın.'
+      autoplay: Kuyruk bittiğinde müziğin devam etmesi için {{command}} komutunu kullanın.
       crossfade: >-
-        Cross-fading özelliğimiz olduğunu biliyor muydunuz? Yapılandırmak için
-        {{command}} kullanın.
-      effects: 'Geçerli şarkıya farklı bir hava katmak için {{command}} kullanın.'
+        Crossfade özelliğimiz olduğunu biliyor muydunuz? Ayarlamak için
+        {{command}} komutunu kullanın.
+      effects: Geçerli şarkıya {{command}} ile farklı bir hava katın.
       history: >-
-        Daha önce çalınan bir şey mi arıyorsunuz? {{command}} ayrıca kuyruk
-        geçmişini de gösterebilir.
-      immersive: 'Deneyiminizi canlandırmak için {{spatialize}} veya {{orbit}} kullanın!'
+        Daha önce çalan bir şeyi mi arıyorsunuz? {{command}} kuyruk geçmişini
+        de gösterebilir.
+      immersive: Deneyiminizi canlandırmak için {{spatialize}} veya {{orbit}} komutunu kullanın!
+      last_fm: >-
+        Burada dinlediğiniz her şeyi scrobble etmek için Last.fm hesabınızı
+        {{command}} ile bağlayın.
       loop: >-
-        Tekrar duymak mı istiyorsunuz? {{command}} bu şarkıyı veya tüm kuyruğu
-        tekrarlayabilir.
+        Tekrar mı dinlemek istiyorsunuz? {{command}} bu şarkıyı veya tüm
+        kuyruğu tekrarlayabilir.
       move: >-
         Kuyruğu {{move_command}} ve {{remove_command}} ile yeniden sıralayın
         veya temizleyin.
-      notifications: 'Sunucu yöneticileri, {{command}} ile özel bir oynatıcı kanalı seçebilir.'
-      seek: 'Geçerli şarkıda herhangi bir noktaya {{command}} ile atlayın.'
-      shuffle: 'Kuyruktaki şarkıları {{command}} ile karıştırın.'
+      notifications: >-
+        Sunucu yöneticileri {{command}} ile özel bir oynatıcı kanalı seçebilir.
+      player: >-
+        Canlı şarkı sözlerini takip edin ve kuyruğu {{command}} ile ya da
+        [web oynatıcıda]({{url}}) yönetin.
+      player_web: >-
+        Canlı şarkı sözlerini takip edin ve kuyruğu [web oynatıcıda]({{url}})
+        yönetin.
+      seek: Bu şarkının istediğiniz noktasına {{command}} ile atlayın.
+      shuffle: Kuyrukta bekleyen şarkıları {{command}} ile karıştırın.
       voice_status: >-
-        Sunucu yöneticileri, ses kanalı durumunda geçerli şarkıyı {{command}}
-        ile gösterebilir.
+        Sunucu yöneticileri {{command}} ile çalan şarkıyı ses kanalı durumunda
+        gösterebilir.
     notification:
       join_failed: Ses kanalınıza katılamadım.
-      playback_failed: '{{track}} çalınamadı'
+      playback_failed: "{{track}} çalınamadı."
       scheduler_failed: >-
-        Bu sunucu için oynatıcı zamanlayıcısı başarısız oldu. Lütfen `/leave`,
-        ardından `/join` komutlarını çalıştırın ve bu tekrar olursa lütfen
-        bildirin.
+        Bu sunucunun oynatıcı zamanlayıcısı çöktü. Lütfen önce `/leave`,
+        ardından `/join` komutunu çalıştırın; bu tekrar olursa bize bildirin.
       playback_stalled: >-
-        Çok fazla başarısız çalma girişimi. Devam ederse, lütfen Destek
+        Çok fazla çalma denemesi başarısız oldu. Bu devam ederse lütfen Destek
         Sunucumuza katılın.
-      idle_timeout: 'The player was idle for too long, so I disconnected.'
-      restarting: Eara yeniden başlatılıyor ve kısa süre içinde geri dönecek.
+      idle_timeout: Oynatıcı çok uzun süre boşta kaldığı için bağlantıyı kestim.
+      restarting: Eara yeniden başlatılıyor, kısa süre içinde geri dönecek.
     disconnect:
-      alone: 'I was left all alone, disconnecting <t:{{timestamp}}:R>'
+      alone: Yapayalnız kaldım, <t:{{timestamp}}:R> ayrılıyorum.
     queue:
       end:
-        message: The queue has ended.
+        message: Kuyruk sona erdi.
         prompts:
           review:
-            message: 'Enjoying {{mention}}? Leave us a review!'
-            button: Leave a review
+            message: "{{mention}} hoşunuza gidiyor mu? Bize bir değerlendirme bırakın!"
+            button: Değerlendirme yaz
           vote:
-            message: 'Enjoying {{mention}}? Vote for us to help more people find it!'
-            button: Vote for us
+            message: >-
+              {{mention}} hoşunuza gidiyor mu? Daha fazla kişinin bulabilmesi
+              için bize oy verin!
+            button: Bize oy ver
           support:
-            message: Need help or want to hang out? Join our Discord community!
-            button: Join our server
+            message: Yardım mı lazım, yoksa takılmak mı istiyorsunuz? Discord topluluğumuza katılın!
+            button: Sunucumuza katıl
+          player:
+            message: >-
+              Sıradaki şarkıyı web oynatıcıdan seçin; arama, şarkı sözleri ve
+              kuyruk tek bir yerde.
+            button: Web oynatıcıyı aç
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: Share this summary when asking for player help.
-    loop_indefinite: '{{mode}} (indefinite)'
-    loop_remaining: '{{mode}} ({{count, number}} remaining)'
+    footer: Oynatıcıyla ilgili yardım isterken bu özeti paylaşın.
+    loop_indefinite: "{{mode}} (süresiz)"
+    loop_remaining: "{{mode}} ({{count, number}} kaldı)"
   dev:
-    entitlement_granted: 'Granted entitlement {{entitlement}} for SKU {{sku}} to guild {{guild}}.'
-    player_not_found: 'No player exists for guild {{guild}}.'
-    joining: 'Joining {{channel}} ({{connection}})'
-    connected: 'Connected to {{channel}} ({{connection}})'
+    entitlement_granted: >-
+      {{guild}} sunucusuna {{sku}} SKU'su için {{entitlement}} hakkı verildi.
+    player_not_found: "{{guild}} sunucusu için oynatıcı yok."
+    joining: "{{channel}} kanalına katılınıyor ({{connection}})"
+    reconnecting: "{{channel}} kanalına yeniden bağlanılıyor ({{connection}})"
+    connected: "{{channel}} kanalına bağlanıldı ({{connection}})"
+  help:
+    details: "-# Herhangi bir komutun ayrıntıları için `/help` kullanın."
+    player: "-# Canlı şarkı sözleri, kuyruk ve kontroller [web oynatıcıda]({{url}}) da var."
+    supported_sites: "-# Bir bağlantının çalışacağından emin değil misiniz? [eara'nın hangi sitelerden çalabildiğine]({{url}}) bakın."
+  feedback:
+    ask:
+      title: "{{mention}} hoşunuza gidiyor mu?"
+      note: Yanıtınız, sırada neyle ilgileneceğimize karar vermemize yardımcı olur.
+      "yes": "Evet"
+      "no": Pek değil
+    enjoying:
+      title: Teşekkürler! Başkalarının da {{mention}} botunu bulmasına yardım edin
+      note: Sunucular yeni botları Top.gg'de keşfediyor. Orada bırakacağınız bir değerlendirme veya oy, daha fazla kişiye ulaşmamıza yardımcı olur.
+      review: Değerlendirme yaz
+      vote: Top.gg'de oy ver
+    not_enjoying:
+      title: İşinize yaramadığı için üzgünüz
+      note: Neyin ters gittiğini Discord sunucumuzda anlatın; sorunu birlikte çözelim ve neyi düzeltmemiz gerektiğini öğrenelim.
+      support: Discord sunucumuza katıl
   ping:
     message: Pong!
-    footer: Having issues? Join our **Support Server**!
+    footer: Sorun mu yaşıyorsunuz? **Yardım Merkezi**'ne göz atın ya da **Destek Sunucumuza** katılın.
   stats:
-    instance_failed: Failed to retrieve instance.
+    instance_failed: Bu botun istatistikleri yüklenemedi.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} otomatik çalmayı açtı."
+    disabled: "{{user}} otomatik çalmayı kapattı."
+    turn_on: Otomatik çalmayı aç
+    turn_off: Otomatik çalmayı kapat
+  automix:
+    enabled: >-
+      {{user}} automix'i açtı. Artık her şarkı, crossfade yerine en uygun
+      noktada bir sonrakine karışacak.
+    disabled: "{{user}} automix'i kapattı."
+    turn_on: Automix'i aç
+    turn_off: Automix'i kapat
   crossfade:
     current:
-      enabled: 'Cross-fading duration is set to {{duration, number}}s.'
-      disabled: Cross-fading is disabled.
+      "on": "Crossfade süresi: {{seconds, number}} sn."
+      "off": Crossfade kapalı.
     updated:
-      enabled: 'Crossfade duration set to {{duration, number}}s.'
-      disabled: Crossfade disabled.
-  default_volume:
-    current: 'The default volume for this server is currently {{volume, number}}.'
-    updated: 'Updated the default volume for this server to {{volume, number}}.'
-  do_vc_status_update:
+      "on": "{{user}} crossfade süresini {{seconds, number}} sn olarak ayarladı."
+      "off": "{{user}} crossfade'i kapattı."
+    "off": "Kapalı"
+    seconds: "{{seconds, number}} sn"
+  scope:
+    server: Tüm sunucu için kaydedildi.
+    session: >-
+      Oynatıcı durana kadar geçerli. Sunucuyu Yönet iznine sahip biri bunu
+      burada veya {{command}} ile sunucu için kaydedebilir.
+  dj:
     current:
-      enabled: >-
-        Currently, {{mention}} will update the voice channel status when the
-        current song changes.
-      disabled: >-
-        Currently, {{mention}} will not update the voice channel status when the
-        current song changes.
+      "on": DJ modu **açık**. Oynatıcıyı yalnızca DJ'ler kontrol edebilir.
+      "off": DJ modu **kapalı**. Ses kanalındaki herkes oynatıcıyı kontrol edebilir.
+    who:
+      role: >-
+        DJ'ler; {{role}} rolüne sahip üyeler, Sunucuyu Yönet iznine sahip
+        herkes ve ses kanalında benimle birlikte tek dinleyici olan herkestir.
+      managers: >-
+        DJ'ler; Sunucuyu Yönet iznine sahip herkes ve ses kanalında benimle
+        birlikte tek dinleyici olan herkestir.
+    you:
+      "yes": Oynatıcıyı kontrol edebilirsiniz.
+      "no": Şu anda oynatıcıyı kontrol edemezsiniz.
     updated:
-      enabled: >-
-        {{mention}} will now update the voice channel status when the current
-        song changes.
-      disabled: >-
-        {{mention}} will no longer update the voice channel status when the
-        current song changes.
-  autoplay:
-    current:
-      enabled: 'Currently, {{mention}} will auto-play recommended songs.'
-      disabled: 'Currently, {{mention}} is not auto-playing recommended songs.'
-    updated:
-      enabled: '{{mention}} will now auto-play recommended songs.'
-      disabled: '{{mention}} will no longer auto-play recommended songs.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} is not sending notifications to a specific channel.'
-        some: '{{mention}} is currently sending notifications to {{channel}}'
-      clear: '{{mention}} will no longer send notifications to a specific channel.'
-      update: '{{mention}} will now send notifications to {{channel}}'
+      "on": "{{user}} DJ modunu açtı."
+      "off": "{{user}} DJ modunu kapattı."
+      role: "{{user}} DJ rolünü {{role}} olarak ayarladı."
+      no_role: "{{user}} DJ rolünü kaldırdı."
+    turn_on: DJ modunu aç
+    turn_off: DJ modunu kapat
+    role_placeholder: DJ rolü yok
+  settings:
+    title: Ayarlar
+    footer: >-
+      Değişiklikler anında kaydedilir. Buradaki her şey
+      [kontrol panelinde]({{url}}) de var.
+    pages:
+      playback: Çalma
+      dj: DJ
+      queue: Kuyruk
+      voice: Ses
+      bot: Bu bot
+    about:
+      playback: Tüm sunucu genelinde müziğin nasıl başladığı, nasıl duyulduğu ve nasıl devam ettiği.
+      dj: Oynatıcıyı kimin kontrol ettiği ve bir şarkının nasıl geçileceği.
+      queue: Kuyruğa neyin eklenebileceği ve hangi sırayla çalınacağı.
+      voice: Kendi listesi olmadığı sürece botlarımızın bu sunucuda nerede çalabileceği.
+      bot: >-
+        Yalnızca {{bot}} için. Bu sunucudaki her botumuzun kendi ayarları
+        vardır; boş bırakılan her şey sunucunun ayarlarını izler.
+    state:
+      "on": "Açık"
+      "off": "Kapalı"
+    turn_on: Aç
+    turn_off: Kapat
+    change: Değiştir
+    premium: Premium
+    invalid: "{{min, number}} ile {{max, number}} arasında bir tam sayı girin."
+    invalid_optional: >-
+      {{min, number}} ile {{max, number}} arasında bir tam sayı girin veya boş
+      bırakın.
+    playback:
+      volume:
+        label: Başlangıç ses düzeyi
+        about: Çalmaya ne kadar yüksek sesle başladığım.
+        input: 0 ile 250 arası.
+      crossfade:
+        label: Crossfade
+        about: Her şarkının sonunu bir sonrakine karıştırır.
+        value: "{{seconds, number}} sn"
+        input: Saniye olarak, 0 ile 30 arası. 0 kapatır.
+      autoplay:
+        label: Otomatik çalma
+        about: Kuyruk bittiğinde benzer şarkılarla müziği sürdürür.
+      vc_status:
+        label: Ses kanalı durumu
+        about: Çalan şarkıyı ses kanalının durumu olarak gösterir.
+      auto_pause:
+        label: Boşken 24/7'yi duraklat
+        about: >-
+          24/7 oynatıcı, ses kanalında kimse yokken duraklar ve biri
+          katıldığında yeniden çalar.
+      notifications:
+        label: Şimdi çalıyor kanalı
+        about: >-
+          Her şarkıyı paylaştığım yer. Müziğin başlatıldığı yerde paylaşmak için
+          boş bırakın.
+        placeholder: Müziğin başlatıldığı kanal
+    dj:
+      mode:
+        label: DJ modu
+        about: >-
+          Oynatıcıyı yalnızca DJ'ler kontrol edebilir. Herkes yine de şarkı
+          ekleyebilir ve geçmek için oy verebilir.
+      role:
+        label: DJ rolü
+        about: >-
+          Bu role sahip üyeler DJ'dir; Sunucuyu Yönet iznine sahip olan veya ses
+          kanalında benimle birlikte tek dinleyici olan herkes de öyle.
+        placeholder: DJ rolü yok
+      max_volume:
+        label: Ses düzeyi sınırı
+        about: DJ olmayan birinin ayarlayabileceği en yüksek ses düzeyi.
+        none: Sınır yok
+        input: 0 ile 250 arası. Sınır olmaması için boş bırakın.
+      vote_skip:
+        label: Geçme oyları
+        about: Bir şarkıyı geçmek için gereken dinleyici oranı.
+        none: Yarıdan fazlası
+        value: "%{{percent, number}}"
+        input: Yüzde olarak, 1 ile 100 arası. Yarıdan fazlası için boş bırakın.
+    queue:
+      no_duplicates:
+        label: Tekrar yok
+        about: Kuyrukta zaten olan şarkılar yeniden eklenemez.
+      fair:
+        label: Adil kuyruk
+        about: Şarkı ekleyen kişiler arasında sırayla çalar.
+      leave_cleanup:
+        label: Ayrılınca temizle
+        about: Biri ses kanalından ayrıldıktan 30 saniye sonra şarkılarını kaldırır.
+      max_songs:
+        label: Kişi başı şarkı
+        about: DJ olmayan birinin kuyrukta kaç şarkısı olabileceği.
+        none: Sınır yok
+        input: 1 ile 1000 arası. Sınır olmaması için boş bırakın.
+      max_length:
+        label: En uzun şarkı
+        about: DJ olmayan birinin ekleyebileceği en uzun şarkı.
+        none: Sınır yok
+        value_one: 1 dakika
+        value_other: "{{count, number}} dakika"
+        input: Dakika olarak, 1 ile 1440 arası. Sınır olmaması için boş bırakın.
+    voice:
+      channels:
+        label: Ses kanalları
+        about: Çalabileceğim yerler. Herhangi bir ses kanalında çalmam için boş bırakın.
+        placeholder: Herhangi bir ses kanalı
+    bot:
+      always_on:
+        label: 24/7 kanalı
+        about: >-
+          Bu botun kendiliğinden katıldığı ve müzik dursa bile içinde kaldığı
+          kanal.
+        placeholder: Yok
+        taken: >-
+          {{bot}} zaten o kanalda sürekli kalıyor. Başka bir kanal seçin.
+      voice:
+        label: Ses kanalları
+        about: >-
+          Bu botun çalabileceği yerler. Sunucunun ses kanallarını izlemek için
+          boş bırakın.
+        any: >-
+          Bu bot, sunucunun izin verdiği herhangi bir ses kanalında çalabilir.
+          Onunla sınırlamak için bazı kanallar seçin.
+        placeholder: Sunucunun ses kanalları
+      notifications:
+        label: Şimdi çalıyor kanalı
+        about: Bu botun her şarkıyı sunucunun kanalı yerine paylaştığı yer.
+        placeholder: Sunucunun kanalı
+      volume:
+        label: Başlangıç ses düzeyi
+        about: Bu botun, sunucunun ses düzeyi yerine hangi ses düzeyiyle başladığı.
+        none: Sunucununki ({{volume, number}})
+        input: 0 ile 250 arası. Sunucununkini kullanmak için boş bırakın.
+  history:
+    title: Son çalınanlar
+    title_by: "Son istenenler: {{user}}"
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Sayfa {{page, number}}/{{pages, number}}
+    again: Yeniden kuyruğa ekle
+    empty: Burada henüz hiçbir şey istenmedi.
+    not_playing: Bu sunucuda çalmıyorum. Başlatmak için `/play` kullanın.
+    gone: O şarkıyı yeniden bulamadım. Bunun yerine `/play` deneyin.
+    queued: "{{user}}, {{track}} parçasını yeniden kuyruğa ekledi."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Left {{channel}}.'
-    destroyed: Destroyed the player for this server.
+    success_channel: "{{channel}} kanalından ayrıldım."
+    destroyed: Bu sunucunun oynatıcısı durduruldu.
   join:
-    conflict: I'm already in a voice channel.
-    failure: I failed to join that voice channel.
-    in_progress: I am already joining that voice channel.
+    conflict: Zaten bir ses kanalındayım.
+    failure: O ses kanalına katılamadım.
+    in_progress: O ses kanalına zaten katılıyorum.
     perms:
       missing: >-
-        I need permissions to **view**, **connect**, and **speak** in
-        {{channel}}.
-    success: 'Okay, I joined {{channel}}.'
+        {{channel}} kanalında **görüntüleme**, **bağlanma** ve **konuşma**
+        izinlerine ihtiyacım var.
+      missing_named: >-
+        {{channel}} kanalında çalamıyorum çünkü orada şu izinlerim eksik:
+        {{permissions}}. Bir sunucu yöneticisinden bu izinleri vermesini isteyin
+        ya da aşağıdaki düğmeyle beni yeniden davet edin.
+      reinvite: İzinlerle yeniden davet et
+    success: "{{channel}} kanalına katıldım."
   skip:
-    success: Skipped.
+    success: "{{user}} şarkıyı geçti."
+    vote:
+      counted: >-
+        {{user}} şarkıyı geçmek için oy verdi. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Bu şarkıyı geçmek için zaten oy verdiniz.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} geçmek için oy verdi ve oylama kabul edildi. Şarkı geçiliyor."
+      requester_gone: >-
+        {{user}} şarkıyı geçti. Şarkıyı ekleyen kişi ses kanalından ayrıldığı
+        için oylamaya gerek kalmadı.
     to:
-      invalid: 'I didn''t recognize the song you gave me. Try using auto-complete :)'
-      none: 'I could not skip to that song, is it still in the queue?'
+      invalid: >-
+        Verdiğiniz şarkıyı tanıyamadım. Otomatik tamamlamayı kullanmayı deneyin :)
+      none: O şarkıya geçemedim. Hâlâ kuyrukta mı?
   seek:
-    unseekable: The current song is not seekable.
-    no_duration: The current song has no duration.
-    syntax: 'The timecode must be in the format `mm:ss`'
+    unseekable: Geçerli şarkıda ileri veya geri sarılamıyor.
+    no_duration: Geçerli şarkının süresi yok.
+    syntax: Zaman kodu `mm:ss` biçiminde olmalı.
     out_of_bounds: >-
-      The position you gave will exceed the length of the current song,
-      {{given}} > {{length}}
-    success: 'Seeked to {{given}}'
+      Bu konum geçerli şarkının sonunu aşıyor ({{given}} > {{length}}).
+    success: "{{user}} şarkıyı {{given}} anına sardı."
   loop:
     nothing:
-      success: Looping has been disabled.
-      already: Looping was already disabled.
+      success: "{{user}} döngüyü kapattı."
+      already: Döngü zaten kapalı.
     track:
-      indef: Now looping the current song indefinitely.
-      times_one: The current song will loop once.
-      times_other: 'The current song will now loop for *{{count, number}} times*.'
-      nuhuh: The current song is already being looped.
+      indef: "{{user}} geçerli şarkıyı döngüye aldı."
+      times_one: "{{user}} geçerli şarkıyı bir kez daha tekrarlanacak şekilde ayarladı."
+      times_other: "{{user}} geçerli şarkıyı {{count, number}} kez daha tekrarlanacak şekilde ayarladı."
+      nuhuh: Geçerli şarkı zaten döngüde.
     queue:
-      indef: Now looping the queue indefinitely.
-      times_one: The queue will loop once.
-      times_other: 'The queue will now loop for *{{count, number}} times*.'
-      nuhuh: The queue is already looping.
+      indef: "{{user}} kuyruğu döngüye aldı."
+      times_one: "{{user}} kuyruğu bir kez daha tekrarlanacak şekilde ayarladı."
+      times_other: "{{user}} kuyruğu {{count, number}} kez daha tekrarlanacak şekilde ayarladı."
+      nuhuh: Kuyruk zaten döngüde.
   queue:
-    use_autocomplete: Hm? Try using the autocomplete to select a queued song.
+    use_autocomplete: Hm? Kuyruktaki bir şarkıyı seçmek için otomatik tamamlamayı kullanmayı deneyin.
     view:
-      footer: 'Page {{cur, number}}/{{all, number}} ({{tot, number}} total)'
+      footer: Sayfa {{cur, number}}/{{all, number}} (toplam {{tot, number}})
     move:
-      failed: Could not move that song to the requested position.
-      success: 'Moved {{track}} to #{{index, number}}'
+      failed: O şarkı istenen konuma taşınamadı.
+      success: "{{user}}, {{track}} parçasını #{{index, number}} konumuna taşıdı."
     clear:
-      none: The queue was empty.
-      success_one: Removed 1 song from the queue.
-      success_other: 'Removed {{count, number}} songs from the queue.'
+      none: Kuyruk zaten boştu.
+      success_one: "{{user}} kuyruktan 1 şarkı temizledi."
+      success_other: "{{user}} kuyruktan {{count, number}} şarkı temizledi."
     remove:
-      confirm: 'Are you sure you want to remove {{track}} from the queue?'
-      cancelled: 'Okay, I won''t remove that song.'
-      not_found: 'The provided song was not found in the queue, try using autocomplete.'
-      success: 'Removed {{track}} from the queue.'
+      confirm: "{{track}} parçasını kuyruktan kaldırmak istediğinizden emin misiniz?"
+      cancelled: Tamam, o şarkıyı kaldırmayacağım.
+      not_found: >-
+        Belirtilen şarkı kuyrukta bulunamadı, otomatik tamamlamayı kullanmayı
+        deneyin.
+      success: "{{user}}, {{track}} parçasını kuyruktan kaldırdı."
     shuffle:
-      too_small: The queue is too small to be shuffled.
-      success: The queue has been shuffled.
+      too_small: Kuyruk karıştırılamayacak kadar küçük.
+      success: "{{user}} kuyruğu karıştırdı."
+  now_playing:
+    autoplay: Otomatik çalma
+    requested_by: İsteyen
+    ends: Bitiş
+    queue: Kuyruk
+    queue_summary: "{{queued, number}} sırada · {{played, number}} çalındı"
+    up_next: Sıradaki
+    refresh: Yenile
+    open: Aç
   pause:
-    already: The player is already paused.
-    success: I've paused the player.
+    already: Oynatıcı zaten duraklatılmış.
+    success: "{{user}} oynatıcıyı duraklattı."
   resume:
-    server_muted: Cannot resume the player while I'm server muted.
-    already: The player wasn't paused.
-    success: I've resumed the player.
+    server_muted: Sunucu tarafından susturulmuşken devam edemem.
+    already: Oynatıcı duraklatılmış değil.
+    success: "{{user}} oynatıcıyı devam ettirdi."
   play:
+    duplicate: Bu zaten kuyrukta.
+    over_limit_one: Burada kuyrukta aynı anda yalnızca 1 şarkınız olabilir.
+    over_limit_other: >-
+      Burada kuyrukta aynı anda yalnızca {{count, number}} şarkınız olabilir.
+    too_long_one: Buradaki şarkılar 1 dakikadan uzun olamaz.
+    too_long_other: Buradaki şarkılar {{count, number}} dakikadan uzun olamaz.
+    too_long_skipped_one: >-
+      {{minutes, number}} dakikalık sınırı aşan 1 şarkı atlandı.
+    too_long_skipped_other: >-
+      {{minutes, number}} dakikalık sınırı aşan {{count, number}} şarkı atlandı.
+    over_limit_skipped_one: >-
+      1 şarkı atlandı: buradaki kuyruk sınırı kişi başı {{limit, number}}
+      şarkı.
+    over_limit_skipped_other: >-
+      {{count, number}} şarkı atlandı: buradaki kuyruk sınırı kişi başı
+      {{limit, number}} şarkı.
+    duplicates_skipped_one: Kuyrukta zaten olan 1 şarkı atlandı.
+    duplicates_skipped_other: >-
+      Kuyrukta zaten olan {{count, number}} şarkı atlandı.
     domain:
-      other: Sağladığınız bağlantı desteklenmiyor.
-      youtube: 'Eara, geçici olarak YouTube bağlantıları için desteği kaldırdı.'
-      vote_locked: >
-        `{{domain}}` bağlantılarına erişmek için **top.gg** üzerinde {{mention}}
-        için oy vermelisiniz!
+      other: Verdiğiniz bağlantı desteklenmiyor.
+      youtube: Eara, YouTube bağlantıları desteğini geçici olarak kaldırdı.
+      youtube_premium: >-
+        YouTube bağlantıları bir **Premium** özelliğidir. Ücretsiz çalmak için
+        adıyla arayın ya da bir Spotify veya Apple Music bağlantısı yapıştırın.
+      vote_locked: >-
+        `{{domain}}` bağlantılarına erişmek için **top.gg** üzerinde
+        {{mention}} için oy vermelisiniz!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Sorgunuz için hiçbir şey döndürülmedi.
-    error: Sorgunuzu yüklerken bir hata oluştu.
+    nothing: Sorgunuz için hiçbir sonuç bulunamadı.
+    youtube_match: >-
+      -# Ücretsiz en yakın eşleşme çalınıyor. **Premium**, YouTube bağlantılarını
+      doğrudan çalar.
+    voice_wait:
+      waiting: >-
+        Bir ses kanalına katılın, hemen çalmaya başlayayım. {{seconds, number}}
+        saniye bekleyeceğim.
+      expired: >-
+        Zamanında bir ses kanalına katılmadınız. Birine katılın, ardından
+        `/play` komutunu tekrar kullanın.
+      replaced: "`/play` komutunu tekrar kullandığınız için iptal edildi."
+    error: Sorgunuz yüklenirken bir hata oluştu.
     invalid_url: Geçersiz bir URL girdiniz.
-    queue_full: Kuyrukta yeterli yer yok. Daha fazla eklemek için bazı şarkıları kaldırın.
-    added: '{{item}} kuyruğa eklendi.'
+    queue_full: >-
+      Kuyrukta yeterli yer yok. Daha fazla eklemeden önce bazı şarkıları
+      kaldırın.
+    added: "{{user}} kuyruğa ekledi: {{item}}."
     loaded:
-      album_one: 'albumden bir şarkı {{collection}}'
-      album_other: '{{count, number}} şarkı albümünden {{collection}}'
-      artist_one: '*{{collection}}*''nin en iyi şarkısı'
-      artist_other: '*{{collection}}*''nin en iyi {{count, number}} şarkısı'
-      playlist_one: '*{{collection}}* çalma listesinden bir şarkı'
-      playlist_other: '*{{collection}}* çalma listesinden {{count, number}} şarkı'
+      album_one: "{{collection}} albümünden bir şarkı"
+      album_other: "{{collection}} albümünden {{count, number}} şarkı"
+      artist_one: "*{{collection}}* sanatçısının en popüler şarkısı"
+      artist_other: "*{{collection}}* sanatçısının en popüler {{count, number}} şarkısı"
+      playlist_one: "*{{collection}}* çalma listesinden bir şarkı"
+      playlist_other: "*{{collection}}* çalma listesinden {{count, number}} şarkı"
+  last_fm:
+    unavailable: Last.fm bağlantıları şu anda kullanılamıyor.
+    account: Hesap
+    connect:
+      prompt: >-
+        Last.fm hesabınızı bağlamak için aşağıdaki bağlantıyı açın. Bağlantı
+        yalnızca bir kez çalışır ve {{minutes, number}} dakika içinde
+        geçerliliğini yitirir, bu yüzden kimseyle paylaşmayın.
+      button: Last.fm'i bağla
+      open: Last.fm'i aç
+    disconnect:
+      button: Bağlantıyı kes
+      done: Last.fm hesabının bağlantısı kesildi.
+    status:
+      unlinked: Henüz bir Last.fm hesabı bağlamadınız.
+    scrobbling:
+      label: Scrobbling
+      turn_on: Scrobbling'i aç
+      turn_off: Scrobbling'i kapat
+      enabled: Scrobbling açıldı.
+      disabled: Scrobbling kapatıldı. Hesabınız bağlı kalmaya devam ediyor.
   stop:
-    success: Oynatıcı durduruldu.
+    success: "{{user}} oynatıcıyı durdurdu."
   volume:
-    current: 'Geçerli ses düzeyi {{volume, number}}.'
-    out_of_bounds: Ses düzeyi 0 ile 255 arasında olmalıdır.
-    success: 'Ses düzeyi {{volume, number}} olarak ayarlandı.'
+    current: "Ses düzeyi: {{volume, number}}."
+    success: "{{user}} ses düzeyini {{volume, number}} olarak ayarladı."
+    over_limit: >-
+      Bu sunucuda ses düzeyini yalnızca DJ'ler {{limit, number}} üzerine
+      çıkarabilir.
   effects:
-    enabled: '''*{{effect}}*'' efekti etkinleştirildi!'
-    disabled: '''*{{effect}}*'' efekti devre dışı bırakıldı!'
-    trial_enabled: 'Mevcut şarkı için ''*{{effect}}*'' efekti etkinleştirildi!'
-    trial_disabled: >-
-      Mevcut şarkı için '*{{effect}}*' efekti devre dışı bırakıldı!
-    cleared: Tüm etkiler temizlendi!
+    enabled: "{{user}} *{{effect}}* efektini açtı."
+    disabled: "{{user}} *{{effect}}* efektini kapattı."
+    trial_enabled: "{{user}} geçerli şarkı için *{{effect}}* efektini açtı."
+    trial_disabled: "{{user}} geçerli şarkı için *{{effect}}* efektini kapattı."
+    cleared: "{{user}} tüm efektleri kapattı."
+    list:
+      none: Açık efekt yok.
+      some: "Açık efektler: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} 24/7 modunu açtı. Biri `/leave` kullanana kadar ses kanalında
+      kalacağım.
+    disabled: >-
+      {{user}} 24/7 modunu kapattı. Müzik durduğunda veya herkes ayrıldığında
+      ayrılacağım.
+    already:
+      enabled: 24/7 zaten açık.
+      disabled: 24/7 zaten kapalı.
+    saved: >-
+      {{channel}} artık 24/7 kanalım. Bu sunucuda başka bir yerde çalmadığım
+      her an kendiliğimden bu kanala katılacağım.
+    forgotten: >-
+      Artık 24/7 kanalıma geri dönmeyeceğim. Şu anda içindeysem, biri 24/7'yi
+      kapatana veya `/leave` kullanana kadar kalacağım.
+    not_voice: Bu bir ses veya sahne kanalı değil.
+    turn_on: 24/7'yi aç
+    turn_off: 24/7'yi kapat
+    keep: Hep buraya dön
+    forget: Geri dönmeyi bırak
+    auto_pause:
+      "on": >-
+        {{user}} otomatik duraklatmayı açtı. Buradaki 24/7 oynatıcılar ses
+        kanalında kimse yokken duraklar ve biri katıldığında yeniden çalar.
+      "off": >-
+        {{user}} otomatik duraklatmayı kapattı. Buradaki 24/7 oynatıcılar boş
+        bir kanalda da çalmaya devam eder.
+      pause: Boşken duraklat
+      keep_playing: Boşken çalmaya devam et
   immersive:
-    disabled: Gömülü kip devre dışı.
+    disabled: "{{user}} sürükleyici modu kapattı."

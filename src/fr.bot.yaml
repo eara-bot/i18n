@@ -1,328 +1,713 @@
 checks:
-  guild_only: Cette commande ne peut être utilisée que dans un serveur.
-  not_playing: Je ne joue pas de musique dans ce serveur.
-  user_vc_none: Vous devez être dans un salon vocal pour utiliser cette commande.
-  user_vc_diff: >-
-    Vous devez être dans le même salon vocal que moi pour utiliser cette
-    commande.
+  guild_only: Cette commande ne peut être utilisée que sur un serveur.
+  not_playing: Je ne joue pas de musique sur ce serveur.
+  user_vc_none: Tu dois être dans un salon vocal pour utiliser cette commande.
+  user_vc_diff: Tu dois être dans le même salon vocal que moi pour utiliser cette commande.
   queue_empty: La file d'attente est vide.
-  nothing_playing: Aucune musique n'est en cours de lecture.
+  nothing_playing: Rien n'est en cours de lecture.
   unknown_command: Je ne reconnais pas cette commande...
-  owner_only: Vous n'êtes pas autorisé à utiliser cette commande.
-  maintenance: 'Le bot est en maintenance, veuillez revenir plus tard.'
+  owner_only: Tu n'as pas le droit d'utiliser cette commande.
+  missing_permissions: >-
+    Il te faut ces permissions pour utiliser cette commande : {{permissions}}.
+  maintenance: Le bot est en maintenance, reviens plus tard.
+  tier_required: >-
+    L'offre de ce serveur ne m'inclut pas. Abonne-toi sur {{website}} pour
+    m'utiliser ici.
+  tier_lapsed: >-
+    L'abonnement de ce serveur a pris fin, j'ai donc arrêté la musique.
+    Renouvelle-le sur {{website}} pour reprendre.
+  voice_channel_not_allowed: "Ici, je peux seulement jouer dans ces salons : {{channels}}."
+  dj_only:
+    role: >-
+      Le mode DJ est activé : seuls les membres avec {{role}} ou la permission
+      **Gérer le serveur** peuvent faire ça.
+    managers: >-
+      Le mode DJ est activé : seuls les membres avec la permission **Gérer le
+      serveur** peuvent faire ça.
+stage:
+  hand_raised: >-
+    J'ai levé la main dans la conférence. Un modérateur de la conférence doit
+    m'inviter à parler pour que quelqu'un puisse entendre la musique.
+  cannot_speak: >-
+    Je suis dans le public de la conférence et je ne peux pas demander la
+    parole. Donne-moi la permission **Demande de prise de parole**, ou
+    invite-moi toi-même à parler.
 common:
-  join_our_server: 'Rejoignez notre [*Discord Server*]({{invite}} ) pour plus d''informations'
-  message_deleted: '*Message was deleted*'
-  vote: Vote on Top.gg
-  discord_server: Support Server
-  remove: Remove
-  play_now: Play Now
-  next: Next
-  previous: Previous
-  unknown_artist: Unknown Artist
-  unavailable_track: '[unavailable track metadata]'
-  unknown_url: Unknown URL
-  unsupported_url: Unsupported URL
-  source_url: '{{source}} URL'
-  unknown: Unknown
-  unknown_channel: Unknown Channel
-  none: None
-  not_available: N/A
-  'yes': 'Yes'
-  'no': 'No'
-  track: Track
-  queue: Queue
+  join_our_server: >-
+    Rejoins notre [*serveur Discord*]({{invite}} ) pour en savoir plus.
+  message_deleted: "*Message supprimé*"
+  vote: Voter sur Top.gg
+  discord_server: Serveur d'assistance
+  help_center: Centre d'aide
+  open_player: Ouvrir le lecteur
+  open_in_web_player: Ouvrir dans le lecteur web
+  remove: Retirer
+  play_now: Lire maintenant
+  next: Suivant
+  previous: Précédent
+  unknown_artist: Artiste inconnu
+  unavailable_track: "[infos du titre indisponibles]"
+  unknown_url: URL inconnue
+  unsupported_url: URL non prise en charge
+  supported_sites: Sites compatibles
+  source_url: "URL {{source}}"
+  unknown: Inconnu
+  unknown_channel: Salon inconnu
+  none: Aucun
+  not_available: N/D
+  yes: Oui
+  no: Non
+  track: Titre
+  queue: File d'attente
   state:
-    loading: Loading
-    paused: Paused
-    playing: Playing
-    idle: Idle
-    active: Active
-    'off': 'Off'
-    disconnected: Disconnected
-    joining: Joining
-    connected: Connected
+    loading: Chargement
+    paused: En pause
+    playing: En lecture
+    idle: Inactif
+    active: Actif
+    on: Activé
+    off: Désactivé
+    disconnected: Déconnecté
+    joining: Connexion
+    reconnecting: Reconnexion
+    connected: Connecté
   confirmation:
     prompt: |-
       {{message}}
-      -# You have **30 seconds** to respond.
+      -# Tu as **30 secondes** pour répondre.
     confirm: Confirmer
     deny: Refuser
   premium:
     sku_required: >-
-      Ce serveur nécessite un **abonnement Premium** pour accéder à cette
+      Ce serveur doit avoir un **abonnement Premium** pour accéder à cette
       commande.
+    pricing_pitch: >-
+      -# Offres à partir de **{{price}}/mois** pour un meilleur son, des files
+      d'attente plus longues et l'accès à YouTube.
     uninterrupted_access: >-
-      Après avoir voté, vous obtiendrez *jusqu'à* 12 heures d'accès ininterrompu
-      !
-    vote_required: >
-      Vous devez voter pour {{mention}} sur **top.gg** pour accéder à cette
+      Après ton vote, tu profiteras de *jusqu'à* 12 heures d'accès sans
+      interruption !
+    vote_required: >-
+      Tu dois voter pour {{mention}} sur **top.gg** pour accéder à cette
       commande.
 
       -# $t(common.premium.uninterrupted_access)
-    get_premium: Obtenir le Premium
-    vote_locks_premium: '**Premium** supprime les verrous de vote pour tout le serveur.'
+    get_premium: Passer à Premium
+    vote_locks_premium: "**Premium** supprime l'obligation de voter pour tout le serveur."
 buttons:
+  add:
+    title: Ajouter à la file d'attente
+    label: Nom du titre ou lien
+    placeholder: Recherche ou colle un lien
+    another: Ajouter un autre
   remove:
-    none: Je n'ai pas pu trouver l'élément que vous souhaitiez supprimer...
-    done: '{{author}} a supprimé {{track}} de la file d''attente.'
+    none: Je n'ai pas trouvé l'élément que tu voulais retirer...
+    done: "{{author}} a retiré {{track}} de la file d'attente."
   correlated_remove:
-    none: Les chanson(s) ajoutées à la file d'attente sont introuvables...
-    done: '{{author}} a supprimé {{count}} chanson(s) de la file d''attente.'
+    none: Les titres ajoutés à la file d'attente sont introuvables...
+    done_one: "{{author}} a retiré {{count, number}} titre qui avait été ajouté."
+    done_many: "{{author}} a retiré {{count, number}} titres qui avaient été ajoutés."
+    done_other: "{{author}} a retiré {{count, number}} titres qui avaient été ajoutés."
   play_now:
     none: >-
-      Je n'ai pas pu trouver les chansons que vous avez ajoutées dans la file
-      d'attente, les avez-vous déjà jouées ?
-    not_found: Impossible de trouver cette chanson dans la file d'attente.
-    done_one: 'Une chanson demandée par {{requester}} a été priorisée.'
-    done_other: '{{count}} chansons demandées par {{requester}} ont été priorisées.'
-    footer_a: 'Passé à {{next}} depuis {{prev}}'
-    footer_b: 'Passé à {{next}}'
+      Je ne trouve pas les titres que tu as ajoutés dans la file d'attente. Tu
+      les as peut-être déjà écoutés ?
+    not_found: Ce titre est introuvable dans la file d'attente.
+    done_one: "{{count, number}} titre demandé par {{requester}} passe en priorité."
+    done_many: "{{count, number}} titres demandés par {{requester}} passent en priorité."
+    done_other: "{{count, number}} titres demandés par {{requester}} passent en priorité."
+    footer_a: Passage de {{prev}} à {{next}}.
+    footer_b: Passage à {{next}}.
   item_actions:
-    not_found: Cette chanson n'est plus dans la file d'attente.
+    not_found: Ce titre n'est plus dans la file d'attente.
   previous:
-    none: Il n'y a pas de chansons précédentes...
-  skip_to: '{{user}} a passé à {{track}}'
-  stop: '{{user}} a arrêté le lecteur.'
+    none: Il n'y a aucun titre précédent...
+  skip_to: "{{user}} a fait passer la lecture à {{track}}."
+  stop: "{{user}} a arrêté le lecteur."
 events:
   command_failed:
-    message: Cette commande a échoué.
+    message: Une erreur s'est produite
     reason:
-      unknown: >-
-        Une erreur inattendue s'est produite, veuillez la signaler aux
-        développeurs.
-      panic: >-
-        La tâche traitant votre commande a échoué, veuillez la signaler aux
-        développeurs.
-    footer: 'Fournissez cet ID aux développeurs : **{{eid}}**'
+      unknown: Réessaie dans un instant.
+      player_restarted: Le lecteur a dû redémarrer. Réessaie.
+    footer: >-
+      ID d'erreur `{{eid}}` · partage-le sur notre serveur d'assistance si ça
+      se reproduit.
+    usage: "Ça ne semble pas correct. Voici comment l'utiliser :"
   player:
     tips:
       autoplay: >-
-        Continuez la musique quand la file d'attente se termine avec
+        Garde la musique en route quand la file d'attente se termine avec
         {{command}}.
       crossfade: >-
-        Saviez-vous que nous avons un fondu croisé ? Utilisez {{command}} pour
-        le configurer.
-      effects: 'Donnez une ambiance différente à la chanson actuelle avec {{command}}.'
+        Tu savais qu'on a un fondu enchaîné ? Utilise {{command}} pour le
+        configurer.
+      effects: Donne une autre ambiance au titre en cours avec {{command}}.
       history: >-
-        Vous cherchez quelque chose joué précédemment ? {{command}} peut aussi
-        afficher l'historique de la file d'attente.
-      immersive: 'Utilisez {{spatialize}} ou {{orbit}} pour dynamiser votre expérience !'
+        Tu cherches un titre passé plus tôt ? {{command}} peut aussi afficher
+        l'historique de la file d'attente.
+      immersive: Utilise {{spatialize}} ou {{orbit}} pour pimenter ton écoute !
+      last_fm: >-
+        Associe ton compte Last.fm avec {{command}} pour scrobbler tout ce que
+        tu écoutes ici.
       loop: >-
-        Vous voulez l'écouter à nouveau ? {{command}} peut répéter cette chanson
-        ou toute la file d'attente.
+        Envie de le réécouter ? {{command}} peut répéter ce titre ou toute la
+        file d'attente.
       move: >-
-        Réorganisez ou nettoyez la file d'attente avec {{move_command}} et
-        {{remove_command}}.
+        Réorganise ou fais le tri dans la file d'attente avec {{move_command}}
+        et {{remove_command}}.
       notifications: >-
-        Les gestionnaires du serveur peuvent choisir un salon vocal dédié avec
-        {{command}}.
-      seek: 'Sauter à n''importe quel moment de cette chanson avec {{command}}.'
-      shuffle: >-
-        Mélangez les chansons en attente dans la file d'attente avec
-        {{command}}.
+        Les gestionnaires du serveur peuvent choisir un salon dédié au lecteur
+        avec {{command}}.
+      player: >-
+        Suis les paroles en direct et gère la file d'attente avec {{command}} ou
+        dans le [lecteur web]({{url}}).
+      player_web: >-
+        Suis les paroles en direct et gère la file d'attente dans le [lecteur
+        web]({{url}}).
+      seek: Va à n'importe quel moment de ce titre avec {{command}}.
+      shuffle: Mélange les titres en attente dans la file avec {{command}}.
       voice_status: >-
-        Les gestionnaires du serveur peuvent afficher la chanson actuelle dans
-        le statut du salon vocal avec {{command}}.
+        Les gestionnaires du serveur peuvent afficher le titre en cours dans le
+        statut du salon vocal avec {{command}}.
     notification:
-      join_failed: Échec de la connexion à votre salon vocal.
-      playback_failed: 'Échec de la lecture de {{track}}'
+      join_failed: Je n'ai pas réussi à rejoindre ton salon vocal.
+      playback_failed: Impossible de lire {{track}}.
       scheduler_failed: >-
-        Le planificateur de lecture pour ce serveur a échoué. Veuillez exécuter
-        `/leave`, puis `/join`, et signaler ceci si cela se reproduit.
+        Le planificateur du lecteur de ce serveur a planté. Utilise `/leave`,
+        puis `/join`, et signale-le si ça se reproduit.
       playback_stalled: >-
-        Trop de tentatives de lecture échouées. Si cela continue, veuillez
-        rejoindre notre serveur de support.
-      idle_timeout: 'Le lecteur est resté inactif trop longtemps, je me suis donc déconnecté.'
-      restarting: Eara redémarre et devrait bientôt être de retour.
+        Trop de tentatives de lecture ont échoué. Si ça continue, rejoins notre
+        serveur d'assistance.
+      idle_timeout: Le lecteur est resté inactif trop longtemps, je me suis donc déconnecté.
+      restarting: Eara redémarre et sera de retour sous peu.
     disconnect:
-      alone: 'J''ai été laissé seul, déconnexion <t:{{timestamp}}:R>'
+      alone: Il n'y a plus personne avec moi, déconnexion <t:{{timestamp}}:R>.
     queue:
       end:
         message: La file d'attente est terminée.
         prompts:
           review:
-            message: 'Vous appréciez {{mention}} ? Laissez-nous un avis !'
+            message: Tu aimes {{mention}} ? Laisse-nous un avis !
             button: Laisser un avis
           vote:
             message: >-
-              Vous appréciez {{mention}} ? Votez pour nous afin d'aider
-              davantage de personnes à nous trouver !
+              Tu aimes {{mention}} ? Vote pour nous pour aider plus de monde à
+              le découvrir !
             button: Voter pour nous
           support:
             message: >-
-              Besoin d'aide ou envie de discuter ? Rejoignez notre communauté
-              Discord !
+              Besoin d'aide ou envie de traîner avec nous ? Rejoins notre
+              communauté Discord !
             button: Rejoindre notre serveur
+          player:
+            message: >-
+              Choisis la suite depuis le lecteur web : recherche, paroles et
+              file d'attente au même endroit.
+            button: Ouvrir le lecteur web
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: Partagez ce résumé lorsque vous demandez de l'aide pour le lecteur.
-    loop_indefinite: '{{mode}} (indéfini)'
-    loop_remaining: '{{mode}} ({{count, number}} restants)'
+    footer: Partage ce résumé quand tu demandes de l'aide pour le lecteur.
+    loop_indefinite: "{{mode}} (sans fin)"
+    loop_remaining: "{{mode}} (reste : {{count, number}})"
   dev:
     entitlement_granted: >-
-      Entitlement {{entitlement}} accordé pour le SKU {{sku}} au serveur
-      {{guild}}.
-    player_not_found: 'Aucun lecteur n''existe pour le serveur {{guild}}.'
-    joining: 'Connexion à {{channel}} ({{connection}})'
-    connected: 'Connecté à {{channel}} ({{connection}})'
+      Droit {{entitlement}} accordé pour le SKU {{sku}} au serveur {{guild}}.
+    player_not_found: Aucun lecteur n'existe pour le serveur {{guild}}.
+    joining: Connexion à {{channel}} ({{connection}})
+    reconnecting: Reconnexion à {{channel}} ({{connection}})
+    connected: Connecté à {{channel}} ({{connection}})
+  help:
+    details: "-# Utilise `/help` pour en savoir plus sur une commande."
+    player: "-# Les paroles en direct, la file d'attente et les commandes sont aussi dans le [lecteur web]({{url}})."
+    supported_sites: "-# Un doute sur un lien ? Consulte [les sites compatibles avec eara]({{url}})."
+  feedback:
+    ask:
+      title: Tu apprécies {{mention}} ?
+      note: Ta réponse nous aide à choisir sur quoi travailler ensuite.
+      "yes": "Oui"
+      "no": Pas vraiment
+    enjoying:
+      title: Merci ! Aide d'autres personnes à découvrir {{mention}}
+      note: >-
+        Les serveurs découvrent de nouveaux bots sur Top.gg. Un avis ou un vote
+        là-bas nous aide à toucher plus de monde.
+      review: Écrire un avis
+      vote: Voter sur Top.gg
+    not_enjoying:
+      title: Désolé que ça ne te convienne pas
+      note: >-
+        Dis-nous ce qui n'a pas marché sur notre serveur Discord, pour qu'on
+        puisse t'aider et savoir quoi corriger.
+      support: Rejoindre notre serveur Discord
   ping:
     message: Pong !
-    footer: Vous rencontrez des problèmes ? Rejoignez notre **serveur de support** !
+    footer: Un problème ? Consulte le **Centre d'aide** ou rejoins notre **serveur d'assistance**.
   stats:
-    instance_failed: Échec de la récupération de l'instance.
+    instance_failed: Impossible de charger les statistiques de ce bot.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} a activé la lecture auto."
+    disabled: "{{user}} a désactivé la lecture auto."
+    turn_on: Activer la lecture auto
+    turn_off: Désactiver la lecture auto
+  automix:
+    enabled: >-
+      {{user}} a activé l'automix. Chaque titre s'enchaîne désormais au suivant
+      au meilleur moment, à la place du fondu enchaîné.
+    disabled: "{{user}} a désactivé l'automix."
+    turn_on: Activer l'automix
+    turn_off: Désactiver l'automix
   crossfade:
     current:
-      enabled: 'La durée du fondu croisé est définie sur {{duration, number}}s.'
-      disabled: Le fondu croisé est désactivé.
+      "on": Le fondu enchaîné dure {{seconds, number}} s.
+      "off": Le fondu enchaîné est désactivé.
     updated:
-      enabled: 'La durée du fondu croisé a été définie sur {{duration, number}}s.'
-      disabled: Le fondu croisé est désactivé.
-  default_volume:
-    current: 'Actuellement, le volume par défaut pour ce serveur est {{volume, number}}.'
-    updated: >-
-      Le volume par défaut pour ce serveur a été mis à jour à {{volume,
-      number}}.
-  do_vc_status_update:
+      "on": "{{user}} a réglé le fondu enchaîné sur {{seconds, number}} s."
+      "off": "{{user}} a désactivé le fondu enchaîné."
+    "off": "Désactivé"
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: Enregistré pour tout le serveur.
+    session: >-
+      Jusqu'à l'arrêt du lecteur. Un membre avec « Gérer le serveur » peut
+      l'enregistrer pour le serveur, ici ou dans {{command}}.
+  dj:
     current:
-      enabled: >-
-        Actuellement, {{mention}} mettra à jour le statut du salon vocal lorsque
-        la chanson actuelle change.
-      disabled: >-
-        Actuellement, {{mention}} ne mettra pas à jour le statut du salon vocal
-        lorsque la chanson actuelle change.
+      "on": Le mode DJ est **activé**. Seuls les DJ peuvent contrôler le lecteur.
+      "off": >-
+        Le mode DJ est **désactivé**. Tout le monde dans l'appel peut contrôler
+        le lecteur.
+    who:
+      role: >-
+        Les DJ sont les membres avec {{role}}, ceux qui ont « Gérer le
+        serveur » et quiconque est la seule personne à écouter dans l'appel
+        avec moi.
+      managers: >-
+        Les DJ sont ceux qui ont « Gérer le serveur » et quiconque est la seule
+        personne à écouter dans l'appel avec moi.
+    you:
+      "yes": Tu peux contrôler le lecteur.
+      "no": Tu ne peux pas contrôler le lecteur pour l'instant.
     updated:
-      enabled: >-
-        {{mention}} mettra désormais à jour le statut du salon vocal lorsque la
-        chanson actuelle change.
-      disabled: >-
-        {{mention}} ne mettra plus à jour le statut du salon vocal lorsque la
-        chanson actuelle change.
-  autoplay:
-    current:
-      enabled: >-
-        Actuellement, {{mention}} va lire automatiquement des chansons
-        recommandées.
-      disabled: >-
-        Actuellement, {{mention}} ne lit pas automatiquement de chansons
-        recommandées.
-    updated:
-      enabled: '{{mention}} va désormais lire automatiquement des chansons recommandées.'
-      disabled: '{{mention}} ne lira plus automatiquement de chansons recommandées.'
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} n''envoie pas de notifications vers un salon spécifique.'
-        some: '{{mention}} envoie actuellement des notifications vers {{channel}}'
-      clear: '{{mention}} n''enverra plus de notifications vers un salon spécifique.'
-      update: '{{mention}} enverra désormais des notifications vers {{channel}}'
+      "on": "{{user}} a activé le mode DJ."
+      "off": "{{user}} a désactivé le mode DJ."
+      role: "{{user}} a défini le rôle DJ sur {{role}}."
+      no_role: "{{user}} a retiré le rôle DJ."
+    turn_on: Activer le mode DJ
+    turn_off: Désactiver le mode DJ
+    role_placeholder: Aucun rôle DJ
+  settings:
+    title: Paramètres
+    footer: >-
+      Les modifications sont enregistrées tout de suite. Tout est aussi
+      disponible sur le [tableau de bord]({{url}}).
+    pages:
+      playback: Lecture
+      dj: DJ
+      queue: File d'attente
+      voice: Vocal
+      bot: Ce bot
+    about:
+      playback: >-
+        Comment la musique démarre, sonne et continue sur tout le serveur.
+      dj: Qui contrôle le lecteur, et comment un passage est décidé.
+      queue: Ce qu'on peut ajouter à la file d'attente, et dans quel ordre ça passe.
+      voice: >-
+        Où nos bots peuvent jouer sur ce serveur, sauf ceux qui ont leur propre
+        liste.
+      bot: >-
+        Uniquement pour {{bot}}. Chacun de nos bots sur ce serveur a les siens,
+        et tout ce qui reste vide suit les paramètres du serveur.
+    state:
+      "on": "Activé"
+      "off": "Désactivé"
+    turn_on: Activer
+    turn_off: Désactiver
+    change: Modifier
+    premium: Premium
+    invalid: Saisis un nombre entier entre {{min, number}} et {{max, number}}.
+    invalid_optional: >-
+      Saisis un nombre entier entre {{min, number}} et {{max, number}}, ou
+      laisse vide.
+    playback:
+      volume:
+        label: Volume de départ
+        about: Le volume auquel je commence à jouer.
+        input: De 0 à 250.
+      crossfade:
+        label: Fondu enchaîné
+        about: Fond la fin de chaque titre dans le suivant.
+        value: "{{seconds, number}} s"
+        input: En secondes, de 0 à 30. 0 le désactive.
+      autoplay:
+        label: Lecture auto
+        about: >-
+          Continue la musique avec des titres similaires quand la file
+          d'attente est vide.
+      vc_status:
+        label: Statut du salon vocal
+        about: Affiche le titre en cours comme statut du salon vocal.
+      auto_pause:
+        label: Pause 24/7 si vide
+        about: >-
+          Un lecteur 24/7 se met en pause quand personne n'est dans son appel, et
+          reprend dès que quelqu'un arrive.
+      notifications:
+        label: Salon du titre en cours
+        about: >-
+          Où je publie chaque titre. Laisse vide pour publier là où la musique a
+          été lancée.
+        placeholder: Le salon où la musique a été lancée
+    dj:
+      mode:
+        label: Mode DJ
+        about: >-
+          Seuls les DJ peuvent contrôler le lecteur. Tout le monde peut quand
+          même ajouter des titres et voter pour passer.
+      role:
+        label: Rôle DJ
+        about: >-
+          Les membres avec ce rôle sont DJ, tout comme ceux qui ont « Gérer le
+          serveur » ou quiconque est la seule personne à écouter dans l'appel
+          avec moi.
+        placeholder: Aucun rôle DJ
+      max_volume:
+        label: Volume max
+        about: Le volume maximum que peut régler un membre qui n'est pas DJ.
+        none: Aucune limite
+        input: De 0 à 250. Laisse vide pour aucune limite.
+      vote_skip:
+        label: Votes pour passer
+        about: La part d'auditeurs nécessaire pour passer un titre.
+        none: Plus de la moitié
+        value: "{{percent, number}} %"
+        input: Un pourcentage, de 1 à 100. Laisse vide pour plus de la moitié.
+    queue:
+      no_duplicates:
+        label: Pas de doublons
+        about: Les titres déjà dans la file d'attente ne peuvent pas être rajoutés.
+      fair:
+        label: File équitable
+        about: Alterne entre les personnes qui ajoutent des titres.
+      leave_cleanup:
+        label: Nettoyage au départ
+        about: >-
+          Retire les titres d'un membre 30 secondes après qu'il a quitté
+          l'appel.
+      max_songs:
+        label: Titres par personne
+        about: >-
+          Le nombre de titres qu'un membre qui n'est pas DJ peut avoir dans la
+          file.
+        none: Aucune limite
+        input: De 1 à 1000. Laisse vide pour aucune limite.
+      max_length:
+        label: Durée max d'un titre
+        about: La durée maximale d'un titre ajouté par un membre qui n'est pas DJ.
+        none: Aucune limite
+        value_one: "{{count, number}} minute"
+        value_many: "{{count, number}} minutes"
+        value_other: "{{count, number}} minutes"
+        input: En minutes, de 1 à 1440. Laisse vide pour aucune limite.
+    voice:
+      channels:
+        label: Salons vocaux
+        about: Où je peux jouer. Laisse vide pour jouer dans n'importe quel salon vocal.
+        placeholder: N'importe quel salon vocal
+    bot:
+      always_on:
+        label: Salon 24/7
+        about: >-
+          Un salon que ce bot rejoint de lui-même et où il reste, même quand la
+          musique s'arrête.
+        placeholder: Aucun
+        taken: >-
+          {{bot}} reste déjà dans ce salon en permanence. Choisis-en un autre.
+      voice:
+        label: Salons vocaux
+        about: >-
+          Où ce bot peut jouer. Laisse vide pour suivre les salons vocaux du
+          serveur.
+        any: >-
+          Ce bot peut jouer dans n'importe quel salon vocal autorisé par le
+          serveur. Choisis-en pour le limiter à ceux-là.
+        placeholder: Les salons vocaux du serveur
+      notifications:
+        label: Salon du titre en cours
+        about: Où ce bot publie chaque titre, au lieu du salon du serveur.
+        placeholder: Le salon du serveur
+      volume:
+        label: Volume de départ
+        about: Le volume de départ de ce bot, au lieu de celui du serveur.
+        none: Celui du serveur ({{volume, number}})
+        input: De 0 à 250. Laisse vide pour utiliser celui du serveur.
+  history:
+    title: Écoutés récemment
+    title_by: Demandés récemment par {{user}}
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Page {{page, number}} sur {{pages, number}}
+    again: Rajouter à la file
+    empty: Rien n'a encore été demandé ici.
+    not_playing: Je ne joue pas sur ce serveur. Utilise `/play` pour commencer.
+    gone: Je ne retrouve pas ce titre. Essaie plutôt `/play`.
+    queued: "{{user}} a remis {{track}} dans la file d'attente."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Déconnecté de {{channel}}.'
-    destroyed: Le lecteur pour ce serveur a été détruit.
+    success_channel: J'ai quitté {{channel}}.
+    destroyed: Le lecteur de ce serveur a été arrêté.
   join:
     conflict: Je suis déjà dans un salon vocal.
-    failure: Je n'ai pas pu rejoindre ce salon vocal.
+    failure: Je n'ai pas réussi à rejoindre ce salon vocal.
     in_progress: Je suis déjà en train de rejoindre ce salon vocal.
     perms:
       missing: >-
-        J'ai besoin des autorisations pour **view**, **connect**, et **speak**
-        dans {{channel}}.
-    success: 'D''accord, j''ai rejoint {{channel}}.'
+        J'ai besoin des permissions **Voir les salons**, **Se connecter** et
+        **Parler** dans {{channel}}.
+      missing_named: >-
+        Je ne peux pas jouer dans {{channel}}, car il me manque
+        {{permissions}} dans ce salon. Demande à un admin du serveur de me
+        donner ces permissions, ou réinvite-moi avec le bouton ci-dessous.
+      reinvite: Réinviter avec les permissions
+    success: J'ai rejoint {{channel}}.
   skip:
-    success: Passé.
+    success: "{{user}} a passé le titre."
+    vote:
+      counted: >-
+        {{user}} a voté pour passer le titre. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Tu as déjà voté pour passer ce titre. ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} a voté pour passer, et le vote est adopté. On passe le titre."
+      requester_gone: >-
+        {{user}} a passé le titre. La personne qui l'avait ajouté a quitté
+        l'appel, donc aucun vote n'était nécessaire.
     to:
       invalid: >-
-        Je n'ai pas reconnu la chanson que vous m'avez donnée. Essayez
-        d'utiliser la saisie automatique :)
-      none: >-
-        Je ne peux pas passer à cette chanson, est-elle toujours dans la file
-        d'attente ?
+        Je n'ai pas reconnu le titre que tu m'as donné. Essaie la saisie
+        automatique :)
+      none: Je n'ai pas pu passer à ce titre. Est-il encore dans la file d'attente ?
   seek:
-    unseekable: La chanson actuelle n'est pas disponible en avance rapide.
-    no_duration: La chanson actuelle n'a pas de durée.
-    syntax: 'Le code temporel doit être au format `mm:ss`'
+    unseekable: Impossible de se déplacer dans le titre en cours.
+    no_duration: Le titre en cours n'a pas de durée.
+    syntax: Le repère temporel doit être au format `mm:ss`.
     out_of_bounds: >-
-      La position indiquée dépasse la durée de la chanson actuelle, {{given}} >
-      {{length}}
-    success: 'Avancé à {{given}}'
+      Cette position dépasse la fin du titre en cours ({{given}} > {{length}}).
+    success: "{{user}} a déplacé la lecture à {{given}}."
   loop:
     nothing:
-      success: La lecture en boucle a été désactivée.
-      already: La lecture en boucle était déjà désactivée.
+      success: "{{user}} a désactivé la répétition."
+      already: La répétition est déjà désactivée.
     track:
-      indef: La chanson actuelle sera maintenant répétée indéfiniment.
-      times_one: La chanson actuelle sera répétée une fois.
-      times_other: 'La chanson actuelle sera maintenant répétée *{{count, number}} fois*.'
-      nuhuh: La chanson actuelle est déjà en boucle.
+      indef: "{{user}} a mis le titre en cours en boucle."
+      times_one: "{{user}} a réglé le titre en cours pour qu'il se répète encore une fois."
+      times_many: >-
+        {{user}} a réglé le titre en cours pour qu'il se répète encore
+        {{count, number}} fois.
+      times_other: >-
+        {{user}} a réglé le titre en cours pour qu'il se répète encore
+        {{count, number}} fois.
+      nuhuh: Le titre en cours est déjà en boucle.
     queue:
-      indef: La file d'attente sera maintenant répétée indéfiniment.
-      times_one: La file d'attente sera répétée une fois.
-      times_other: 'La file d''attente sera maintenant répétée *{{count, number}} fois*.'
+      indef: "{{user}} a mis la file d'attente en boucle."
+      times_one: "{{user}} a réglé la file d'attente pour qu'elle se répète encore une fois."
+      times_many: >-
+        {{user}} a réglé la file d'attente pour qu'elle se répète encore
+        {{count, number}} fois.
+      times_other: >-
+        {{user}} a réglé la file d'attente pour qu'elle se répète encore
+        {{count, number}} fois.
       nuhuh: La file d'attente est déjà en boucle.
   queue:
-    use_autocomplete: >-
-      Hein ? Essayez d'utiliser la saisie automatique pour sélectionner une
-      chanson en file d'attente.
+    use_autocomplete: Hein ? Utilise la saisie automatique pour choisir un titre de la file.
     view:
-      footer: 'Page {{cur, number}}/{{all, number}} ({{tot, number}} au total)'
+      footer: Page {{cur, number}}/{{all, number}} ({{tot, number}} au total)
     move:
-      failed: Impossible de déplacer cette chanson à la position demandée.
-      success: 'Déplacé {{track}} à la position #{{index, number}}'
+      failed: Impossible de déplacer ce titre à la position demandée.
+      success: "{{user}} a déplacé {{track}} en position #{{index, number}}."
     clear:
-      none: La file d'attente est vide.
-      success_one: 1 chanson supprimée de la file d'attente.
-      success_other: '{{count, number}} chansons supprimées de la file d''attente.'
+      none: La file d'attente était vide.
+      success_one: "{{user}} a retiré {{count, number}} titre de la file d'attente."
+      success_many: "{{user}} a retiré {{count, number}} titres de la file d'attente."
+      success_other: "{{user}} a retiré {{count, number}} titres de la file d'attente."
     remove:
-      confirm: 'Êtes-vous sûr de vouloir supprimer {{track}} de la file d''attente ?'
-      cancelled: 'D''accord, je ne supprimerai pas cette chanson.'
+      confirm: Tu veux vraiment retirer {{track}} de la file d'attente ?
+      cancelled: D'accord, je ne retire pas ce titre.
       not_found: >-
-        La chanson fournie est introuvable dans la file d'attente, essayez
-        d'utiliser la saisie automatique.
-      success: 'Supprimé {{track}} de la file d''attente.'
+        Ce titre est introuvable dans la file d'attente, essaie la saisie
+        automatique.
+      success: "{{user}} a retiré {{track}} de la file d'attente."
     shuffle:
       too_small: La file d'attente est trop petite pour être mélangée.
-      success: La file d'attente a été mélangée.
+      success: "{{user}} a mélangé la file d'attente."
+  now_playing:
+    autoplay: Lecture auto
+    requested_by: Demandé par
+    ends: Fin
+    queue: File d'attente
+    queue_summary: "{{queued, number}} en attente · {{played, number}} lus"
+    up_next: À suivre
+    refresh: Actualiser
+    open: Ouvrir
   pause:
     already: Le lecteur est déjà en pause.
-    success: J'ai mis le lecteur en pause.
+    success: "{{user}} a mis le lecteur en pause."
   resume:
-    server_muted: Impossible de reprendre la lecture tant que je suis muet sur le serveur.
-    already: Le lecteur n'était pas en pause.
-    success: J'ai repris la lecture.
+    server_muted: Je ne peux pas reprendre tant que le serveur me rend muet.
+    already: Le lecteur n'est pas en pause.
+    success: "{{user}} a relancé le lecteur."
   play:
+    duplicate: C'est déjà dans la file d'attente.
+    over_limit_one: >-
+      Ici, tu ne peux avoir que {{count, number}} titre à la fois dans la file
+      d'attente.
+    over_limit_many: >-
+      Ici, tu ne peux avoir que {{count, number}} titres à la fois dans la file
+      d'attente.
+    over_limit_other: >-
+      Ici, tu ne peux avoir que {{count, number}} titres à la fois dans la file
+      d'attente.
+    too_long_one: Ici, les titres ne peuvent pas dépasser {{count, number}} minute.
+    too_long_many: Ici, les titres ne peuvent pas dépasser {{count, number}} minutes.
+    too_long_other: Ici, les titres ne peuvent pas dépasser {{count, number}} minutes.
+    too_long_skipped_one: >-
+      {{count, number}} titre ignoré, car il dépasse la limite de
+      {{minutes, number}} min.
+    too_long_skipped_many: >-
+      {{count, number}} titres ignorés, car ils dépassent la limite de
+      {{minutes, number}} min.
+    too_long_skipped_other: >-
+      {{count, number}} titres ignorés, car ils dépassent la limite de
+      {{minutes, number}} min.
+    over_limit_skipped_one: >-
+      {{count, number}} titre ignoré : ici, la limite de la file est de
+      {{limit, number}} par personne.
+    over_limit_skipped_many: >-
+      {{count, number}} titres ignorés : ici, la limite de la file est de
+      {{limit, number}} par personne.
+    over_limit_skipped_other: >-
+      {{count, number}} titres ignorés : ici, la limite de la file est de
+      {{limit, number}} par personne.
+    duplicates_skipped_one: >-
+      {{count, number}} titre ignoré, car déjà dans la file d'attente.
+    duplicates_skipped_many: >-
+      {{count, number}} titres ignorés, car déjà dans la file d'attente.
+    duplicates_skipped_other: >-
+      {{count, number}} titres ignorés, car déjà dans la file d'attente.
     domain:
-      other: Le lien que vous avez fourni n'est pas pris en charge.
-      youtube: Eara a temporairement supprimé la prise en charge des liens YouTube.
-      vote_locked: >
-        Vous devez voter pour {{mention}} sur **top.gg** pour accéder aux liens
+      other: Le lien que tu as fourni n'est pas pris en charge.
+      youtube: Eara a temporairement retiré la prise en charge des liens YouTube.
+      youtube_premium: >-
+        Les liens YouTube sont une fonctionnalité **Premium**. Fais une
+        recherche par nom ou colle un lien Spotify ou Apple Music pour l'écouter
+        gratuitement.
+      vote_locked: >-
+        Tu dois voter pour {{mention}} sur **top.gg** pour accéder aux liens
         `{{domain}}` !
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Aucun résultat n'a été retourné pour votre requête.
-    error: Une erreur s'est produite lors du chargement de votre requête.
-    invalid_url: Vous avez fourni une URL non valide.
+    nothing: Ta recherche n'a donné aucun résultat.
+    youtube_match: >-
+      -# Lecture de l'équivalent gratuit le plus proche. **Premium** lit
+      directement les liens YouTube.
+    voice_wait:
+      waiting: >-
+        Rejoins un salon vocal et je commence à jouer tout de suite. J'attends
+        {{seconds, number}} s.
+      expired: >-
+        Tu n'as pas rejoint de salon vocal à temps. Rejoins-en un, puis utilise
+        à nouveau `/play`.
+      replaced: Annulé, car tu as de nouveau utilisé `/play`.
+    error: Une erreur s'est produite lors du chargement de ta recherche.
+    invalid_url: Tu as fourni une URL invalide.
     queue_full: >-
-      La file d'attente n'a pas assez de place. Supprimez des chansons avant
-      d'en ajouter d'autres.
-    added: 'Ajout de {{item}} à la file d''attente.'
+      La file d'attente n'a plus assez de place. Retire des titres avant d'en
+      ajouter d'autres.
+    added: "{{user}} a ajouté {{item}} à la file d'attente."
     loaded:
-      album_one: 'une chanson de l''album {{collection}}'
-      album_other: '{{count, number}} chansons de l''album {{collection}}'
-      artist_one: '*{{collection}}*''s top song'
-      artist_other: '*{{collection}}*''s top {{count, number}} songs'
-      playlist_one: 'one song from playlist *{{collection}}*'
-      playlist_other: '{{count, number}} songs from playlist *{{collection}}*'
+      album_one: "{{count, number}} titre de l'album {{collection}}"
+      album_many: "{{count, number}} titres de l'album {{collection}}"
+      album_other: "{{count, number}} titres de l'album {{collection}}"
+      artist_one: le titre phare de *{{collection}}*
+      artist_many: les {{count, number}} meilleurs titres de *{{collection}}*
+      artist_other: les {{count, number}} meilleurs titres de *{{collection}}*
+      playlist_one: "{{count, number}} titre de la playlist *{{collection}}*"
+      playlist_many: "{{count, number}} titres de la playlist *{{collection}}*"
+      playlist_other: "{{count, number}} titres de la playlist *{{collection}}*"
+  last_fm:
+    unavailable: La connexion à Last.fm n'est pas disponible pour le moment.
+    account: Compte
+    connect:
+      prompt: >-
+        Ouvre le lien ci-dessous pour connecter ton compte Last.fm. Il ne
+        fonctionne qu'une fois et expire dans {{minutes, number}} min, alors
+        garde-le pour toi.
+      button: Connecter Last.fm
+      open: Ouvrir Last.fm
+    disconnect:
+      button: Déconnecter
+      done: Compte Last.fm déconnecté.
+    status:
+      unlinked: Tu n'as pas encore connecté de compte Last.fm.
+    scrobbling:
+      label: Scrobbling
+      turn_on: Activer le scrobbling
+      turn_off: Désactiver le scrobbling
+      enabled: Scrobbling activé.
+      disabled: Scrobbling désactivé. Ton compte reste connecté.
   stop:
-    success: The player has been stopped.
+    success: "{{user}} a arrêté le lecteur."
   volume:
-    current: 'The current volume is {{volume, number}}.'
-    out_of_bounds: The volume must be between 0 and 255.
-    success: 'The volume has been set to {{volume, number}}.'
+    current: Le volume est à {{volume, number}}.
+    success: "{{user}} a réglé le volume sur {{volume, number}}."
+    over_limit: >-
+      Sur ce serveur, seuls les DJ peuvent régler le volume au-dessus de
+      {{limit, number}}.
   effects:
-    enabled: 'Enabled the ''*{{effect}}*'' effect!'
-    disabled: 'Disabled the ''*{{effect}}*'' effect!'
-    trial_enabled: 'Effet ''*{{effect}}*'' activé pour le morceau actuel !'
-    trial_disabled: 'Effet ''*{{effect}}*'' désactivé pour le morceau actuel !'
-    cleared: Cleared all toggled effects!
+    enabled: "{{user}} a activé *{{effect}}*."
+    disabled: "{{user}} a désactivé *{{effect}}*."
+    trial_enabled: "{{user}} a activé *{{effect}}* pour le titre en cours."
+    trial_disabled: "{{user}} a désactivé *{{effect}}* pour le titre en cours."
+    cleared: "{{user}} a désactivé tous les effets."
+    list:
+      none: Aucun effet n'est activé.
+      some: "Effets activés : {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} a activé le 24/7. Je reste dans l'appel jusqu'à ce que quelqu'un
+      utilise `/leave`.
+    disabled: >-
+      {{user}} a désactivé le 24/7. Je partirai quand la musique s'arrêtera ou
+      que tout le monde sera parti.
+    already:
+      enabled: Le 24/7 est déjà activé.
+      disabled: Le 24/7 est déjà désactivé.
+    saved: >-
+      {{channel}} est maintenant mon salon 24/7. Je le rejoindrai de moi-même
+      dès que je ne joue pas ailleurs sur ce serveur.
+    forgotten: >-
+      Je ne reviendrai plus dans mon salon 24/7. Si j'y suis en ce moment, j'y
+      reste jusqu'à ce que quelqu'un désactive le 24/7 ou utilise `/leave`.
+    not_voice: Ce n'est pas un salon vocal ou de conférence.
+    turn_on: Activer le 24/7
+    turn_off: Désactiver le 24/7
+    keep: Toujours revenir ici
+    forget: Ne plus revenir
+    auto_pause:
+      "on": >-
+        {{user}} a activé la pause auto. Les lecteurs 24/7 d'ici se mettent en
+        pause quand personne n'est dans l'appel, et reprennent dès que quelqu'un
+        arrive.
+      "off": >-
+        {{user}} a désactivé la pause auto. Les lecteurs 24/7 d'ici continuent
+        de jouer même quand l'appel est vide.
+      pause: Pause si vide
+      keep_playing: Continuer si vide
   immersive:
-    disabled: Immersive mode disabled.
+    disabled: "{{user}} a désactivé le mode immersif."

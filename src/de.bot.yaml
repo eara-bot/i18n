@@ -1,339 +1,659 @@
 checks:
-  guild_only: Dieser Befehl kann nur in einem Server verwendet werden.
-  not_playing: Ich spiele hier keine Musik ab.
-  user_vc_none: 'Um diesen Befehl zu verwenden, musst du einem Sprachkanal beigetreten sein.'
+  guild_only: Diesen Befehl kannst du nur auf einem Server verwenden.
+  not_playing: Ich spiele auf diesem Server gerade keine Musik.
+  user_vc_none: Du musst in einem Sprachkanal sein, um diesen Befehl zu verwenden.
   user_vc_diff: >-
-    Um diesen Befehl verwenden zu können, musst du im selben Sprachkanal sein
-    wie ich.
+    Du musst im selben Sprachkanal sein wie ich, um diesen Befehl zu verwenden.
   queue_empty: Die Warteschlange ist leer.
-  nothing_playing: Aktuell wird nichts abgespielt.
-  unknown_command: Ich erkenne diesen Befehl nicht...
-  owner_only: Du hast keinen Zugriff auf diesen Befehl.
-  maintenance: 'Der Bot befindet sich in Wartungsarbeiten, gib es später wieder.'
+  nothing_playing: Gerade läuft nichts.
+  unknown_command: Diesen Befehl kenne ich nicht ...
+  owner_only: Du darfst diesen Befehl nicht verwenden.
+  missing_permissions: >-
+    Du brauchst diese Berechtigungen, um diesen Befehl zu verwenden:
+    {{permissions}}.
+  maintenance: Der Bot wird gerade gewartet. Schau später wieder vorbei.
+  tier_required: >-
+    Der Plan dieses Servers enthält mich nicht. Abonniere auf {{website}}, um
+    mich hier zu nutzen.
+  tier_lapsed: >-
+    Das Abo dieses Servers ist abgelaufen, deshalb habe ich aufgehört zu
+    spielen. Verlängere es auf {{website}}, um weiterzumachen.
+  voice_channel_not_allowed: "Ich kann hier nur in diesen Kanälen spielen: {{channels}}."
+  dj_only:
+    role: >-
+      Der DJ-Modus ist an, deshalb können das nur Leute mit {{role}} oder der
+      Berechtigung **Server verwalten**.
+    managers: >-
+      Der DJ-Modus ist an, deshalb können das nur Leute mit der Berechtigung
+      **Server verwalten**.
+stage:
+  hand_raised: >-
+    Ich habe auf der Stage die Hand gehoben. Ein Stage-Moderator muss mich zum
+    Sprechen einladen, bevor jemand die Musik hören kann.
+  cannot_speak: >-
+    Ich bin im Stage-Publikum und kann nicht ums Wort bitten. Gib mir
+    **Sprechanfrage**, oder lade mich selbst zum Sprechen ein.
 common:
   join_our_server: >-
-    Trete unserem [*Discord Server*]({{invite}}) bei, um weitere Informationen
-    zu erhalten
-  message_deleted: '*Die Nachricht wurde gelöscht*'
-  vote: Abstimme auf Top.gg
-  discord_server: Support Server
+    Tritt unserem [*Discord-Server*]({{invite}} ) bei, um mehr zu erfahren.
+  message_deleted: "*Nachricht wurde gelöscht*"
+  vote: Auf Top.gg voten
+  discord_server: Support-Server
+  help_center: Hilfecenter
+  open_player: Player öffnen
+  open_in_web_player: Im Web-Player öffnen
   remove: Entfernen
   play_now: Jetzt abspielen
-  next: Nächstes
-  previous: Vorheriges
+  next: Weiter
+  previous: Zurück
   unknown_artist: Unbekannter Künstler
-  unavailable_track: '[nicht verfügbarer Track-Metadaten]'
+  unavailable_track: "[Songdaten nicht verfügbar]"
   unknown_url: Unbekannte URL
-  unsupported_url: Ununterstützte URL
-  source_url: '{{source}} URL'
+  unsupported_url: Nicht unterstützte URL
+  supported_sites: Unterstützte Seiten
+  source_url: "{{source}}-URL"
   unknown: Unbekannt
   unknown_channel: Unbekannter Kanal
   none: Keine
-  not_available: N/A
-  'yes': Ja
-  'no': Nein
-  track: Spur
+  not_available: k. A.
+  yes: Ja
+  no: Nein
+  track: Song
   queue: Warteschlange
   state:
-    loading: Lädend
+    loading: Lädt
     paused: Pausiert
-    playing: Abgespielt
+    playing: Spielt
     idle: Inaktiv
     active: Aktiv
-    'off': Aus
+    on: An
+    off: Aus
     disconnected: Getrennt
-    joining: Verbinden
+    joining: Tritt bei
+    reconnecting: Verbindet neu
     connected: Verbunden
   confirmation:
     prompt: |-
       {{message}}
-      -# Du hast **30 Sekunden**, um zu reagieren.
+      -# Du hast **30 Sekunden** Zeit zum Antworten.
     confirm: Bestätigen
     deny: Ablehnen
   premium:
     sku_required: >-
-      Dieser Server benötigt ein **Premium-Abonnement**, um diesen Befehl zu
-      verwenden.
+      Dieser Server braucht ein **Premium-Abo**, um diesen Befehl zu nutzen.
+    pricing_pitch: >-
+      -# Pläne ab **{{price}}/Monat** für bessere Audioqualität, größere
+      Warteschlangen und YouTube-Zugang.
     uninterrupted_access: >-
-      Nach dem Abstimmen erhalten Sie *bis zu* 12 Stunden ununterbrochenen
-      Zugriff!
+      Nach dem Voten bekommst du *bis zu* 12 Stunden ununterbrochenen Zugang!
     vote_required: >-
-      Sie müssen für {{mention}} auf **top.gg** abstimmen, um Zugriff auf diesen
-      Befehl zu erhalten.
+      Du musst auf **top.gg** für {{mention}} voten, um Zugang zu diesem Befehl
+      zu bekommen.
 
       -# $t(common.premium.uninterrupted_access)
-    get_premium: Premium erhalten
-    vote_locks_premium: '**Premium** entfernt das Stimmungs-Lock für den gesamten Server.'
+    get_premium: Premium holen
+    vote_locks_premium: "**Premium** entfernt die Vote-Sperren für den ganzen Server."
 buttons:
+  add:
+    title: Zur Warteschlange hinzufügen
+    label: Songname oder Link
+    placeholder: Suchen oder Link einfügen
+    another: Weiteren hinzufügen
   remove:
-    none: 'Ich habe den Artikel, den Sie entfernen wollten, nicht finden können...'
-    done: '{{author}} hat {{track}} aus der Warteschlange entfernt.'
+    none: Ich konnte das Element, das du entfernen wolltest, nicht finden ...
+    done: "{{author}} hat {{track}} aus der Warteschlange entfernt."
   correlated_remove:
-    none: Die gesuchten Musikstücke sind nicht mehr verfügbar...
-    done: '{{author}} hat {{count}} Songs aus der Warteschlange entfernt.'
+    none: Die eingereihten Songs sind nirgends mehr zu finden ...
+    done_one: "{{author}} hat 1 eingereihten Song entfernt."
+    done_other: "{{author}} hat {{count, number}} eingereihte Songs entfernt."
   play_now:
     none: >-
-      Ich konnte die von Ihnen hinzugefügten Songs in der Warteschlange nicht
-      finden, haben Sie sie bereits abgespielt?
-    not_found: Konnte den Song in der Warteschlange nicht finden.
-    done_one: 'Ein von {{requester}} angeforderter Song hat Vorrang.'
-    done_other: '{{count}} von {{requester}} angeforderte Songs haben Vorrang.'
-    footer_a: 'Zu {{next}} gesprungen von {{prev}}'
-    footer_b: 'Zu {{next}} gesprungen'
+      Ich konnte die Songs, die du hinzugefügt hast, nicht in der Warteschlange
+      finden. Wurden sie schon gespielt?
+    not_found: Dieser Song ist nicht in der Warteschlange.
+    done_one: 1 Song von {{requester}} wurde vorgezogen.
+    done_other: "{{count, number}} Songs von {{requester}} wurden vorgezogen."
+    footer_a: Von {{prev}} zu {{next}} gesprungen.
+    footer_b: Zu {{next}} gesprungen.
   item_actions:
-    not_found: Dieser Song befindet sich nicht mehr in der Warteschlange.
+    not_found: Dieser Song ist nicht mehr in der Warteschlange.
   previous:
-    none: Es gibt keine vorherigen Songs...
-  skip_to: '{{user}} ist zu {{track}} gesprungen'
-  stop: '{{user}} hat den Wiedergabestopp gestartet.'
+    none: Es gibt keine vorherigen Songs ...
+  skip_to: "{{user}} ist zu {{track}} gesprungen."
+  stop: "{{user}} hat den Player gestoppt."
 events:
   command_failed:
-    message: Dieser Befehl ist fehlgeschlagen.
+    message: Etwas ist schiefgelaufen
     reason:
-      unknown: >-
-        Ein unerwarteter Fehler ist aufgetreten. Bitte melden Sie dies an die
-        Entwickler.
-      panic: 'Die Aufgabe wurde abgebrochen, bitte melden Sie dies an die Entwickler.'
-    footer: 'Bitte geben Sie diese ID an die Entwickler: **{{eid}}**'
+      unknown: Versuch es gleich noch mal.
+      player_restarted: Der Player musste neu starten. Versuch es noch mal.
+    footer: >-
+      Fehler-ID `{{eid}}` · teile sie auf unserem Support-Server, falls das
+      öfter passiert.
+    usage: "Das sieht nicht richtig aus. So funktioniert es:"
   player:
     tips:
-      autoplay: >-
-        Halten Sie die Musik auch nach Ende der Warteschlange mit {{command}}
-        weiter.
+      autoplay: Lass die Musik mit {{command}} weiterlaufen, wenn die Warteschlange endet.
       crossfade: >-
-        Wussten Sie, dass wir Crossfading haben? Verwenden Sie {{command}}, um
-        dies zu konfigurieren.
-      effects: 'Geben Sie dem aktuellen Song eine andere Note mit {{command}}.'
+        Wusstest du, dass es Crossfade gibt? Mit {{command}} kannst du ihn
+        einstellen.
+      effects: Gib dem aktuellen Song mit {{command}} einen anderen Klang.
       history: >-
-        Suchen Sie nach etwas, das früher gespielt wurde? {{command}} kann auch
-        die Warteschlange-Historie anzeigen.
-      immersive: >-
-        Verwenden Sie {{spatialize}} oder {{orbit}}, um Ihre Erfahrung
-        aufzulockern!
+        Suchst du etwas, das vorhin lief? {{command}} zeigt auch den Verlauf
+        der Warteschlange.
+      immersive: Mit {{spatialize}} oder {{orbit}} wird dein Hörerlebnis lebendiger!
+      last_fm: >-
+        Verknüpfe dein Last.fm-Konto mit {{command}}, um alles zu scrobbeln,
+        was du hier hörst.
       loop: >-
-        Wollen Sie es noch einmal hören? {{command}} kann diesen Song oder die
-        gesamte Warteschlange wiederholen.
+        Noch mal hören? {{command}} kann diesen Song oder die ganze
+        Warteschlange wiederholen.
       move: >-
-        Ordnen Sie die Warteschlange neu oder reinigen Sie diese mit
-        {{move_command}} und {{remove_command}}.
+        Sortiere oder räume die Warteschlange mit {{move_command}} und
+        {{remove_command}} auf.
       notifications: >-
-        Servermanager können einen dedizierten Spielerkanal mit {{command}}
-        auswählen.
-      seek: 'Springen Sie zu einem beliebigen Punkt in diesem Song mit {{command}}.'
-      shuffle: 'Mischen Sie die Songs in der Warteschlange mit {{command}}.'
+        Servermanager können mit {{command}} einen eigenen Player-Kanal
+        festlegen.
+      player: >-
+        Verfolge Live-Lyrics und verwalte die Warteschlange mit {{command}}
+        oder im [Web-Player]({{url}}).
+      player_web: >-
+        Verfolge Live-Lyrics und verwalte die Warteschlange im
+        [Web-Player]({{url}}).
+      seek: Spring mit {{command}} an jede beliebige Stelle im Song.
+      shuffle: Misch die wartenden Songs in der Warteschlange mit {{command}}.
       voice_status: >-
-        Servermanager können den aktuellen Song im Sprachkanal-Status mit
-        {{command}} anzeigen.
+        Servermanager können mit {{command}} den aktuellen Song im
+        Sprachkanalstatus anzeigen.
     notification:
-      join_failed: Ich bin Ihrem Sprachkanal nicht beigetreten.
-      playback_failed: '{{track}} konnte nicht abspielt werden.'
+      join_failed: Ich konnte deinem Sprachkanal nicht beitreten.
+      playback_failed: "{{track}} konnte nicht abgespielt werden."
       scheduler_failed: >-
-        Die Player-Scheduler für diesen Server ist fehlgeschlagen. Bitte führen
-        Sie `/leave`, dann `/join` aus, und berichten Sie von diesem Fall, falls
-        es erneut passiert.
+        Der Player-Scheduler für diesen Server ist ausgefallen. Nutze bitte
+        `/leave`, dann `/join`, und melde es, falls es wieder passiert.
       playback_stalled: >-
-        Zu viele fehlgeschlagene Abspielversuche. Bitte treten Sie unserem
-        Support-Server bei, wenn dies weitergeht.
-      idle_timeout: 'Der Spieler war zu lange inaktiv, daher habe ich mich getrennt.'
-      restarting: Eara wird neu gestartet und sollte in Kürze wieder verfügbar sein.
+        Zu viele fehlgeschlagene Wiedergabeversuche. Wenn das so weitergeht,
+        tritt bitte unserem Support-Server bei.
+      idle_timeout: Der Player war zu lange inaktiv, deshalb habe ich die Verbindung getrennt.
+      restarting: Eara startet neu und sollte gleich wieder da sein.
     disconnect:
-      alone: 'Ich war ganz allein zurückgelassen und trenne mich <t:{{timestamp}}:R>'
+      alone: Ich wurde ganz allein gelassen und trenne die Verbindung <t:{{timestamp}}:R>.
     queue:
       end:
         message: Die Warteschlange ist zu Ende.
         prompts:
           review:
-            message: 'Genießt {{mention}}? Hinterlassen Sie uns eine Bewertung!'
-            button: Bewertung hinterlassen
+            message: Gefällt dir {{mention}}? Hinterlass uns eine Bewertung!
+            button: Bewertung schreiben
           vote:
             message: >-
-              Genießt {{mention}}? Stimmen Sie für uns ab, um mehr Menschen zu
-              helfen, sie zu finden!
-            button: Für uns abstimmen
+              Gefällt dir {{mention}}? Vote für uns, damit mehr Leute uns
+              finden!
+            button: Für uns voten
           support:
+            message: Brauchst du Hilfe oder willst einfach abhängen? Tritt unserer Discord-Community bei!
+            button: Unserem Server beitreten
+          player:
             message: >-
-              Brauchen Sie Hilfe oder möchten Sie Klönen? Treten Sie unserer
-              Discord-Community bei!
-            button: Unser Server beitreten
+              Such im Web-Player aus, was als Nächstes läuft: Suche, Lyrics und
+              Warteschlange an einem Ort.
+            button: Web-Player öffnen
 commands:
+  ###
+  ### Information Commands
+  ###
   debug:
-    footer: 'Teilen Sie diese Zusammenfassung, wenn Sie Hilfe vom Spieler benötigen.'
-    loop_indefinite: '{{mode}} (bestimmungslos)'
-    loop_remaining: '{{mode}} ({{count, number}} verbleibend)'
+    footer: Teile diese Übersicht, wenn du Hilfe mit dem Player brauchst.
+    loop_indefinite: "{{mode}} (unbegrenzt)"
+    loop_remaining: "{{mode}} (noch {{count, number}})"
   dev:
     entitlement_granted: >-
-      Berechtigungen für Entitlement {{entitlement}} für SKU {{sku}} an
-      Gemeinschaft {{guild}} gewährt.
-    player_not_found: 'Für Gemeinschaft {{guild}} existiert kein Spieler.'
-    joining: 'Beitreten zu {{channel}} ({{connection}})'
-    connected: 'Verbunden mit {{channel}} ({{connection}})'
+      Entitlement {{entitlement}} für SKU {{sku}} an Server {{guild}} vergeben.
+    player_not_found: Für Server {{guild}} gibt es keinen Player.
+    joining: Trete {{channel}} bei ({{connection}})
+    reconnecting: Verbinde neu mit {{channel}} ({{connection}})
+    connected: Verbunden mit {{channel}} ({{connection}})
+  help:
+    details: "-# Mit `/help` bekommst du Details zu jedem Befehl."
+    player: "-# Live-Lyrics, Warteschlange und Steuerung gibt es auch im [Web-Player]({{url}})."
+    supported_sites: "-# Nicht sicher, ob ein Link funktioniert? Sieh dir an, [von welchen Seiten eara abspielen kann]({{url}})."
+  feedback:
+    ask:
+      title: Gefällt dir {{mention}}?
+      note: Deine Antwort hilft uns zu entscheiden, woran wir als Nächstes arbeiten.
+      "yes": "Ja"
+      "no": Nicht wirklich
+    enjoying:
+      title: Danke! Hilf anderen, {{mention}} zu finden
+      note: Server entdecken neue Bots auf Top.gg. Eine Bewertung oder ein Vote dort hilft uns, mehr Leute zu erreichen.
+      review: Bewertung schreiben
+      vote: Auf Top.gg voten
+    not_enjoying:
+      title: Schade, dass es für dich nicht passt
+      note: Erzähl uns auf unserem Discord-Server, was schiefgelaufen ist, damit wir helfen können und wissen, was wir verbessern müssen.
+      support: Unserem Discord-Server beitreten
   ping:
     message: Pong!
-    footer: Haben Sie Probleme? Treten Sie unserem **Support-Server**! bei.
+    footer: Probleme? Schau ins **Hilfecenter** oder tritt unserem **Support-Server** bei.
   stats:
-    instance_failed: Abrufen des Instanzen ist fehlgeschlagen.
+    instance_failed: Die Statistiken für diesen Bot konnten nicht geladen werden.
+  ###
+  ### Setting Commands
+  ###
+  autoplay:
+    enabled: "{{user}} hat Autoplay eingeschaltet."
+    disabled: "{{user}} hat Autoplay ausgeschaltet."
+    turn_on: Autoplay einschalten
+    turn_off: Autoplay ausschalten
+  automix:
+    enabled: >-
+      {{user}} hat Automix eingeschaltet. Jeder Song geht jetzt so in den
+      nächsten über, wie es am besten passt, statt des Crossfades.
+    disabled: "{{user}} hat Automix ausgeschaltet."
+    turn_on: Automix einschalten
+    turn_off: Automix ausschalten
   crossfade:
     current:
-      enabled: 'Die Überblendungszeit ist auf {{duration, number}}s eingestellt.'
-      disabled: Überblendung ist deaktiviert.
+      "on": Crossfade ist auf {{seconds, number}} s gestellt.
+      "off": Crossfade ist aus.
     updated:
-      enabled: 'Die Überblendungszeit ist auf {{duration, number}}s eingestellt.'
-      disabled: Überblendung deaktiviert.
-  default_volume:
-    current: 'Das Standardvolumen für diesen Server beträgt derzeit {{volume, number}}.'
-    updated: >-
-      Das Standardvolumen für diesen Server wurde auf {{volume, number}}
-      aktualisiert.
-  do_vc_status_update:
+      "on": "{{user}} hat Crossfade auf {{seconds, number}} s gestellt."
+      "off": "{{user}} hat Crossfade ausgeschaltet."
+    "off": "Aus"
+    seconds: "{{seconds, number}} s"
+  scope:
+    server: Für den ganzen Server gespeichert.
+    session: >-
+      Bis der Player stoppt. Jemand mit „Server verwalten“ kann es hier oder in
+      {{command}} für den Server speichern.
+  dj:
     current:
-      enabled: >-
-        Derzeit wird der Status des Sprachkanals vom aktuellen Song aus, wenn
-        {{mention}} ändern.
-      disabled: >-
-        Derzeit wird der Status des Sprachkanals vom aktuellen Song aus, wenn
-        {{mention}} nicht ändern.
+      "on": Der DJ-Modus ist **an**. Nur DJs können den Player steuern.
+      "off": Der DJ-Modus ist **aus**. Alle im Call können den Player steuern.
+    who:
+      role: >-
+        DJs sind Mitglieder mit {{role}}, alle mit „Server verwalten“ und jede
+        Person, die als einzige mit mir im Call zuhört.
+      managers: >-
+        DJs sind alle mit „Server verwalten“ und jede Person, die als einzige
+        mit mir im Call zuhört.
+    you:
+      "yes": Du kannst den Player steuern.
+      "no": Du kannst den Player gerade nicht steuern.
     updated:
-      enabled: >-
-        {{mention}} wird ab sofort den Status des Sprachkanals beim Wechsel des
-        aktuellen Songs aktualisieren.
-      disabled: >-
-        {{mention}} wird ab sofort den Status des Sprachkanals nicht beim
-        Wechsel des aktuellen Songs aktualisieren.
-  autoplay:
-    current:
-      enabled: 'Derzeit wird von {{mention}} empfohlene Songs automatisch abgespielt.'
-      disabled: 'Derzeit spielt {{mention}} empfohlene Songs nicht automatisch ab.'
-    updated:
-      enabled: '{{mention}} wird ab sofort empfohlene Songs automatisch abspielen.'
-      disabled: >-
-        {{mention}} wird ab sofort keine empfohlenen Songs automatisch
-        abspielen.
-  notifications:
-    channel:
-      current:
-        none: '{{mention}} sendet keine Benachrichtigungen an einen bestimmten Kanal.'
-        some: '{{mention}} sendet derzeit Benachrichtigungen an {{channel}}.'
-      clear: >-
-        {{mention}} wird ab sofort keine Benachrichtigungen mehr an einen
-        bestimmten Kanal senden.
-      update: '{{mention}} wird ab sofort Benachrichtigungen an {{channel}} senden.'
+      "on": "{{user}} hat den DJ-Modus eingeschaltet."
+      "off": "{{user}} hat den DJ-Modus ausgeschaltet."
+      role: "{{user}} hat die DJ-Rolle auf {{role}} gesetzt."
+      no_role: "{{user}} hat die DJ-Rolle entfernt."
+    turn_on: DJ-Modus einschalten
+    turn_off: DJ-Modus ausschalten
+    role_placeholder: Keine DJ-Rolle
+  settings:
+    title: Einstellungen
+    footer: >-
+      Änderungen werden sofort gespeichert. Alles hier gibt es auch im
+      [Dashboard]({{url}}).
+    pages:
+      playback: Wiedergabe
+      dj: DJ
+      queue: Warteschlange
+      voice: Sprachkanäle
+      bot: Dieser Bot
+    about:
+      playback: Wie die Musik auf dem ganzen Server startet, klingt und weiterläuft.
+      dj: Wer den Player steuert und wie über das Überspringen entschieden wird.
+      queue: Was in die Warteschlange darf und in welcher Reihenfolge es läuft.
+      voice: Wo unsere Bots auf diesem Server spielen können, außer ein Bot hat eine eigene Liste.
+      bot: >-
+        Nur für {{bot}}. Jeder unserer Bots auf diesem Server hat eigene
+        Einstellungen, und alles, was leer bleibt, folgt den Servereinstellungen.
+    state:
+      "on": "An"
+      "off": "Aus"
+    turn_on: Einschalten
+    turn_off: Ausschalten
+    change: Ändern
+    premium: Premium
+    invalid: Gib eine ganze Zahl von {{min, number}} bis {{max, number}} ein.
+    invalid_optional: >-
+      Gib eine ganze Zahl von {{min, number}} bis {{max, number}} ein oder lass
+      das Feld leer.
+    playback:
+      volume:
+        label: Startlautstärke
+        about: Wie laut ich anfange zu spielen.
+        input: Von 0 bis 250.
+      crossfade:
+        label: Crossfade
+        about: Blendet das Ende jedes Songs in den nächsten über.
+        value: "{{seconds, number}} s"
+        input: Sekunden, von 0 bis 30. 0 schaltet es aus.
+      autoplay:
+        label: Autoplay
+        about: Lässt die Musik mit ähnlichen Songs weiterlaufen, wenn die Warteschlange leer ist.
+      vc_status:
+        label: Sprachkanalstatus
+        about: Zeigt den laufenden Song als Status des Sprachkanals an.
+      auto_pause:
+        label: 24/7 pausieren, wenn leer
+        about: >-
+          Ein 24/7-Player pausiert, solange niemand im Call ist, und spielt
+          weiter, sobald jemand beitritt.
+      notifications:
+        label: Now-Playing-Kanal
+        about: >-
+          Wo ich jeden Song poste. Leer lassen, um dort zu posten, wo die Musik
+          gestartet wurde.
+        placeholder: Der Kanal, in dem die Musik gestartet wurde
+    dj:
+      mode:
+        label: DJ-Modus
+        about: >-
+          Nur DJs können den Player steuern. Alle können weiterhin Songs
+          hinzufügen und fürs Überspringen voten.
+      role:
+        label: DJ-Rolle
+        about: >-
+          Mitglieder mit dieser Rolle sind DJs, ebenso alle mit „Server
+          verwalten“ oder jede Person, die als einzige mit mir im Call zuhört.
+        placeholder: Keine DJ-Rolle
+      max_volume:
+        label: Lautstärkelimit
+        about: Die höchste Lautstärke, die jemand ohne DJ-Rechte einstellen kann.
+        none: Kein Limit
+        input: Von 0 bis 250. Leer lassen für kein Limit.
+      vote_skip:
+        label: Stimmen zum Überspringen
+        about: Der Anteil der Zuhörer, der nötig ist, um einen Song zu überspringen.
+        none: Mehr als die Hälfte
+        value: "{{percent, number}} %"
+        input: Ein Prozentwert von 1 bis 100. Leer lassen für mehr als die Hälfte.
+    queue:
+      no_duplicates:
+        label: Keine Duplikate
+        about: Songs, die schon in der Warteschlange sind, können nicht erneut hinzugefügt werden.
+      fair:
+        label: Faire Warteschlange
+        about: Wechselt zwischen den Leuten ab, die Songs hinzufügen.
+      leave_cleanup:
+        label: Aufräumen beim Verlassen
+        about: Entfernt die Songs einer Person 30 Sekunden, nachdem sie den Call verlassen hat.
+      max_songs:
+        label: Songs pro Person
+        about: Wie viele Songs jemand ohne DJ-Rechte in der Warteschlange haben kann.
+        none: Kein Limit
+        input: Von 1 bis 1000. Leer lassen für kein Limit.
+      max_length:
+        label: Maximale Songlänge
+        about: Der längste Song, den jemand ohne DJ-Rechte hinzufügen kann.
+        none: Kein Limit
+        value_one: 1 Minute
+        value_other: "{{count, number}} Minuten"
+        input: In Minuten, von 1 bis 1440. Leer lassen für kein Limit.
+    voice:
+      channels:
+        label: Sprachkanäle
+        about: Wo ich spielen kann. Leer lassen, um in jedem Sprachkanal zu spielen.
+        placeholder: Jeder Sprachkanal
+    bot:
+      always_on:
+        label: 24/7-Kanal
+        about: >-
+          Ein Kanal, dem dieser Bot von selbst beitritt und in dem er bleibt,
+          auch wenn die Musik stoppt.
+        placeholder: Keiner
+        taken: >-
+          {{bot}} bleibt schon rund um die Uhr in diesem Kanal. Wähl einen
+          anderen.
+      voice:
+        label: Sprachkanäle
+        about: >-
+          Wo dieser Bot spielen kann. Leer lassen, um den Sprachkanälen des
+          Servers zu folgen.
+        any: >-
+          Dieser Bot kann in jedem Sprachkanal spielen, den der Server erlaubt.
+          Wähl welche aus, um ihn darauf zu beschränken.
+        placeholder: Sprachkanäle des Servers
+      notifications:
+        label: Now-Playing-Kanal
+        about: Wo dieser Bot jeden Song postet, statt im Kanal des Servers.
+        placeholder: Kanal des Servers
+      volume:
+        label: Startlautstärke
+        about: Wie laut dieser Bot startet, statt mit der Lautstärke des Servers.
+        none: Wie der Server ({{volume, number}})
+        input: Von 0 bis 250. Leer lassen, um die des Servers zu nutzen.
+  history:
+    title: Zuletzt gespielt
+    title_by: Zuletzt angefragt von {{user}}
+    details: "{{user}} · {{artist}} · {{time}}"
+    page: Seite {{page, number}} von {{pages, number}}
+    again: Erneut einreihen
+    empty: Hier wurde noch nichts angefragt.
+    not_playing: Ich spiele auf diesem Server gerade nicht. Starte mit `/play`.
+    gone: Ich konnte diesen Song nicht wiederfinden. Versuch es stattdessen mit `/play`.
+    queued: "{{user}} hat {{track}} erneut eingereiht."
+  ###
+  ### Music Commands
+  ###
   leave:
-    success_channel: 'Verlassen {{channel}}.'
-    destroyed: Spieler für diesen Server zerstört.
+    success_channel: "{{channel}} verlassen."
+    destroyed: Player für diesen Server gestoppt.
   join:
-    conflict: Ich bin bereits in einem Sprachkanal.
-    failure: Ich bin nicht in diesen Sprachkanal eingeben können.
-    in_progress: 'Ich bin bereits dabei, mich in diesen Sprachkanal einzubinden.'
+    conflict: Ich bin schon in einem Sprachkanal.
+    failure: Ich konnte diesem Sprachkanal nicht beitreten.
+    in_progress: Ich trete diesem Sprachkanal bereits bei.
     perms:
       missing: >-
-        Ich benötige Berechtigungen, um **anzusehen**, **eine Verbindung
-        herzustellen** und **zu sprechen** in {{channel}}.
-    success: 'Okay, ich habe {{channel}} betreten.'
+        Ich brauche in {{channel}} die Berechtigungen zum **Ansehen**,
+        **Verbinden** und **Sprechen**.
+      missing_named: >-
+        Ich kann in {{channel}} nicht spielen, weil mir dort {{permissions}}
+        fehlt. Bitte einen Server-Admin, mir diese Berechtigungen zu geben, oder
+        lade mich mit dem Button unten neu ein.
+      reinvite: Mit Berechtigungen neu einladen
+    success: "{{channel}} beigetreten."
   skip:
-    success: Übersprungen.
+    success: "{{user}} hat den Song übersprungen."
+    vote:
+      counted: >-
+        {{user}} hat fürs Überspringen gevotet. ({{votes, number}}/{{needed, number}})
+      repeated: >-
+        Du hast schon fürs Überspringen dieses Songs gevotet.
+        ({{votes, number}}/{{needed, number}})
+      passed: "{{user}} hat fürs Überspringen gevotet, und die Abstimmung ist durch. Der Song wird übersprungen."
+      requester_gone: >-
+        {{user}} hat den Song übersprungen. Wer ihn eingereiht hat, hat den
+        Call verlassen, deshalb war keine Abstimmung nötig.
     to:
       invalid: >-
-        Ich habe den Song, den du mir gegeben hast, nicht erkannt. Versuche die
-        Vollautomatische vervollständigung zu nutzen :)
-      none: >-
-        Ich konnte nicht zu diesem Song springen, befindet er sich immer noch in
-        der Warteschlange?
+        Den Song, den du angegeben hast, kenne ich nicht. Versuch es mit der
+        Autovervollständigung :)
+      none: Ich konnte nicht zu diesem Song springen. Ist er noch in der Warteschlange?
   seek:
-    unseekable: Der aktuelle Song ist nicht springbar.
-    no_duration: Der aktuelle Song hat keine Dauer.
-    syntax: 'Die Zeitcode muss im Format `mm:ss` sein'
+    unseekable: Im aktuellen Song kann man nicht springen.
+    no_duration: Der aktuelle Song hat keine Länge.
+    syntax: Die Zeitangabe muss im Format `mm:ss` sein.
     out_of_bounds: >-
-      Die Position, die du angegeben hast, wird die Länge des aktuellen Song
-      überschreiten, {{given}} > {{length}}
-    success: 'Gesprungen zu {{given}}'
+      Diese Position liegt hinter dem Ende des aktuellen Songs ({{given}} > {{length}}).
+    success: "{{user}} ist zu {{given}} gesprungen."
   loop:
     nothing:
-      success: Das Schleifen wurde deaktiviert.
-      already: Das Schleifen war bereits deaktiviert.
+      success: "{{user}} hat die Wiederholung ausgeschaltet."
+      already: Die Wiederholung ist schon aus.
     track:
-      indef: Jetzt wird der aktuelle Song unendlich in Schleife wiedergegeben.
-      times_one: Der aktuelle Song wird einmal in Schleife wiedergegeben.
-      times_other: >-
-        Der aktuelle Song wird jetzt *{{count, number}} mal* in Schleife
-        wiedergegeben.
-      nuhuh: Der aktuelle Song wird bereits in Schleife wiedergegeben.
+      indef: "{{user}} hat den aktuellen Song auf Wiederholung gestellt."
+      times_one: "{{user}} hat eingestellt, dass der aktuelle Song noch einmal wiederholt wird."
+      times_other: "{{user}} hat eingestellt, dass der aktuelle Song noch {{count, number}}-mal wiederholt wird."
+      nuhuh: Der aktuelle Song wird schon wiederholt.
     queue:
-      indef: Jetzt wird die Warteschlange unendlich in Schleife wiedergegeben.
-      times_one: Die Warteschlange wird einmal in Schleife wiedergegeben.
-      times_other: >-
-        Die Warteschlange wird jetzt *{{count, number}} mal* in Schleife
-        wiedergegeben.
-      nuhuh: Die Warteschlange ist bereits in Schleife.
+      indef: "{{user}} hat die Warteschlange auf Wiederholung gestellt."
+      times_one: "{{user}} hat eingestellt, dass die Warteschlange noch einmal wiederholt wird."
+      times_other: "{{user}} hat eingestellt, dass die Warteschlange noch {{count, number}}-mal wiederholt wird."
+      nuhuh: Die Warteschlange wird schon wiederholt.
   queue:
-    use_autocomplete: >-
-      Hm? Versuche die Vollautomatische vervollständigung zu nutzen, um
-      einen_song aus der Warteschlange auszuwählen.
+    use_autocomplete: Hm? Wähl einen eingereihten Song über die Autovervollständigung aus.
     view:
-      footer: 'Seite {{cur, number}}/{{all, number}} ({{tot, number}} insgesamt)'
+      footer: Seite {{cur, number}}/{{all, number}} ({{tot, number}} insgesamt)
     move:
-      failed: Konnte den Song nicht an die angeforderte Position verschieben.
-      success: '{{track}} zu #{{index, number}} verschoben'
+      failed: Der Song konnte nicht an die gewünschte Position verschoben werden.
+      success: "{{user}} hat {{track}} auf #{{index, number}} verschoben."
     clear:
       none: Die Warteschlange war leer.
-      success_one: 1 Song wurde aus der Warteschlange entfernt.
-      success_other: '{{count, number}} songs wurden aus der Warteschlange entfernt.'
+      success_one: "{{user}} hat 1 Song aus der Warteschlange entfernt."
+      success_other: "{{user}} hat {{count, number}} Songs aus der Warteschlange entfernt."
     remove:
-      confirm: >-
-        Bist du dir sicher, dass du {{track}} aus der Warteschlange entfernen
-        möchtest?
-      cancelled: 'Okay, ich werde diesen Song nicht entfernen.'
+      confirm: Willst du {{track}} wirklich aus der Warteschlange entfernen?
+      cancelled: Okay, ich entferne den Song nicht.
       not_found: >-
-        Der bereitgestellte Song wurde in der Warteschlange nicht gefunden,
-        versuche die Vollautomatische vervollständigung zu nutzen.
-      success: '{{track}} wurde aus der Warteschlange entfernt.'
+        Der angegebene Song ist nicht in der Warteschlange. Versuch es mit der
+        Autovervollständigung.
+      success: "{{user}} hat {{track}} aus der Warteschlange entfernt."
     shuffle:
-      too_small: 'Die Warteschlange ist zu klein, um gemischt zu werden.'
-      success: Die Warteschlange wurde durch gemischt.
+      too_small: Die Warteschlange ist zu klein zum Mischen.
+      success: "{{user}} hat die Warteschlange gemischt."
+  now_playing:
+    autoplay: Autoplay
+    requested_by: Angefragt von
+    ends: Endet
+    queue: Warteschlange
+    queue_summary: "{{queued, number}} eingereiht · {{played, number}} gespielt"
+    up_next: Als Nächstes
+    refresh: Aktualisieren
+    open: Öffnen
   pause:
-    already: Der Player ist bereits pausiert.
-    success: Ich habe den Player pausiert.
+    already: Der Player ist schon pausiert.
+    success: "{{user}} hat den Player pausiert."
   resume:
-    server_muted: >-
-      Den Player kann nicht wiedergegeben werden, während ich servervielleicht
-      mutiert bin.
-    already: Der Player war nicht pausiert
-    success: Ich habe den Spieler wieder aufgenommen.
+    server_muted: Ich kann nicht weiterspielen, solange ich serverweit stummgeschaltet bin.
+    already: Der Player ist nicht pausiert.
+    success: "{{user}} hat den Player fortgesetzt."
   play:
+    duplicate: Das ist schon in der Warteschlange.
+    over_limit_one: Du kannst hier nur 1 Song gleichzeitig in der Warteschlange haben.
+    over_limit_other: >-
+      Du kannst hier nur {{count, number}} Songs gleichzeitig in der
+      Warteschlange haben.
+    too_long_one: Songs dürfen hier nicht länger als 1 Minute sein.
+    too_long_other: Songs dürfen hier nicht länger als {{count, number}} Minuten sein.
+    too_long_skipped_one: >-
+      1 Song über dem Limit von {{minutes, number}} Min. übersprungen.
+    too_long_skipped_other: >-
+      {{count, number}} Songs über dem Limit von {{minutes, number}} Min.
+      übersprungen.
+    over_limit_skipped_one: >-
+      1 Song übersprungen: Das Warteschlangenlimit liegt hier bei
+      {{limit, number}} pro Person.
+    over_limit_skipped_other: >-
+      {{count, number}} Songs übersprungen: Das Warteschlangenlimit liegt hier
+      bei {{limit, number}} pro Person.
+    duplicates_skipped_one: 1 Song übersprungen, der schon in der Warteschlange war.
+    duplicates_skipped_other: >-
+      {{count, number}} Songs übersprungen, die schon in der Warteschlange
+      waren.
     domain:
-      other: Der von Ihnen bereitgestellte Link wird nicht unterstützt.
+      other: Dieser Link wird nicht unterstützt.
       youtube: Eara unterstützt YouTube-Links vorübergehend nicht.
+      youtube_premium: >-
+        YouTube-Links sind ein **Premium**-Feature. Such nach dem Namen oder
+        füg einen Spotify- oder Apple-Music-Link ein, um es kostenlos zu hören.
       vote_locked: >-
-        Sie müssen für {{mention}} auf **top.gg** abstimmen, um Zugriff auf
-        `{{domain}}`-Links zu erhalten!
+        Du musst auf **top.gg** für {{mention}} voten, um Zugang zu
+        `{{domain}}`-Links zu bekommen!
 
         -# $t(common.premium.uninterrupted_access)
-    nothing: Für Ihre Anfrage wurde nichts gefunden.
-    error: Beim Laden Ihrer Anfrage ist ein Fehler aufgetreten.
-    invalid_url: Sie haben eine ungültige URL eingegeben.
+    nothing: Für deine Suche wurde nichts gefunden.
+    youtube_match: >-
+      -# Es läuft der passendste kostenlose Treffer. **Premium** spielt
+      YouTube-Links direkt ab.
+    voice_wait:
+      waiting: >-
+        Tritt einem Sprachkanal bei, dann lege ich sofort los. Ich warte
+        {{seconds, number}} Sek.
+      expired: >-
+        Du bist nicht rechtzeitig einem Sprachkanal beigetreten. Tritt einem
+        bei und nutze dann noch mal `/play`.
+      replaced: Abgebrochen, weil du `/play` erneut genutzt hast.
+    error: Beim Laden deiner Suche ist ein Fehler aufgetreten.
+    invalid_url: Du hast eine ungültige URL angegeben.
     queue_full: >-
-      Die Warteschlange hat nicht genügend Platz. Entfernen Sie einige Songs,
-      bevor Sie weitere hinzufügen.
-    added: '{{item}} wurde zur Warteschlange hinzugefügt.'
+      In der Warteschlange ist nicht genug Platz. Entferne ein paar Songs, bevor
+      du weitere hinzufügst.
+    added: "{{user}} hat {{item}} zur Warteschlange hinzugefügt."
     loaded:
-      album_one: 'ein Song aus dem Album {{collection}}'
-      album_other: '{{count, number}} Songs aus dem Album {{collection}}'
-      artist_one: '*{{collection}}*''s Top-Song'
-      artist_other: '*{{collection}}*''s Top-{{count, number}} Songs'
-      playlist_one: 'ein Song aus der Playlist *{{collection}}*'
-      playlist_other: '{{count, number}} Songs aus der Playlist *{{collection}}*'
+      album_one: einen Song aus dem Album {{collection}}
+      album_other: "{{count, number}} Songs aus dem Album {{collection}}"
+      artist_one: den Top-Song von *{{collection}}*
+      artist_other: die Top {{count, number}} Songs von *{{collection}}*
+      playlist_one: einen Song aus der Playlist *{{collection}}*
+      playlist_other: "{{count, number}} Songs aus der Playlist *{{collection}}*"
+  last_fm:
+    unavailable: Last.fm-Verbindungen sind gerade nicht verfügbar.
+    account: Konto
+    connect:
+      prompt: >-
+        Öffne den Link unten, um dein Last.fm-Konto zu verbinden. Er
+        funktioniert nur einmal und läuft in {{minutes, number}} Min. ab, also
+        behalte ihn für dich.
+      button: Last.fm verbinden
+      open: Last.fm öffnen
+    disconnect:
+      button: Trennen
+      done: Last.fm-Konto getrennt.
+    status:
+      unlinked: Du hast noch kein Last.fm-Konto verbunden.
+    scrobbling:
+      label: Scrobbling
+      turn_on: Scrobbling einschalten
+      turn_off: Scrobbling ausschalten
+      enabled: Scrobbling eingeschaltet.
+      disabled: Scrobbling ausgeschaltet. Dein Konto bleibt verbunden.
   stop:
-    success: Der Abspieler wurde gestoppt.
+    success: "{{user}} hat den Player gestoppt."
   volume:
-    current: 'Der aktuelle Lautstärkewert ist {{volume, number}}.'
-    out_of_bounds: Die Lautstärke muss zwischen 0 und 255 liegen.
-    success: 'Die Lautstärke wurde auf {{volume, number}} gesetzt.'
+    current: Die Lautstärke ist {{volume, number}}.
+    success: "{{user}} hat die Lautstärke auf {{volume, number}} gestellt."
+    over_limit: >-
+      Nur DJs können die Lautstärke auf diesem Server über {{limit, number}}
+      stellen.
   effects:
-    enabled: 'Die ''*{{effect}}*'' Efektwurde aktiviert!'
-    disabled: 'Die ''*{{effect}}*'' Effekt wurde deaktiviert!'
-    trial_enabled: >-
-      Der '*{{effect}}*'-Effekt wurde für den aktuellen Song aktiviert!
-    trial_disabled: >-
-      Der '*{{effect}}*'-Effekt wurde für den aktuellen Song deaktiviert!
-    cleared: Alle geschalteten Effekte wurden gelöscht.
+    enabled: "{{user}} hat *{{effect}}* eingeschaltet."
+    disabled: "{{user}} hat *{{effect}}* ausgeschaltet."
+    trial_enabled: "{{user}} hat *{{effect}}* für den aktuellen Song eingeschaltet."
+    trial_disabled: "{{user}} hat *{{effect}}* für den aktuellen Song ausgeschaltet."
+    cleared: "{{user}} hat alle Effekte ausgeschaltet."
+    list:
+      none: Keine Effekte aktiv.
+      some: "Aktive Effekte: {{effects}}."
+  always_on:
+    enabled: >-
+      {{user}} hat 24/7 eingeschaltet. Ich bleibe im Call, bis jemand `/leave`
+      nutzt.
+    disabled: >-
+      {{user}} hat 24/7 ausgeschaltet. Ich gehe, sobald die Musik stoppt oder
+      alle den Call verlassen.
+    already:
+      enabled: 24/7 ist schon an.
+      disabled: 24/7 ist schon aus.
+    saved: >-
+      {{channel}} ist jetzt mein 24/7-Kanal. Ich trete ihm von selbst bei,
+      wenn ich nicht gerade woanders auf diesem Server spiele.
+    forgotten: >-
+      Ich komme nicht mehr in meinen 24/7-Kanal zurück. Wenn ich gerade drin
+      bin, bleibe ich, bis jemand 24/7 ausschaltet oder `/leave` nutzt.
+    not_voice: Das ist kein Sprach- oder Stage-Kanal.
+    turn_on: 24/7 einschalten
+    turn_off: 24/7 ausschalten
+    keep: Immer hierher zurückkommen
+    forget: Nicht mehr zurückkommen
+    auto_pause:
+      "on": >-
+        {{user}} hat Auto-Pause eingeschaltet. 24/7-Player pausieren hier,
+        solange niemand im Call ist, und spielen weiter, sobald jemand beitritt.
+      "off": >-
+        {{user}} hat Auto-Pause ausgeschaltet. 24/7-Player spielen hier auch
+        in einem leeren Call weiter.
+      pause: Pausieren, wenn leer
+      keep_playing: Weiterspielen, wenn leer
   immersive:
-    disabled: Immersiver Modus deaktiviert.
+    disabled: "{{user}} hat den immersiven Modus ausgeschaltet."
