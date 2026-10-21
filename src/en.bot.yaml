@@ -7,7 +7,7 @@ checks:
   nothing_playing: Nothing is playing.
   unknown_command: I don't recognize this command...
   owner_only: You are not allowed to use this command.
-  missing_permissions: You need the {{permissions}} permission(s) to use this command.
+  missing_permissions: "You need these permissions to use this command: {{permissions}}."
   maintenance: The bot is undergoing maintenance, check back later.
   tier_required: >-
     This server's plan doesn't include me. Subscribe at {{website}} to use me
@@ -31,8 +31,7 @@ stage:
     I'm in the stage audience and can't ask to speak. Give me **Request to
     Speak**, or invite me to speak yourself.
 common:
-  join_our_server: >-
-    Join our [*Discord Server*]({{invite}} ) for more information
+  join_our_server: Join our [*Discord server*]({{invite}} ) for more information.
   message_deleted: "*Message was deleted*"
   vote: Vote on Top.gg
   discord_server: Support Server
@@ -100,16 +99,17 @@ buttons:
     none: I couldn't find the item you wanted to remove...
     done: "{{author}} removed {{track}} from the queue."
   correlated_remove:
-    none: The song(s) that were queued are nowhere to be found...
-    done: "{{author}} removed {{count}} songs that were queued."
+    none: The songs that were queued are nowhere to be found...
+    done_one: "{{author}} removed 1 song that was queued."
+    done_other: "{{author}} removed {{count, number}} songs that were queued."
   play_now:
     none: >-
-      I could not find the songs you added in the queue, have you played them
+      I couldn't find the songs you added in the queue. Have you played them
       already?
     not_found: Could not find that song in the queue.
-    done_one: Prioritized one song requested by {{requester}}.
-    done_other: Prioritized {{count}} songs requested by {{requester}}.
-    footer_a: Skipped to {{next}} from {{prev}}.
+    done_one: Prioritized 1 song requested by {{requester}}.
+    done_other: Prioritized {{count, number}} songs requested by {{requester}}.
+    footer_a: Skipped from {{prev}} to {{next}}.
     footer_b: Skipped to {{next}}.
   item_actions:
     not_found: That song is no longer in the queue.
@@ -200,8 +200,8 @@ commands:
     loop_remaining: "{{mode}} ({{count, number}} remaining)"
   dev:
     entitlement_granted: >-
-      Granted entitlement {{entitlement}} for SKU {{sku}} to guild {{guild}}.
-    player_not_found: No player exists for guild {{guild}}.
+      Granted entitlement {{entitlement}} for SKU {{sku}} to server {{guild}}.
+    player_not_found: No player exists for server {{guild}}.
     joining: Joining {{channel}} ({{connection}})
     reconnecting: Reconnecting to {{channel}} ({{connection}})
     connected: Connected to {{channel}} ({{connection}})
@@ -228,7 +228,7 @@ commands:
     message: Pong!
     footer: Having issues? Check the **Help Center** or join our **Support Server**.
   stats:
-    instance_failed: Failed to retrieve instance.
+    instance_failed: Couldn't load the stats for this bot.
   ###
   ### Setting Commands
   ###
@@ -265,10 +265,10 @@ commands:
     who:
       role: >-
         DJs are members with {{role}}, anyone with Manage Server, and anyone
-        alone in the call with me.
+        who's the only listener in the call with me.
       managers: >-
-        DJs are anyone with Manage Server, and anyone alone in the call with
-        me.
+        DJs are anyone with Manage Server, and anyone who's the only listener
+        in the call with me.
     you:
       "yes": You can control the player.
       "no": You can't control the player right now.
@@ -292,7 +292,7 @@ commands:
       voice: Voice
       bot: This bot
     about:
-      playback: How the music starts, sounds and keeps going, for the whole server.
+      playback: How the music starts, sounds and keeps going across the whole server.
       dj: Who controls the player, and how a skip is decided.
       queue: What can be added to the queue, and in what order it plays.
       voice: Where our bots can play in this server, unless one has its own list.
@@ -336,7 +336,7 @@ commands:
         about: >-
           Where I post each song. Leave it empty to post where the music was
           started.
-        placeholder: Where the music was started
+        placeholder: The channel where the music was started
     dj:
       mode:
         label: DJ mode
@@ -347,7 +347,7 @@ commands:
         label: DJ role
         about: >-
           Members with this role are DJs, as is anyone with Manage Server or
-          alone in the call with me.
+          anyone who's the only listener in the call with me.
         placeholder: No DJ role
       max_volume:
         label: Volume limit
@@ -403,7 +403,7 @@ commands:
           Where this bot can play. Leave it empty to follow the server's voice
           channels.
         any: >-
-          This bot can play in any voice channel, whatever the server's say.
+          This bot can play in any voice channel the server allows.
           Pick some to keep it to those.
         placeholder: The server's voice channels
       notifications:
@@ -417,7 +417,7 @@ commands:
         input: From 0 to 250. Leave it empty to use the server's.
   history:
     title: Recently played
-    title_by: Recently played by {{user}}
+    title_by: Recently requested by {{user}}
     details: "{{user}} · {{artist}} · {{time}}"
     page: Page {{page, number}} of {{pages, number}}
     again: Queue again
@@ -460,7 +460,7 @@ commands:
     to:
       invalid: >-
         I didn't recognize the song you gave me. Try using auto-complete :)
-      none: I could not skip to that song, is it still in the queue?
+      none: I couldn't skip to that song. Is it still in the queue?
   seek:
     unseekable: The current song is not seekable.
     no_duration: The current song has no duration.
@@ -474,13 +474,13 @@ commands:
       already: Looping is already off.
     track:
       indef: "{{user}} set the current song to loop."
-      times_one: "{{user}} set the current song to loop once."
-      times_other: "{{user}} set the current song to loop {{count, number}} times."
+      times_one: "{{user}} set the current song to repeat once more."
+      times_other: "{{user}} set the current song to repeat {{count, number}} more times."
       nuhuh: The current song is already looping.
     queue:
       indef: "{{user}} set the queue to loop."
-      times_one: "{{user}} set the queue to loop once."
-      times_other: "{{user}} set the queue to loop {{count, number}} times."
+      times_one: "{{user}} set the queue to repeat once more."
+      times_other: "{{user}} set the queue to repeat {{count, number}} more times."
       nuhuh: The queue is already looping.
   queue:
     use_autocomplete: Hm? Try using the autocomplete to select a queued song.
@@ -526,14 +526,14 @@ commands:
     too_long_one: Songs here can't be longer than 1 minute.
     too_long_other: Songs here can't be longer than {{count, number}} minutes.
     too_long_skipped_one: >-
-      Skipped 1 song longer than {{minutes, number}} minutes.
+      Skipped 1 song over the {{minutes, number}}-minute limit.
     too_long_skipped_other: >-
-      Skipped {{count, number}} songs longer than {{minutes, number}} minutes.
+      Skipped {{count, number}} songs over the {{minutes, number}}-minute limit.
     over_limit_skipped_one: >-
-      Skipped 1 song: you can have {{limit, number}} queued at a time.
+      Skipped 1 song: the queue limit here is {{limit, number}} per person.
     over_limit_skipped_other: >-
-      Skipped {{count, number}} songs: you can have {{limit, number}} queued at
-      a time.
+      Skipped {{count, number}} songs: the queue limit here is {{limit, number}}
+      per person.
     duplicates_skipped_one: Skipped 1 song that was already in the queue.
     duplicates_skipped_other: >-
       Skipped {{count, number}} songs that were already in the queue.
