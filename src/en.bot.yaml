@@ -117,6 +117,7 @@ buttons:
     none: There are no previous songs...
   skip_to: "{{user}} skipped to {{track}}."
   stop: "{{user}} stopped the player."
+  tune_out: "{{user}} tuned out of the station."
 events:
   command_failed:
     message: Something went wrong
@@ -594,6 +595,30 @@ commands:
       disabled: Scrobbling turned off. Your account stays connected.
   stop:
     success: "{{user}} stopped the player."
+  radio:
+    tuned_in: "{{user}} tuned in to {{station}}."
+    tuned_out:
+      resumed: "{{user}} tuned out. The queue picks up where it left off."
+      quiet: "{{user}} tuned out."
+    not_on: No station is on.
+    invalid_link: >-
+      That isn't a station. Type its name, or use an iHeartRadio page or the
+      address of the stream itself.
+    not_found: I couldn't find that station.
+    tune_out: Back to queue
+    menu:
+      title: Radio
+      about: Pick a station. The queue waits until you tune out.
+      count_one: 1 station
+      count_other: "{{count, number}} stations"
+      placeholder: Choose a station
+      back: Back
+      other: Other station…
+    other:
+      title: Tune in to a station
+      label: Station
+      about: Its name, or a link to it or its stream.
+      placeholder: Z100, or https://…
   volume:
     current: The volume is {{volume, number}}.
     success: "{{user}} set the volume to {{volume, number}}."
