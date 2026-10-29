@@ -665,3 +665,113 @@ commands:
       keep_playing: Keep playing when empty
   immersive:
     disabled: "{{user}} turned off immersive mode."
+  playlist:
+    use_autocomplete: Pick a playlist from the list, or type its exact name.
+    songs_one: 1 song
+    songs_other: "{{count, number}} songs"
+    owner:
+      server: Server
+      yours: Yours
+      shared: Shared
+      by: by {{user}}
+    visibility:
+      private: Private
+      public: Public
+    collaborative: Collaborative
+    refusal:
+      not_found: I couldn't find that playlist. Pick one from the list.
+      forbidden: You can't do that with this playlist.
+      conflict: That playlist changed in the meantime. Try again.
+      invalid: >-
+        That doesn't work for this playlist. Names are up to 100 characters,
+        descriptions up to 300, and each name can only be used once.
+      playlist_limit: >-
+        That would go past the limit of {{limit, number}} playlists. Delete one
+        to make room.
+      track_limit: >-
+        A playlist can hold up to {{limit, number}} songs. Remove some to make
+        room, or put them in another playlist.
+      premium: "**Premium** raises the limits."
+    create:
+      done: "{{user}} made the playlist **{{name}}**."
+      hint: Add songs with `/playlist add`, or save the queue with `/playlist save`.
+      server_forbidden: Only DJs and server managers can make server playlists.
+    save:
+      empty: There's nothing in the queue to save.
+      done_one: "{{user}} saved 1 song from the queue as **{{name}}**."
+      done_other: "{{user}} saved {{count, number}} songs from the queue as **{{name}}**."
+      truncated: "Only the first {{limit, number}} fit: a playlist holds up to {{limit, number}} songs."
+      truncated_call: >-
+        Only the first {{count, number}} were saved, the most one save takes. Add
+        the rest with `/playlist add`.
+    list:
+      title:
+        all: Playlists
+        mine: Your playlists
+        server: This server's playlists
+      empty: No playlists here yet. Make one with `/playlist create`.
+      more: and {{count, number}} more
+      usage:
+        user: "**Yours:** {{playlists}} playlists · up to {{tracks, number}} songs each"
+        server: "**This server:** {{playlists}} playlists · up to {{tracks, number}} songs each"
+    view:
+      empty: This playlist has no songs yet. Add some with `/playlist add`.
+      footer: Page {{cur, number}}/{{all, number}}
+      play: Play
+      added_by: added by {{user}}
+      capacity: "{{meter}} songs"
+    history:
+      title: Change log
+      liked: Liked Songs keeps no history.
+      empty: Nothing has changed yet.
+      footer: Page {{cur, number}}
+      created: "{{user}} made it"
+      renamed: "{{user}} renamed it from **{{from}}** to **{{to}}**"
+      settings: "{{user}} changed its settings"
+      added_titles: "{{user}} added {{titles}}"
+      added_one: "{{user}} added 1 song"
+      added_other: "{{user}} added {{count, number}} songs"
+      removed_titles: "{{user}} removed {{titles}}"
+      removed_one: "{{user}} removed 1 song"
+      removed_other: "{{user}} removed {{count, number}} songs"
+      moved_one: "{{user}} moved 1 song"
+      moved_other: "{{user}} moved {{count, number}} songs"
+      collaborator_added: "{{user}} added {{subject}} as a collaborator"
+      collaborator_removed: "{{user}} removed {{subject}} as a collaborator"
+      titles_and: "{{rest}} and {{last}}"
+      titles_more: "{{titles}} and {{count, number}} more"
+    play:
+      empty: That playlist has no songs to play.
+      queued_one: "{{user}} queued 1 song from **{{name}}**."
+      queued_other: "{{user}} queued {{count, number}} songs from **{{name}}**."
+      liked_none: >-
+        You haven't liked any songs yet. Press the heart on the player, or use
+        `/like`.
+    add:
+      added_track: "{{user}} added {{track}} to **{{name}}**."
+      added_one: "{{user}} added 1 song to **{{name}}**."
+      added_other: "{{user}} added {{count, number}} songs to **{{name}}**."
+      skipped_one: Skipped 1 song that was already in it.
+      skipped_other: Skipped {{count, number}} songs that were already in it.
+      already: That's already in **{{name}}**.
+    remove:
+      use_autocomplete: Pick a song from the list.
+      done: "{{user}} removed a song from **{{name}}**."
+    rename:
+      done: "{{user}} renamed the playlist to **{{name}}**."
+    settings:
+      done: "{{user}} changed the settings of **{{name}}**."
+    collaborators:
+      added: "{{user}} can now edit **{{name}}**."
+      removed: "{{user}} can no longer edit **{{name}}**."
+      user_only: >-
+        Only your own playlists have collaborators. Turn on collaborative for a
+        server playlist to let every member edit it.
+    delete:
+      confirm: Delete **{{name}}**? Its songs go with it, and this can't be undone.
+      done: "{{user}} deleted **{{name}}**."
+      cancelled: Okay, I'll keep **{{name}}**.
+  like:
+    added: Added {{track}} to your Liked Songs.
+    removed: Removed {{track}} from your Liked Songs.
+    gone: That song isn't playing any more.
