@@ -16,6 +16,7 @@ checks:
     This server's subscription has ended, so I've stopped playing. Renew at
     {{website}} to start again.
   voice_channel_not_allowed: "I can only play in these channels here: {{channels}}."
+  feature_unavailable: "*{{effect}}* isn't available in this server yet."
   dj_only:
     role: >-
       DJ mode is on, so only people with {{role}} or the **Manage Server**
@@ -613,9 +614,14 @@ commands:
       count_other: "{{count, number}} stations"
       placeholder: Choose a station
       back: Back
-      other: Other station…
+      other: Search
+      play: Play
+      playing: Playing
+      previous: Previous
+      next: Next
+      page: Page {{page, number}} of {{pages, number}}
     other:
-      title: Tune in to a station
+      title: Find a station
       label: Station
       about: Its name, or a link to it or its stream.
       placeholder: Z100, or https://…
@@ -775,3 +781,65 @@ commands:
     added: Added {{track}} to your Liked Songs.
     removed: Removed {{track}} from your Liked Songs.
     gone: That song isn't playing any more.
+onboarding:
+  title: Thanks for adding {{mention}}!
+  about: >-
+    I play music in your voice channels. Search by name, paste a link, or tune
+    into live radio.
+  start:
+    title: Get started
+    play: "{{play}} play a song by name or link"
+    settings: "{{settings}} choose where I post and which channels I join"
+    dj: "{{dj}} choose who controls the player"
+    help: "{{help}} see every command"
+  premium:
+    title: Premium
+    price: from **{{price}}/month**
+    pitch: >-
+      Higher audio quality, bigger queues and YouTube for the whole server. See
+      what's included with {{command}}.
+  ask:
+    title: What brings you here?
+    about: >-
+      Pick one and I'll show you the features that fit. Only you will see the
+      answer.
+    placeholder: Pick what fits best
+  footer: I won't post here again unless asked. Feel free to delete this.
+  interests:
+    friends:
+      label: Music with friends
+      description: Play songs together in voice
+      answer: |-
+        - {{play}} play a song by name or link
+        - {{queue}} see what's coming up
+        - {{playlist}} save songs to play again later
+        - The [web player]({{url}}) has live lyrics and the whole queue
+    all_day:
+      label: Music all day
+      description: Live radio and 24/7 listening
+      answer: |-
+        - {{radio}} tune into live stations
+        - {{always_on}} keep me in the voice channel, even when it's empty
+        - {{autoplay}} play similar songs when the queue runs out
+    events:
+      label: Events and listening parties
+      description: Music for a bigger crowd
+      answer: |-
+        - {{dj}} choose who controls the player
+        - {{settings}} choose which voice channels I join and where I post
+        - {{vote_skip}} let the room decide when to skip
+        - I play on stage channels too
+    sound:
+      label: The best sound
+      description: Effects, spatial audio and quality
+      answer: |-
+        - {{effects}} or {{karaoke}} change how a song sounds
+        - {{immersive}} give the music space around you
+        - {{crossfade}} blend one song into the next
+        - [Premium]({{premium}}) raises the audio quality for the whole server
+    other:
+      label: Something else
+      description: Tell us what you need
+      answer: >-
+        We'd like to hear what you have in mind. Tell us in our Support Server,
+        or use {{feedback}}.
