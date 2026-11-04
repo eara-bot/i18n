@@ -603,8 +603,8 @@ commands:
       quiet: "{{user}} tuned out."
     not_on: No station is on.
     invalid_link: >-
-      That isn't a station. Type its name, or use an iHeartRadio page or the
-      address of the stream itself.
+      Links can't be used here. Type the station's name, or pick one from the
+      list.
     not_found: I couldn't find that station.
     tune_out: Back to queue
     menu:
@@ -623,8 +623,8 @@ commands:
     other:
       title: Find a station
       label: Station
-      about: Its name, or a link to it or its stream.
-      placeholder: Z100, or https://…
+      about: Its name.
+      placeholder: Z100
   volume:
     current: The volume is {{volume, number}}.
     success: "{{user}} set the volume to {{volume, number}}."
