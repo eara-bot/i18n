@@ -329,10 +329,10 @@ commands:
         label: Voice channel status
         about: Shows what's playing as the voice channel's status.
       auto_pause:
-        label: Pause 24/7 when empty
+        label: Pause 24/7 when nobody's listening
         about: >-
-          A 24/7 player pauses while nobody is in its call, and plays again
-          when someone joins.
+          A 24/7 player pauses while its call is empty or everyone in it is
+          deafened, and plays again when someone can hear it.
       notifications:
         label: Now-playing channel
         about: >-
@@ -662,8 +662,9 @@ commands:
     forget: Stop coming back
     auto_pause:
       "on": >-
-        {{user}} turned on auto-pause. 24/7 players here pause while nobody is
-        in the call, and play again when someone joins.
+        {{user}} turned on auto-pause. 24/7 players here pause while the call
+        is empty or everyone in it is deafened, and play again when someone
+        can hear them.
       "off": >-
         {{user}} turned off auto-pause. 24/7 players here keep playing to an
         empty call.
