@@ -761,6 +761,14 @@ commands:
       skipped_one: Skipped 1 song that was already in it.
       skipped_other: Skipped {{count, number}} songs that were already in it.
       already: That's already in **{{name}}**.
+      new:
+        choice: "➕ New playlist"
+        choice_named: "➕ New playlist: {{name}}"
+        title: New playlist
+        name: Name
+        query: Song
+        query_description: A song, album or link. Leave it empty for the song that's playing.
+        slash_only: Make it with `/playlist create` first, or pick it in `/playlist add`.
     remove:
       use_autocomplete: Pick a song from the list.
       done: "{{user}} removed a song from **{{name}}**."
@@ -785,8 +793,8 @@ commands:
 onboarding:
   title: Thanks for adding {{mention}}!
   about: >-
-    I play music in your voice channels. Search by name, paste a link, or tune
-    into live radio.
+    I play music in your voice channels. Use {{play}} to search for a song or
+    paste a link, or {{radio}} to tune into a live station.
   start:
     title: Get started
     play: "{{play}} play a song by name or link"
