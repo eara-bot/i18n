@@ -31,6 +31,17 @@ stage:
   cannot_speak: >-
     I'm in the stage audience and can't ask to speak. Give me **Request to
     Speak**, or invite me to speak yourself.
+activity_launch:
+  # Discord refused to open the activity, so the web player is offered instead.
+  permissions: >-
+    You can't start activities in this channel. Open the web player to listen
+    along instead.
+  region: >-
+    Discord doesn't offer activities in your region. Open the web player to
+    listen along instead.
+  unavailable: >-
+    Discord couldn't open the player here. Open the web player to listen along
+    instead.
 common:
   join_our_server: Join our [*Discord server*]({{invite}} ) for more information.
   message_deleted: "*Message was deleted*"
