@@ -137,7 +137,7 @@ events:
       history: >-
         Cerchi qualcosa che è passato prima? {{command}} può mostrare anche la
         cronologia della coda.
-      immersive: "Usa {{spatialize}} o {{orbit}} per rendere l'ascolto più coinvolgente!"
+      immersive: "Usa {{soundstage}} o {{orbit}} per rendere l'ascolto più coinvolgente!"
       last_fm: >-
         Collega il tuo account Last.fm con {{command}} per fare lo scrobbling
         di tutto quello che ascolti qui.

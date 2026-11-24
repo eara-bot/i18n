@@ -140,7 +140,7 @@ events:
       history: >-
         Hledáte něco, co hrálo dřív? {{command}} umí zobrazit i historii
         fronty.
-      immersive: Zpestřete si poslech pomocí {{spatialize}} nebo {{orbit}}!
+      immersive: Zpestřete si poslech pomocí {{soundstage}} nebo {{orbit}}!
       last_fm: >-
         Propojte svůj účet Last.fm pomocí {{command}} a scrobblujte všechno, co
         tu posloucháte.

@@ -125,7 +125,7 @@ events:
       effects: "{{command}}で今の曲の雰囲気を変えてみましょう。"
       history: >-
         前に再生した曲をお探しですか？{{command}}ではキューの履歴も表示できます。
-      immersive: "{{spatialize}}や{{orbit}}で、もっと臨場感のある体験を！"
+      immersive: "{{soundstage}}や{{orbit}}で、もっと臨場感のある体験を！"
       last_fm: >-
         {{command}}でLast.fmアカウントを連携すると、ここで聴いた曲をすべてスクロブルできます。
       loop: >-

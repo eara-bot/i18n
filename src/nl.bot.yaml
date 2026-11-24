@@ -139,7 +139,7 @@ events:
       history: >-
         Op zoek naar iets dat eerder is afgespeeld? {{command}} kan ook de
         wachtrijgeschiedenis tonen.
-      immersive: Gebruik {{spatialize}} of {{orbit}} voor een levendigere ervaring!
+      immersive: Gebruik {{soundstage}} of {{orbit}} voor een levendigere ervaring!
       last_fm: >-
         Koppel je Last.fm-account met {{command}} om alles wat je hier luistert
         te scrobbelen.

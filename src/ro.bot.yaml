@@ -144,7 +144,7 @@ events:
       history: >-
         Cauți ceva redat mai devreme? {{command}} poate afișa și istoricul
         cozii.
-      immersive: Folosește {{spatialize}} sau {{orbit}} ca să-ți animezi experiența!
+      immersive: Folosește {{soundstage}} sau {{orbit}} ca să-ți animezi experiența!
       last_fm: >-
         Conectează-ți contul Last.fm cu {{command}} ca să faci scrobbling la tot
         ce asculți aici.

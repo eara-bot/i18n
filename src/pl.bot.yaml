@@ -143,7 +143,7 @@ events:
       history: >-
         Szukasz czegoś, co grało wcześniej? {{command}} pokazuje też historię
         kolejki.
-      immersive: Użyj {{spatialize}} lub {{orbit}}, aby ożywić odsłuch!
+      immersive: Użyj {{soundstage}} lub {{orbit}}, aby ożywić odsłuch!
       last_fm: >-
         Połącz konto Last.fm za pomocą {{command}}, aby scrobblować wszystko,
         czego tu słuchasz.

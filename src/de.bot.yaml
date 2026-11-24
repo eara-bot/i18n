@@ -141,7 +141,7 @@ events:
       history: >-
         Suchst du etwas, das vorhin lief? {{command}} zeigt auch den Verlauf
         der Warteschlange.
-      immersive: Mit {{spatialize}} oder {{orbit}} wird dein Hörerlebnis lebendiger!
+      immersive: Mit {{soundstage}} oder {{orbit}} wird dein Hörerlebnis lebendiger!
       last_fm: >-
         Verknüpfe dein Last.fm-Konto mit {{command}}, um alles zu scrobbeln,
         was du hier hörst.

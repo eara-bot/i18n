@@ -137,7 +137,7 @@ events:
       history: >-
         Daha önce çalan bir şeyi mi arıyorsunuz? {{command}} kuyruk geçmişini
         de gösterebilir.
-      immersive: Deneyiminizi canlandırmak için {{spatialize}} veya {{orbit}} komutunu kullanın!
+      immersive: Deneyiminizi canlandırmak için {{soundstage}} veya {{orbit}} komutunu kullanın!
       last_fm: >-
         Burada dinlediğiniz her şeyi scrobble etmek için Last.fm hesabınızı
         {{command}} ile bağlayın.

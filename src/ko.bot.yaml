@@ -131,7 +131,7 @@ events:
       effects: "{{command}}(으)로 지금 곡에 색다른 느낌을 더해 보세요."
       history: >-
         아까 재생한 곡을 찾고 있나요? {{command}}(으)로 대기열 기록도 볼 수 있어요.
-      immersive: "{{spatialize}} 또는 {{orbit}}(으)로 더 생생하게 즐겨 보세요!"
+      immersive: "{{soundstage}} 또는 {{orbit}}(으)로 더 생생하게 즐겨 보세요!"
       last_fm: >-
         {{command}}(으)로 Last.fm 계정을 연결하면 여기서 듣는 모든 곡을 스크로블할 수
         있어요.

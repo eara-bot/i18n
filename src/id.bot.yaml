@@ -141,7 +141,7 @@ events:
       history: >-
         Mencari lagu yang diputar tadi? {{command}} juga bisa menampilkan
         riwayat antrean.
-      immersive: Gunakan {{spatialize}} atau {{orbit}} untuk menghidupkan pengalaman Anda!
+      immersive: Gunakan {{soundstage}} atau {{orbit}} untuk menghidupkan pengalaman Anda!
       last_fm: >-
         Hubungkan akun Last.fm Anda dengan {{command}} untuk men-scrobble semua
         yang Anda dengarkan di sini.

@@ -146,7 +146,7 @@ events:
       history: >-
         Tu cherches un titre passé plus tôt ? {{command}} peut aussi afficher
         l'historique de la file d'attente.
-      immersive: Utilise {{spatialize}} ou {{orbit}} pour pimenter ton écoute !
+      immersive: Utilise {{soundstage}} ou {{orbit}} pour pimenter ton écoute !
       last_fm: >-
         Associe ton compte Last.fm avec {{command}} pour scrobbler tout ce que
         tu écoutes ici.

@@ -137,7 +137,7 @@ events:
       history: >-
         Leter du etter noe som ble spilt tidligere? {{command}} kan også vise
         køhistorikken.
-      immersive: Bruk {{spatialize}} eller {{orbit}} for å gjøre opplevelsen mer levende!
+      immersive: Bruk {{soundstage}} eller {{orbit}} for å gjøre opplevelsen mer levende!
       last_fm: >-
         Koble til Last.fm-kontoen din med {{command}} for å scrobble alt du
         hører på her.

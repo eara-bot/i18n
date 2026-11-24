@@ -112,7 +112,7 @@ events:
       crossfade: 你知道我们支持交叉淡化吗？使用 {{command}} 进行设置。
       effects: 使用 {{command}} 给当前歌曲换一种感觉。
       history: 想找之前播放过的歌？{{command}} 也能显示队列历史。
-      immersive: 使用 {{spatialize}} 或 {{orbit}} 让你的体验更加生动！
+      immersive: 使用 {{soundstage}} 或 {{orbit}} 让你的体验更加生动！
       last_fm: 使用 {{command}} 关联你的 Last.fm 账号，把你在这里听的每首歌都 Scrobble 到 Last.fm。
       loop: 想再听一遍？{{command}} 可以单曲循环，也可以循环整个队列。
       move: 使用 {{move_command}} 和 {{remove_command}} 重新排序或整理队列。

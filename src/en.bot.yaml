@@ -149,7 +149,7 @@ events:
       history: >-
         Looking for something played earlier? {{command}} can also show queue
         history.
-      immersive: Use {{spatialize}} or {{orbit}} to liven up your experience!
+      immersive: Use {{soundstage}} or {{orbit}} to liven up your experience!
       last_fm: >-
         Link your Last.fm account with {{command}} to scrobble everything you
         listen to here.

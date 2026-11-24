@@ -143,7 +143,7 @@ events:
       history: >-
         Ieškote anksčiau grotos dainos? {{command}} taip pat parodo eilės
         istoriją.
-      immersive: Pagyvinkite klausymąsi su {{spatialize}} arba {{orbit}}!
+      immersive: Pagyvinkite klausymąsi su {{soundstage}} arba {{orbit}}!
       last_fm: >-
         Susiekite savo Last.fm paskyrą su {{command}}, kad viskas, ko čia
         klausotės, būtų scrobblinama.

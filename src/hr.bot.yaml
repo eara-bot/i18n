@@ -140,7 +140,7 @@ events:
       history: >-
         Tražite nešto što je ranije sviralo? {{command}} može prikazati i
         povijest reda čekanja.
-      immersive: Oživite doživljaj uz {{spatialize}} ili {{orbit}}!
+      immersive: Oživite doživljaj uz {{soundstage}} ili {{orbit}}!
       last_fm: >-
         Povežite svoj Last.fm račun pomoću {{command}} i scrobblajte sve što
         ovdje slušate.

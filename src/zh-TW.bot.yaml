@@ -109,7 +109,7 @@ events:
       crossfade: "你知道我們有交叉淡入淡出嗎？使用 {{command}} 來設定。"
       effects: "使用 {{command}}，讓目前的歌曲換個感覺。"
       history: "在找之前播過的歌嗎？{{command}} 也能顯示佇列紀錄。"
-      immersive: "使用 {{spatialize}} 或 {{orbit}}，讓聆聽體驗更生動！"
+      immersive: "使用 {{soundstage}} 或 {{orbit}}，讓聆聽體驗更生動！"
       last_fm: "使用 {{command}} 連結你的 Last.fm 帳號，Scrobble 你在這裡聽的每一首歌。"
       loop: "想再聽一次嗎？{{command}} 可以重複播放這首歌或整個佇列。"
       move: "使用 {{move_command}} 和 {{remove_command}} 重新排序或整理佇列。"

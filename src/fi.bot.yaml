@@ -135,7 +135,7 @@ events:
       history: >-
         Etsitkö aiemmin soinutta kappaletta? {{command}} näyttää myös jonon
         historian.
-      immersive: Elävöitä kuuntelukokemustasi komennoilla {{spatialize}} ja {{orbit}}!
+      immersive: Elävöitä kuuntelukokemustasi komennoilla {{soundstage}} ja {{orbit}}!
       last_fm: >-
         Yhdistä Last.fm-tilisi komennolla {{command}}, niin kaikki täällä
         kuuntelemasi scrobblataan.

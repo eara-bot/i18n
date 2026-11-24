@@ -112,7 +112,7 @@ events:
       crossfade: "Bạn có biết chúng mình có chuyển tiếp mượt không? Dùng {{command}} để thiết lập."
       effects: "Làm mới cảm giác của bài hát hiện tại với {{command}}."
       history: "Tìm bài đã phát lúc trước? {{command}} cũng hiển thị được lịch sử hàng đợi."
-      immersive: "Dùng {{spatialize}} hoặc {{orbit}} để trải nghiệm thêm sống động!"
+      immersive: "Dùng {{soundstage}} hoặc {{orbit}} để trải nghiệm thêm sống động!"
       last_fm: "Liên kết tài khoản Last.fm với {{command}} để scrobble mọi bài bạn nghe ở đây."
       loop: "Muốn nghe lại? {{command}} có thể lặp bài này hoặc cả hàng đợi."
       move: "Sắp xếp lại hoặc dọn dẹp hàng đợi với {{move_command}} và {{remove_command}}."
